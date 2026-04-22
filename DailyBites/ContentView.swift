@@ -20,7 +20,7 @@ struct ContentView: View {
                         .easeOut(duration: 0.5)
                     )
             } else {
-                Text("Hi There!")
+                AboutYouView()
                     .font(.largeTitle)
                 }
             }
