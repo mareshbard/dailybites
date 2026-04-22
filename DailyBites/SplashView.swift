@@ -1,18 +1,31 @@
 //
-//  SplashView.swift
+//  SplashScreenView.swift
 //  DailyBites
 //
-//  Created by USER on 22/04/26.
+//  Created by user on 22/04/26.
 //
 
 import SwiftUI
 
-struct SplashView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+struct SplashScreenView: View {
+    var body: some View{
+        VStack{
+
+            VStack{
+                Text("Daily")
+                Text("Bites")
+            }
+            .font(.system(size: 80).bold())
+            .padding(EdgeInsets(top: 100, leading: -160, bottom: 0, trailing: 0))
+ 
+            Image("AppleSplash")
+                .padding(EdgeInsets(top: 110, leading: 0, bottom: 0, trailing: 0))
+        }
     }
 }
 
-#Preview {
-    SplashView()
+struct SplashView_Preview: PreviewProvider {
+    static var previews: some View {
+        SplashScreenView()
+    }
 }
