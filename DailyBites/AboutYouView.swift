@@ -6,28 +6,92 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct AboutYouView: View {
+    @State private var username: String = ""
+    @State private var numberOfMeals: Int = 1
+    @State private var meals: [Meal] = []
+    @State private var selectedNumber = 1
+    let range = 1...10
+    
+    @Environment(\.modelContext)
+    private var modelContext
+    
+    func addUser(){
+        let newUser = User(username: username, numberOfMeals: numberOfMeals, meals: [])
+        modelContext.insert(newUser)
+    }
+    
     var body: some View {
-        VStack{
-            Image("AppleAboutYou")
-                .padding(20)
-                .font(.largeTitle)
-            Text("Sobre você")
-                .font(.largeTitle)
-            Text("Qual é o seu nome?")
-                TextField("Nome", text: .constant(""))
-                
-                .textFieldStyle(OutlinedTextFieldStyle())
+        NavigationStack{
+        
             
-
-            Text("Quantas refeições você faz por dia?")
-                TextField("Escolha a quantidade", text: .constant(""))
+            VStack{
+                Image("AppleAboutYou")
+                    .padding(25)
+                    .font(.largeTitle)
+                Text("Sobre você")
+                    .font(.largeTitle)
+                    .padding(15)
                 
-                .textFieldStyle(OutlinedTextFieldStyle())
+                Text("Qual é o seu nome?")
+                    .font(Font.title2)
+                    .frame(maxWidth: .infinity, maxHeight: 15, alignment: .leading)
+                
+                TextField("Nome", text: $username)
+                    .font(Font.body)
+                    .textFieldStyle(OutlinedTextFieldStyle())
+                
+                
+                Text("Quantas refeições você faz por dia?")
+                    .font(Font.title2)
+                    .frame(maxWidth: .infinity, maxHeight: 15, alignment: .leading)
+                
+                
+                HStack{
+                    Text("Escolha a quantidade")
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .font(Font.body)
+                        .foregroundStyle(.tertiary)
+                    Picker("Escolha a quantidade", selection: $numberOfMeals){
+                        ForEach(range, id: \.self) {number in
+                            Text("\(number)").tag(number)
+                        }
+                    }
+                    .tint(Color.red)
+                }
+                .padding(20)
+                .overlay {
+                    
+                    RoundedRectangle( cornerRadius: 10)
+                        .fill(.clear)
+                        .stroke(Color.red, style: StrokeStyle(lineWidth: 0.5))
+                        .frame(maxWidth: .infinity, maxHeight: 50, alignment: .leading)
+            }
             }
             
+            Spacer()
+            Button{
+                
+            } label: {
+                Text("Próximo")
+                    .padding(.horizontal, 120)
+                    .padding(.vertical, 5)
+                    .font(Font.title3)
+            }
+            
+            
+            
+            .buttonStyle(.borderedProminent)
+            .controlSize(.large)
+            .tint(.red)
+           // .padding(EdgeInsets(top: 230, leading: 0, bottom: 0, trailing: 0))
+            
         }
+        .padding(.horizontal, 24)
+        
+    }
         
     }
 

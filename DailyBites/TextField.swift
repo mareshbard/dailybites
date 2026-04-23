@@ -16,8 +16,8 @@ struct OutlinedTextFieldStyle: TextFieldStyle {
                 RoundedRectangle( cornerRadius: 10)
                 
                     .fill(.clear)
-                    .stroke(Color.red, style: StrokeStyle(lineWidth: 2))
-                    .padding(10)
+                    .stroke(Color.red, style: StrokeStyle(lineWidth: 0.5))
+                    .frame(maxWidth: .infinity, maxHeight: 50, alignment: .leading)
         }
     }
 }
