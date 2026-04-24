@@ -41,9 +41,4 @@ struct ContentView: View {
 #Preview {
     ContentView()
 }
-<<<<<<< HEAD
 
-// adicionando meal register
-=======
-// add meal-register branch
->>>>>>> meal-register

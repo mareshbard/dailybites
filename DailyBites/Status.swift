@@ -15,9 +15,9 @@ enum Status: String, CaseIterable, Codable {
     
     var title: String {
         switch self {
-        case .pontual: return "Ponto"
+        case .pontual: return "Pontual"
         case .atrasado: return "Atrasado"
-        case .pulou: return "Não realizou a refeição"
+        case .pulou: return "Não realizada"
         case .pendente: return "Pendente"
         }
     }

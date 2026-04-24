@@ -16,13 +16,15 @@ class Meal {
     var time: Date = Date()
     var imageData: Data?
     var status: Status = Status.pendente
+    var descriptionMeal: String = ""
     
-    init(mealName: String, date: Date, time: Date, imageData: Data? = nil, status: Status) {
+    init(mealName: String, date: Date, time: Date, imageData: Data? = nil, status: Status, descriptionMeal: String) {
         self.mealName = mealName
         self.date = date
         self.time = time
         self.imageData = imageData
         self.status = status
+        self.descriptionMeal = descriptionMeal
     }
     
     var image: UIImage? {
