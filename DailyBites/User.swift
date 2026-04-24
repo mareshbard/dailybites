@@ -19,6 +19,6 @@ class User {
     init(username: String, numberOfMeals: Int, meals: [Meal]) {
         self.username = username
         self.numberOfMeals = numberOfMeals
-       // self.meals = meals
+        self.meals = meals
     }
 }
