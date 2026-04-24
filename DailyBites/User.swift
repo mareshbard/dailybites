@@ -15,4 +15,10 @@ class User {
     var username: String = ""
     var numberOfMeals: Int = 1
     var meals: [Meal] = []
+    
+    init(username: String, numberOfMeals: Int, meals: [Meal]) {
+        self.username = username
+        self.numberOfMeals = numberOfMeals
+       // self.meals = meals
+    }
 }

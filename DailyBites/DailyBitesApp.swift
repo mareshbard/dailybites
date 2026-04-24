@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SwiftData
+import Foundation
 
 @main
 struct DailyBitesApp: App {
@@ -15,7 +16,7 @@ struct DailyBitesApp: App {
         WindowGroup {
             ContentView()
         }
-        .modelContainer(for: [User.self])
+        .modelContainer(for: [User.self, Meal.self])
     }
 }
 

@@ -18,10 +18,6 @@ struct AboutYouView: View {
     @Environment(\.modelContext)
     private var modelContext
     
-    func addUser(){
-        let newUser = User(username: username, numberOfMeals: numberOfMeals, meals: [])
-        modelContext.insert(newUser)
-    }
     
     var body: some View {
         NavigationStack{
@@ -64,7 +60,7 @@ struct AboutYouView: View {
                 .padding(20)
                 .overlay {
                     
-                    RoundedRectangle( cornerRadius: 10)
+                    RoundedRectangle( cornerRadius: 12)
                         .fill(.clear)
                         .stroke(Color.red, style: StrokeStyle(lineWidth: 0.5))
                         .frame(maxWidth: .infinity, maxHeight: 50, alignment: .leading)
@@ -72,21 +68,16 @@ struct AboutYouView: View {
             }
             
             Spacer()
-            Button{
-                
-            } label: {
-                Text("Próximo")
-                    .padding(.horizontal, 120)
-                    .padding(.vertical, 5)
-                    .font(Font.title3)
+
+            Button("Próximo"){
+                let newUser = User(username: username, numberOfMeals: numberOfMeals, meals: [])
+                modelContext.insert(newUser)
             }
-            
-            
-            
             .buttonStyle(.borderedProminent)
+            .buttonSizing(.flexible)
+            .font(Font.title3)
             .controlSize(.large)
             .tint(.red)
-           // .padding(EdgeInsets(top: 230, leading: 0, bottom: 0, trailing: 0))
             
         }
         .padding(.horizontal, 24)

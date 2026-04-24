@@ -13,7 +13,7 @@ struct OutlinedTextFieldStyle: TextFieldStyle {
            .padding(20)
             .overlay {
                 
-                RoundedRectangle( cornerRadius: 10)
+                RoundedRectangle( cornerRadius: 12)
                 
                     .fill(.clear)
                     .stroke(Color.red, style: StrokeStyle(lineWidth: 0.5))
