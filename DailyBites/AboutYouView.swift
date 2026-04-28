@@ -11,7 +11,7 @@ import SwiftData
 struct AboutYouView: View {
     @State private var username: String = ""
     @State private var numberOfMeals: Int = 1
-    @State private var meals: [Meal] = []
+    @State private var meals: [Meal] = [Meal(mealName: "", date: .now, time: .now, status: .pendente)]
     @State private var selectedNumber = 1
     let range = 1...10
     
@@ -54,6 +54,9 @@ struct AboutYouView: View {
                         ForEach(range, id: \.self) {number in
                             Text("\(number)").tag(number)
                         }
+                        .onChange(of: numberOfMeals) { newValue in
+                            createEmptyMeals()
+                        }
                     }
                     .tint(Color.red)
                 }
@@ -68,20 +71,30 @@ struct AboutYouView: View {
             }
             
             Spacer()
-
-            Button("Próximo"){
-                let newUser = User(username: username, numberOfMeals: numberOfMeals, meals: [])
-                modelContext.insert(newUser)
+            NavigationLink(destination: PreferencesView(user: User(username: username, meals: meals))){
+                Button("Próximo"){
+                    let newUser = User(username: username, meals: meals)
+                    modelContext.insert(newUser)
+                }
             }
             .buttonStyle(.borderedProminent)
             .buttonSizing(.flexible)
             .font(Font.title3)
             .controlSize(.large)
             .tint(.red)
+            .foregroundColor(Color(.white))
             
         }
         .padding(.horizontal, 24)
         
+    }
+    
+    func createEmptyMeals() {
+        var tempMeals: [Meal] = []
+        for  _ in 0..<numberOfMeals {
+            tempMeals.append(Meal(mealName: "", date: .now, time: .now, status: .pendente))
+        }
+        meals = tempMeals
     }
         
     }

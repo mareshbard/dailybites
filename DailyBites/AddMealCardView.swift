@@ -6,37 +6,36 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct AddMealCardView: View {
+    @State var mealName: String = ""
+    @State var time: Date = Date()
     
-    @State var date: Date = Date()
-    @State var nameMeal: String = ""
+    var meal: Meal
+ 
     var body: some View {
    
             HStack(alignment: .center, spacing: 16) {
+                //pra poder atualizar o objeto do sd em tempo real
+                @Bindable var meal = meal
                 
                 ZStack(alignment: .center){
                     Circle()
                         .fill(Color("LightRed"))
-                    
-                    Button(action:
-                            {
-                        print("ss");
-                    }
-                    ) {
-                        Image(systemName: "face.smiling")
+
+                        Image(systemName: "fork.knife")
                             .resizable()
-                            .frame(width: 24, height: 24)
-                    }
-                    .tint(Color.red)
+                            .frame(width: 24, height: 30)
+                            .foregroundStyle(Color.red)
                 }
-                
                 .frame(width: 60, height: 60, alignment: .center)
                 
                 VStack(alignment: .leading, spacing: 10){
                     Text("Nome da refeição")
                         .frame(width: 147, alignment: .leading)
-                    TextField("Nome", text: $nameMeal)
+                        .font(Font.body)
+                    TextField("Nome", text: $meal.mealName)
                         .font(Font.body)
                         .padding(10)
                         .frame(width: 147, height: 34)
@@ -45,22 +44,15 @@ struct AddMealCardView: View {
                 }
                 VStack{
                     Text("Horário")
-                    DatePicker("aa", selection: $date, displayedComponents: .hourAndMinute)
+                        .font(Font.body)
+                    DatePicker("Selecione a data", selection: $meal.time, displayedComponents: .hourAndMinute)
                         .labelsHidden()
                         .tint(Color("VermelhoDailyBites"))
-                    //  TextField()
                 }
-                
-            
-            
-            
-            
-            
-        }
-   
+            }
     }
 }
 
 #Preview {
-    AddMealCardView()
+  //  PreferencesView()
 }

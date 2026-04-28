@@ -10,7 +10,8 @@ import SwiftData
 import Foundation
 
 @Model
-class Meal {
+class Meal: Identifiable {
+    var id: UUID = UUID()
     var mealName: String = ""
     var date: Date = Date()
     var time: Date = Date()

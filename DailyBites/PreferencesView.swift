@@ -6,11 +6,12 @@
 //
 
 import SwiftUI
-
+import SwiftData
 struct PreferencesView: View {
-    let range = 1...10
+    var user: User
+    @Environment(\.modelContext) var modelContext
     var body: some View {
-
+        
         NavigationStack {
             VStack{
                 Text("Refeições")
@@ -18,55 +19,67 @@ struct PreferencesView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                 Text("Escolha o nome e horário de suas refeições")
                     .frame(maxWidth: .infinity, alignment: .leading)
-        
+                    .font(.body)
             }
-            .padding(.horizontal, 24)
-           // .navigationTitle("Refeições")
                 .toolbar {
                     ToolbarItem(placement: .confirmationAction) {
-                        Button("Finalizar", systemImage: "plus") {
-                           
+                        Button("Adicionar refeição", systemImage: "plus") {
+                            //estou adicionando direto no array > talvez n seja o que vamos fazer
+                            user.meals.append(createMeal())
+//                            user.numberOfMeals+=1
                         }
                         .tint(Color(.red))
                     }
-                    ToolbarItem(placement: .topBarLeading) {
-                        Button("Voltar", systemImage: "chevron.left") {
-                           
-                        }
-
-                    }
                 }
+            
+            
             List {
-                ForEach(range, id: \.self) { i in
+                ForEach(user.meals) { meal in
                     ZStack {
                         RoundedRectangle( cornerRadius: 12)
                             .fill(.clear)
                             .stroke(Color.red, style: StrokeStyle(lineWidth: 0.5))
-                        AddMealCardView()
+                        AddMealCardView(meal: meal)
                             .padding(.vertical, 10)
                        
                     }
                     .padding(-8)
-                    
-                    
                 }
-                
-                
+
                 .onDelete{ offsets in
-                    for index in offsets {
-                        
-                    }}
+                                        for index in offsets {
+                                            let meal = user.meals[index]
+                                            modelContext.delete(meal)
+                                            user.meals.remove(at: index)
+                                        }
+                }
                 .listRowSeparator(.hidden)
                 
             }
- 
+            .listStyle(.plain)
             .scrollContentBackground(.hidden)
+            .scrollIndicators(.hidden)
         }
         
-        
+        NavigationLink(destination: RefeicoesView(user: user)){
+            Button("Concluir"){
+                
+            }
+        }
+        .buttonStyle(.borderedProminent)
+        .buttonSizing(.flexible)
+        .font(Font.title3)
+        .controlSize(.large)
+        .tint(.red)
+        .foregroundColor(Color(.white))
+
+    }
+    
+    func createMeal() -> Meal {
+        return Meal(mealName: "", date: .now, time: .now, status: .pendente)
     }
 }
 
 #Preview {
-    PreferencesView()
+
 }
