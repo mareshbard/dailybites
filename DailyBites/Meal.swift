@@ -12,17 +12,28 @@ import Foundation
 @Model
 class Meal {
     var mealName: String = ""
-    var date: Date = Date()
-    var time: Date = Date()
+    var date: Date = Date() //Data que foi feita a refeicao
+    var time: Date = Date() //Horário que a pessoa cadastrou a refeicao
     var imageData: Data?
+    var durationMeal: Int = 0 //Tempo que a pessoa levou para comer
     var status: Status = Status.pendente
     var descriptionMeal: String = ""
     
-    init(mealName: String, date: Date, time: Date, imageData: Data? = nil, status: Status, descriptionMeal: String) {
+    init(
+        mealName: String,
+        date: Date,
+        time: Date,
+        imageData: Data? = nil,
+        durationMeal: Int,
+        status: Status,
+        descriptionMeal: String
+    
+    ) {
         self.mealName = mealName
         self.date = date
         self.time = time
         self.imageData = imageData
+        self.durationMeal = durationMeal
         self.status = status
         self.descriptionMeal = descriptionMeal
     }
