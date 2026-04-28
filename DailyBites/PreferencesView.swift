@@ -76,7 +76,7 @@ struct PreferencesView: View {
     }
     
     func createMeal() -> Meal {
-        return Meal(mealName: "", date: .now, time: .now, status: .pendente)
+        return Meal(mealName: "", date: .now, time: .now, imageData: nil, durationMeal: 0, status: .pendente, descriptionMeal: "")
     }
 }
 
