@@ -21,7 +21,7 @@ struct AboutYouView: View {
     
     var body: some View {
         NavigationStack{
-        
+            
             
             VStack{
                 Image("AppleAboutYou")
@@ -67,7 +67,7 @@ struct AboutYouView: View {
                         .fill(.clear)
                         .stroke(Color.red, style: StrokeStyle(lineWidth: 0.5))
                         .frame(maxWidth: .infinity, maxHeight: 50, alignment: .leading)
-            }
+                }
             }
             
             Spacer()
@@ -103,3 +103,4 @@ struct AboutYouView: View {
 #Preview {
     AboutYouView()
 }
+//teste
