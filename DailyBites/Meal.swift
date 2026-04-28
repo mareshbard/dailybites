@@ -10,7 +10,8 @@ import SwiftData
 import Foundation
 
 @Model
-class Meal {
+class Meal: Identifiable {
+    var id: UUID = UUID()
     var mealName: String = ""
     var date: Date = Date() //Data que foi feita a refeicao
     var time: Date = Date() //Horário que a pessoa cadastrou a refeicao
