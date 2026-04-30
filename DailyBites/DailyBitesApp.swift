@@ -16,7 +16,7 @@ struct DailyBitesApp: App {
         WindowGroup {
             ContentView()
         }
-        .modelContainer(for: [User.self, Meal.self])
+        .modelContainer(for: [Meal.self])
     }
 }
 

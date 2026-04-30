@@ -9,8 +9,9 @@ import SwiftUI
 import SwiftData
 
 struct ContentView: View {
-
+    @AppStorage("username") var username = ""
     @State private var showSplash = true
+  
     var body: some View {
         ZStack{
             if showSplash {
@@ -20,11 +21,14 @@ struct ContentView: View {
                         .easeOut(duration: 0.5)
                     )
             } else {
-                AboutYouView()
-                    .font(.largeTitle)
+                if (username != "") {
+                    HomeView()
+                } else {
+                    AboutYouView()
+                        .font(.largeTitle)
                 }
             }
-        
+        }
         .onAppear{
             DispatchQueue.main
                 .asyncAfter(deadline: .now() + 1)
@@ -39,6 +43,6 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+  //  ContentView()
 }
 

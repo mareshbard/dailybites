@@ -44,6 +44,18 @@ class Meal: Identifiable {
             UIImage(data: $0)
         }
     }
+    var color: Color {
+        switch status {
+        case .pendente:
+            return .gray
+        case .atrasado:
+            return .yellow
+        case .pontual:
+            return .green
+        case .pulou:
+            return .red
+        }
+    }
 }
 
 
