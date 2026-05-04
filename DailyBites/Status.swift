@@ -4,8 +4,9 @@
 //
 //  Created by user on 23/04/26.
 //
+import Charts
 
-enum Status: String, CaseIterable, Codable {
+enum Status: String, CaseIterable, Codable, Plottable {
     case pontual
     case atrasado
     case pulou

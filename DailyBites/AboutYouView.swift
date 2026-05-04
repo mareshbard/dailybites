@@ -11,7 +11,7 @@ import SwiftData
 struct AboutYouView: View {
     @State private var username: String = ""
     @State private var numberOfMeals: Int = 1
-    @State private var meals: [Meal] = [Meal(mealName: "", date: .now, time: .now, imageData: nil, durationMeal: 0, status: .pendente, descriptionMeal: "")]
+    @State private var meals: [Meal] = [Meal(mealName: "", date: .now, time: .now, imageData: nil, durationMeal: 0, status: .pendente, descriptionMeal: "", emotion: .normal)]
     @State private var selectedNumber = 1
     let range = 1...10
     
@@ -92,7 +92,7 @@ struct AboutYouView: View {
     func createEmptyMeals() {
         var tempMeals: [Meal] = []
         for  _ in 0..<numberOfMeals {
-            tempMeals.append(Meal(mealName: "", date: .now, time: .now, imageData: nil, durationMeal: 0, status: .pendente, descriptionMeal: ""))
+            tempMeals.append(Meal(mealName: "", date: .now, time: .now, imageData: nil, durationMeal: 0, status: .pendente, descriptionMeal: "", emotion: .normal))
         }
         meals = tempMeals
     }

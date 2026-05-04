@@ -9,7 +9,8 @@ import SwiftUI
 import SwiftData
 import Foundation
 
-enum Mood: String, CaseIterable{
+enum Mood: String, CaseIterable, Codable {
+    
     case verysad = "😢"
     case sad = "😟"
     case normal = "😐"
@@ -17,6 +18,19 @@ enum Mood: String, CaseIterable{
     case veryhappy = "😄"
     
 }
+//switch Mood {
+//    Mood.rawValue
+//    
+//        case "😢":
+//            return 0
+//        case "😟":
+//            return 1
+//        case "😐":
+//            return 2
+//        case "🙂":
+//            return 3
+//        case "😄":
+//            return 4
 
 struct AddMealView: View {
     
@@ -30,6 +44,7 @@ struct AddMealView: View {
     @State private var imageData: Data? = nil
     @State private var time = Date()
     @State private var date = Date()
+//    @State private var emotion: Int = 2
     
     @Environment(\.modelContext)
     private var modelContext
@@ -42,7 +57,8 @@ struct AddMealView: View {
             imageData: imageData,
             durationMeal: durationMeal, //Tempo que a pessoa levou para comer
             status: status,
-            descriptionMeal: descriptionMeal
+            descriptionMeal: descriptionMeal,
+            emotion: selectedMood
         )
         modelContext.insert(newMeal)
         dismiss()
@@ -69,6 +85,7 @@ struct AddMealView: View {
                                         .onTapGesture {
                                             selectedMood = mood
                                         }
+                                        .font(.title2)
                                 
                              //   Spacer()
                             }
@@ -152,9 +169,8 @@ struct AddMealView: View {
                 }
                 
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Add", systemImage: "checkmark")
-                    {
-                        
+                    Button("Add", systemImage: "checkmark") {
+                        addMeal()
                     }.tint(Color("VermelhoDailyBites"))
                 }
             }

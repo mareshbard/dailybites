@@ -19,6 +19,7 @@ class Meal: Identifiable {
     var durationMeal: Int = 0 //Tempo que a pessoa levou para comer
     var status: Status = Status.pendente
     var descriptionMeal: String = ""
+    var emotion: Mood = Mood.normal
     
     init(
         mealName: String,
@@ -27,8 +28,8 @@ class Meal: Identifiable {
         imageData: Data? = nil,
         durationMeal: Int,
         status: Status,
-        descriptionMeal: String
-    
+        descriptionMeal: String,
+        emotion: Mood
     ) {
         self.mealName = mealName
         self.date = date
@@ -37,6 +38,7 @@ class Meal: Identifiable {
         self.durationMeal = durationMeal
         self.status = status
         self.descriptionMeal = descriptionMeal
+        self.emotion = emotion
     }
     
     var image: UIImage? {
