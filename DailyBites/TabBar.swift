@@ -17,7 +17,7 @@ struct TabBar: View {
             }
         }
         .tabViewStyle(.sidebarAdaptable)
-        .accentColor(Color("VermelhoDailyBites"))
+        .accentColor(Color("CordeAção"))
     }
 }
 

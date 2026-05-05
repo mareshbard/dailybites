@@ -34,6 +34,7 @@ struct PreferencesView: View {
                         //estou adicionando direto no array > talvez n seja o que vamos fazer
                         //adicionando no aux
                         auxMeals.append(createMeal())
+                        numberOfMeals += 1
                     }
                     .tint(Color(.red))
                 }
@@ -56,7 +57,7 @@ struct PreferencesView: View {
                 .onDelete{ offsets in
                     for index in offsets {
                         auxMeals.remove(at: index)
-                        
+                        numberOfMeals -= 1
                     }
                 }
                 .listRowSeparator(.hidden)

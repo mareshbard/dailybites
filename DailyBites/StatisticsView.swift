@@ -18,7 +18,10 @@ struct StatusMeal: Identifiable {
 struct StatisticsView: View {
     
     @Query var meals: [Meal] = []
+    @AppStorage("numberOfMeals") private var numberOfMeals: Int = 1
     
+    @State private var countMealSunday: Int = 0
+
     var percentage: [Double]{
         
         var result: [Double] = []
@@ -51,7 +54,45 @@ struct StatisticsView: View {
         case Qui = "Qui"
         case Sex = "Sex"
         case Sab = "Sáb"
+        
+        
+        var weekday: Int {
+            switch self {
+            case .Dom:
+                1
+            case .Seg:
+                2
+            case .Ter:
+                3
+            case .Qua:
+                4
+            case .Qui:
+                5
+            case .Sex:
+                6
+            case .Sab:
+                7
+            }
+        }
+        
     }
+//    switch Counters {
+//        var mealnumber = numberOfMeals
+//    
+//    case seg:
+//    }
+//        
+//    case Dom {
+//        count = 0
+//    }
+//        case Seg = 0
+//        case Ter = 0
+//        case Qua = 0
+//        case Qui = 0
+//        case Sex = 0
+//        case Sab = 0
+//    }
+
     var body: some View{
         
         NavigationStack {
@@ -135,9 +176,12 @@ struct StatisticsView: View {
                             ForEach(Semana.allCases, id: \.self){ dia in
                                 BarMark(
                                     x: .value("Dias", dia.rawValue),
-                                    y: .value("teste", Int.random(in: 0...100))
+                                    y: .value("Refeicoes",
+                                              getEatenMealsFromWeekday(dia)
+//                                              Int.random(in: 0...numberOfMeals)
+                                             )
                                 )
-                                .foregroundStyle(Color("VermelhoDailyBites"))
+                                .foregroundStyle(Color("CordeAção"))
                                 
                                 
                             }
@@ -217,6 +261,18 @@ struct StatisticsView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
     }
+    
+    func getEatenMealsFromWeekday(_ day: Semana) -> Int {
+        
+        let count = meals.count { meal in
+            let weekday = Calendar.current.component(.weekday, from: meal.date)
+            return (meal.status == .pontual || meal.status == .atrasado) && weekday == day.weekday
+        }
+        
+        return count
+    }
+
+
 }
 
 
@@ -268,6 +324,26 @@ struct StatisticsView: View {
             status: .pontual,
             descriptionMeal: "ijk",
             emotion: .sad
+        ),
+        Meal(
+            mealName: "xyz",
+            date: .init().addingTimeInterval(-24*60*60),
+            time: .init(),
+            imageData: nil,
+            durationMeal: 10,
+            status: .pontual,
+            descriptionMeal: "ijk",
+            emotion: .sad
+        ),
+        Meal(
+            mealName: "xyz",
+            date: .init().addingTimeInterval(-24*60*60),
+            time: .init(),
+            imageData: nil,
+            durationMeal: 10,
+            status: .pontual,
+            descriptionMeal: "ijk",
+            emotion: .sad
         )
     ]
     
@@ -278,4 +354,14 @@ struct StatisticsView: View {
     
     return StatisticsView()
         .modelContainer(container)
+}
+
+
+
+extension Calendar {
+    private var currentDate: Date { return Date() }
+
+    func isDateInThisWeek(_ date: Date) -> Bool {
+        return isDate(date, equalTo: currentDate, toGranularity: .weekOfYear)
+      }
 }
