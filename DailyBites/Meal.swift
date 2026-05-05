@@ -53,11 +53,11 @@ class Meal: Identifiable {
         case .pendente:
             return .gray
         case .atrasado:
-            return .yellow
+            return .laranjaAtrasado
         case .pontual:
-            return .green
+            return .verdePontual
         case .pulou:
-            return .red
+            return .vermelhoDailyBites
         }
     }
 }
