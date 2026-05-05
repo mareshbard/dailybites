@@ -10,13 +10,12 @@ import SwiftData
 struct PreferencesView: View {
     
     @Environment(\.modelContext) var modelContext
-    @Query var meals: [Meal]
     var username1: String
     @AppStorage("username") var username = ""
     @State private var isActive: Bool = false
     @AppStorage("numberOfMeals") var numberOfMeals: Int = 1
     @State private var auxMeals: [Meal] = []
-    
+    @AppStorage("firstUse") var firstUse: Bool = false
     
     var body: some View {
         let rangeMeals =  1...numberOfMeals
@@ -78,6 +77,7 @@ struct PreferencesView: View {
         Button("Concluir"){
             self.isActive = true
             username = username1
+            firstUse = true
             for meal in auxMeals {
                 modelContext.insert(meal)
             }
@@ -93,7 +93,7 @@ struct PreferencesView: View {
     }
     
     func createMeal() -> Meal {
-        return Meal(mealName: "", date: .now, time: .now, imageData: nil, durationMeal: 0, status: .pendente, descriptionMeal: "")
+        return Meal(mealName: "", date: .now, time: .now, imageData: nil, durationMeal: 0, status: .pendente, descriptionMeal: "", emotion: .normal)
     }
 }
 

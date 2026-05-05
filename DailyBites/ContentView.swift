@@ -11,7 +11,7 @@ import SwiftData
 struct ContentView: View {
     @AppStorage("username") var username = ""
     @State private var showSplash = true
-  
+    @AppStorage("firstUse") var firstUse: Bool = true
     var body: some View {
         ZStack{
             if showSplash {
@@ -23,6 +23,9 @@ struct ContentView: View {
             } else {
                 if (username != "") {
                     HomeView()
+                        .onAppear {
+                        firstUse = false
+                    }
                 } else {
                     AboutYouView()
                         .font(.largeTitle)
