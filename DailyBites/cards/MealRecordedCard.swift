@@ -1,13 +1,20 @@
 import SwiftUI
 
 
-struct MealCardView: View {
+struct MealRecordedCard: View {
     
     var meal: Meal
     var body: some View {
         NavigationLink (destination: AddMealView(meal: meal)){
             
             VStack(alignment: .leading) {
+                if let image = meal.image {
+                    Image(uiImage: image)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(maxWidth: 100)
+                        .padding(10)
+                }
                 Text(meal.mealName)
                     .font(.title3)
                     .bold()

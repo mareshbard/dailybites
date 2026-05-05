@@ -34,7 +34,7 @@ struct HomeView: View {
     @AppStorage("firstTime") var firstTime = false
     @AppStorage("lastOpen") var lastOpen = ""
     @AppStorage("numberOfMeals") var numberOfMeals: Int = 1
-    @Query(sort: \Meal.date, order: .forward) var meals: [Meal]
+    @Query(sort: \Meal.time, order: .forward) var meals: [Meal]
     @AppStorage("firstUse") var firstUse: Bool = false
     
     var body: some View {
@@ -64,8 +64,10 @@ struct HomeView: View {
             checkToday()
             if (firstTime == true){
                 newMeals()
+                firstUse = false
             }
         }
+      //  TabBar()
         
     }
     
@@ -91,8 +93,6 @@ struct HomeView: View {
                 
                 modelContext.insert(Meal(mealName: meals[i].mealName, date: Date(), time: meals[i].time, durationMeal: 0, status: .pendente, descriptionMeal: "", emotion: .normal))
                 print("New Meal Inserted")
-                
-//                firstTime = false
                 
             }
         }

@@ -22,10 +22,10 @@ struct ContentView: View {
                     )
             } else {
                 if (username != "") {
-                    HomeView()
-                        .onAppear {
-                        firstUse = false
-                    }
+                    TabBar()
+//                        .onAppear {
+//                       
+//                    }
                 } else {
                     AboutYouView()
                         .font(.largeTitle)

@@ -8,7 +8,7 @@
 import SwiftUI
 import SwiftData
 struct MealsView: View {
-    @Query var meals: [Meal]
+    @Query(sort: \Meal.time, order: .forward) var meals: [Meal]
     
 //    
     @Environment(\.modelContext) var modelContext
@@ -30,16 +30,10 @@ struct MealsView: View {
                     ZStack {
                         MealCardView(meal: meal)
                         
+                        
                     }
                     .padding(-20)
                     .listRowInsets(EdgeInsets())
-                }
-                .onDelete{ offsets in
-                    for index in offsets {
-                        let meal = meals[index]
-                        modelContext.delete(meal)
-//                        meals.remove(at: index)
-                    }
                 }
                 .listRowSeparator(.hidden)
             }

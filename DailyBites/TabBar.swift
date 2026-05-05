@@ -1,15 +1,20 @@
-//
-//  TabBar.swift
-//  DailyBites
-//
-//  Created by USER on 05/05/26.
-//
-
 import SwiftUI
 
 struct TabBar: View {
+    
+    @SceneStorage("selectedTab") private var selectedTabIndex: Int = 0
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        TabView(selection: $selectedTabIndex) {
+            Tab("Refeições", systemImage: "fork.knife", value: 0) {
+                HomeView()
+            }
+            Tab("Estatísticas", systemImage: "chart.pie", value: 1) {
+                StatisticsView()
+            }
+        }
+        .tabViewStyle(.sidebarAdaptable)
+        .accentColor(Color("VermelhoDailyBites"))
     }
 }
 
