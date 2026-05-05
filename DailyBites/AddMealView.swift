@@ -9,14 +9,7 @@ import SwiftUI
 import SwiftData
 import Foundation
 
-enum Mood: String, CaseIterable{
-    case verysad = "😢"
-    case sad = "😟"
-    case normal = "😐"
-    case happy = "🙂"
-    case veryhappy = "😄"
-    
-}
+
 
 struct AddMealView: View {
     
@@ -30,23 +23,23 @@ struct AddMealView: View {
     @State private var imageData: Data? = nil
     @State private var time = Date()
     @State private var date = Date()
+    var meal: Meal
     
     @Environment(\.modelContext)
     private var modelContext
     
     func addMeal(){
-        let newMeal = Meal(
-            mealName: mealName,
-            date: date, //Data que foi feita a refeicao
-            time: time, //Horário que a pessoa cadastrou a refeicao
-            imageData: imageData,
-            durationMeal: durationMeal, //Tempo que a pessoa levou para comer
-            status: status,
-            descriptionMeal: descriptionMeal
-        )
-        modelContext.insert(newMeal)
+        meal.imageData = imageData
+        meal.date = date
+        meal.status = status
+        meal.descriptionMeal = descriptionMeal
+        meal.emotion = selectedMood
+        meal.durationMeal = durationMeal
         dismiss()
     }
+    
+    // nao vai salvar no swifdata o atualizado
+    // dá erro quando nao foi selecionado um emoji
     
     var body: some View {
         NavigationStack {
@@ -69,8 +62,10 @@ struct AddMealView: View {
                                         .onTapGesture {
                                             selectedMood = mood
                                         }
-                                
-                             //   Spacer()
+                                        .onAppear{
+                                            
+                                            selectedMood = meal.emotion
+                                        }
                             }
                             Spacer()
                             
@@ -140,25 +135,29 @@ struct AddMealView: View {
             }
             .scrollContentBackground(.hidden)
             .navigationTitle(Text("Adicionar Refeição"))
-            .navigationSubtitle("Horas")
+            .navigationSubtitle(Text(meal.time, style: .time))
             .toolbarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .cancellationAction){
-                    Button {
-                        dismiss()
-                    } label: {
-                        Image.init(systemName: "xmark")
-                    }
-                }
+
                 
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Add", systemImage: "checkmark")
                     {
-                        
+                       addMeal()
                     }.tint(Color("VermelhoDailyBites"))
                 }
             }
             
+        }
+        .onAppear {
+            mealName = meal.mealName
+            if let imageData = meal.imageData {
+                self.imageData = imageData
+            }
+            descriptionMeal = meal.descriptionMeal
+            status = meal.status
+            selectedMood = meal.emotion
+            durationMeal = meal.durationMeal
         }
     }
     
@@ -166,6 +165,6 @@ struct AddMealView: View {
 }
 
 #Preview {
-    AddMealView()
+   // AddMealView()
 }
 

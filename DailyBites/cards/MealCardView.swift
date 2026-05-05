@@ -12,7 +12,7 @@ struct MealCardView: View {
     //var user: User
     var meal: Meal
     var body: some View {
-        NavigationLink (destination: AddMealView()){
+        NavigationLink (destination: AddMealView(meal: meal)){
             
             VStack(alignment: .leading) {
                 Text(meal.mealName)
@@ -49,6 +49,6 @@ struct MealCardView: View {
 }
 
 #Preview {
-    let meal = Meal(mealName: "Pasta", date: Date(), time: Date(), durationMeal: 20, status: Status.pulou, descriptionMeal: "Simple pasta")
+    let meal = Meal(mealName: "Pasta", date: Date(), time: Date(), durationMeal: 20, status: Status.pulou, descriptionMeal: "Simple pasta", emotion: .normal)
     MealCardView(meal: meal)
 }

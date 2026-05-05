@@ -34,6 +34,11 @@ struct PhotoPickerView: View {
             }
             .clipShape(RoundedRectangle(cornerRadius: 16))
         }
+        .onAppear {
+            if let imageData = imageData {
+                self.imageData = imageData
+            }
+        }
         .onChange(of: newImage){
             guard let newImage else {return}
             
