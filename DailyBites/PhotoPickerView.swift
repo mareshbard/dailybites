@@ -15,35 +15,40 @@ struct PhotoPickerView: View {
     @State private var newImage: PhotosPickerItem?
     @State private var movieImage: UIImage?
     
-        var body: some View {
-            PhotosPicker(selection: $newImage){
-                Group {
-                    if let imageData, let uiImage = UIImage(data: imageData){
-                        Image(uiImage: uiImage)
-                            .resizable()
-                            .scaledToFit()
-                        
-                    } else{
-                        Image(systemName: "photo.badge.plus.fill")
-                            .font(.largeTitle)
-                            .frame(height: 200)
-                            .frame(maxWidth: .infinity)
-                            .background(Color.backgroundImageDefault)
-                            .tint(Color.black)
-                    }
+    var body: some View {
+        PhotosPicker(selection: $newImage){
+            Group {
+                if let imageData, let uiImage = UIImage(data: imageData){
+                    Image(uiImage: uiImage)
+                        .resizable()
+                        .scaledToFit()
+                    
+                } else{
+                    Image(systemName: "photo.badge.plus.fill")
+                        .font(.largeTitle)
+                        .frame(height: 200)
+                        .frame(maxWidth: .infinity)
+                        .background(Color.backgroundImageDefault)
+                        .tint(Color.black)
                 }
-                .clipShape(RoundedRectangle(cornerRadius: 16))
             }
-            .onChange(of: newImage){
-                guard let newImage else {return}
-                
-                Task {
-                    imageData = try await
-                    newImage.loadTransferable(type: Data.self)
-                }
+            .clipShape(RoundedRectangle(cornerRadius: 16))
+        }
+        .onAppear {
+            if let imageData = imageData {
+                self.imageData = imageData
+            }
+        }
+        .onChange(of: newImage){
+            guard let newImage else {return}
+            
+            Task {
+                imageData = try await
+                newImage.loadTransferable(type: Data.self)
             }
         }
     }
+}
 
 #Preview {
     PhotoPickerView(imageData: .constant(nil))
