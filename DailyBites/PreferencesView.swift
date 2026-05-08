@@ -67,6 +67,7 @@ struct PreferencesView: View {
             .scrollContentBackground(.hidden)
             .scrollIndicators(.hidden)
         }
+        .scrollDismissesKeyboard(.immediately)
         .onAppear(){
             for _ in rangeMeals {
                 auxMeals.append(createMeal())

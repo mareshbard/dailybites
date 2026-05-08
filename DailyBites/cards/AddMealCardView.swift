@@ -39,7 +39,7 @@ struct AddMealCardView: View {
                     .font(Font.body)
                     .padding(10)
                     .frame(width: 147, height: 34)
-                    .background(Color("FillGray"))
+                    .background(Color.secondary.opacity(0.1))
                     .cornerRadius(100)
             }
             VStack{

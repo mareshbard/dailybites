@@ -80,6 +80,7 @@ struct AboutYouView: View {
                 
             }
         }
+        .scrollDismissesKeyboard(.immediately)
         .padding(.horizontal, 24)
 
     }

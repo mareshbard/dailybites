@@ -17,9 +17,9 @@ struct ContentView: View {
             if showSplash {
                 SplashScreenView()
                     .transition(.opacity)
-                    .animation(
-                        .easeOut(duration: 0.5)
-                    )
+//                    .animation(
+//                        .easeOut(duration: 0.5)
+//                    )
             } else {
                 if (username != "") {
                     TabBar()

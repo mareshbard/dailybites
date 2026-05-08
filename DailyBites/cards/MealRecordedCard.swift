@@ -19,7 +19,7 @@ struct MealRecordedCard: View {
                         Text(meal.mealName)
                             .font(.title3)
                             .bold()
-                            .foregroundStyle(Color(.black))
+                            .foregroundStyle(Color.primary)
                         Text(meal.time, format: .dateTime.day().month().year().hour().minute())
                             .font(.body)
                     }

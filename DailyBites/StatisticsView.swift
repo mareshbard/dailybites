@@ -26,10 +26,15 @@ struct StatisticsView: View {
         
         var result: [Double] = []
         for mood in Mood.allCases {
-            let filtered: [Meal] = meals.filter({$0.emotion == mood})
-            let total: Double = Double(meals.count)
+            let filtered_meals: [Meal] = meals.filter({$0.status != .pendente && $0.status != .pulou})
+            let filtered: [Meal] = filtered_meals.filter({$0.emotion == mood})
+            let total: Double = Double(filtered_meals.count)
             let totalMood: Double = Double(filtered.count)
-            result.append(totalMood/total * 100) // filtra e verifica todas as moods e faz o calculo de porcentagem
+            if(total == 0){
+                result.append(0)
+            } else {
+                result.append(totalMood/total * 100) // filtra e verifica todas as moods e faz o calculo de porcentagem
+            }
         }
         return result
     }
@@ -76,22 +81,6 @@ struct StatisticsView: View {
         }
         
     }
-//    switch Counters {
-//        var mealnumber = numberOfMeals
-//    
-//    case seg:
-//    }
-//        
-//    case Dom {
-//        count = 0
-//    }
-//        case Seg = 0
-//        case Ter = 0
-//        case Qua = 0
-//        case Qui = 0
-//        case Sex = 0
-//        case Sab = 0
-//    }
 
     var body: some View{
         
@@ -127,26 +116,26 @@ struct StatisticsView: View {
                             }
                         }
                         .chartLegend(position: .trailing, alignment: .center) {
-                            VStack{
+                            VStack(alignment: .leading){
                                 Spacer()
                                 HStack {
                                     Color("VerdeDailyBites").frame(width: 20, height: 20).cornerRadius(5)
                                     Text("Realizada")
-                                        .foregroundStyle(.black)
+                                        .foregroundStyle(Color.primary)
                                 }
                                 Spacer()
                                 
                                 HStack {
                                     Color("AmareloDailyBites").frame(width: 20, height: 20).cornerRadius(5)
                                     Text("Realizada com atraso")
-                                        .foregroundStyle(.black)
+                                        .foregroundStyle(Color.primary)
                                 }
                                 Spacer()
                                 
                                 HStack {
                                     Color("VermelhoDailyBites").frame(width: 20, height: 20).cornerRadius(5)
                                     Text("Não realizou")
-                                        .foregroundStyle(.black)
+                                        .foregroundStyle(Color.primary)
                                 }
                                 Spacer()
                             }

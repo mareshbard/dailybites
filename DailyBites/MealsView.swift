@@ -1,16 +1,7 @@
-//
-//  PreferencesView.swift
-//  DailyBites
-//
-//  Created by USER on 24/04/26.
-//
-
 import SwiftUI
 import SwiftData
 struct MealsView: View {
     @Query(sort: \Meal.time, order: .forward) var meals: [Meal]
-    
-//    
     @Environment(\.modelContext) var modelContext
     @AppStorage("lastOpen") var lastOpen = ""
     @State var auxMeals: [Meal] = []
@@ -37,6 +28,7 @@ struct MealsView: View {
                 }
                 .listRowSeparator(.hidden)
             }
+            .scrollIndicators(.hidden)
             .listStyle(.plain)
         }
     }

@@ -36,29 +36,27 @@ struct AddMealView: View {
         meal.emotion = selectedMood
         meal.durationMeal = durationMeal
         dismiss()
+
     }
-    
-    // nao vai salvar no swifdata o atualizado
-    // dá erro quando nao foi selecionado um emoji
-    
+
     var body: some View {
         NavigationStack {
-            Form {
-                
-                Section("Foto"){
-                    PhotoPickerView(imageData: $imageData)
-                }
-                
-                Section("Emoção"){
-                    HStack {
-                       Spacer()
-
-                        ForEach(Mood.allCases, id: \.self) { mood in
+                Form {
+                    
+                    Section("Foto"){
+                        PhotoPickerView(imageData: $imageData)
+                    }
+                    
+                    Section("Emoção"){
+                        HStack {
+                            Spacer()
                             
-                            HStack {
-                                Text(mood.rawValue)
-                                    .padding(10)
-                                    .background(selectedMood == mood ? Color.red.opacity(0.3) : Color.clear)
+                            ForEach(Mood.allCases, id: \.self) { mood in
+                                
+                                HStack {
+                                    Text(mood.rawValue)
+                                        .padding(10)
+                                        .background(selectedMood == mood ? Color.red.opacity(0.3) : Color.clear)
                                         .onTapGesture {
                                             selectedMood = mood
                                         }
@@ -66,103 +64,104 @@ struct AddMealView: View {
                                             
                                             selectedMood = meal.emotion
                                         }
+                                }
+                                Spacer()
+                                
                             }
-                            Spacer()
+                            .cornerRadius(32)
+                        }
+                        
+                        
+                        .padding(20)
+                        .overlay{
+                            RoundedRectangle( cornerRadius: 12)
+                            
+                                .fill(.clear)
+                                .stroke(Color.red, style: StrokeStyle(lineWidth: 0.5))
+                                .frame(maxWidth: .infinity, maxHeight: 50, alignment: .leading)
+                        }
+                    }
+                    .padding(.bottom, -10)
+                    
+                    Section("Horário"){
+                        Picker("Clique para escolher", selection: $status){
+                            ForEach(Status.allCases, id: \.self) {
+                                Text($0.title)
+                            }
+                            
                             
                         }
-                            .cornerRadius(32)
-                    }
-
-                    
-                    .padding(20)
-                    .overlay{
-                        RoundedRectangle( cornerRadius: 12)
-                        
-                            .fill(.clear)
-                            .stroke(Color.red, style: StrokeStyle(lineWidth: 0.5))
-                            .frame(maxWidth: .infinity, maxHeight: 50, alignment: .leading)
-                    }
-                }
-                .padding(.bottom, -10)
-                
-                Section("Horário"){
-                    Picker("Clique para escolher", selection: $status){
-                        ForEach(Status.allCases, id: \.self) {
-                            Text($0.title)
+                        .padding(20)
+                        .overlay{
+                            RoundedRectangle( cornerRadius: 12)
+                            
+                                .fill(.clear)
+                                .stroke(Color.red, style: StrokeStyle(lineWidth: 0.5))
+                                .frame(maxWidth: .infinity, maxHeight: 50, alignment: .leading)
                         }
-                        
+                    }
+                    .foregroundStyle(.secondary)
+                    .padding(.bottom, -10)
+                    
+                    Section("Duração da refeiçao"){
+                        Stepper(value: $durationMeal, in: 0...60, step: 5){
+                            Text("Tempo em minutos: \(durationMeal)")
+                        }
+                        .padding(20)
+                        .overlay{
+                            RoundedRectangle( cornerRadius: 12)
+                            
+                                .fill(.clear)
+                                .stroke(Color.red, style: StrokeStyle(lineWidth: 0.5))
+                                .frame(maxWidth: .infinity, maxHeight: 50, alignment: .leading)
+                        }
+                    }
+                    .foregroundStyle(.secondary)
+                    .padding(.bottom, -10)
+                    
+                    
+                    Section("Descrição"){
+                        TextField("Digite como foi sua refeição", text: $descriptionMeal, axis: .vertical)
+                            .font(.body)
+                            .multilineTextAlignment(.leading)
+                            .lineLimit(10, reservesSpace: true)
+                            .textFieldStyle(OutlinedTextFieldStyleDescription())
                         
                     }
-                    .padding(20)
-                    .overlay{
-                        RoundedRectangle( cornerRadius: 12)
-                        
-                            .fill(.clear)
-                            .stroke(Color.red, style: StrokeStyle(lineWidth: 0.5))
-                            .frame(maxWidth: .infinity, maxHeight: 50, alignment: .leading)
+                    .padding(.bottom, -10)
+                    
+                }
+                .scrollContentBackground(.hidden)
+                .navigationTitle(Text("Adicionar Refeição"))
+                .navigationSubtitle(Text(meal.time, style: .time))
+                .toolbarTitleDisplayMode(.inline)
+                .toolbar {
+                    
+                    
+                    ToolbarItem(placement: .confirmationAction) {
+                        Button("Salvar", systemImage: "checkmark")
+                        {
+                            addMeal()
+                        }.tint(Color("VermelhoDailyBites"))
                     }
                 }
-                .foregroundStyle(.secondary)
-                .padding(.bottom, -10)
-                
-                Section("Duração da refeiçao"){
-                    Stepper(value: $durationMeal, in: 0...60, step: 5){
-                        Text("Tempo em minutos: \(durationMeal)")
-                    }
-                    .padding(20)
-                    .overlay{
-                        RoundedRectangle( cornerRadius: 12)
-                        
-                            .fill(.clear)
-                            .stroke(Color.red, style: StrokeStyle(lineWidth: 0.5))
-                            .frame(maxWidth: .infinity, maxHeight: 50, alignment: .leading)
-                    }
-                }
-                .foregroundStyle(.secondary)
-                .padding(.bottom, -10)
-                
-                
-                Section("Descrição"){
-                    TextField("Digite como foi sua refeição", text: $descriptionMeal, axis: .vertical)
-                        .font(.body)
-                        .multilineTextAlignment(.leading)
-                        .lineLimit(10, reservesSpace: true)
-                        .textFieldStyle(OutlinedTextFieldStyleDescription())
-
-                }
-                .padding(.bottom, -10)
                 
             }
-            .scrollContentBackground(.hidden)
-            .navigationTitle(Text("Adicionar Refeição"))
-            .navigationSubtitle(Text(meal.time, style: .time))
-            .toolbarTitleDisplayMode(.inline)
-            .toolbar {
-
-                
-                ToolbarItem(placement: .confirmationAction) {
-                    Button("Add", systemImage: "checkmark")
-                    {
-                       addMeal()
-                    }.tint(Color("VermelhoDailyBites"))
+        .scrollDismissesKeyboard(.immediately)
+            .onAppear {
+                mealName = meal.mealName
+                if let imageData = meal.imageData {
+                    self.imageData = imageData
                 }
+                descriptionMeal = meal.descriptionMeal
+                status = meal.status
+                selectedMood = meal.emotion
+                durationMeal = meal.durationMeal
             }
-            
-        }
-        .onAppear {
-            mealName = meal.mealName
-            if let imageData = meal.imageData {
-                self.imageData = imageData
-            }
-            descriptionMeal = meal.descriptionMeal
-            status = meal.status
-            selectedMood = meal.emotion
-            durationMeal = meal.durationMeal
         }
     }
-    
 
-}
+
 
 #Preview {
    // AddMealView()

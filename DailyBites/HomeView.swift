@@ -8,7 +8,7 @@ import SwiftData
 //class Ref {
 //    var name: String
 //    var logs: [LogRef]
-//    
+//
 //    init(name: String, logs: [LogRef]) {
 //        self.name = name
 //        self.logs = logs
@@ -51,6 +51,7 @@ struct HomeView: View {
                         .font(.body)
                 }
                 .padding(.vertical,20)
+                StreakCard()
                 Text("Refeições do dia")
                     .font(.title)
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -59,7 +60,7 @@ struct HomeView: View {
             }
             .padding(.horizontal, 24)
         }
-       
+        
         .onAppear{
             checkToday()
             if (firstTime == true){
@@ -67,14 +68,14 @@ struct HomeView: View {
                 firstUse = false
             }
         }
-      //  TabBar()
+        //  TabBar()
         
     }
     
     func checkToday() {
-     
+        
         let today = Date().formatted(date: .abbreviated, time: .omitted)
-
+        
         if lastOpen == today {
             firstTime = false
         } else {

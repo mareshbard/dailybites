@@ -11,7 +11,7 @@ struct MealCardView: View {
                 Text(meal.mealName)
                     .font(.title3)
                     .bold()
-                    .foregroundStyle(Color(.black))
+                    .foregroundStyle(Color.primary)
                 Text(meal.time, style: .time)
                     .font(.body)
                 
