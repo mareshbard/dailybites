@@ -4,7 +4,7 @@ import SwiftData
 
 
 struct MealsRecordedView: View {
-    @Query(sort: \Meal.time, order: .forward) var meals: [Meal]
+    @Query(sort: \Meal.date, order: .reverse) var meals: [Meal]
 
     var recordedMeals: [Meal] {
         return meals.filter { meal in

@@ -68,8 +68,6 @@ struct HomeView: View {
                 firstUse = false
             }
         }
-        //  TabBar()
-        
     }
     
     func checkToday() {
@@ -84,24 +82,22 @@ struct HomeView: View {
         }
     }
     
-    func newMeals(){
-        print(numberOfMeals)
-        for i in 0..<numberOfMeals {
-            let firstDay = meals[0].date.formatted(date: .abbreviated, time: .omitted)
-            
-            if (meals[i].date.formatted(date: .abbreviated, time: .omitted) == firstDay
-                && firstTime == true && firstUse == false) {
-                
-                modelContext.insert(Meal(mealName: meals[i].mealName, date: Date(), time: meals[i].time, durationMeal: 0, status: .pendente, descriptionMeal: "", emotion: .normal))
-                print("New Meal Inserted")
-                
-            }
+    func newMeals() {
+        let today = Date().formatted(date: .abbreviated, time: .omitted)
+  
+        guard !meals.contains(where: { $0.date.formatted(date: .abbreviated, time: .omitted) == today }) else { return }
+        
+        let firstDay = meals.first?.date.formatted(date: .abbreviated, time: .omitted) ?? ""
+        let templateMeals = meals.filter {
+            $0.date.formatted(date: .abbreviated, time: .omitted) == firstDay
+        }
+        for meal in templateMeals {
+            modelContext.insert(Meal(mealName: meal.mealName, date: Date(), time: meal.time, durationMeal: 0, status: .pendente, descriptionMeal: "", emotion: .normal))
+            print("New Meal Inserted")
         }
     }
 }
 
 #Preview {
-    
-    
     HomeView()
 }

@@ -16,10 +16,12 @@ struct PreferencesView: View {
     @AppStorage("numberOfMeals") var numberOfMeals: Int = 1
     @State private var auxMeals: [Meal] = []
     @AppStorage("firstUse") var firstUse: Bool = false
+ 
     
     var body: some View {
         let rangeMeals =  1...numberOfMeals
         NavigationStack {
+            
             VStack{
                 Text("Refeições")
                     .font(.largeTitle)
@@ -66,32 +68,37 @@ struct PreferencesView: View {
             .listStyle(.plain)
             .scrollContentBackground(.hidden)
             .scrollIndicators(.hidden)
-        }
-        .scrollDismissesKeyboard(.immediately)
-        .onAppear(){
-            for _ in rangeMeals {
-                auxMeals.append(createMeal())
+            
+            Button("Concluir"){
+                self.isActive = true
+                username = username1
+                firstUse = true
+                for meal in auxMeals {
+                    modelContext.insert(meal)
+                }
             }
-        }
-        
-        NavigationLink(destination: HomeView()){
-        }
-        Button("Concluir"){
-            self.isActive = true
-            username = username1
-            firstUse = true
-            for meal in auxMeals {
-                modelContext.insert(meal)
+            
+            .buttonStyle(.borderedProminent)
+            .buttonSizing(.flexible)
+            .font(Font.title3)
+            .controlSize(.large)
+            .tint(.red)
+            .foregroundColor(Color(.white))
+            Spacer()
+            NavigationLink(destination: HomeView(), isActive: $isActive){
+                
             }
+            
         }
-        
-        .buttonStyle(.borderedProminent)
-        .buttonSizing(.flexible)
-        .font(Font.title3)
-        .controlSize(.large)
-        .tint(.red)
-        .foregroundColor(Color(.white))
-        
+            .scrollDismissesKeyboard(.immediately)
+            .onAppear(){
+                for _ in rangeMeals {
+                    auxMeals.append(createMeal())
+                }
+            }
+    
+            
+
     }
     
     func createMeal() -> Meal {

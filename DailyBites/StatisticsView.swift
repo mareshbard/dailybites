@@ -120,7 +120,7 @@ struct StatisticsView: View {
                                 Spacer()
                                 HStack {
                                     Color("VerdeDailyBites").frame(width: 20, height: 20).cornerRadius(5)
-                                    Text("Realizada")
+                                    Text("Realizada pontualmente")
                                         .foregroundStyle(Color.primary)
                                 }
                                 Spacer()

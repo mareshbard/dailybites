@@ -132,7 +132,7 @@ struct AddMealView: View {
                     
                 }
                 .scrollContentBackground(.hidden)
-                .navigationTitle(Text("Adicionar Refeição"))
+                .navigationTitle(Text("Refeição"))
                 .navigationSubtitle(Text(meal.time, style: .time))
                 .toolbarTitleDisplayMode(.inline)
                 .toolbar {
@@ -142,11 +142,15 @@ struct AddMealView: View {
                         Button("Salvar", systemImage: "checkmark")
                         {
                             addMeal()
-                        }.tint(Color("VermelhoDailyBites"))
+                        }
+                        .disabled(imageData == nil && meal.status != .pendente)
+                        .tint(Color("VermelhoDailyBites"))
+                        
                     }
                 }
                 
             }
+        .toolbar(.hidden, for: .tabBar)
         .scrollDismissesKeyboard(.immediately)
             .onAppear {
                 mealName = meal.mealName
