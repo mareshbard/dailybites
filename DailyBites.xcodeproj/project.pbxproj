@@ -11,6 +11,11 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		AD09B5AF2FB499A80086D042 /* controller+ */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "controller+";
+			sourceTree = "<group>";
+		};
 		CE5CD3182F98EF6500CE9010 /* DailyBites */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = DailyBites;
@@ -34,6 +39,7 @@
 			children = (
 				CE5CD3182F98EF6500CE9010 /* DailyBites */,
 				CE5CD3172F98EF6500CE9010 /* Products */,
+				AD09B5AF2FB499A80086D042 /* controller+ */,
 			);
 			sourceTree = "<group>";
 		};
@@ -61,6 +67,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				AD09B5AF2FB499A80086D042 /* controller+ */,
 				CE5CD3182F98EF6500CE9010 /* DailyBites */,
 			);
 			name = DailyBites;
