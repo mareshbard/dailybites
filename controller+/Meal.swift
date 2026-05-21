@@ -8,37 +8,101 @@
 import SwiftUI
 import SwiftData
 import Foundation
+//
+//@Model
+//class Meal: Identifiable {
+//    var id: UUID = UUID()
+//   // var mealName: String = ""
+//   //var date: Date = Date() //Data que foi feita a refeicao
+//   // var time: Date = Date() //Horário que a pessoa cadastrou a refeicao
+////    var imageData: Data?
+////    var durationMeal: Int = 0 //Tempo que a pessoa levou para comer
+////    var status: Status = Status.pendente
+////    var descriptionMeal: String = ""
+////    var emotion: Mood = Mood.normal
+//    
+//    init(
+//        mealName: String,
+//        date: Date,
+//        time: Date,
+////        imageData: Data? = nil,
+////        durationMeal: Int,
+////        status: Status,
+////        descriptionMeal: String,
+////        emotion: Mood
+//        
+//    
+//    ) {
+//        self.mealName = mealName
+////        self.date = date
+//        self.time = time
+//        self.imageData = imageData
+//        self.durationMeal = durationMeal
+//        self.status = status
+//        self.descriptionMeal = descriptionMeal
+//        self.emotion = emotion
+//    }
+//    
+////    var image: UIImage? {
+////        imageData.flatMap{
+////            UIImage(data: $0)
+////        }
+////    }
+////    var color: Color {
+////        switch status {
+////        case .pendente:
+////            return .gray
+////        case .atrasado:
+////            return .laranjaAtrasado
+////        case .pontual:
+////            return .verdePontual
+////        case .pulou:
+////            return .vermelhoDailyBites
+////        }
+////    }
+//}
+
+
 
 @Model
-class Meal: Identifiable {
-    var id: UUID = UUID()
-    var mealName: String = ""
-    var date: Date = Date() //Data que foi feita a refeicao
+class Meal {
+    var name: String
     var time: Date = Date() //Horário que a pessoa cadastrou a refeicao
+    var logs: [LogMeal]
+
+    init(name: String, logs: [LogMeal], time: Date) {
+        self.name = name
+        self.logs = logs
+        self.time = time
+    }
+}
+
+
+@Model
+class LogMeal: Identifiable {
+    
+    var id: UUID = UUID()
+    var ref: Meal?
+    var date: Date = Date() //Data que foi feita a refeicao
     var imageData: Data?
     var durationMeal: Int = 0 //Tempo que a pessoa levou para comer
     var status: Status = Status.pendente
     var descriptionMeal: String = ""
     var emotion: Mood = Mood.normal
     
-    init(
-        mealName: String,
-        date: Date,
-        time: Date,
-        imageData: Data? = nil,
-        durationMeal: Int,
-        status: Status,
-        descriptionMeal: String,
-        emotion: Mood
-        
-    
+    init(ref: Meal,
+         date: Date,
+         imageData: Data? = nil,
+         durationMeal: Int,
+         status: Status,
+         descriptionMeal: String,
+         emotion: Mood
     ) {
-        self.mealName = mealName
+        self.ref = ref
         self.date = date
-        self.time = time
+        self.status = status
         self.imageData = imageData
         self.durationMeal = durationMeal
-        self.status = status
         self.descriptionMeal = descriptionMeal
         self.emotion = emotion
     }
@@ -61,6 +125,5 @@ class Meal: Identifiable {
         }
     }
 }
-
 
 

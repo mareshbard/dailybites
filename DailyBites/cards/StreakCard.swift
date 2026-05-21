@@ -6,7 +6,7 @@ struct StreakCard: View {
     @AppStorage("streak") var streak: Int = 1
     @AppStorage("lastStreakDate") var lastStreakDate: Double = 0
     @Query var meals: [Meal]
-    
+    @Query(sort: \LogMeal.date, order: .forward) var logs: [LogMeal]
     var body: some View {
         
         HStack(spacing: 15) {
@@ -37,7 +37,7 @@ struct StreakCard: View {
             return
         }
        
-        let completed = meals.contains {
+        let completed = logs.contains {
             calendar.isDate($0.date, inSameDayAs: today) && $0.status != .pendente
         }
         guard completed else {

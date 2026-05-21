@@ -1,17 +1,10 @@
-//
-//  AddMealView.swift
-//  DailyBites
-//
-//  Created by user on 24/04/26.
-//
-
 import SwiftUI
 import SwiftData
 import Foundation
 
-
-
-struct AddMealView: View {
+struct AddLogMealView: View {
+    
+    @Environment(\.modelContext) private var modelContext
     
     @Environment(\.dismiss) var dismiss
     
@@ -23,20 +16,32 @@ struct AddMealView: View {
     @State private var imageData: Data? = nil
     @State private var time = Date()
     @State private var date = Date()
-    var meal: Meal
+    let meal: Meal
     
-    @Environment(\.modelContext)
-    private var modelContext
-    
-    func addMeal(){
-        meal.imageData = imageData
-        meal.date = date
-        meal.status = status
-        meal.descriptionMeal = descriptionMeal
-        meal.emotion = selectedMood
-        meal.durationMeal = durationMeal
+    func addLog(){
+        if let todayLog = meal.logs.last(where: { $0.ref!.name == meal.name }){
+            todayLog.emotion = selectedMood
+            todayLog.status = status
+            todayLog.descriptionMeal = descriptionMeal
+            todayLog.durationMeal = durationMeal
+            todayLog.imageData = imageData
+        }
+        else{
+            let log = LogMeal(
+                ref: meal,
+                date: date,
+                imageData: imageData,
+                durationMeal: durationMeal,
+                status: status,
+                descriptionMeal: descriptionMeal,
+                emotion: selectedMood
+            )
+            modelContext.insert(log)
+        }
+        
+        try? modelContext.save()
+        
         dismiss()
-
     }
 
     var body: some View {
@@ -60,10 +65,10 @@ struct AddMealView: View {
                                         .onTapGesture {
                                             selectedMood = mood
                                         }
-                                        .onAppear{
-                                            
-                                            selectedMood = meal.emotion
-                                        }
+//                                        .onAppear{
+//                                            
+//                                            selectedMood = log.emotion
+//                                        }
                                 }
                                 Spacer()
                                 
@@ -141,9 +146,9 @@ struct AddMealView: View {
                     ToolbarItem(placement: .confirmationAction) {
                         Button("Salvar", systemImage: "checkmark")
                         {
-                            addMeal()
+                            addLog()
                         }
-                        .disabled(imageData == nil && meal.status != .pendente)
+//                        .disabled(imageData == nil && log.status != .pendente)
                         .tint(Color("VermelhoDailyBites"))
                         
                     }
@@ -152,16 +157,18 @@ struct AddMealView: View {
             }
         .toolbar(.hidden, for: .tabBar)
         .scrollDismissesKeyboard(.immediately)
-            .onAppear {
-                mealName = meal.mealName
-                if let imageData = meal.imageData {
-                    self.imageData = imageData
-                }
-                descriptionMeal = meal.descriptionMeal
-                status = meal.status
-                selectedMood = meal.emotion
-                durationMeal = meal.durationMeal
-            }
+        .onAppear {
+                       let thisMeal = meal.logs.last(where: { $0.ref!.name == meal.name })
+                       mealName = meal.name
+       
+                       if let imageData = thisMeal?.imageData {
+                           self.imageData = imageData
+                       }
+                       descriptionMeal = thisMeal?.descriptionMeal ?? ""
+                       status = thisMeal?.status ?? .pendente
+                       selectedMood = thisMeal?.emotion ?? .happy
+                       durationMeal = thisMeal?.durationMeal ?? 0
+                   }
         }
     }
 
