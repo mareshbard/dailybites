@@ -94,6 +94,7 @@ struct PreferencesView: View {
             }
             
         }
+        .ignoresSafeArea(.keyboard)
             .scrollDismissesKeyboard(.immediately)
             .onAppear(){
                 for _ in rangeMeals {

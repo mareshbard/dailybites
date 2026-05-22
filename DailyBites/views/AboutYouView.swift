@@ -66,6 +66,8 @@ struct AboutYouView: View {
 //                    self.isActive = true
 //                    
 //                })
+                Spacer()
+                
                 Button {
                     meals = self.meals
                     self.isActive = true
@@ -80,7 +82,7 @@ struct AboutYouView: View {
                                .tint(.red)
                                .foregroundColor(Color(.white))
                 
-                Spacer()
+                
             
                 NavigationLink(destination: PreferencesView(username1: username1, numberOfMeals: numberOfMeals), isActive: $isActive){
                    
@@ -88,6 +90,7 @@ struct AboutYouView: View {
  
                 
             }
+            .ignoresSafeArea(.keyboard)
         }
         .scrollDismissesKeyboard(.immediately)
         .padding(.horizontal, 24)
