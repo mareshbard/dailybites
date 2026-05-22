@@ -133,7 +133,7 @@ struct AddMealView: View {
                 }
                 .scrollContentBackground(.hidden)
                 .navigationTitle(Text("Refeição"))
-                .navigationSubtitle(Text(meal.time, style: .time))
+         //       .navigationSubtitle(Text(meal.time, style: .time))
                 .toolbarTitleDisplayMode(.inline)
                 .toolbar {
                     

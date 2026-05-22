@@ -61,18 +61,27 @@ struct AboutYouView: View {
                             .frame(maxWidth: .infinity, maxHeight: 50, alignment: .leading)
                     }
                 }
-                Button("Próximo", action: {
+//                Button("Próximo", action: {
+//                    meals = self.meals
+//                    self.isActive = true
+//                    
+//                })
+                Button {
                     meals = self.meals
                     self.isActive = true
-                })
-                
+                } label: {
+                    Label("Próximo", systemImage: "")
+                        .frame(maxWidth: .infinity)
+                }
                                .buttonStyle(.borderedProminent)
-                               .buttonSizing(.flexible)
+                       //        .buttonSizing(.flexible)
                                .font(Font.title3)
                                .controlSize(.large)
                                .tint(.red)
                                .foregroundColor(Color(.white))
+                
                 Spacer()
+            
                 NavigationLink(destination: PreferencesView(username1: username1, numberOfMeals: numberOfMeals), isActive: $isActive){
                    
                 }

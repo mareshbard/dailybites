@@ -69,21 +69,25 @@ struct PreferencesView: View {
             .scrollContentBackground(.hidden)
             .scrollIndicators(.hidden)
             
-            Button("Concluir"){
+            Button{
                 self.isActive = true
                 username = username1
                 firstUse = true
                 for meal in auxMeals {
                     modelContext.insert(meal)
                 }
+            } label: {
+                Label("Concluir", systemImage: "")
+                    .frame(maxWidth: .infinity)
             }
-            
             .buttonStyle(.borderedProminent)
-            .buttonSizing(.flexible)
+       //     .buttonSizing(.flexible)
             .font(Font.title3)
             .controlSize(.large)
             .tint(.red)
             .foregroundColor(Color(.white))
+
+            
             Spacer()
             NavigationLink(destination: HomeView(), isActive: $isActive){
                 
