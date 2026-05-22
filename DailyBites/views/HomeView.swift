@@ -3,30 +3,6 @@ import SwiftUI
 import SwiftData
 
 
-//
-//@Model
-//class Ref {
-//    var name: String
-//    var logs: [LogRef]
-//
-//    init(name: String, logs: [LogRef]) {
-//        self.name = name
-//        self.logs = logs
-//    }
-//}
-//
-//@Model
-//class LogRef {
-//    var ref: Ref?
-//    var date: Date
-//    var status: String
-//    init(ref: Ref? = nil, date: Date, status: String) {
-//        self.ref = ref
-//        self.date = date
-//        self.status = status
-//    }
-//}
-
 struct HomeView: View {
     
     @Environment(\.modelContext) var modelContext
@@ -36,7 +12,7 @@ struct HomeView: View {
     @AppStorage("numberOfMeals") var numberOfMeals: Int = 1
     @Query(sort: \Meal.time, order: .forward) var meals: [Meal]
     @AppStorage("firstUse") var firstUse: Bool = false
-    
+    @Query(sort: \LogMeal.date, order: .forward) var logs: [LogMeal]
     var body: some View {
         
         NavigationStack {
@@ -61,13 +37,13 @@ struct HomeView: View {
             .padding(.horizontal, 24)
         }
         
-        .onAppear{
-            checkToday()
-            if (firstTime == true){
-                newMeals()
-                firstUse = false
-            }
-        }
+//        .onAppear{
+//            checkToday()
+//            if (firstTime == true){
+//                newMeals()
+//                firstUse = false
+//            }
+//        }
     }
     
     func checkToday() {
@@ -81,21 +57,21 @@ struct HomeView: View {
             firstTime = true
         }
     }
-    
-    func newMeals() {
-        let today = Date().formatted(date: .abbreviated, time: .omitted)
-  
-        guard !meals.contains(where: { $0.date.formatted(date: .abbreviated, time: .omitted) == today }) else { return }
-        
-        let firstDay = meals.first?.date.formatted(date: .abbreviated, time: .omitted) ?? ""
-        let templateMeals = meals.filter {
-            $0.date.formatted(date: .abbreviated, time: .omitted) == firstDay
-        }
-        for meal in templateMeals {
-            modelContext.insert(Meal(mealName: meal.mealName, date: Date(), time: meal.time, durationMeal: 0, status: .pendente, descriptionMeal: "", emotion: .normal))
-            print("New Meal Inserted")
-        }
-    }
+//    
+//    func newMeals() {
+//        let today = Date().formatted(date: .abbreviated, time: .omitted)
+//  
+//        guard !logs.contains(where: { $0.date.formatted(date: .abbreviated, time: .omitted) == today }) else { return }
+//        
+//        let firstDay = logs.first?.date.formatted(date: .abbreviated, time: .omitted) ?? ""
+//        let templateMeals = logs.filter {
+//            $0.date.formatted(date: .abbreviated, time: .omitted) == firstDay
+//        }
+//        for meal in templateMeals {
+//           // modelContext.insert(Meal(mealName: meal.mealName, date: Date(), time: meal.time, durationMeal: 0, status: .pendente, descriptionMeal: "", emotion: .normal))
+//            print("New Meal Inserted")
+//        }
+//    }
 }
 
 #Preview {

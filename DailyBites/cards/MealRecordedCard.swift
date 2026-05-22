@@ -3,12 +3,12 @@ import SwiftUI
 
 struct MealRecordedCard: View {
     
-    var meal: Meal
+    var log: LogMeal
     var body: some View {
         NavigationStack{
-            NavigationLink (destination: AddMealView(meal: meal)){
+            NavigationLink (destination: AddLogMealView(meal: log.ref!)){
                 VStack(alignment: .leading) {
-                    if let image = meal.image {
+                    if let image = log.image {
                         Image(uiImage: image)
                             .resizable()
                             .scaledToFill()
@@ -16,25 +16,25 @@ struct MealRecordedCard: View {
                     }
                     HStack {
                         VStack(alignment: .leading) {
-                            Text(meal.mealName)
+                            Text(log.ref!.name)
                                 .font(.title3)
                                 .bold()
                                 .foregroundStyle(Color.primary)
-                            Text(meal.date, format: .dateTime.day().month().year().hour().minute())
+                            Text(log.date, format: .dateTime.day().month().year().hour().minute())
                                 .font(.body)
                         }
                         Spacer()
-                        Text(meal.status.title)
+                        Text(log.status.title)
                             .padding(.vertical, 1)
                             .padding(.horizontal, 9)
-                            .foregroundStyle(meal.color)
+                            .foregroundStyle(log.color)
                             .font(.body)
                             .overlay {
                                 
                                 RoundedRectangle( cornerRadius: 12)
                                 
                                     .fill(.clear)
-                                    .stroke(meal.color, style: StrokeStyle(lineWidth: 0.5))
+                                    .stroke(log.color, style: StrokeStyle(lineWidth: 0.5))
                                     .frame(maxWidth: .infinity, maxHeight: 50, alignment: .leading)
                             }
                     }
@@ -53,6 +53,6 @@ struct MealRecordedCard: View {
 }
 
 #Preview {
-    let meal = Meal(mealName: "Pasta", date: Date(), time: Date(), durationMeal: 20, status: Status.pulou, descriptionMeal: "Simple pasta", emotion: .normal)
-    MealCardView(meal: meal)
+//    let meal = Meal(mealName: "Pasta", date: Date(), time: Date(), durationMeal: 20, status: Status.pulou, descriptionMeal: "Simple pasta", emotion: .normal)
+//    MealCardView(meal: meal)
 }
