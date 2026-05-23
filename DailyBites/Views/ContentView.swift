@@ -23,9 +23,6 @@ struct ContentView: View {
             } else {
                 if (username != "") {
                     TabBar()
-//                        .onAppear {
-//                       
-//                    }
                 } else {
                     AboutYouView()
                         .font(.largeTitle)

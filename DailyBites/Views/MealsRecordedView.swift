@@ -4,11 +4,11 @@ import SwiftData
 
 
 struct MealsRecordedView: View {
-    @Query(sort: \Meal.date, order: .reverse) var meals: [Meal]
-
-    var recordedMeals: [Meal] {
-        return meals.filter { meal in
-            meal.status != .pendente && meal.status != .pulou
+   // @Query(sort: \Meal.date, order: .reverse) var meals: [Meal]
+    @Query(sort: \LogMeal.date, order: .forward) var logs: [LogMeal]
+    var recordedMeals: [LogMeal] {
+        return logs.filter { log in
+            log.status != .pendente && log.status != .pulou
         }
     }
     
@@ -21,7 +21,7 @@ struct MealsRecordedView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                 List {
                     ForEach(recordedMeals) { meal in
-                        MealRecordedCard(meal: meal)
+                        MealRecordedCard(log: meal)
                     }
                     .listRowSeparator(.hidden)
                     .padding(.vertical, -28)
@@ -34,11 +34,9 @@ struct MealsRecordedView: View {
             }
             .padding(24)
         }
-        
     }
-    
 }
 
 #Preview {
-    MealsRecordedView()
+  //  MealsRecordedView()
 }

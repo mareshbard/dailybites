@@ -1,10 +1,3 @@
-//
-//  PreferencesView.swift
-//  DailyBites
-//
-//  Created by USER on 24/04/26.
-//
-
 import SwiftUI
 import SwiftData
 struct PreferencesView: View {
@@ -33,8 +26,6 @@ struct PreferencesView: View {
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Adicionar refeição", systemImage: "plus") {
-                        //estou adicionando direto no array > talvez n seja o que vamos fazer
-                        //adicionando no aux
                         auxMeals.append(createMeal())
                         numberOfMeals += 1
                     }
@@ -79,7 +70,7 @@ struct PreferencesView: View {
             }
             
             .buttonStyle(.borderedProminent)
-            .buttonSizing(.flexible)
+           // .buttonSizing(.flexible)
             .font(Font.title3)
             .controlSize(.large)
             .tint(.red)
@@ -102,7 +93,7 @@ struct PreferencesView: View {
     }
     
     func createMeal() -> Meal {
-        return Meal(mealName: "", date: .now, time: .now, imageData: nil, durationMeal: 0, status: .pendente, descriptionMeal: "", emotion: .normal)
+        return Meal(name: "", logs: [], time: .now, isFixed: false)
     }
 }
 

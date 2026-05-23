@@ -1,17 +1,10 @@
-//
-//  AddMealView.swift
-//  DailyBites
-//
-//  Created by user on 24/04/26.
-//
-
 import SwiftUI
 import SwiftData
 import Foundation
 
+struct AddNewMealView: View {
+    
 
-
-struct AddMealView: View {
     
     @Environment(\.dismiss) var dismiss
     
@@ -23,26 +16,54 @@ struct AddMealView: View {
     @State private var imageData: Data? = nil
     @State private var time = Date()
     @State private var date = Date()
-    var meal: Meal
+    @State private var isFixed: Bool = false
+    @Query var meals: [Meal]
+    @Environment(\.modelContext) var modelContext
     
-    @Environment(\.modelContext)
-    private var modelContext
+    let meal: Meal
     
-    func addMeal(){
-        meal.imageData = imageData
-        meal.date = date
-        meal.status = status
-        meal.descriptionMeal = descriptionMeal
-        meal.emotion = selectedMood
-        meal.durationMeal = durationMeal
+    func addLog(){
+        if let todayLog = meal.logs.last(where: { $0.ref!.name == meal.name }){
+            todayLog.emotion = selectedMood
+            todayLog.status = status
+            todayLog.descriptionMeal = descriptionMeal
+            todayLog.durationMeal = durationMeal
+            todayLog.imageData = imageData
+            todayLog.ref!.isFixed = isFixed
+            
+        }
+        else{
+            let checkMeal = meals.count(where: { $0.name == mealName })
+            if checkMeal == 0 {
+                meal.name = mealName
+                meal.time = time
+                meal.isFixed = isFixed
+                modelContext.insert(meal)
+            }
+            let log = LogMeal(
+                ref: meal,
+                date: date,
+                imageData: imageData,
+                durationMeal: durationMeal,
+                status: status,
+                descriptionMeal: descriptionMeal,
+                emotion: selectedMood
+            )
+            modelContext.insert(log)
+        }
+  
         dismiss()
-
     }
 
     var body: some View {
         NavigationStack {
                 Form {
-                    
+                    Section("Nome da refeição"){
+                        TextField("Nome da refeição", text: $mealName)
+                    }
+                    DatePicker("Selecione a hora", selection: $time, displayedComponents: .hourAndMinute)
+                    .labelsHidden()
+                    .tint(Color("VermelhoDailyBites"))
                     Section("Foto"){
                         PhotoPickerView(imageData: $imageData)
                     }
@@ -60,10 +81,7 @@ struct AddMealView: View {
                                         .onTapGesture {
                                             selectedMood = mood
                                         }
-                                        .onAppear{
-                                            
-                                            selectedMood = meal.emotion
-                                        }
+
                                 }
                                 Spacer()
                                 
@@ -129,11 +147,12 @@ struct AddMealView: View {
                         
                     }
                     .padding(.bottom, -10)
-                    
+                    Toggle("Repetir", isOn: $isFixed)
+                        .tint(Color("VermelhoDailyBites"))
                 }
                 .scrollContentBackground(.hidden)
                 .navigationTitle(Text("Refeição"))
-                .navigationSubtitle(Text(meal.time, style: .time))
+               // .navigationSubtitle(Text(meal.time, style: .time))
                 .toolbarTitleDisplayMode(.inline)
                 .toolbar {
                     
@@ -141,9 +160,9 @@ struct AddMealView: View {
                     ToolbarItem(placement: .confirmationAction) {
                         Button("Salvar", systemImage: "checkmark")
                         {
-                            addMeal()
+                            addLog()
                         }
-                        .disabled(imageData == nil && meal.status != .pendente)
+//                        .disabled(imageData == nil && log.status != .pendente)
                         .tint(Color("VermelhoDailyBites"))
                         
                     }
@@ -152,16 +171,22 @@ struct AddMealView: View {
             }
         .toolbar(.hidden, for: .tabBar)
         .scrollDismissesKeyboard(.immediately)
-            .onAppear {
-                mealName = meal.mealName
-                if let imageData = meal.imageData {
-                    self.imageData = imageData
-                }
-                descriptionMeal = meal.descriptionMeal
-                status = meal.status
-                selectedMood = meal.emotion
-                durationMeal = meal.durationMeal
-            }
+        .onAppear {
+            mealName = meal.name
+            time = meal.time
+            isFixed = meal.isFixed
+                       let thisMeal = meal.logs.last(where: { $0.ref!.name == meal.name })
+                       mealName = meal.name
+       
+                       if let imageData = thisMeal?.imageData {
+                           self.imageData = imageData
+                       }
+                       descriptionMeal = thisMeal?.descriptionMeal ?? ""
+                       status = thisMeal?.status ?? .pendente
+                       selectedMood = thisMeal?.emotion ?? .normal
+                       durationMeal = thisMeal?.durationMeal ?? 0
+                       // isFixed = thisMeal?.ref!.isFixed ?? false
+                   }
         }
     }
 

@@ -4,7 +4,7 @@ import SwiftData
 struct AboutYouView: View {
 
     @AppStorage("numberOfMeals") private var numberOfMeals: Int = 1
-    @State private var meals: [Meal] = [Meal(mealName: "", date: .now, time: .now, imageData: nil, durationMeal: 0, status: .pendente, descriptionMeal: "", emotion: .normal)]
+    //@State private var meals: [Meal] = [Meal(mealName: "", date: .now, time: .now, imageData: nil, durationMeal: 0, status: .pendente, descriptionMeal: "", emotion: .normal)]
     @State private var selectedNumber = 1
     let range = 1...10
     @AppStorage("username") var username: String = ""
@@ -12,7 +12,7 @@ struct AboutYouView: View {
     private var modelContext
     @State private var username1: String = ""
     @State private var isActive: Bool = false
-    
+    @Query(sort: \LogMeal.date, order: .forward) var logs: [LogMeal]
     var body: some View {
         NavigationStack{
             
@@ -62,12 +62,12 @@ struct AboutYouView: View {
                     }
                 }
                 Button("Próximo", action: {
-                    meals = self.meals
+                  //  logs = self.logs
                     self.isActive = true
                 })
                 
                                .buttonStyle(.borderedProminent)
-                               .buttonSizing(.flexible)
+                              // .buttonSizing(.flexible)
                                .font(Font.title3)
                                .controlSize(.large)
                                .tint(.red)

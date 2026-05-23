@@ -10,35 +10,45 @@ import SwiftData
 import Foundation
 
 @Model
-class Meal: Identifiable {
-    var id: UUID = UUID()
-    var mealName: String = ""
-    var date: Date = Date() //Data que foi feita a refeicao
+class Meal {
+    var name: String
     var time: Date = Date() //Horário que a pessoa cadastrou a refeicao
+    var logs: [LogMeal]
+    var isFixed: Bool = false
+    init(name: String, logs: [LogMeal], time: Date, isFixed: Bool) {
+        self.name = name
+        self.logs = logs
+        self.time = time
+        self.isFixed = isFixed
+    }
+}
+
+
+@Model
+class LogMeal: Identifiable {
+    
+    var id: UUID = UUID()
+    var ref: Meal?
+    var date: Date = Date() //Data que foi feita a refeicao
     var imageData: Data?
     var durationMeal: Int = 0 //Tempo que a pessoa levou para comer
     var status: Status = Status.pendente
     var descriptionMeal: String = ""
     var emotion: Mood = Mood.normal
     
-    init(
-        mealName: String,
-        date: Date,
-        time: Date,
-        imageData: Data? = nil,
-        durationMeal: Int,
-        status: Status,
-        descriptionMeal: String,
-        emotion: Mood
-        
-    
+    init(ref: Meal,
+         date: Date,
+         imageData: Data? = nil,
+         durationMeal: Int,
+         status: Status,
+         descriptionMeal: String,
+         emotion: Mood
     ) {
-        self.mealName = mealName
+        self.ref = ref
         self.date = date
-        self.time = time
+        self.status = status
         self.imageData = imageData
         self.durationMeal = durationMeal
-        self.status = status
         self.descriptionMeal = descriptionMeal
         self.emotion = emotion
     }
@@ -61,6 +71,5 @@ class Meal: Identifiable {
         }
     }
 }
-
 
 

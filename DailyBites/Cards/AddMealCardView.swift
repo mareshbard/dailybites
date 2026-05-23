@@ -35,7 +35,7 @@ struct AddMealCardView: View {
                 Text("Nome da refeição")
                     .frame(width: 147, alignment: .leading)
                     .font(Font.body)
-                TextField("Nome", text: $meal.mealName)
+                TextField("Nome", text: $meal.name)
                     .font(Font.body)
                     .padding(10)
                     .frame(width: 147, height: 34)
