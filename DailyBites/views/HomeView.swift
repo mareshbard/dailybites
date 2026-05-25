@@ -13,9 +13,12 @@ struct HomeView: View {
     @Query(sort: \Meal.time, order: .forward) var meals: [Meal]
     @AppStorage("firstUse") var firstUse: Bool = false
     @Query(sort: \LogMeal.date, order: .forward) var logs: [LogMeal]
+    @State private var isActive: Bool = false
+    
     var body: some View {
         
         NavigationStack {
+            
             VStack{
                 VStack{
                     Text("Olá, \(username)")
@@ -28,22 +31,23 @@ struct HomeView: View {
                 }
                 .padding(.vertical,20)
                 StreakCard()
-                Text("Refeições do dia")
-                    .font(.title)
-                    .frame(maxWidth: .infinity, alignment: .leading)
+                HStack {
+                    Text("Refeições do dia")
+                        .font(.title)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+  
+                    Button("Adicionar"){
+                        isActive = true
+                    }
+                    NavigationLink(destination: AddNewMealView(meal: Meal(name: "", logs: [], time: Date(), isFixed: false)), isActive: $isActive){
+
+                    }
+                }
                 MealsView()
                     .navigationBarHidden(true)
             }
             .padding(.horizontal, 24)
         }
-        
-//        .onAppear{
-//            checkToday()
-//            if (firstTime == true){
-//                newMeals()
-//                firstUse = false
-//            }
-//        }
     }
     
     func checkToday() {
@@ -57,21 +61,6 @@ struct HomeView: View {
             firstTime = true
         }
     }
-//    
-//    func newMeals() {
-//        let today = Date().formatted(date: .abbreviated, time: .omitted)
-//  
-//        guard !logs.contains(where: { $0.date.formatted(date: .abbreviated, time: .omitted) == today }) else { return }
-//        
-//        let firstDay = logs.first?.date.formatted(date: .abbreviated, time: .omitted) ?? ""
-//        let templateMeals = logs.filter {
-//            $0.date.formatted(date: .abbreviated, time: .omitted) == firstDay
-//        }
-//        for meal in templateMeals {
-//           // modelContext.insert(Meal(mealName: meal.mealName, date: Date(), time: meal.time, durationMeal: 0, status: .pendente, descriptionMeal: "", emotion: .normal))
-//            print("New Meal Inserted")
-//        }
-//    }
 }
 
 #Preview {

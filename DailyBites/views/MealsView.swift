@@ -45,8 +45,8 @@ struct MealsView: View {
             return
         }
         
-        let meal1 = Meal(name: "Meal 1", logs: [], time: .now)
-        let meal2 = Meal(name: "Meal 2", logs: [], time: .now)
+        let meal1 = Meal(name: "Meal 1", logs: [], time: .now, isFixed: false)
+        let meal2 = Meal(name: "Meal 2", logs: [], time: .now, isFixed: false)
         
         modelContext.insert(meal1)
         modelContext.insert(meal2)
