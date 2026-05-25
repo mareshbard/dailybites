@@ -4,7 +4,7 @@ import SwiftData
 struct AboutYouView: View {
 
     @AppStorage("numberOfMeals") private var numberOfMeals: Int = 1
-    @State private var meals: [Meal] = [Meal(mealName: "", date: .now, time: .now, imageData: nil, durationMeal: 0, status: .pendente, descriptionMeal: "", emotion: .normal)]
+//    @State private var Meal: [Meal] = [Meal(mealName: "", date: .now, time: .now, imageData: nil, durationMeal: 0, status: .pendente, descriptionMeal: "", emotion: .normal)]
     @State private var selectedNumber = 1
     let range = 1...10
     @AppStorage("username") var username: String = ""
@@ -61,13 +61,11 @@ struct AboutYouView: View {
                             .frame(maxWidth: .infinity, maxHeight: 50, alignment: .leading)
                     }
                 }
-//                Button("Próximo", action: {
-//                    meals = self.meals
-//                    self.isActive = true
-//                    
-//                })
+
+                Spacer()
+                
                 Button {
-                    meals = self.meals
+//                    meals = self.meals
                     self.isActive = true
                 } label: {
                     Label("Próximo", systemImage: "")
@@ -79,8 +77,9 @@ struct AboutYouView: View {
                                .controlSize(.large)
                                .tint(.red)
                                .foregroundColor(Color(.white))
+                               
                 
-                Spacer()
+
             
                 NavigationLink(destination: PreferencesView(username1: username1, numberOfMeals: numberOfMeals), isActive: $isActive){
                    
@@ -88,9 +87,11 @@ struct AboutYouView: View {
  
                 
             }
+            .ignoresSafeArea(.keyboard, edges: .bottom)
         }
         .scrollDismissesKeyboard(.immediately)
         .padding(.horizontal, 24)
+
 
     }
 

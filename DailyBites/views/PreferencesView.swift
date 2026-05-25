@@ -95,6 +95,7 @@ struct PreferencesView: View {
             
         }
             .scrollDismissesKeyboard(.immediately)
+            .ignoresSafeArea(.keyboard, edges: .bottom)
             .onAppear(){
                 for _ in rangeMeals {
                     auxMeals.append(createMeal())
