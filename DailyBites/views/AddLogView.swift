@@ -2,9 +2,9 @@ import SwiftUI
 import SwiftData
 import Foundation
 
-struct AddLogMealView: View {
+struct AddNewMealView: View {
     
-    @Environment(\.modelContext) private var modelContext
+
     
     @Environment(\.dismiss) var dismiss
     
@@ -16,6 +16,10 @@ struct AddLogMealView: View {
     @State private var imageData: Data? = nil
     @State private var time = Date()
     @State private var date = Date()
+    @State private var isFixed: Bool = false
+    @Query var meals: [Meal]
+    @Environment(\.modelContext) var modelContext
+    
     let meal: Meal
     
     func addLog(){
@@ -25,8 +29,17 @@ struct AddLogMealView: View {
             todayLog.descriptionMeal = descriptionMeal
             todayLog.durationMeal = durationMeal
             todayLog.imageData = imageData
+            todayLog.ref!.isFixed = isFixed
+            
         }
         else{
+            let checkMeal = meals.count(where: { $0.name == mealName })
+            if checkMeal == 0 {
+                meal.name = mealName
+                meal.time = time
+                meal.isFixed = isFixed
+                modelContext.insert(meal)
+            }
             let log = LogMeal(
                 ref: meal,
                 date: date,
@@ -38,15 +51,39 @@ struct AddLogMealView: View {
             )
             modelContext.insert(log)
         }
-        
-        try? modelContext.save()
-        
+  
         dismiss()
     }
 
     var body: some View {
         NavigationStack {
                 Form {
+                    Section("Nome da refeição"){
+                        TextField("Digite o nome da refeição", text: $mealName)
+                            .textFieldStyle(OutlinedTextFieldStyle())
+                            .foregroundStyle(.secondary)
+                    }
+                    
+                    Section("Horário"){
+                        HStack{
+                            
+                            Text("Selecione o horário")
+                                .foregroundStyle(.secondary)
+                            Spacer()
+                            DatePicker("Selecione a hora", selection: $time, displayedComponents: .hourAndMinute)
+                                .labelsHidden()
+                                .tint(Color("VermelhoDailyBites"))
+                        }
+                        .padding(20)
+                        .overlay{
+                            RoundedRectangle( cornerRadius: 12)
+                                .fill(.clear)
+                                .stroke(Color.red, style: StrokeStyle(lineWidth: 0.5))
+                                .frame(maxWidth: .infinity, maxHeight: 50, alignment: .leading)
+                        }
+                        
+                    }
+                  
                     
                     Section("Foto"){
                         PhotoPickerView(imageData: $imageData)
@@ -65,10 +102,7 @@ struct AddLogMealView: View {
                                         .onTapGesture {
                                             selectedMood = mood
                                         }
-//                                        .onAppear{
-//                                            
-//                                            selectedMood = log.emotion
-//                                        }
+
                                 }
                                 Spacer()
                                 
@@ -80,7 +114,6 @@ struct AddLogMealView: View {
                         .padding(20)
                         .overlay{
                             RoundedRectangle( cornerRadius: 12)
-                            
                                 .fill(.clear)
                                 .stroke(Color.red, style: StrokeStyle(lineWidth: 0.5))
                                 .frame(maxWidth: .infinity, maxHeight: 50, alignment: .leading)
@@ -88,7 +121,7 @@ struct AddLogMealView: View {
                     }
                     .padding(.bottom, -10)
                     
-                    Section("Horário"){
+                    Section("Pontualidade"){
                         Picker("Clique para escolher", selection: $status){
                             ForEach(Status.allCases, id: \.self) {
                                 Text($0.title)
@@ -135,10 +168,19 @@ struct AddLogMealView: View {
                     }
                     .padding(.bottom, -10)
                     
+                    Toggle("Repetir", isOn: $isFixed)
+                        .tint(Color("VermelhoDailyBites"))
+                        .padding(20)
+                        .overlay{
+                            RoundedRectangle( cornerRadius: 12)
+                                .fill(.clear)
+                                .stroke(Color.red, style: StrokeStyle(lineWidth: 0.5))
+                                .frame(maxWidth: .infinity, maxHeight: 50, alignment: .leading)
+                        }
                 }
                 .scrollContentBackground(.hidden)
                 .navigationTitle(Text("Refeição"))
-         //       .navigationSubtitle(Text(meal.time, style: .time))
+               // .navigationSubtitle(Text(meal.time, style: .time))
                 .toolbarTitleDisplayMode(.inline)
                 .toolbar {
                     
@@ -148,7 +190,7 @@ struct AddLogMealView: View {
                         {
                             addLog()
                         }
-//                        .disabled(imageData == nil && log.status != .pendente)
+                        .disabled(status == .pendente)
                         .tint(Color("VermelhoDailyBites"))
                         
                     }
@@ -158,6 +200,9 @@ struct AddLogMealView: View {
         .toolbar(.hidden, for: .tabBar)
         .scrollDismissesKeyboard(.immediately)
         .onAppear {
+            mealName = meal.name
+            time = meal.time
+            isFixed = meal.isFixed
                        let thisMeal = meal.logs.last(where: { $0.ref!.name == meal.name })
                        mealName = meal.name
        
@@ -166,8 +211,9 @@ struct AddLogMealView: View {
                        }
                        descriptionMeal = thisMeal?.descriptionMeal ?? ""
                        status = thisMeal?.status ?? .pendente
-                       selectedMood = thisMeal?.emotion ?? .happy
+                       selectedMood = thisMeal?.emotion ?? .normal
                        durationMeal = thisMeal?.durationMeal ?? 0
+                       // isFixed = thisMeal?.ref!.isFixed ?? false
                    }
         }
     }
@@ -177,4 +223,3 @@ struct AddLogMealView: View {
 #Preview {
    // AddMealView()
 }
-

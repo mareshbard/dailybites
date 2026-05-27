@@ -6,12 +6,7 @@ struct MealsView: View {
     @AppStorage("lastOpen") var lastOpen = ""
     @State var auxMeals: [Meal] = []
     @Query(sort: \LogMeal.date, order: .forward) var logs: [LogMeal]
-//    var todayMeals: [Meal] {
-//        return meals.filter { meal in
-//            Calendar.current.isDateInToday(meal.date)
-//        }
-//    }
-    
+  
     var body: some View {
         
         VStack(alignment: .trailing) {
@@ -33,9 +28,7 @@ struct MealsView: View {
 }
 
 #Preview {
-//    var meal = Meal(mealName: "Café da Manhã", date: .now, time: .now, imageData: nil, durationMeal: 0, status: .pulou, descriptionMeal: "", emotion: .normal)
-//    var meal2 = Meal(mealName: "Jantar", date: .now, time: .now, imageData: nil, durationMeal: 0, status: .atrasado, descriptionMeal: "", emotion: .normal)
-//
+
     NavigationStack {
         MealsView()
             
@@ -50,8 +43,6 @@ struct MealsView: View {
         
         modelContext.insert(meal1)
         modelContext.insert(meal2)
-        //            modelContext.insert(
-        //                LogMeal(ref: meal1, date: .now, durationMeal: 10, status: .pontual, descriptionMeal: "", emotion: .happy)
-        //            )
+ 
     }
 }

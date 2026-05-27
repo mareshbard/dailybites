@@ -12,34 +12,20 @@ struct ContentView: View {
     @AppStorage("username") var username = ""
     @State private var showSplash = true
     @AppStorage("firstUse") var firstUse: Bool = true
+    @SceneStorage("selectedTab") private var selectedTabIndex: Int = 0
     var body: some View {
         ZStack{
-            if showSplash {
-                SplashScreenView()
-                    .transition(.opacity)
-//                    .animation(
-//                        .easeOut(duration: 0.5)
-//                    )
-            } else {
+      
                 if (username != "") {
                     TabBar()
-//                        .onAppear {
-//                       
-//                    }
+
                 } else {
                     AboutYouView()
+                    
                         .font(.largeTitle)
+                  
                 }
-            }
-        }
-        .onAppear{
-            DispatchQueue.main
-                .asyncAfter(deadline: .now() + 1)
-                {
-                    withAnimation {
-                        self.showSplash = false
-                    }
-                }
+            
         }
         
     }

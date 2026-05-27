@@ -11,7 +11,7 @@ struct MealCardView: View {
     }
     
     var body: some View {
-        NavigationLink(destination: AddLogMealView(meal: meal)) {
+        NavigationLink(destination: AddNewMealView(meal: meal)) {
       
             VStack(alignment: .leading) {
                 

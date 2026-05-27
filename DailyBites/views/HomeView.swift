@@ -14,7 +14,7 @@ struct HomeView: View {
     @AppStorage("firstUse") var firstUse: Bool = false
     @Query(sort: \LogMeal.date, order: .forward) var logs: [LogMeal]
     @State private var isActive: Bool = false
-    
+    @SceneStorage("selectedTab") private var selectedTabIndex: Int = 0
     var body: some View {
         
         NavigationStack {

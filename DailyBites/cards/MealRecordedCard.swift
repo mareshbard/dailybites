@@ -6,7 +6,7 @@ struct MealRecordedCard: View {
     var log: LogMeal
     var body: some View {
         NavigationStack{
-            NavigationLink (destination: AddLogMealView(meal: log.ref!)){
+            NavigationLink (destination: AddNewMealView(meal: log.ref!)){
                 VStack(alignment: .leading) {
                     if let image = log.image {
                         Image(uiImage: image)
@@ -20,7 +20,7 @@ struct MealRecordedCard: View {
                                 .font(.title3)
                                 .bold()
                                 .foregroundStyle(Color.primary)
-                            Text(log.date, format: .dateTime.day().month().year().hour().minute())
+                            Text(log.ref!.time, format: .dateTime.hour().minute())
                                 .font(.body)
                         }
                         Spacer()
