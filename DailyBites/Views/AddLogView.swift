@@ -189,6 +189,8 @@ struct AddNewMealView: View {
                         Button("Salvar", systemImage: "checkmark")
                         {
                             addLog()
+                            meal.name = mealName
+                            meal.time = time
                         }
                         .disabled(status == .pendente)
                         .tint(Color("VermelhoDailyBites"))
