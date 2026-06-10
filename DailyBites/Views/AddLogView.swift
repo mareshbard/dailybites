@@ -1,23 +1,24 @@
 import SwiftUI
 import SwiftData
 import Foundation
+import UserNotifications
 
 struct AddNewMealView: View {
-    
-
     
     @Environment(\.dismiss) var dismiss
     
     @State private var mealName: String = ""
     @State private var descriptionMeal: String = ""
+    @State private var satiety: Satiety = Satiety.satisfeito
     @State private var status: Status = Status.pendente
     @State private var durationMeal: Int = 0
-    @State private var selectedMood: Mood = .normal
+    @State private var selectedMood: Mood = .neutral
     @State private var imageData: Data? = nil
     @State private var time = Date()
     @State private var date = Date()
     @State private var isFixed: Bool = false
     @Query var meals: [Meal]
+    
     @Environment(\.modelContext) var modelContext
     
     let meal: Meal
@@ -43,6 +44,7 @@ struct AddNewMealView: View {
             let log = LogMeal(
                 ref: meal,
                 date: date,
+                satiety: satiety,
                 imageData: imageData,
                 durationMeal: durationMeal,
                 status: status,
@@ -213,7 +215,7 @@ struct AddNewMealView: View {
                        }
                        descriptionMeal = thisMeal?.descriptionMeal ?? ""
                        status = thisMeal?.status ?? .pendente
-                       selectedMood = thisMeal?.emotion ?? .normal
+                       selectedMood = thisMeal?.emotion ?? .neutral
                        durationMeal = thisMeal?.durationMeal ?? 0
                        // isFixed = thisMeal?.ref!.isFixed ?? false
                    }
