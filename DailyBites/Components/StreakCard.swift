@@ -56,11 +56,11 @@ struct StreakCard: View {
         let calendar = Calendar.current
         let today = calendar.startOfDay(for: Date())
         let last = Date(timeIntervalSince1970: lastStreakDate)
-
+        
         if calendar.isDate(last, inSameDayAs: today) {
             return
         }
-       
+        
         let completed = logs.contains {
             calendar.isDate($0.date, inSameDayAs: today) && $0.status != .pendente
         }

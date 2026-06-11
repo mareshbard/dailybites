@@ -22,6 +22,9 @@ enum Status: String, CaseIterable, Codable, Plottable {
         case .pendente: return "Pendente"
         }
     }
+    static func fromTitle (_ title: String) -> Status? {
+        Status.allCases.first{$0.title == title}
+    }
 }
 
 

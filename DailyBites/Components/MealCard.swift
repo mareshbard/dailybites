@@ -3,7 +3,7 @@ import SwiftUI
 struct MealCardView: View {
     
     var meal: Meal
-    
+    @State private var showSheetAddLogMeal: Bool = false
     var todayLog: LogMeal? {
         meal.logs.first { log in
             Calendar.current.isDateInToday(log.date)
@@ -11,7 +11,7 @@ struct MealCardView: View {
     }
     
     var body: some View {
-        NavigationLink(destination: EditLogMeal(meal: meal)) {
+        NavigationLink(destination: SheetAddLogMealView(meal: meal)) {
             
             HStack {
                 VStack(alignment: .leading){

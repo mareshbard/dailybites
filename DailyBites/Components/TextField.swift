@@ -9,23 +9,23 @@ import SwiftUI
 
 struct OutlinedTextFieldStyle: TextFieldStyle {
     func _body(configuration: TextField<Self._Label>) -> some View {
-            configuration
-           .padding(20)
+        configuration
+            .padding(20)
             .overlay {
                 
                 RoundedRectangle( cornerRadius: 12)
                 
                     .fill(.clear)
-                    .stroke(Color.black, style: StrokeStyle(lineWidth: 1.5))
-                    .frame(maxWidth: .infinity, alignment: .leading)
-        }
+                    .stroke(Color.red, style: StrokeStyle(lineWidth: 0.5))
+                    .frame(maxWidth: .infinity, maxHeight: 50, alignment: .leading)
+            }
     }
 }
 
 struct OutlinedTextFieldStyleDescription: TextFieldStyle {
     func _body(configuration: TextField<Self._Label>) -> some View {
-            configuration
-           .padding(10)
+        configuration
+            .padding(10)
             .overlay {
                 
                 RoundedRectangle( cornerRadius: 12)
@@ -33,8 +33,8 @@ struct OutlinedTextFieldStyleDescription: TextFieldStyle {
                     .fill(.clear)
                     .stroke(Color.red, style: StrokeStyle(lineWidth: 0.5))
                     .frame(maxWidth: .infinity, maxHeight: 300, alignment: .leading)
-        }
+            }
     }
 }
-    
+
 
