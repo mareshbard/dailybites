@@ -2,7 +2,7 @@ import SwiftUI
 import SwiftData
 import Foundation
 
-struct AddNewMealView: View {
+struct EditLogMeal: View {
     
 
     
@@ -192,11 +192,8 @@ struct AddNewMealView: View {
                             addLog()
                             meal.name = mealName
                             meal.time = time
-                            numberOfMeals += 1
                         }
-                   //     .disabled(status == .pendente)
                         .tint(Color("VermelhoDailyBites"))
-                        
                     }
                 }
                 
