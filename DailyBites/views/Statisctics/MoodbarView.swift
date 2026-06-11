@@ -10,10 +10,11 @@ import SwiftData
 
 struct MoodbarView: View {
     
+    @Environment(\.dismiss) private var dismiss
+    
     @Query(sort: \LogMeal.date, order: .forward) var logs: [LogMeal]
     
     var percentage: [Double]{
-        
         var result: [Double] = []
         for mood in Mood.allCases {
             let filtered_meals: [LogMeal] = logs.filter({$0.status != .pendente && $0.status != .pulou})
@@ -30,64 +31,89 @@ struct MoodbarView: View {
     }
     
     var body: some View {
-        ScrollView{
-            VStack{
-                
+        NavigationStack {
+            ScrollView {
                 VStack{
                     
-                    
-                    HStack {
+                    ViewThatFits{
                         
-                        
-                        ForEach(Mood.allCases, id: \.self){ mood in
-                            Text(mood.rawValue)//mostra os Moods
+                        HStack {
+                            ForEach(Mood.allCases.indices, id: \.self) { index in
+                                VStack(spacing: 10) {
+                                    Text(Mood.allCases[index].rawValue)
+                                        .font(.largeTitle)
+                                    
+                                    Text(MoodDescription.allCases[index].rawValue)
+                                        .font(.headline)
+                                    
+                                    Text(
+                                        "\(String(format: "%.0f", percentage[index]))%"
+                                    )
+                                    .font(.body)
+                                }
+                            }
                         }
                         .padding(10)
-                        .font(.largeTitle)
+                        .frame(maxWidth: .infinity)
+                        .background(Color.gray.opacity(0.1))
+                        .clipShape(RoundedRectangle(cornerRadius: 12))
                         
-                    }
-                    
-                    HStack {
                         
-                        ForEach(MoodDescription.allCases, id: \.self){ mood in
-                            Text(mood.rawValue)//mostra a legenda dos moods
+                        VStack(alignment: .leading){
+                            ForEach(Mood.allCases.indices, id: \.self) { index in
+                                HStack(alignment: .center) {
+                                    Text(Mood.allCases[index].rawValue)
+                                        .font(.largeTitle)
+                                    
+                                    Text(MoodDescription.allCases[index].rawValue)
+                                        .font(.headline)
+                                    
+                                    Spacer()
+                                    
+                                    Text(
+                                        "\(String(format: "%.0f", percentage[index]))%"
+                                    )
+                                    .font(.body)
+                                }
+                                .frame(maxWidth: .infinity, alignment: .topLeading)
+                            }
                         }
                         .padding(10)
-                        .font(.headline)
-            
+                        .frame(maxWidth: .infinity, alignment: .topLeading)
+                        .background(Color.gray.opacity(0.1))
+                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                        
                     }
-
                     
-                    HStack {
+                    VStack {
+                        Text("O que o seu humor tem a ver com o que você come?")
+                            .font(.title2.bold())
+                            .frame(maxWidth: .infinity, alignment: .leading)
                         
-                        ForEach(percentage, id: \.self){ percentage in
-                            Text("\(String(format: "%.0f", percentage))%")
-                        } //mostra as porcentagens
-                        .padding(10)
-                        .font(.body)
-                        
+                        Text("Em momentos de estresse ou tristeza, tendemos a buscar comidas reconfortantes, como doces e alimentos ricos em gorduras. Registrar como você se sente em cada refeição ajuda a identificar padrões emocionais antes que virem hábitos.")
                     }
+                    .padding(10)
+                    .background(Color.gray.opacity(0.1))
                     
                 }
                 .padding(10)
-                .frame(maxWidth: .infinity)
-                .background(Color.gray.opacity(0.1))
-
-                VStack {
-                    Text("O que o seu humor tem a ver com o que você come?")
-                        .font(.title2.bold())
-                        .frame(maxWidth: .infinity, alignment: .leading)
+                .cornerRadius(12)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .toolbar {
+                    ToolbarItem(placement: .cancellationAction ) {
+                        
+                        Button {
+                            dismiss()
+                        } label: {
+                            Image(systemName: "xmark")
+                        }
+                    }
                     
-                    Text("Em momentos de estresse ou tristeza, tendemos a buscar comidas reconfortantes, como doces e alimentos ricos em gorduras. Registrar como você se sente em cada refeição ajuda a identificar padrões emocionais antes que virem hábitos.")
+                    ToolbarItem(placement: .title){
+                        Text("Humor")
+                    }
                 }
-                .padding(10)
-                .background(Color.gray.opacity(0.1))
-
             }
-            
-            .padding(10)
-            .cornerRadius(12)
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
         
     }
