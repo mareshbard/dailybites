@@ -38,8 +38,6 @@ struct PontualityView: View {
     var body: some View {
         NavigationStack{
             List {
-                VStack{
-                    
                     ViewThatFits{
                         HStack{
                             Chart {
@@ -151,7 +149,6 @@ struct PontualityView: View {
                             Text("Segundo o Ministério da Saúde, manter a pontualidade e a regularidade nas refeições equilibra os sinais de fome e saciedade. Essa rotina evita excessos e o consumo de ultraprocessados, sendo essencial para o bom funcionamento do metabolismo.")
                             
                             Image("pineappleGlass")
-                                .frame(width: 100, height: 100)
                                 .padding(10)
                                 
                             
@@ -160,10 +157,7 @@ struct PontualityView: View {
                     }
                     .padding(10)
                     .background(Color.gray.opacity(0.1))
-                    
-                    
-                }
-                .listRowSeparator(.hidden)
+                    .listRowSeparator(.hidden)
             }
 
             .toolbar {
