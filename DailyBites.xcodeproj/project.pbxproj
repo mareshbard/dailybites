@@ -10,22 +10,9 @@
 		CE5CD3162F98EF6500CE9010 /* DailyBites.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyBites.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-	ADB9A1D92FD060C900C579FC /* Exceptions for "DailyBites" folder in "DailyBites" target */ = {
-		isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-		membershipExceptions = (
-			Info.plist,
-		);
-		target = CE5CD3152F98EF6500CE9010 /* DailyBites */;
-	};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		CE5CD3182F98EF6500CE9010 /* DailyBites */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				1DCECBB02FD83C3900F3C2E7 /* Exceptions for "DailyBites" folder in "DailyBites" target */,
-			);
 			path = DailyBites;
 			sourceTree = "<group>";
 		};

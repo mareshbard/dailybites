@@ -12,7 +12,7 @@ struct EditLogMeal: View {
     @State private var descriptionMeal: String = ""
     @State private var status: Status = Status.pendente
     @State private var durationMeal: Int = 0
-    @State private var selectedMood: Mood = .normal
+    @State private var selectedMood: Mood = .neutral
     @State private var imageData: Data? = nil
     @State private var time = Date()
     @State private var date = Date()
@@ -44,6 +44,7 @@ struct EditLogMeal: View {
             let log = LogMeal(
                 ref: meal,
                 date: date,
+                satiety: .satisfeito,
                 imageData: imageData,
                 durationMeal: durationMeal,
                 status: status,
@@ -212,7 +213,7 @@ struct EditLogMeal: View {
                        }
                        descriptionMeal = thisMeal?.descriptionMeal ?? ""
                        status = thisMeal?.status ?? .pendente
-                       selectedMood = thisMeal?.emotion ?? .normal
+                       selectedMood = thisMeal?.emotion ?? .neutral
                        durationMeal = thisMeal?.durationMeal ?? 0
                        // isFixed = thisMeal?.ref!.isFixed ?? false
                    }

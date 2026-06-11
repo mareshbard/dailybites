@@ -11,7 +11,7 @@ struct MealCardView: View {
     }
     
     var body: some View {
-        NavigationLink(destination: SheetAddLogMealView(meal: meal)) {
+//        NavigationLink(destination: SheetAddLogMealView(meal: meal)) {
             
             HStack {
                 VStack(alignment: .leading){
@@ -43,12 +43,19 @@ struct MealCardView: View {
                         .font(Font.custom("PlusJakartaSans-Medium", size: 15))
                 }
             }
-        }
+//        }
         .accessibilityHint("Clique para registrar ou editar a refeição")
         .frame(maxWidth: .infinity)
+       
         .padding(20)
         .background(Color.white)
         .cornerRadius(15)
+        .onTapGesture {
+           showSheetAddLogMeal = true
+        }
+        .sheet(isPresented: $showSheetAddLogMeal) {
+            SheetAddLogMealView(meal: meal)
+        }
     }
 }
 

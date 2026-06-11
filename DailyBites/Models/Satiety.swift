@@ -7,7 +7,7 @@
 import Charts
 import Foundation
 
-enum Satiety: String, CaseIterable, Codable, Plottable {
+enum Satiety: String, CaseIterable, Codable, Plottable{
     case muitaFome
     case fome
     case satisfeito
