@@ -12,7 +12,7 @@ struct MealCardView: View {
     
     var body: some View {
         NavigationLink(destination: SheetAddLogMealView(meal: meal)) {
-      
+            
             VStack(alignment: .leading) {
                 
                 Text(meal.name)
@@ -53,27 +53,27 @@ struct MealCardView: View {
                 }
                 
             }
-//        }
+            //        }
             .padding(.vertical, 13)
             .padding(.horizontal, 15)
             .overlay {
                 RoundedRectangle(cornerRadius: 12)
                     .fill(.clear)
                     .stroke(Color.gray, style: StrokeStyle(lineWidth: 0.5))
-//                    .frame(minWidth: .infinity, minHeight: 100)
-//                    .onTapGesture {
-//                        showSheetAddLogMeal = true
-                    }
-                    .sheet(isPresented: $showSheetAddLogMeal) {
-                        SheetAddLogMealView(meal: meal)
-                    }
+                //                    .frame(minWidth: .infinity, minHeight: 100)
+                //                    .onTapGesture {
+                //                        showSheetAddLogMeal = true
             }
-            .padding(24)
+            .sheet(isPresented: $showSheetAddLogMeal) {
+                SheetAddLogMealView(meal: meal)
+            }
         }
+        .padding(24)
     }
+}
 
 
 #Preview {
     // let meal = Meal(mealName: "Pasta", date: Date(), time: Date(), durationMeal: 20, status: Status.pulou, descriptionMeal: "Simple pasta", emotion: .normal)
-//     MealCardView(meal: meal)
+    //     MealCardView(meal: meal)
 }

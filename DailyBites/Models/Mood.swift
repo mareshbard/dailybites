@@ -20,7 +20,7 @@ enum Mood: String, CaseIterable, Codable, Plottable{
         case .veryhappy: return Image("muito-feliz")
         }
     }
-  
+    
     var title: String {
         switch self {
         case .verysad: return "Muito triste"

@@ -27,7 +27,7 @@ struct RepeatMeals: View {
             .padding(.horizontal, 7)
             Divider()
             
-
+            
             HStack(spacing: 5) {
                 ForEach(0..<7, id: \.self) { index in
                     Button {
@@ -46,9 +46,9 @@ struct RepeatMeals: View {
                             .font(.subheadline.bold())
                             .foregroundStyle(
                                 repeatDays.contains(index) && isFixed
-                                    ? AnyShapeStyle(Color.white)
-                                    : isFixed
-                                        ? AnyShapeStyle(Color.primary)
+                                ? AnyShapeStyle(Color.white)
+                                : isFixed
+                                ? AnyShapeStyle(Color.primary)
                                 : AnyShapeStyle(Color.secondary)
                             )
                             .frame(width: 40, height: 40)
@@ -56,11 +56,11 @@ struct RepeatMeals: View {
                                 Circle()
                                     .fill(
                                         repeatDays.contains(index) && isFixed
-                                            ? Color("RoxoDailyBites")
-                                            : Color(.systemGray5)
+                                        ? Color("RoxoDailyBites")
+                                        : Color(.systemGray5)
                                     )
                             )
-                            
+                        
                     }
                     .accessibilityLabel(Text("\(days[index].dia) \(repeatDays.contains(index) ? "selecionado" : "desselecionado")"))
                     .accessibilityHidden(isFixed ? false : true)

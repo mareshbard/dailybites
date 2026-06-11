@@ -15,9 +15,9 @@ struct EmojiSelector: View {
                         .resizable()
                         .scaledToFit()
                         .frame(width:50, height:50, alignment: .top)
-    
+                    
                     Text(mood.title)
-                      
+                    
                         .font(Font.subheadline)
                         .foregroundStyle(.primary)
                         .lineLimit(2)
@@ -37,13 +37,13 @@ struct EmojiSelector: View {
                         .frame(minWidth:50, minHeight:110, alignment:.leading)
                 )
             }
-           
+            
         }
         .padding(.horizontal, 8)
         .frame(maxWidth: .infinity, minHeight: 120, alignment: .center)
         .background(
             RoundedRectangle(cornerRadius: 10)
                 .fill(Color(.systemBackground))
-            )
+        )
     }
 }

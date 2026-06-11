@@ -53,6 +53,6 @@ struct MealRecordedCard: View {
 }
 
 #Preview {
-//    let meal = Meal(mealName: "Pasta", date: Date(), time: Date(), durationMeal: 20, status: Status.pulou, descriptionMeal: "Simple pasta", emotion: .normal)
-//    MealCardView(meal: meal)
+    //    let meal = Meal(mealName: "Pasta", date: Date(), time: Date(), durationMeal: 20, status: Status.pulou, descriptionMeal: "Simple pasta", emotion: .normal)
+    //    MealCardView(meal: meal)
 }

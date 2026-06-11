@@ -12,7 +12,7 @@ struct FocusableTextField: View {
             .background(
                 RoundedRectangle(cornerRadius: 10)
                     .fill(Color(.systemBackground))
-                .stroke(isFocused ? Color("RoxoDailyBites") : Color.clear, lineWidth: 2)
+                    .stroke(isFocused ? Color("RoxoDailyBites") : Color.clear, lineWidth: 2)
             )
             .focused($isFocused)
     }
@@ -29,12 +29,12 @@ struct FocusableTextFieldDescription: View {
             .frame(maxWidth: .infinity, minHeight: 120, alignment: .topLeading)
             .background(
                 RoundedRectangle(cornerRadius: 10)
-                .fill(Color(.systemBackground))
-                .stroke(isFocused ? Color("RoxoDailyBites") : Color.clear, lineWidth: 2)
-                    
+                    .fill(Color(.systemBackground))
+                    .stroke(isFocused ? Color("RoxoDailyBites") : Color.clear, lineWidth: 2)
+                
             )
             .focused($isFocused)
-            
+        
     }
 }
 struct PickerField: View {
@@ -44,7 +44,7 @@ struct PickerField: View {
     let defaultValue: String
     @State private var isFocused = false
     let feedback = UIImpactFeedbackGenerator(style: .soft)
-
+    
     var body: some View {
         Menu {
             ForEach(options, id: \.self) { option in
@@ -66,8 +66,8 @@ struct PickerField: View {
                 Text(selected == defaultValue ? placeholder : selected)
                     .foregroundStyle(
                         selected == defaultValue
-                            ? Color(.tertiaryLabel)
-                            : Color(.label)
+                        ? Color(.tertiaryLabel)
+                        : Color(.label)
                     )
                 Spacer()
                 Image(systemName: "chevron.up.chevron.down")
