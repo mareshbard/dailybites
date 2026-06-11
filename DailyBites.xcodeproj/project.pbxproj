@@ -99,11 +99,12 @@
 				};
 			};
 			buildConfigurationList = CE5CD3112F98EF6500CE9010 /* Build configuration list for PBXProject "DailyBites" */;
-			developmentRegion = en;
+			developmentRegion = "pt-BR";
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
+				"pt-BR",
 			);
 			mainGroup = CE5CD30D2F98EF6500CE9010;
 			minimizedProjectReferenceProxies = 1;
