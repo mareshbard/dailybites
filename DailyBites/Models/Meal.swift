@@ -66,13 +66,26 @@ class LogMeal: Identifiable {
     var color: Color {
         switch status {
         case .pendente:
-            return .gray
+            return .pendenteTag.opacity(0.2)
         case .atrasado:
-            return .laranjaAtrasado
+            return .atrasadaTag.opacity(0.25)
         case .pontual:
-            return .verdePontual
+            return .pontualTag.opacity(0.5)
         case .pulou:
-            return .vermelhoDailyBites
+            return .nãoRealizadaTag.opacity(0.5)
+        }
+    }
+    
+    var fontColor: Color {
+        switch status {
+        case .pendente:
+            return .corPendente
+        case .atrasado:
+            return .corAtrasado
+        case .pontual:
+            return .corPontual
+        case .pulou:
+            return .corNaoRealizada
         }
     }
 }

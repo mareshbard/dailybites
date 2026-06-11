@@ -88,9 +88,10 @@ struct AboutYouView: View {
                 
             }
             .ignoresSafeArea(.keyboard, edges: .bottom)
+            .padding(.horizontal, 24)
         }
         .scrollDismissesKeyboard(.immediately)
-        .padding(.horizontal, 24)
+        
 
 
     }

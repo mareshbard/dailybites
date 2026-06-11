@@ -1,58 +1,82 @@
-//
-//  AddMealCardView.swift
-//  DailyBites
-//
-//  Created by USER on 24/04/26.
-//
-
 import SwiftUI
 import SwiftData
 
 struct AddMealCardView: View {
     @State var mealName: String = ""
     @State var time: Date = Date()
+    @ScaledMetric(relativeTo: .body) var scaledPadding: CGFloat = 10
     
     var meal: Meal
     
     var body: some View {
         
-        HStack(alignment: .center, spacing: 16) {
-            //pra poder atualizar o objeto do sd em tempo real
-            @Bindable var meal = meal
-            
-            ZStack(alignment: .center){
-                Circle()
-                    .fill(Color("LightRed"))
+        VStack(alignment: .trailing){
+            Image(decorative: "purple-pattern")
+                .resizable()
+                .scaledToFit()
+            HStack(alignment: .top, spacing: 15) {
+                //pra poder atualizar o objeto do sd em tempo real
+                @Bindable var meal = meal
                 
-                Image(systemName: "fork.knife")
-                    .resizable()
-                    .frame(width: 24, height: 30)
-                    .foregroundStyle(Color.red)
+                
+                VStack(alignment: .center, spacing: 10){
+                    
+                    Section("Nome da refeição"){
+                        
+                        TextField("Digite o nome da refeição", text: $meal.name)
+                            .font(Font.body)
+                          //  .padding(.leading, 10)
+                            .padding(.vertical, 7)
+                            .padding(.horizontal, 10)
+                            .background(Color.secondary.opacity(0.1))
+                            .cornerRadius(100)
+                            .padding(.bottom, 13)
+                            .multilineTextAlignment(.center)
+                           
+                    }
+                    .accessibilitySortPriority(2)
+                 //   .frame(alignment: .leading)
+                    .font(Font.custom("PlusJakartaSans-Semibold", size: 18))
+                }
+                Spacer()
+                VStack(alignment: .center, spacing: 10){
+                    Section("Horário"){
+
+                        DatePicker("Selecione o horário", selection: $meal.time, displayedComponents: .hourAndMinute)
+                            .labelsHidden()
+                            .accessibilitySortPriority(2)
+                            .tint(Color("VermelhoDailyBites"))
+                            .accessibilityElement(children: .ignore)
+                            .accessibilityLabel(Text("Selecione o horário"))
+                        // perguntar se devo deixar "time picker" e se é traduzido
+                    }
+                    .accessibilitySortPriority(1)
+                    .frame(alignment: .leading)
+                    .font(Font.custom("PlusJakartaSans-Semibold", size: 18))
+                }
             }
-            .frame(width: 60, height: 60, alignment: .center)
-            
-            VStack(alignment: .leading, spacing: 10){
-                Text("Nome da refeição")
-                    .frame(width: 147, alignment: .leading)
-                    .font(Font.body)
-                TextField("Nome", text: $meal.name)
-                    .font(Font.body)
-                    .padding(10)
-                    .frame(width: 147, height: 34)
-                    .background(Color.secondary.opacity(0.1))
-                    .cornerRadius(100)
-            }
-            VStack{
-                Text("Horário")
-                    .font(Font.body)
-                DatePicker("Selecione a data", selection: $meal.time, displayedComponents: .hourAndMinute)
-                    .labelsHidden()
-                    .tint(Color("VermelhoDailyBites"))
-            }
+            .accessibilityElement(children: .contain)
+            .padding(.horizontal, 15)
+            .padding(.vertical, 5)
+            .frame(maxWidth: .infinity)
+            .cornerRadius(10)
+            // .padding(scaledPadding)
         }
+        
+        .overlay {
+            
+            RoundedRectangle( cornerRadius: 12)
+            
+                .fill(.clear)
+                .stroke(Color.roxoStroke, style: StrokeStyle(lineWidth: 1.5))
+                .frame(maxWidth: .infinity, alignment: .leading)
+        }
+        //.padding()
     }
 }
 
 #Preview {
-    //  PreferencesView()
+    let meal1 = Meal(name: "Meal 1", logs: [], time: .now, isFixed: false)
+    let meal2 = Meal(name: "Meal 2", logs: [], time: .now, isFixed: false)
+    AddMealCardView(meal: meal1)
 }
