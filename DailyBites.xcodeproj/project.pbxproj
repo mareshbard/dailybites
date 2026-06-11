@@ -12,6 +12,7 @@
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
 		1DCECBB02FD83C3900F3C2E7 /* Exceptions for "DailyBites" folder in "DailyBites" target */ = {
+		ADB9A1D92FD060C900C579FC /* Exceptions for "DailyBites" folder in "DailyBites" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
@@ -99,11 +100,12 @@
 				};
 			};
 			buildConfigurationList = CE5CD3112F98EF6500CE9010 /* Build configuration list for PBXProject "DailyBites" */;
-			developmentRegion = en;
+			developmentRegion = "pt-BR";
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
+				"pt-BR",
 			);
 			mainGroup = CE5CD30D2F98EF6500CE9010;
 			minimizedProjectReferenceProxies = 1;

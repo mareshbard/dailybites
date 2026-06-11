@@ -16,8 +16,8 @@ enum Status: String, CaseIterable, Codable, Plottable {
     
     var title: String {
         switch self {
-        case .pontual: return "Pontual"
-        case .atrasado: return "Atrasado"
+        case .pontual: return "Realizada"
+        case .atrasado: return "Realizada com atraso"
         case .pulou: return "Não realizada"
         case .pendente: return "Pendente"
         }

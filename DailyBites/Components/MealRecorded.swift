@@ -6,7 +6,7 @@ struct MealRecordedCard: View {
     var log: LogMeal
     var body: some View {
         NavigationStack{
-            NavigationLink (destination: AddNewMealView(meal: log.ref!)){
+            
                 VStack(alignment: .leading) {
                     if let image = log.image {
                         Image(uiImage: image)
@@ -43,14 +43,9 @@ struct MealRecordedCard: View {
             }
             .navigationLinkIndicatorVisibility(.hidden)
         }
-        .overlay {
-            RoundedRectangle( cornerRadius: 12)
-                .fill(.clear)
-                .stroke(Color.gray, style: StrokeStyle(lineWidth: 0.5))
-        }
-        .padding(.vertical, 24)
+
     }
-}
+
 
 #Preview {
     //    let meal = Meal(mealName: "Pasta", date: Date(), time: Date(), durationMeal: 20, status: Status.pulou, descriptionMeal: "Simple pasta", emotion: .normal)

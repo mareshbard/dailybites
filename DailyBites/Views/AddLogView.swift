@@ -18,13 +18,13 @@ struct AddNewMealView: View {
     @State private var date = Date()
     @State private var isFixed: Bool = false
     @Query var meals: [Meal]
-    
+    @AppStorage("numberOfMeals") var numberOfMeals: Int = 1
     @Environment(\.modelContext) var modelContext
     
     let meal: Meal
     
     func addLog(){
-        if let todayLog = meal.logs.last(where: { $0.ref!.name == meal.name }){
+        if let todayLog = meal.logs.last(where: { $0.ref!.name == meal.name && Calendar.current.isDate($0.date, inSameDayAs: Date()) }){
             todayLog.emotion = selectedMood
             todayLog.status = status
             todayLog.descriptionMeal = descriptionMeal
@@ -193,8 +193,9 @@ struct AddNewMealView: View {
                             addLog()
                             meal.name = mealName
                             meal.time = time
+                            numberOfMeals += 1
                         }
-                        .disabled(status == .pendente)
+                   //     .disabled(status == .pendente)
                         .tint(Color("VermelhoDailyBites"))
                         
                     }
@@ -207,7 +208,7 @@ struct AddNewMealView: View {
             mealName = meal.name
             time = meal.time
             isFixed = meal.isFixed
-                       let thisMeal = meal.logs.last(where: { $0.ref!.name == meal.name })
+                       let thisMeal = meal.logs.last(where: { $0.ref!.name == meal.name && Calendar.current.isDate($0.date, inSameDayAs: Date())})
                        mealName = meal.name
        
                        if let imageData = thisMeal?.imageData {
