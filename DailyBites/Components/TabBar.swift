@@ -17,7 +17,7 @@ struct TabBar: View {
             }
         }
         .tabViewStyle(.sidebarAdaptable)
-        .accentColor(Color("CordeAção"))
+        .accentColor(Color("RoxoAcao"))
     }
 }
 

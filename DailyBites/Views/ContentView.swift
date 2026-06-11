@@ -18,7 +18,6 @@ struct ContentView: View {
       
                 if (username != "") {
                     TabBar()
-
                 } else {
                     AboutYouView()
                     

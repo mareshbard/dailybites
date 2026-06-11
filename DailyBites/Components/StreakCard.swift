@@ -9,21 +9,44 @@ struct StreakCard: View {
     @Query(sort: \LogMeal.date, order: .forward) var logs: [LogMeal]
     var body: some View {
         
-        HStack(spacing: 15) {
-            Image("happy-apple")
-            VStack(alignment: .leading) {
-                Text("Continue assim!")
+        VStack(alignment: .leading) {
+            HStack {
+                Image(systemName: "bolt.fill")
+                    .accessibilityHidden(true)
+                Text("STREAK")
                     .bold()
-                    .font(.title2)
-                    .foregroundStyle(Color(.black))
-                Text("\(streak) dia(s) registrando suas refeições")
-                    .foregroundStyle(Color(.black))
+                                }
+            .font(.caption)
+
+            .foregroundColor(Color.roxoAcao)
+            HStack {
+                Spacer()
+                Image("Uva")
             }
+            Spacer()
+            VStack(alignment: .leading) {
+                
+                
+                Text("você registrou")
+                    .font(Font.custom("PlusJakartaSans-Semibold", size: 16))
+                HStack(alignment: .bottom) {
+                    Text("100")
+                        .font(Font.custom("PlusJakartaSans-Semibold", size: 60))
+                        .bold(true)
+                        .foregroundStyle(Color.roxoAcao)
+                    
+                    Text("dias")
+                        .font(Font.custom("PlusJakartaSans-Semibold", size: 16))
+                }
+                .frame(maxWidth: .infinity)
+            }
+            .accessibilityElement(children: .combine)
         }
-        .frame(maxWidth: .infinity)
-        .padding(20)
-        .background(Color.lightRed)
+        .accessibilityElement(children: .contain)
+        .padding(10)
+        .background(Color.roxoBackground)
         .cornerRadius(12)
+        .frame(maxWidth: .infinity)
         .onAppear { checkAction() }
         .onChange(of: meals) { checkAction() }
     }
