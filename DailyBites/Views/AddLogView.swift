@@ -18,11 +18,9 @@ struct AddNewMealView: View {
     @State private var date = Date()
     @State private var isFixed: Bool = false
     @Query var meals: [Meal]
-<<<<<<< HEAD
-    
-=======
+
     @AppStorage("numberOfMeals") var numberOfMeals: Int = 1
->>>>>>> home-screen
+
     @Environment(\.modelContext) var modelContext
     
     let meal: Meal

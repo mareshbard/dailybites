@@ -12,11 +12,15 @@ struct EditLogMeal: View {
     @State private var descriptionMeal: String = ""
     @State private var status: Status = Status.pendente
     @State private var durationMeal: Int = 0
-    @State private var selectedMood: Mood = .normal
+    @State private var selectedMood: Mood = .neutral
+    @State private var satiety: Satiety = Satiety.satisfeito
     @State private var imageData: Data? = nil
     @State private var time = Date()
     @State private var date = Date()
     @State private var isFixed: Bool = false
+    @State private var auxDuration: String = ""
+    @State private var repeatDays: [Int] = []
+    
     @Query var meals: [Meal]
     @AppStorage("numberOfMeals") var numberOfMeals: Int = 1
     @Environment(\.modelContext) var modelContext
@@ -27,6 +31,7 @@ struct EditLogMeal: View {
         if let todayLog = meal.logs.last(where: { $0.ref!.name == meal.name && Calendar.current.isDate($0.date, inSameDayAs: Date()) }){
             todayLog.emotion = selectedMood
             todayLog.status = status
+            todayLog.satiety = satiety
             todayLog.descriptionMeal = descriptionMeal
             todayLog.durationMeal = durationMeal
             todayLog.imageData = imageData
@@ -39,11 +44,13 @@ struct EditLogMeal: View {
                 meal.name = mealName
                 meal.time = time
                 meal.isFixed = isFixed
+                meal.repeatDays = repeatDays
                 modelContext.insert(meal)
             }
             let log = LogMeal(
                 ref: meal,
                 date: date,
+                satiety: satiety,
                 imageData: imageData,
                 durationMeal: durationMeal,
                 status: status,
@@ -52,7 +59,6 @@ struct EditLogMeal: View {
             )
             modelContext.insert(log)
         }
-  
         dismiss()
     }
 
@@ -212,7 +218,7 @@ struct EditLogMeal: View {
                        }
                        descriptionMeal = thisMeal?.descriptionMeal ?? ""
                        status = thisMeal?.status ?? .pendente
-                       selectedMood = thisMeal?.emotion ?? .normal
+                       selectedMood = thisMeal?.emotion ?? .neutral
                        durationMeal = thisMeal?.durationMeal ?? 0
                        // isFixed = thisMeal?.ref!.isFixed ?? false
                    }

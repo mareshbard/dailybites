@@ -3,7 +3,7 @@ import SwiftUI
 struct MealCardView: View {
     
     var meal: Meal
-    @State private var showSheetAddLogMeal: Bool = false
+    
     var todayLog: LogMeal? {
         meal.logs.first { log in
             Calendar.current.isDateInToday(log.date)
@@ -11,18 +11,8 @@ struct MealCardView: View {
     }
     
     var body: some View {
+//        NavigationLink(destination: EditLogMeal(meal: meal)) {
         NavigationLink(destination: SheetAddLogMealView(meal: meal)) {
-            
-            VStack(alignment: .leading) {
-                
-                Text(meal.name)
-                    .font(.title3)
-                    .bold()
-                    .foregroundStyle(Color.primary)
-                Text(meal.time, style: .time)
-                    .font(.body)
-                
-        NavigationLink(destination: EditLogMeal(meal: meal)) {
             
             HStack {
                 VStack(alignment: .leading){
@@ -53,28 +43,11 @@ struct MealCardView: View {
                         .cornerRadius(52)
                         .font(Font.custom("PlusJakartaSans-Medium", size: 15))
                 }
-                
-            }
-            //        }
-            .padding(.vertical, 13)
-            .padding(.horizontal, 15)
-            .overlay {
-                RoundedRectangle(cornerRadius: 12)
-                    .fill(.clear)
-                    .stroke(Color.gray, style: StrokeStyle(lineWidth: 0.5))
-                //                    .frame(minWidth: .infinity, minHeight: 100)
-                //                    .onTapGesture {
-                //                        showSheetAddLogMeal = true
-            }
-            .sheet(isPresented: $showSheetAddLogMeal) {
-                SheetAddLogMealView(meal: meal)
-            }
-        }
-        .padding(24)
             }
         }
         .accessibilityHint("Clique para registrar ou editar a refeição")
         .frame(maxWidth: .infinity)
+        
         .padding(20)
         .background(Color.white)
         .cornerRadius(15)
@@ -83,8 +56,6 @@ struct MealCardView: View {
 
 
 #Preview {
-    // let meal = Meal(mealName: "Pasta", date: Date(), time: Date(), durationMeal: 20, status: Status.pulou, descriptionMeal: "Simple pasta", emotion: .normal)
-    //     MealCardView(meal: meal)
     let meal1 = Meal(name: "Café da manhã", logs: [], time: .now, isFixed: false)
     let meal2 = Meal(name: "Meal 2", logs: [], time: .now, isFixed: false)
     MealCardView(meal: meal1)
