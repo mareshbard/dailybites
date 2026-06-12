@@ -14,6 +14,7 @@ struct HomeView: View {
     @State private var isActive: Bool = false
     @SceneStorage("selectedTab") private var selectedTabIndex: Int = 0
     @State var palavra: String = ""
+    @State private var showAddNewMeal: Bool = false
     var body: some View {
         
         NavigationStack {
@@ -27,6 +28,7 @@ struct HomeView: View {
                             .font(.largeTitle)
                             .bold()
                             .frame(maxWidth: .infinity, alignment: .leading)
+                            .foregroundStyle(Color.primary)
                         Text(Date(), style: .date)
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .font(.body)
@@ -65,17 +67,19 @@ struct HomeView: View {
                 HStack {
                     Text("Refeições do dia")
                         .font(.title)
+                        .foregroundStyle(Color.primary)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .font(Font.custom("PlusJakartaSans-SemiBold", size: 22))
                     Button("Adicionar"){
                         isActive = true
+                        showAddNewMeal = true
                         
                     }
                     .foregroundColor(Color.roxoAcao)
                     .font(Font.custom("PlusJakartaSans-SemiBold", size: 18))
-                    NavigationLink(destination: AddNewMealView(meal: Meal(name: "", logs: [], time: Date(), isFixed: false)), isActive: $isActive){
-                        
-                    }
+                    .sheet(isPresented: $showAddNewMeal) {
+                        SheetAddNewMeal(meal: Meal(name: "", logs: [], time: Date(), isFixed: false))
+                            }
                 }
                 .padding(.top, 31)
                 VStack {

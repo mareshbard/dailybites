@@ -33,6 +33,7 @@ struct DurationCard: View {
                         .font(Font.custom("PlusJakartaSans-Semibold", size: 32))
                     Text("Minutos")
                         .font(Font.custom("PlusJakartaSans-Semibold", size: 18))
+                        .foregroundStyle(Color.black)
                 }
         }
         .accessibilityElement(children: .combine)

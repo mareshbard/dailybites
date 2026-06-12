@@ -37,6 +37,7 @@ struct DailyMealsCard: View {
                     .chartLegend(.hidden)
                     Text("\(quantidades[0].valor)/\(numberOfMeals)")
                         .font(Font.custom("PlusJakartaSans-Semibold", size: 18))
+                        .foregroundStyle(Color.black)
                     }
          
             }
@@ -47,7 +48,7 @@ struct DailyMealsCard: View {
                     if (numberOfMeals - quantidades[0].valor) == 1 {
                         
                         Text("Falta")
-                        
+                            .foregroundStyle(Color.black)
                         HStack(alignment: .top){
                             Text("\(numberOfMeals - quantidades[0].valor)")
                                 .foregroundColor(Color("amareloGráfico"))
@@ -55,15 +56,19 @@ struct DailyMealsCard: View {
                         }
                     } else if (numberOfMeals - quantidades[0].valor) == 0 {
                         Text("Refeições")
+                            .foregroundStyle(Color.black)
                         Text("concluídas! ;)")
+                            .foregroundStyle(Color.black)
                     }
                 
                 else {
                         Text("Faltam")
+                        .foregroundStyle(Color.black)
                         HStack{
                             Text("\(numberOfMeals - quantidades[0].valor)")
                                 .foregroundColor(Color("amareloGráfico"))
                             Text("refeições")
+                                .foregroundStyle(Color.black)
                         }
                     }
             

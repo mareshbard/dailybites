@@ -6,7 +6,7 @@ struct MealRecordedCard: View {
     var log: LogMeal
     var body: some View {
         NavigationStack{
-            NavigationLink (destination: AddNewMealView(meal: log.ref!)){
+            NavigationLink (destination: SheetAddLogMealView(meal: log.ref!)){
                 VStack(alignment: .leading) {
                     if let image = log.image {
                         Image(uiImage: image)
@@ -50,6 +50,7 @@ struct MealRecordedCard: View {
         }
         .padding(.vertical, 24)
     }
+    
 }
 
 #Preview {

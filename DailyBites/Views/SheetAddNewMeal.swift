@@ -1,11 +1,19 @@
+//
+//  SheetAddNewMeal.swift
+//  DailyBites
+//
+//  Created by Yohane Cavalcante on 12/06/26.
+//
+
 import SwiftUI
 import SwiftData
 import Foundation
 
-struct SheetAddLogMealView: View {
+struct SheetAddNewMeal: View {
     
     @Environment(\.dismiss) var dismiss
     @Environment(\.modelContext) var modelContext
+    @AppStorage("numberOfMeals") var numberOfMeals: Int = 1
     
     @Query var meals: [Meal]
     
@@ -80,7 +88,7 @@ struct SheetAddLogMealView: View {
                 } header: {
                     SectionLabel(title:"HORÁRIO", required: true)
                 }
-//                .accessibilityLabel(Text("Horário e a frequência da sua refeição"))
+                //                .accessibilityLabel(Text("Horário e a frequência da sua refeição"))
                 .padding(.top, -10)
                 .listRowBackground(Color.clear)
                 .font(Font.subheadline.bold())
@@ -159,8 +167,8 @@ struct SheetAddLogMealView: View {
             .background(Color(.secondarySystemBackground))
             
             .listSectionSpacing(.compact)
-            .navigationTitle(Text("Registre sua refeição"))
-            .accessibilityLabel(Text("Formulário de registro de refeição"))
+            .navigationTitle(Text("Adicionar nova refeição"))
+            .accessibilityLabel(Text("Formulário de adicionar nova refeição"))
             .toolbarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
@@ -177,10 +185,13 @@ struct SheetAddLogMealView: View {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Salvar", systemImage: "checkmark")
                     {
+                        addLog()
                         meal.name = mealName
                         meal.time = time
                         durationMeal = Int(auxDuration) ?? 0
-                        addLog()
+                        numberOfMeals += 1
+                        repeatDays = repeatDays
+                        
                     }
                     .accessibilityLabel("Salvar")
                     .accessibilityHint("Salva as informações do formulário e volta à tela anterior")
@@ -197,10 +208,10 @@ struct SheetAddLogMealView: View {
         .onAppear {
             mealName = meal.name
             time = meal.time
-            
             isFixed = meal.isFixed
             repeatDays = meal.repeatDays
-            let thisMeal = meal.logs.last(where: { $0.ref!.name == meal.name })
+            
+            let thisMeal = meal.logs.last(where: { $0.ref!.name == meal.name && Calendar.current.isDate($0.date, inSameDayAs: Date())})
             mealName = meal.name
             
             if let imageData = thisMeal?.imageData {
@@ -218,3 +229,4 @@ struct SheetAddLogMealView: View {
         }
     }
 }
+
