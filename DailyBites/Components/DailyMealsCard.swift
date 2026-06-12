@@ -20,7 +20,7 @@ struct DailyMealsCard: View {
             .font(.caption)
             .foregroundColor(Color.amareloGráfico)
             HStack{
-                Spacer()
+               
                 ZStack{
                     Chart(quantidades, id: \.nome) { qtd in
                         

@@ -22,6 +22,7 @@ struct StreakCard: View {
             HStack {
                 Spacer()
                 Image("Uva")
+                    .accessibilityLabel("Mascote Uva de olho na sua sequencia")
             }
             Spacer()
             VStack(alignment: .leading) {
@@ -30,7 +31,7 @@ struct StreakCard: View {
                 Text("você registrou")
                     .font(Font.custom("PlusJakartaSans-Semibold", size: 16))
                 HStack(alignment: .bottom) {
-                    Text("100")
+                    Text("\(streak)")
                         .font(Font.custom("PlusJakartaSans-Semibold", size: 60))
                         .bold(true)
                         .foregroundStyle(Color.roxoAcao)
