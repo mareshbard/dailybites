@@ -10,14 +10,22 @@
 		CE5CD3162F98EF6500CE9010 /* DailyBites.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyBites.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		AD09B5AF2FB499A80086D042 /* controller+ */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "controller+";
-			sourceTree = "<group>";
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		ADB9A1D92FD060C900C579FC /* Exceptions for "DailyBites" folder in "DailyBites" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = CE5CD3152F98EF6500CE9010 /* DailyBites */;
 		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
 		CE5CD3182F98EF6500CE9010 /* DailyBites */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				ADB9A1D92FD060C900C579FC /* Exceptions for "DailyBites" folder in "DailyBites" target */,
+			);
 			path = DailyBites;
 			sourceTree = "<group>";
 		};
@@ -39,7 +47,6 @@
 			children = (
 				CE5CD3182F98EF6500CE9010 /* DailyBites */,
 				CE5CD3172F98EF6500CE9010 /* Products */,
-				AD09B5AF2FB499A80086D042 /* controller+ */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,7 +74,6 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				AD09B5AF2FB499A80086D042 /* controller+ */,
 				CE5CD3182F98EF6500CE9010 /* DailyBites */,
 			);
 			name = DailyBites;
@@ -262,6 +268,7 @@
 				DEVELOPMENT_TEAM = LAZXCZT4TF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DailyBites/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = DailyBites;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -301,6 +308,7 @@
 				DEVELOPMENT_TEAM = LAZXCZT4TF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DailyBites/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = DailyBites;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

@@ -107,13 +107,12 @@ struct AboutYouView: View {
                     .padding(.horizontal, 24)
                 
             }
-            .ignoresSafeArea()
-            
-            
 
+            .ignoresSafeArea(.keyboard, edges: .bottom)
+            .padding(.horizontal, 24)
         }
         .scrollDismissesKeyboard(.immediately)
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        
 
 
     }
