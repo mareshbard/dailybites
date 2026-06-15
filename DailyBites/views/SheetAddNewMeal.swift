@@ -40,6 +40,7 @@ struct SheetAddNewMeal: View {
             todayLog.durationMeal = durationMeal
             todayLog.imageData = imageData
             todayLog.ref!.isFixed = isFixed
+            todayLog.ref!.repeatDays = repeatDays
             
         }
         else{
@@ -64,6 +65,7 @@ struct SheetAddNewMeal: View {
             modelContext.insert(log)
         }
         
+        Notifications.sendNotification(for: meal)
         dismiss()
     }
     var body: some View {

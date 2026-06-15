@@ -21,7 +21,7 @@ class Meal {
         self.logs = logs
         self.time = time
         self.isFixed = isFixed
-        self.repeatDays = []
+        self.repeatDays = repeatDays
     }
 }
 
