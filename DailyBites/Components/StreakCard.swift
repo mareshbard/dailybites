@@ -3,10 +3,12 @@ import SwiftData
 
 struct StreakCard: View {
     
-    @AppStorage("streak") var streak: Int = 1
-    @AppStorage("lastStreakDate") var lastStreakDate: Double = 0
-    @Query var meals: [Meal]
     @Query(sort: \LogMeal.date, order: .forward) var logs: [LogMeal]
+    
+    private var streak: Int {
+        calculateStreak(from: logs)
+    }
+    
     var body: some View {
         
         VStack(alignment: .leading) {
@@ -50,29 +52,36 @@ struct StreakCard: View {
         .background(Color.roxoBackground)
         .cornerRadius(12)
         .frame(maxWidth: .infinity)
-        .onAppear { checkAction() }
-        .onChange(of: meals) { checkAction() }
     }
     
-    func checkAction() {
-        let calendar = Calendar.current
+    private func calculateStreak(from logs: [LogMeal], calendar: Calendar = .current) -> Int {
+        let completedDays = Set(
+            logs
+                .filter { $0.status == .pontual || $0.status == .atrasado }
+                .map { calendar.startOfDay(for: $0.date) }
+        )
+        
         let today = calendar.startOfDay(for: Date())
-        let last = Date(timeIntervalSince1970: lastStreakDate)
+        var dayToCheck = today
         
-        if calendar.isDate(last, inSameDayAs: today) {
-            return
+        if !completedDays.contains(today) {
+            guard let yesterday = calendar.date(byAdding: .day, value: -1, to: today),
+                  completedDays.contains(yesterday) else {
+                return 0
+            }
+            dayToCheck = yesterday
         }
         
-        let completed = logs.contains {
-            calendar.isDate($0.date, inSameDayAs: today) && $0.status != .pendente
-        }
-        guard completed else {
-            return
+        var currentStreak = 0
+        while completedDays.contains(dayToCheck) {
+            currentStreak += 1
+            guard let previousDay = calendar.date(byAdding: .day, value: -1, to: dayToCheck) else {
+                break
+            }
+            dayToCheck = previousDay
         }
         
-        let yesterday = calendar.date(byAdding: .day, value: -1, to: today)!
-        streak = calendar.isDate(last, inSameDayAs: yesterday) ? streak + 1 : 1
-        lastStreakDate = today.timeIntervalSince1970
+        return currentStreak
     }
 }
 
