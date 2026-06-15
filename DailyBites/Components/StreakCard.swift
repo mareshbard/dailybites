@@ -30,6 +30,7 @@ struct StreakCard: View {
                 
                 Text("você registrou")
                     .font(Font.custom("PlusJakartaSans-Semibold", size: 16))
+                    .foregroundStyle(Color.black)
                 HStack(alignment: .bottom) {
                     Text("\(streak)")
                         .font(Font.custom("PlusJakartaSans-Semibold", size: 60))
@@ -38,6 +39,7 @@ struct StreakCard: View {
                     
                     Text("dias")
                         .font(Font.custom("PlusJakartaSans-Semibold", size: 16))
+                        .foregroundStyle(Color.black)
                 }
                 .frame(maxWidth: .infinity)
             }
