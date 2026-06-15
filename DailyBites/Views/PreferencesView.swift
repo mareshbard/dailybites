@@ -68,11 +68,13 @@ struct PreferencesView: View {
                     firstUse = true
                     for meal in auxMeals {
                         modelContext.insert(meal)
+                        Notifications.sendNotification(for: meal)
                     }
                 } label: {
                     Label("Concluir", systemImage: "")
                         .frame(maxWidth: .infinity)
                 }
+                
                // .padding(.horizontal, 20)
                 .buttonStyle(.borderedProminent)
                 //     .buttonSizing(.flexible)
@@ -99,6 +101,7 @@ struct PreferencesView: View {
                 for _ in rangeMeals {
                     auxMeals.append(createMeal())
                 }
+                Notifications.requestNotificationAuthorization()
             }
     }
        
@@ -108,8 +111,8 @@ struct PreferencesView: View {
     }
 }
 
-#Preview {
-    let meal1 = Meal(name: "Meal 1", logs: [], time: .now, isFixed: false)
-    let meal2 = Meal(name: "Meal 2", logs: [], time: .now, isFixed: false)
-    PreferencesView(username1: "d")
-}
+//#Preview {
+//    let meal1 = Meal(name: "Meal 1", logs: [], time: .now, isFixed: false)
+//    let meal2 = Meal(name: "Meal 2", logs: [], time: .now, isFixed: false)
+//    PreferencesView(username1: "d")
+//}

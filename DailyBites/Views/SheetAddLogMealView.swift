@@ -58,6 +58,7 @@ struct SheetAddLogMealView: View {
             modelContext.insert(log)
         }
         
+        Notifications.sendNotification(for: meal)
         dismiss()
     }
     var body: some View {

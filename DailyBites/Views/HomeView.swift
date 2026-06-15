@@ -1,6 +1,6 @@
 import SwiftUI
 import SwiftData
-
+import UserNotifications
 
 struct HomeView: View {
     
@@ -10,6 +10,7 @@ struct HomeView: View {
     @AppStorage("lastOpen") var lastOpen = ""
     @Query(sort: \Meal.time, order: .forward) var meals: [Meal]
     @AppStorage("firstUse") var firstUse: Bool = false
+    @AppStorage("isNotificationAuthorized") var isNotificationAuthorized: Bool = false
     @Query(sort: \LogMeal.date, order: .forward) var logs: [LogMeal]
     @State private var isActive: Bool = false
     @SceneStorage("selectedTab") private var selectedTabIndex: Int = 0
@@ -21,7 +22,6 @@ struct HomeView: View {
             
             ScrollView{
                 HStack{
-                    
                     
                     VStack{
                         Text("Olá, \(username)")
@@ -90,7 +90,6 @@ struct HomeView: View {
                 }
                 .cornerRadius(12)
                 .listRowBackground(Color.clear)
-                // .listRowSeparator(.hidden)
                 
                 .edgesIgnoringSafeArea(.all)
                 .background(Color.backgroundCor)
