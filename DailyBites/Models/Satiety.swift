@@ -6,6 +6,7 @@
 //
 import Charts
 import Foundation
+import SwiftUI
 
 enum Satiety: String, CaseIterable, Codable, Plottable{
     case muitaFome
@@ -27,5 +28,15 @@ enum Satiety: String, CaseIterable, Codable, Plottable{
     }
     static func fromTitle (_ title: String) -> Satiety? {
         Satiety.allCases.first{$0.title == title}
+    }
+    
+    var color: Color {
+        switch self {
+        case .muitaFome: return Color("Satiety-MuitaFome")
+        case .fome: return Color("Satiety-Fome")
+        case .satisfeito: return Color("Satiety-Satisfeito")
+        case .cheio: return Color("Satiety-Cheio")
+        case .muitoCheio: return Color("Satiety-MuitoCheio")
+        }
     }
 }

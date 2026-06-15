@@ -20,6 +20,7 @@ struct AddNewMealView: View {
     @Query var meals: [Meal]
     @AppStorage("numberOfMeals") var numberOfMeals: Int = 1
     @Environment(\.modelContext) var modelContext
+
     
     let meal: Meal
     

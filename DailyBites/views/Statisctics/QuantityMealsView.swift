@@ -65,6 +65,12 @@ struct QuantityMealsView: View {
                                     x: .value("Dias", dia.rawValue),
                                     y: .value("Refeicoes",
                                               getEatenMealsFromWeekday(dia)
+//                                    x: .value("Refeicoes",
+//                                              getEatenMealsFromWeekday(dia)
+//                                             ),
+//                                    y: .value("Dias", dia.rawValue)
+                                    
+                                              
             //                                              Int.random(in: 0...numberOfMeals)
                                              )
                                 )
@@ -89,15 +95,8 @@ struct QuantityMealsView: View {
                     .background(Color.gray.opacity(0.1))
                     .cornerRadius(12)
                     
-                    VStack {
-                        Text("O que o registro semanal mostra?")
-                            .font(.title2.bold())
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                        
-                        Text("Visualizar sua constância ao longo da semana é o primeiro passo para criar uma rotina alimentar sustentável. A regularidade é tão importante quanto a qualidade do que se come.")
-                    }
-                    .padding(10)
-                    .background(Color.gray.opacity(0.1))
+                    
+                    StatisticCardView(statistic: .resistroSemanal)
                 }
                 .padding(20)
                 .toolbar {
@@ -115,6 +114,8 @@ struct QuantityMealsView: View {
                     }
                 }
             }
+            .background(Color.backgroundCor)
+
         }
         
         

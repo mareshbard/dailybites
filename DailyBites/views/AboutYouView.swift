@@ -14,7 +14,7 @@ struct AboutYouView: View {
     @State private var isActive: Bool = false
     
     var body: some View {
-        
+   
         NavigationStack{
             ScrollView{
           
@@ -22,7 +22,7 @@ struct AboutYouView: View {
                     .padding(55)
                     .font(.largeTitle)
                     .frame(maxWidth: .infinity)
-                    .background(Color(.purple.opacity(0.5)))
+                    .background(Color("RoxoStroke"))
                     .clipShape(RoundedRectangle(cornerRadius: 35))
                     .ignoresSafeArea()
                     .accessibilityHidden(isActive)
@@ -31,9 +31,6 @@ struct AboutYouView: View {
                     VStack {
                         
                         VStack{
-                            
-                            
-                            
                             Text("Quero te conhecer")
                                 .font(Font.largeTitle)
                                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -73,7 +70,7 @@ struct AboutYouView: View {
                                 
                                 RoundedRectangle( cornerRadius: 12)
                                     .fill(.clear)
-                                    .stroke(Color.black, style: StrokeStyle(lineWidth: 1.5))
+                                    .stroke(Color("RoxoStroke"), style: StrokeStyle(lineWidth: 0.5))
                                     .frame(maxWidth: .infinity, alignment: .leading)
                             }
                         }
@@ -91,7 +88,7 @@ struct AboutYouView: View {
                         //        .buttonSizing(.flexible)
                         .font(Font.title3)
                         .controlSize(.large)
-                        .tint(.purple)
+                        .tint(Color("RoxoAcao"))
                         .foregroundColor(Color(.white))
                         .padding(EdgeInsets(top: 50, leading: 0, bottom: 0, trailing: 0))
                         
@@ -108,8 +105,8 @@ struct AboutYouView: View {
                 
             }
 
-            .ignoresSafeArea(.keyboard, edges: .bottom)
-            .padding(.horizontal, 24)
+            .ignoresSafeArea()
+
         }
         .scrollDismissesKeyboard(.immediately)
         

@@ -14,55 +14,75 @@ struct SacietyView: View {
     
     @Query(sort: \LogMeal.date, order: .forward) var logs: [LogMeal]
     
-//    var percentage: [Double]{
-//        
-//        var result: [Double] = []
-//        for satiety in Satiety.allCases {
-//            let filtered_meals: [LogMeal] = logs.filter({$0.status != .pendente && $0.status != .pulou})
-//            let filtered: [LogMeal] = filtered_meals.filter({$0.saciedade == satiety})
-//            let total: Double = Double(filtered_meals.count)
-//            let totalMood: Double = Double(filtered.count)
-//            if(total == 0){
-//                result.append(0)
-//            } else {
-//                result.append(totalMood/total * 100) // filtra e verifica todas as moods e faz o calculo de porcentagem
-//            }
-//        }
-//        return result
-//    }
+    var percentage: [Double] {
+        var result: [Double] = []
+        for satiety in Satiety.allCases {
+            let filtered_meals: [LogMeal] = logs.filter({$0.status != .pendente && $0.status != .pulou})
+            let filtered: [LogMeal] = filtered_meals.filter({$0.satiety == satiety})
+            let total: Double = Double(filtered_meals.count)
+            let totalMood: Double = Double(filtered.count)
+            if(total == 0){
+                result.append(0)
+            } else {
+                result.append(totalMood/total * 100) // filtra e verifica todas as moods e faz o calculo de porcentagem
+            }
+        }
+        return result
+    }
     
+    /// 
     var body: some View {
+        
+        
         NavigationStack{
             ScrollView{
                 VStack{
                     
                     VStack{
-                        
-    //                    HStack {
-    //
-    //                        ForEach(percentage, id: \.self){ percentage in
-    //                            Text("\(String(format: "%.0f", percentage))%")
-    //                        } //mostra as porcentagens
-    //                        .padding(10)
-    //                        .font(.body)
-    //
-    //                    }
-
-                        
-                        HStack {
-                            
-                            ForEach(Satiety.allCases, id: \.self){ mood in
-                                Text(mood.rawValue)//mostra a legenda dos moods
-                                    //.background(Color.Satiety.allCases[mood].backgroundSatiety)
+                        GeometryReader { geometry in
+                            HStack(spacing: 0) {
+                                ForEach(
+                                    Satiety.allCases.indices,
+                                    id: \.self
+                                ){ index in
+                                    ZStack {
+                                        Satiety.allCases[index].color
+                                        Text(
+                                            "\(String(format: "%.0f", percentage[index]))%"
+                                        )
+                                            .font(.subheadline)
+                                            .padding()
+                                        
+                                    }
+                                    .frame(
+                                        width: generateWidth(
+                                            for: percentage[index],
+                                            in: geometry.size.width
+                                        )
+                                    )
+                                    .frame(maxHeight: .infinity)
+                                }
+                                
+                                Color.gray
+                                    .frame(maxHeight: .infinity)
                             }
-                            .padding(10)
-                            .font(.subheadline)
-                            .background(Color.yellow)
                             .clipShape(RoundedRectangle(cornerRadius: 12))
-
-                
                         }
-
+                        .frame(height: 75)
+                    
+                        VStack(alignment: .leading){
+                            ForEach(Satiety.allCases.indices,id: \.self) { index in
+                                HStack() {
+                                    Color(Satiety.allCases[index].color).frame(width: 20, height: 20).cornerRadius(5)
+                                    Text(Satiety.allCases[index].title)
+                                        .foregroundStyle(Color.primary)
+                                    
+                                    Spacer()
+                                }
+                                
+                            }
+                        }
+                        
                         
 
                         
@@ -71,15 +91,8 @@ struct SacietyView: View {
                     .frame(maxWidth: .infinity)
                     .background(Color.gray.opacity(0.1))
 
-                    VStack {
-                        Text("O que o nível de saciedade indica?")
-                            .font(.title2.bold())
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                        
-                        Text("Acompanhar como você termina cada refeição revela se está comendo na quantidade certa.  Seu nível de saciedade  após cada refeição ajuda a identificar padrões e ajustar as refeições para sentir mais equilíbrio no dia a dia.")
-                    }
-                    .padding(10)
-                    .background(Color.gray.opacity(0.1))
+                    
+                    StatisticCardView(statistic: .saciedade)
 
                 }
                 
@@ -101,9 +114,20 @@ struct SacietyView: View {
                     }
                 }
             }
+            .background(Color.backgroundCor)
+
         }
         
     }
+    
+    func generateWidth(
+        for percentage: Double,
+        in total: Double
+    ) -> CGFloat {
+        let result = total * (percentage/100)
+        return result
+    }
+
 }
 
 #Preview {
