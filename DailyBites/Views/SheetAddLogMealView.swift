@@ -25,7 +25,7 @@ struct SheetAddLogMealView: View {
     let meal: Meal
     
     func addLog(){
-        if let todayLog = meal.logs.last(where: { $0.ref!.name == meal.name }){
+        if let todayLog = meal.logs.last(where: { $0.ref!.name == meal.name && Calendar.current.isDate($0.date, inSameDayAs: Date()) }){
             todayLog.emotion = selectedMood
             todayLog.status = status
             todayLog.satiety = satiety
