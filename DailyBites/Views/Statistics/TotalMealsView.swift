@@ -35,6 +35,10 @@ struct TotalMealsView: View {
                             Text("Refeições")
                                 .font(.title2)
                         }
+                        .padding(20)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .background(Color("BackgroundCard"))
+                        .cornerRadius(12)
                         
                         
                     StatisticCardView(statistic: .totalDerefeicoes)

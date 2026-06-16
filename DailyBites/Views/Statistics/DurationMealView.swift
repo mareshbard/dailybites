@@ -33,14 +33,19 @@ struct DurationMealView: View {
                             .font(Font.system(size: 70, weight: .black, design: .default))
                             .clipShape(Circle())
                             .overlay{
-                                Circle().stroke(Color.purple, style: StrokeStyle(lineWidth: 30))
+                                Circle().stroke(Color("RoxoAcao"), style: StrokeStyle(lineWidth: 30))
                             }
                         
                         Spacer()
                         
                         Text("Minutos")
                             .font(.title2)
+                            .padding(10)
                     }
+                    .padding(30)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .background(Color("BackgroundCard"))
+                    .cornerRadius(12)
                     
                     
                         VStack {

@@ -2,8 +2,10 @@ import SwiftUI
 
 struct MealCardView: View {
     
+    @State private var showAddLog: Bool = false
+    
     var meal: Meal
-    @State private var showSheetAddLogMeal: Bool = false
+    
     var todayLog: LogMeal? {
         meal.logs.first { log in
             Calendar.current.isDateInToday(log.date)
@@ -11,7 +13,6 @@ struct MealCardView: View {
     }
     
     var body: some View {
-//        NavigationLink(destination: SheetAddLogMealView(meal: meal)) {
             
             HStack {
                 VStack(alignment: .leading){
@@ -37,7 +38,7 @@ struct MealCardView: View {
                     Text("Pendente")
                         .padding(.vertical, 5)
                         .padding(.horizontal, 10)
-                        .background(Color.pendenteTag.opacity(0.2))
+                        .background(Color.pendenteTag)
                         .foregroundStyle(Color.corPendente)
                         .cornerRadius(52)
                         .font(Font.custom("PlusJakartaSans-Medium", size: 15))
@@ -46,16 +47,17 @@ struct MealCardView: View {
 //        }
         .accessibilityHint("Clique para registrar ou editar a refeição")
         .frame(maxWidth: .infinity)
-       
-        .padding(20)
-        .background(Color.white)
-        .cornerRadius(15)
         .onTapGesture {
-           showSheetAddLogMeal = true
+            showAddLog = true
         }
-        .sheet(isPresented: $showSheetAddLogMeal) {
-            SheetAddLogMealView(meal: meal)
-        }
+        .sheet(isPresented: $showAddLog) {
+                    SheetAddLogMealView(meal: meal)
+                }
+        
+        .padding(20)
+        .background(Color("mealBackground"))
+        .cornerRadius(15)
+        
     }
 }
 

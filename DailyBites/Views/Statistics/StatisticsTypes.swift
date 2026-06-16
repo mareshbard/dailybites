@@ -19,17 +19,17 @@ enum StatisticsTypes: String, CaseIterable, Identifiable {
     var iconName: String {
         switch self {
         case .pontualidade:
-            return "clock"
+            return "PontualityIcon"
         case .resistroSemanal:
-            return "calendar"
+            return "QuantityMealsIcon"
         case .humor:
-            return "face.smiling"
+            return "MoodIcon"
         case .tempoDasrefeicoes:
-            return "hourglass"
+            return "MealsTimeIcon"
         case .saciedade:
-            return "heart"
+            return "SacietyIcon"
         case .totalDerefeicoes:
-            return "number.circle"
+            return "TotalMealsIcon"
         }
     }
     

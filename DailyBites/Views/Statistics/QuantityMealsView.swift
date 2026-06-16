@@ -59,40 +59,59 @@ struct QuantityMealsView: View {
                         Text("Quantidade de refeições")
                             .font(.headline)
                             .frame(maxWidth: .infinity, alignment: .leading)
-                        Chart{
-                            ForEach(Semana.allCases, id: \.self){ dia in
-                                BarMark(
-                                    x: .value("Dias", dia.rawValue),
-                                    y: .value("Refeicoes",
-                                              getEatenMealsFromWeekday(dia)
-//                                    x: .value("Refeicoes",
-//                                              getEatenMealsFromWeekday(dia)
-//                                             ),
-//                                    y: .value("Dias", dia.rawValue)
+                        ViewThatFits{
+                            Chart{
+                                ForEach(Semana.allCases, id: \.self){ dia in
+                                    BarMark(
+                                        x: .value("Dias", dia.rawValue),
+                                        y: .value("Refeicoes",
+                                                  getEatenMealsFromWeekday(dia)
+                                                 )
+                                    )
+                                    .foregroundStyle(Color("RoxoAcao"))
+                                    .clipShape(RoundedRectangle(cornerRadius: 32))
                                     
-                                              
-            //                                              Int.random(in: 0...numberOfMeals)
-                                             )
-                                )
-                                .foregroundStyle(Color("CordeAção"))
-                                .clipShape(RoundedRectangle(cornerRadius: 32))
-                                
+                                    
+                                }
                                 
                             }
+                            .chartYAxis{
+                                AxisMarks(position: .leading, stroke: StrokeStyle(lineWidth: 0))
+                            }
+                            .chartXAxis{
+                                AxisMarks(stroke: StrokeStyle(lineWidth: 0))
+                            }
+                            //   .AxisGridLine(.hidden)
                             
+                            Chart{
+                                ForEach(Semana.allCases, id: \.self){ dia in
+                                    BarMark(
+                                        x: .value("Refeicoes",
+                                                  getEatenMealsFromWeekday(dia)
+                                                 ),
+                                        y: .value("Dias", dia.rawValue)
+                                    )
+                                    
+                                    .foregroundStyle(Color("RoxoAcao"))
+                                    .clipShape(RoundedRectangle(cornerRadius: 32))
+
+                                }
+                                
+                            }
+                            .chartYAxis{
+                                AxisMarks(position: .leading, stroke: StrokeStyle(lineWidth: 0))
+                            }
+                            .chartXAxis{
+                                AxisMarks(stroke: StrokeStyle(lineWidth: 0))
+                            }
                         }
-                        .chartYAxis{
-                            AxisMarks(position: .leading, stroke: StrokeStyle(lineWidth: 0))
-                        }
-                        .chartXAxis{
-                            AxisMarks(stroke: StrokeStyle(lineWidth: 0))
-                        }
-                        //   .AxisGridLine(.hidden)
+                        
+                        
                         
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
                     .padding(10)
-                    .background(Color.gray.opacity(0.1))
+                    .background(Color("BackgroundCard"))
                     .cornerRadius(12)
                     
                     

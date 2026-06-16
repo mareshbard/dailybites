@@ -10,8 +10,44 @@ struct AboutYouView: View {
     @AppStorage("username") var username: String = ""
     @Environment(\.modelContext)
     private var modelContext
+    @AppStorage("firstUse") var firstUse: Bool = true
     @State private var username1: String = ""
     @State private var isActive: Bool = false
+    @State private var number: Numbers = Numbers.um
+    
+    enum Numbers: String, CaseIterable {
+        case um
+        case dois
+        case tres
+        case quatro
+        case cinco
+        case seis
+        case sete
+        case oito
+        case nove
+        case dez
+        
+        var id: Self { self }
+        
+        var range: String{
+            switch self {
+            case .um: return "1"
+            case .dois: return "2"
+            case .tres: return "3"
+            case .quatro: return "4"
+            case .cinco: return "5"
+            case .seis: return "6"
+            case .sete: return "7"
+            case .oito: return "8"
+            case .nove: return "9"
+            case .dez: return "10"
+            }
+        }
+        
+        static func fromTitle (_ range: String) -> Numbers? {
+            Numbers.allCases.first{$0.range == range}
+        }
+    }
     
     var body: some View {
    
@@ -31,6 +67,7 @@ struct AboutYouView: View {
                     VStack {
                         
                         VStack{
+
                             Text("Quero te conhecer")
                                 .font(Font.largeTitle)
                                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -50,21 +87,10 @@ struct AboutYouView: View {
                                 .font(Font.headline)
                                 .frame(maxWidth: .infinity, alignment: .leading)
                             
-                            HStack{
-                                Text("Quantidade")
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                                    .font(Font.body)
-                                    .foregroundStyle(.tertiary)
-                                Picker("Escolha a quantidade", selection: $numberOfMeals){
-                                    ForEach(range, id: \.self) {number in
-                                        Text("\(number)").tag(number)
-                                    }
-                                    //                            .onChange(of: numberOfMeals) { newValue in
-                                    //                                createEmptyMeals()
-                                    //                            }
-                                }
-                                .tint(Color.black)
-                            }
+                       
+                                
+                            PickerField(placeholder: "Quantidade", options: Numbers.allCases.map(\.range), selected: Binding(get: {number.range}, set: {number = Numbers.fromTitle($0) ?? .um }), defaultValue: Numbers.um.range)
+
                             .padding(20)
                             .overlay {
                                 
@@ -79,6 +105,7 @@ struct AboutYouView: View {
                         
                         Button {
                             //                    meals = self.meals
+                            numberOfMeals = Int(number.range) ?? 1
                             self.isActive = true
                         } label: {
                             Label("Próximo", systemImage: "")

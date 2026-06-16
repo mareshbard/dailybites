@@ -31,8 +31,8 @@ struct StatisticCardView: View {
             }
             
         }
-        .padding(10)
-        .background(Color.gray.opacity(0.1))
+        .padding(20)
+        .background(Color("BackgroundCard"))
         .listRowSeparator(.hidden)
         .cornerRadius(12)
     }

@@ -44,7 +44,7 @@ struct PontualityView: View {
                             chartLegend
                         }
                         .padding(10)
-                        .background(Color.gray.opacity(0.1))
+                        .background(Color("BackgroundCard"))
                         .cornerRadius(12)
                         .frame(maxWidth: .infinity)
                         
@@ -53,7 +53,7 @@ struct PontualityView: View {
                             chartLegend
                         }
                         .padding(.horizontal, 10)
-                        .background(Color.gray.opacity(0.1))
+                        .background(Color("BackgroundCard"))
                         .cornerRadius(12)
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                     }
@@ -89,7 +89,7 @@ struct PontualityView: View {
             ) { status in
                 SectorMark(
                     angle: .value("Status", status.count),
-                    innerRadius: .ratio(0.05),
+                    innerRadius: .ratio(0.7),
                     outerRadius: .ratio(0.9),
                     angularInset: 1
                 )
@@ -99,9 +99,9 @@ struct PontualityView: View {
         }
         .chartLegend(.hidden)
         .chartForegroundStyleScale([
-            Status.atrasado.title: Color("AmareloDailyBites"),
-            Status.pontual.title: Color("VerdeDailyBites"),
-            Status.pulou.title: Color("VermelhoDailyBites")
+            Status.atrasado.title: Color("LaranjaAtrasado"),
+            Status.pontual.title: Color("RoxoAcao"),
+            Status.pulou.title: Color("Pulou")
         ])
         .scaledToFit()
     }
@@ -109,20 +109,20 @@ struct PontualityView: View {
     var chartLegend: some View {
         VStack(alignment: .leading){
             HStack() {
-                Color("VerdeDailyBites").frame(width: 20, height: 20).cornerRadius(5)
+                Color("RoxoAcao").frame(width: 20, height: 20).cornerRadius(5)
                 Text("Realizada pontualmente")
                     .foregroundStyle(Color.primary)
                     
             }
             
             HStack {
-                Color("AmareloDailyBites").frame(width: 20, height: 20).cornerRadius(5)
+                Color("LaranjaAtrasado").frame(width: 20, height: 20).cornerRadius(5)
                 Text("Realizada com atraso")
                     .foregroundStyle(Color.primary)
             }
             
             HStack {
-                Color("VermelhoDailyBites").frame(width: 20, height: 20).cornerRadius(5)
+                Color("Pulou").frame(width: 20, height: 20).cornerRadius(5)
                 Text("Não realizou")
                     .foregroundStyle(Color.primary)
             }

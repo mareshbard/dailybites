@@ -63,7 +63,7 @@ struct MoodbarView: View {
                         }
                         .padding(10)
                         .frame(maxWidth: .infinity)
-                        .background(Color.gray.opacity(0.1))
+                        .background(Color("BackgroundCard"))
                         .clipShape(RoundedRectangle(cornerRadius: 12))
                         
                         
@@ -94,7 +94,7 @@ struct MoodbarView: View {
                         }
                         .padding(10)
                         .frame(maxWidth: .infinity)
-                        .background(Color.gray.opacity(0.1))
+                        .background(Color("BackgroundCard"))
                         .clipShape(RoundedRectangle(cornerRadius: 12))
                         
                     }

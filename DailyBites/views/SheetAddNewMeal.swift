@@ -1,11 +1,18 @@
+//
+//  SheetAddNewMeal.swift
+//  DailyBites
+//
+//  Created by Yohane Cavalcante on 15/06/26.
+
 import SwiftUI
 import SwiftData
 import Foundation
 
-struct SheetAddLogMealView: View {
+struct SheetAddNewMeal: View {
     
     @Environment(\.dismiss) var dismiss
     @Environment(\.modelContext) var modelContext
+    @AppStorage("numberOfMeals") var numberOfMeals: Int = 1
     
     @Query var meals: [Meal]
     
@@ -25,7 +32,7 @@ struct SheetAddLogMealView: View {
     let meal: Meal
     
     func addLog(){
-        if let todayLog = meal.logs.last(where: { $0.ref!.name == meal.name && Calendar.current.isDate($0.date, inSameDayAs: Date()) }){
+        if let todayLog = meal.logs.last(where: { $0.ref!.name == meal.name }){
             todayLog.emotion = selectedMood
             todayLog.status = status
             todayLog.satiety = satiety
@@ -124,7 +131,7 @@ struct SheetAddLogMealView: View {
                 Section {
                     EmojiSelector(selectedMood: $selectedMood)
                 } header: {
-                    SectionLabel(title:"HUMOR APÓS A REFEIÇÃO", required: true)
+                    SectionLabel(title:"HUMOR ANTES DA REFEIÇÃO", required: true)
                 }
                 .padding(.top, -5)
                 .padding(.bottom, -5)
@@ -147,12 +154,12 @@ struct SheetAddLogMealView: View {
                 } header: {
                     SectionLabel(title:"DESCRIÇÃO", required: false)
                 }
+                .multilineTextAlignment(.leading)
                 .accessibilityLabel(Text("Descrição da refeição"))
                 .padding(.top, -10)
                 .listRowBackground(Color.clear)
                 .font(Font.subheadline.bold())
                 .lineLimit(3)
-                .multilineTextAlignment(.leading)
                 .foregroundStyle(.primary)
                 
             }
@@ -160,8 +167,8 @@ struct SheetAddLogMealView: View {
             .background(Color(.secondarySystemBackground))
             
             .listSectionSpacing(.compact)
-            .navigationTitle(Text("Registre sua refeição"))
-            .accessibilityLabel(Text("Formulário de registro de refeição"))
+            .navigationTitle(Text("Adicionar nova refeição"))
+            .accessibilityLabel(Text("Formulário de adicionar nova refeição"))
             .toolbarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
@@ -181,8 +188,10 @@ struct SheetAddLogMealView: View {
                         meal.name = mealName
                         meal.time = time
                         durationMeal = Int(auxDuration) ?? 0
+                        numberOfMeals += 1
                         repeatDays = repeatDays
                         addLog()
+                        
                     }
                     .accessibilityLabel("Salvar")
                     .accessibilityHint("Salva as informações do formulário e volta à tela anterior")

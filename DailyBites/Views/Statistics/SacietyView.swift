@@ -89,7 +89,8 @@ struct SacietyView: View {
                     }
                     .padding(10)
                     .frame(maxWidth: .infinity)
-                    .background(Color.gray.opacity(0.1))
+                    .background(Color("BackgroundCard"))
+                    .cornerRadius(12)
 
                     
                     StatisticCardView(statistic: .saciedade)
