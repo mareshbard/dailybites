@@ -1,2 +1,38 @@
 UserInterfaceState.xcuserstate
+.DS_StoreUserInterfaceState.xcuserstate
 .DS_Store
+DailyBites.xcodeproj/project.xcworkspace/xcuserdata/
+
+# Xcode
+#
+# Build generated files
+build/
+DerivedData/
+*.xcworkspace/
+*.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings
+*.xcodeproj/xcuserdata/
+*.xcodeproj/project.xcworkspace/xcuserdata/
+*.xcodeproj/xcshareddata/PersonalBuildState/
+
+# User-specific settings (uncomment if you need to ignore these globally)
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+*.xcdebugger/
+
+# Swift Package Manager
+.build/
+.swiftpm/
+Package.resolved
+
+# CocoaPods
+Pods/
+*.lock
+
+# Carthage
+Carthage/Build/
+
+# Outros arquivos indesejados
+.DS_Store
+*.pyc

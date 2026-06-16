@@ -27,6 +27,7 @@ struct MealsRecordedView: View {
                     Text(date.formatted(date: .long, time: .omitted))
                         .font(.title)
                         .frame(maxWidth: .infinity, alignment: .leading)
+                    
                     VStack {
                         ForEach(recordedMeals) { meal in
                             if meal.date.formatted(date: .numeric, time: .omitted) == date.formatted(date: .numeric, time: .omitted) {
@@ -35,20 +36,20 @@ struct MealsRecordedView: View {
                             }
                         }
                         .listRowSeparator(.hidden)
-                        .padding(.vertical, -28)
+                        .listStyle(.plain)
                         
                     }
-                    .scrollIndicators(.hidden)
+
                     .listStyle(.plain)
-                    .padding(-20)
                     .listRowInsets(EdgeInsets())
                 }
-                
+                .padding(.horizontal, 20)
             }
             .navigationTitle("Calendário")
             
-            .padding(20)
             .background(Color.backgroundCor)
+            .scrollIndicators(.hidden)
+            
         }
         
     }

@@ -73,7 +73,7 @@ struct HomeView: View {
                     }
                     .foregroundColor(Color.roxoAcao)
                     .font(Font.custom("PlusJakartaSans-SemiBold", size: 18))
-                    NavigationLink(destination: AddNewMealView(meal: Meal(name: "", logs: [], time: Date(), isFixed: false)), isActive: $isActive){
+                    NavigationLink(destination: SheetAddLogMealView(meal: Meal(name: "", logs: [], time: Date(), isFixed: false)), isActive: $isActive){
                         
                     }
                 }

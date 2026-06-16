@@ -1,30 +1,75 @@
-//
-//  LogRecorded.swift
-//  DailyBites
-//
-//  Created by Leticia Gomes on 12/06/26.
-//
-
 import SwiftUI
 
 struct LogRecorded: View {
+    @State var isPresented: Bool = false
     var log: LogMeal
     var body: some View {
-        HStack {
+        
+        
+        NavigationStack {
             if let image = log.image {
-                Image(uiImage: image)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 100, height: 100)
-            } else {
-                Image(decorative: "purple-pattern")
+                
+                HStack {
+                    
+                    Image(uiImage: image)
+                        .resizable()
+                        .frame(maxWidth: 149, maxHeight: 130)
+                        .clipped()
+                    VStack(alignment: .leading) {
+                        Text("\(log.ref!.name)")
+                            .font(Font.custom("PlusJakartaSans-SemiBold", size: 20))
+                        Text(log.ref!.time, style: .time)
+                        Spacer()
+                        Text(log.status.title)
+                            .modifier(TagText(log: log))
+                        
+                    }
+                    .foregroundColor(Color.font)
+                    .padding(10)
+                    Spacer()
+                }
+                .frame(maxWidth: .infinity)
+                .background(Color.white)
+                .cornerRadius(15)
             }
-            
+            else {
+                VStack{
+                    HStack{
+                        
+                        VStack(alignment: .leading){
+                            Text(log.ref!.name)
+                                .font(Font.custom("PlusJakartaSans-Semibold", size: 20))
+                                .foregroundStyle(Color.primary)
+
+                            Text(log.ref!.time, style: .time)
+                                .font(Font.custom("PlusJakartaSans-Medium", size: 17))
+                                .foregroundColor(Color.font)
+                        }
+                        Spacer()
+                        
+                        Text(log.status.title)
+                            .modifier(TagText(log: log))
+                    }
+                    .padding(.vertical, 20)
+                    .padding(.horizontal, 15)
+                }
+                .frame(maxWidth: .infinity)
+                .accessibilityHint("Clique para visualizar sua refeição")
+                .frame(maxWidth: .infinity)
+                .background(Color.white)
+                .cornerRadius(15)
+            }
         }
-        .padding(10)
+        .onTapGesture {
+            isPresented = true
+        }
+        .sheet(isPresented: $isPresented){
+            LogView(log: log)
+        }
     }
+    
 }
 
 #Preview {
-  //  LogRecorded()
+    //  LogRecorded()
 }
