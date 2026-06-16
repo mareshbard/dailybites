@@ -32,6 +32,7 @@ struct DurationCard: View {
                         .foregroundColor(Color.verdeFonte)
                         .font(Font.custom("PlusJakartaSans-Semibold", size: 32))
                     Text("Minutos")
+                        .foregroundStyle(Color.black)
                         .font(Font.custom("PlusJakartaSans-Semibold", size: 18))
                 }
         }

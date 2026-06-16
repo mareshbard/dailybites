@@ -10,6 +10,7 @@ struct AboutYouView: View {
     @AppStorage("username") var username: String = ""
     @Environment(\.modelContext)
     private var modelContext
+    @AppStorage("firstUse") var firstUse: Bool = true
     @State private var username1: String = ""
     @State private var isActive: Bool = false
     
@@ -31,7 +32,6 @@ struct AboutYouView: View {
                     VStack {
                         
                         VStack{
-                            
                             
                             
                             Text("Quero te conhecer")
