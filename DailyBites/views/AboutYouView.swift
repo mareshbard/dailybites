@@ -55,10 +55,11 @@ struct AboutYouView: View {
             ScrollView{
           
                 Image("AppleAboutYou")
-                    .padding(55)
+                    .padding(.top, 80)
+                    .padding(30)
                     .font(.largeTitle)
                     .frame(maxWidth: .infinity)
-                    .background(Color("RoxoStroke"))
+                    .background(Color("BackgroundAboutYou"))
                     .clipShape(RoundedRectangle(cornerRadius: 35))
                     .ignoresSafeArea()
                     .accessibilityHidden(isActive)
@@ -68,10 +69,14 @@ struct AboutYouView: View {
                         
                         VStack{
 
-                            Text("Quero te conhecer")
-                                .font(Font.largeTitle)
+                            Text("Quero te conhecer!")
+                                .font(Font.custom("Plus Jakarta Sans", size: 48))
+                                .lineSpacing(-5)
+                                .fontWeight(.semibold)
+                                
                                 .frame(maxWidth: .infinity, alignment: .leading)
-                                .padding(.bottom, 15)
+                                .padding(.top, 10)
+                                .padding(.bottom, 10)
                             
                             Text("Como gostaria de ser chamado?")
                                 .font(Font.headline)
@@ -82,27 +87,27 @@ struct AboutYouView: View {
                                 .textFieldStyle(OutlinedTextFieldStyle())
                               //  .accessibilityLabel("Campo de texto, coloque seu nome completo")
                             //    .accessibilityLabel(username1.isEmpty ? "Campo de texto vazio" : username1)
-
+                                
                             Text("Quantas refeições você faz ao dia?")
                                 .font(Font.headline)
                                 .frame(maxWidth: .infinity, alignment: .leading)
-                            
+                                .padding(.top, 15)
                        
                                 
                             PickerField(placeholder: "Quantidade", options: Numbers.allCases.map(\.range), selected: Binding(get: {number.range}, set: {number = Numbers.fromTitle($0) ?? .um }), defaultValue: Numbers.um.range)
                             .font(Font.body)
-                            .padding(5)
+//                            .padding(20)
                             .overlay {
                                 
                                 RoundedRectangle( cornerRadius: 12)
                                     .fill(.clear)
-                                    .stroke(Color("RoxoStroke"), style: StrokeStyle(lineWidth: 0.5))
+                                    .stroke(Color("RoxoStroke"), style: StrokeStyle(lineWidth: 2))
                                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
                                     
                             }
                         }
                         
-                        Spacer()
+//                        Spacer()
                         
                         Button {
                             numberOfMeals = Int(number.range) ?? 1
@@ -117,7 +122,7 @@ struct AboutYouView: View {
                         .controlSize(.large)
                         .tint(Color("RoxoAcao"))
                         .foregroundColor(Color(.white))
-                        .padding(EdgeInsets(top: 50, leading: 0, bottom: 0, trailing: 0))
+                        .padding(EdgeInsets(top: 150, leading: 0, bottom: 0, trailing: 0))
                         
                         NavigationLink(destination: PreferencesView(username1: username1, numberOfMeals: numberOfMeals), isActive: $isActive){
                             
@@ -141,14 +146,6 @@ struct AboutYouView: View {
 
     }
 
-    
-//    func createEmptyMeals() {
-//        var tempMeals: [Meal] = []
-//        for  _ in 0..<numberOfMeals {
-//            tempMeals.append(Meal(mealName: "", date: .now, time: .now, imageData: nil, durationMeal: 0, status: .pendente, descriptionMeal: ""))
-//        }
-//        meals = tempMeals
-//    }
         
     }
 
@@ -156,4 +153,4 @@ struct AboutYouView: View {
 #Preview {
     AboutYouView()
 }
-//teste
+
