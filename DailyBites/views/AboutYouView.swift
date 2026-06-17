@@ -55,7 +55,7 @@ struct AboutYouView: View {
             ScrollView{
           
                 Image("AppleAboutYou")
-                    .padding(.top, 80)
+                    .padding(.top, 70)
                     .padding(30)
                     .font(.largeTitle)
                     .frame(maxWidth: .infinity)
@@ -122,7 +122,7 @@ struct AboutYouView: View {
                         .controlSize(.large)
                         .tint(Color("RoxoAcao"))
                         .foregroundColor(Color(.white))
-                        .padding(EdgeInsets(top: 150, leading: 0, bottom: 0, trailing: 0))
+                        .padding(EdgeInsets(top: 140, leading: 0, bottom: 0, trailing: 0))
                         
                         NavigationLink(destination: PreferencesView(username1: username1, numberOfMeals: numberOfMeals), isActive: $isActive){
                             

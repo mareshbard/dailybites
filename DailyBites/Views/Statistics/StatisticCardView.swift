@@ -32,7 +32,7 @@ struct StatisticCardView: View {
             
         }
         .padding(20)
-        .background(Color("BackgroundCard"))
+        .background(Color(.systemBackground))
         .listRowSeparator(.hidden)
         .cornerRadius(12)
     }

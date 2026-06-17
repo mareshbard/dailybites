@@ -47,9 +47,7 @@ struct MealCardView: View {
 //        }
         .accessibilityHint("Clique para registrar ou editar a refeição")
         .frame(maxWidth: .infinity)
-        .onTapGesture {
-            showAddLog = true
-        }
+        
         .sheet(isPresented: $showAddLog) {
                     SheetAddLogMealView(meal: meal)
                 }
@@ -57,7 +55,9 @@ struct MealCardView: View {
         .padding(20)
         .background(Color("mealBackground"))
         .cornerRadius(15)
-        
+        .onTapGesture {
+            showAddLog = true
+        }
     }
 }
 

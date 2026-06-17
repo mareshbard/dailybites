@@ -56,7 +56,7 @@ struct StatisticsView: View {
                                     }
                                     .padding(20)
                                     .frame(maxWidth: .infinity, alignment: .leading)
-                                    .background(Color("BackgroundCard"))
+                                    .background(Color("mealBackground"))
                                     .frame(maxWidth: .infinity)
                                 }
                             }

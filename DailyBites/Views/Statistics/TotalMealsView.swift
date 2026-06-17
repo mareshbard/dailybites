@@ -37,7 +37,7 @@ struct TotalMealsView: View {
                         }
                         .padding(20)
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        .background(Color("BackgroundCard"))
+                        .background(Color(.systemBackground))
                         .cornerRadius(12)
                         
                         
@@ -58,7 +58,7 @@ struct TotalMealsView: View {
                     }
                 }
                 
-            .background(Color.backgroundCor)
+                .background(Color(.secondarySystemBackground))
 
             }
 
