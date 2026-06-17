@@ -7,7 +7,7 @@
 
 import SwiftUI
 import SwiftData
-
+//fhdgfdnf
 struct MoodbarView: View {
     
     @Environment(\.dismiss) private var dismiss
@@ -39,9 +39,13 @@ struct MoodbarView: View {
                         
                         HStack {
                             ForEach(Mood.allCases.indices, id: \.self) { index in
+                                let mood = Mood.allCases[index]
+                                
                                 VStack(spacing: 10) {
-                                    Text(Mood.allCases[index].rawValue)
-                                        .font(.largeTitle)
+                                    mood.content
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 40, height: 50)
                                     
                                     Text(MoodDescription.allCases[index].rawValue)
                                         .font(.headline)
@@ -51,19 +55,27 @@ struct MoodbarView: View {
                                     )
                                     .font(.body)
                                 }
+                                .padding(10)
+                                .background(Color(mood.color))
+                                .cornerRadius(12)
+                                .frame(maxHeight: .infinity)
                             }
                         }
                         .padding(10)
                         .frame(maxWidth: .infinity)
-                        .background(Color.gray.opacity(0.1))
+                        .background(Color("BackgroundCard"))
                         .clipShape(RoundedRectangle(cornerRadius: 12))
                         
                         
-                        VStack(alignment: .leading){
+                        VStack {
                             ForEach(Mood.allCases.indices, id: \.self) { index in
-                                HStack(alignment: .center) {
-                                    Text(Mood.allCases[index].rawValue)
-                                        .font(.largeTitle)
+                                let mood = Mood.allCases[index]
+                                
+                                HStack(spacing: 10) {
+                                    mood.content
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(maxWidth: 70, maxHeight: 70)
                                     
                                     Text(MoodDescription.allCases[index].rawValue)
                                         .font(.headline)
@@ -75,26 +87,20 @@ struct MoodbarView: View {
                                     )
                                     .font(.body)
                                 }
-                                .frame(maxWidth: .infinity, alignment: .topLeading)
+                                .padding(10)
+                                .background(Color(mood.color))
+                                .cornerRadius(12)
                             }
                         }
                         .padding(10)
-                        .frame(maxWidth: .infinity, alignment: .topLeading)
-                        .background(Color.gray.opacity(0.1))
+                        .frame(maxWidth: .infinity)
+                        .background(Color("BackgroundCard"))
                         .clipShape(RoundedRectangle(cornerRadius: 12))
                         
                     }
                     
-                    VStack {
-                        Text("O que o seu humor tem a ver com o que você come?")
-                            .font(.title2.bold())
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                        
-                        Text("Em momentos de estresse ou tristeza, tendemos a buscar comidas reconfortantes, como doces e alimentos ricos em gorduras. Registrar como você se sente em cada refeição ajuda a identificar padrões emocionais antes que virem hábitos.")
-                    }
-                    .padding(10)
-                    .background(Color.gray.opacity(0.1))
-                    
+                    StatisticCardView(statistic: .humor)
+                            
                 }
                 .padding(10)
                 .cornerRadius(12)
@@ -114,6 +120,8 @@ struct MoodbarView: View {
                     }
                 }
             }
+            .background(Color.backgroundCor)
+
         }
         
     }

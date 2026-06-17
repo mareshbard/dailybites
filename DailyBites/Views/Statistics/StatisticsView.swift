@@ -19,34 +19,6 @@ struct StatisticsView: View {
     
     @State private var selectedType: StatisticsTypes? = nil
     
-    enum StatisticsTypes: String, CaseIterable, Identifiable {
-        case pontualidade = "Pontualidade"
-        case resistroSemanal = "Registro Semanal"
-        case humor = "Humor"
-        case tempoDasrefeicoes = "Tempo das refeições"
-        case saciedade = "Saciedade"
-        case totalDerefeicoes = "Total de refeições"
-        
-        var id: Self { self }
-        
-        var iconName: String {
-            switch self {
-            case .pontualidade:
-                return "clock"
-            case .resistroSemanal:
-                return "calendar"
-            case .humor:
-                return "face.smiling"
-            case .tempoDasrefeicoes:
-                return "hourglass"
-            case .saciedade:
-                return "heart"
-            case .totalDerefeicoes:
-                return "number.circle"
-            }
-        }
-    }
-    
     var body: some View{
         NavigationStack {
             ScrollView{
@@ -62,52 +34,31 @@ struct StatisticsView: View {
                                 } label: {
                                     // MARK: Visual do botão
                                     HStack {
+                                        
+                                        Image(StatisticsTypes.allCases[statistic].iconName)
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 70, height: 70)
+
                                         Label(
+                                            
                                             StatisticsTypes.allCases[statistic].rawValue,
                                             systemImage: StatisticsTypes.allCases[statistic].iconName
                                         )
                                         .font(.headline)
+                                        .foregroundStyle(Color.primary)
                                         
                                         Spacer()
                                         
                                         Image(systemName: "chevron.right")
+                                            .foregroundStyle(Color.primary)
+
                                     }
                                     .padding(20)
                                     .frame(maxWidth: .infinity, alignment: .leading)
-                                    .background(Color.gray.opacity(0.1))
+                                    .background(Color("BackgroundCard"))
                                     .frame(maxWidth: .infinity)
                                 }
-                                
-//                                                                NavigationLink {
-//                                                                    switch StatisticsTypes.allCases[statistic] {
-//                                                                    case .humor:
-//                                                                        MoodbarView()
-//                                                                    default:
-//                                                                        EmptyView()
-//                                                                    }
-//                                
-//                                                                } label: {
-//                                                                    HStack {
-//                                                                        Label(
-//                                                                            StatisticsTypes.allCases[statistic].rawValue,
-//                                                                            systemImage: StatisticsTypes.allCases[statistic].iconName
-//                                                                        )
-//                                                                        .font(.headline)
-//                                
-//                                                                        Spacer()
-//                                
-//                                                                        Image(systemName: "chevron.right")
-//                                                                    }
-//                                                                    .padding(20)
-//                                                                    .frame(maxWidth: .infinity, alignment: .leading)
-//                                                                    .background(Color.gray.opacity(0.1))
-//                                                                    .frame(maxWidth: .infinity)
-//                                                                }
-                                
-                                
-                                
-                                
-                                
                             }
                             .clipShape(RoundedRectangle(cornerRadius: 12))
                         }
@@ -122,6 +73,7 @@ struct StatisticsView: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
             .navigationTitle("Estatísticas")
+            .background(Color.backgroundCor)
             .sheet(item: $selectedType) { selected in
                 switch selected {
                 case .pontualidade:

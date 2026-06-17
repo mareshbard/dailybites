@@ -13,9 +13,44 @@ struct AboutYouView: View {
     @AppStorage("firstUse") var firstUse: Bool = true
     @State private var username1: String = ""
     @State private var isActive: Bool = false
+    @State private var number: Numbers = Numbers.um
+    
+    enum Numbers: String, CaseIterable {
+        case um
+        case dois
+        case tres
+        case quatro
+        case cinco
+        case seis
+        case sete
+        case oito
+        case nove
+        case dez
+        
+        var id: Self { self }
+        
+        var range: String{
+            switch self {
+            case .um: return "1"
+            case .dois: return "2"
+            case .tres: return "3"
+            case .quatro: return "4"
+            case .cinco: return "5"
+            case .seis: return "6"
+            case .sete: return "7"
+            case .oito: return "8"
+            case .nove: return "9"
+            case .dez: return "10"
+            }
+        }
+        
+        static func fromTitle (_ range: String) -> Numbers? {
+            Numbers.allCases.first{$0.range == range}
+        }
+    }
     
     var body: some View {
-        
+   
         NavigationStack{
             ScrollView{
           
@@ -23,7 +58,7 @@ struct AboutYouView: View {
                     .padding(55)
                     .font(.largeTitle)
                     .frame(maxWidth: .infinity)
-                    .background(Color(.purple.opacity(0.5)))
+                    .background(Color("RoxoStroke"))
                     .clipShape(RoundedRectangle(cornerRadius: 35))
                     .ignoresSafeArea()
                     .accessibilityHidden(isActive)
@@ -32,8 +67,7 @@ struct AboutYouView: View {
                     VStack {
                         
                         VStack{
-                            
-                            
+
                             Text("Quero te conhecer")
                                 .font(Font.largeTitle)
                                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -53,28 +87,18 @@ struct AboutYouView: View {
                                 .font(Font.headline)
                                 .frame(maxWidth: .infinity, alignment: .leading)
                             
-                            HStack{
-                                Text("Quantidade")
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                                    .font(Font.body)
-                                    .foregroundStyle(.tertiary)
-                                Picker("Escolha a quantidade", selection: $numberOfMeals){
-                                    ForEach(range, id: \.self) {number in
-                                        Text("\(number)").tag(number)
-                                    }
-                                    //                            .onChange(of: numberOfMeals) { newValue in
-                                    //                                createEmptyMeals()
-                                    //                            }
-                                }
-                                .tint(Color.black)
-                            }
+                       
+                                
+                            PickerField(placeholder: "Quantidade", options: Numbers.allCases.map(\.range), selected: Binding(get: {number.range}, set: {number = Numbers.fromTitle($0) ?? .um }), defaultValue: Numbers.um.range)
+                            .font(Font.body)
                             .padding(20)
                             .overlay {
                                 
                                 RoundedRectangle( cornerRadius: 12)
                                     .fill(.clear)
-                                    .stroke(Color.black, style: StrokeStyle(lineWidth: 1.5))
-                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .stroke(Color("RoxoStroke"), style: StrokeStyle(lineWidth: 0.5))
+                                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+                                    
                             }
                         }
                         
@@ -82,6 +106,7 @@ struct AboutYouView: View {
                         
                         Button {
                             //                    meals = self.meals
+                            numberOfMeals = Int(number.range) ?? 1
                             self.isActive = true
                         } label: {
                             Label("Próximo", systemImage: "")
@@ -91,7 +116,7 @@ struct AboutYouView: View {
                         //        .buttonSizing(.flexible)
                         .font(Font.title3)
                         .controlSize(.large)
-                        .tint(.purple)
+                        .tint(Color("RoxoAcao"))
                         .foregroundColor(Color(.white))
                         .padding(EdgeInsets(top: 50, leading: 0, bottom: 0, trailing: 0))
                         
@@ -108,8 +133,8 @@ struct AboutYouView: View {
                 
             }
 
-            .ignoresSafeArea(.keyboard, edges: .bottom)
-            .padding(.horizontal, 24)
+            .ignoresSafeArea()
+
         }
         .scrollDismissesKeyboard(.immediately)
         

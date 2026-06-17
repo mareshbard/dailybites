@@ -19,7 +19,6 @@ struct PontualityView: View {
     
     @State private var isShowingSheet: Bool = false
 
-    @Environment(\.dynamicTypeSize) private var dynamicTypeSize: DynamicTypeSize
     @Environment(\.dismiss) private var dismiss
     
     @Query(sort: \LogMeal.date, order: .forward) var logs: [LogMeal]
@@ -37,132 +36,38 @@ struct PontualityView: View {
     
     var body: some View {
         NavigationStack{
-            List {
+            ScrollView {
+                VStack{
                     ViewThatFits{
                         HStack{
-                            Chart {
-                                ForEach(
-                                    status.filter({$0.status != .pendente})
-                                ) { status in
-                                    SectorMark(
-                                        angle: .value("Status", status.count),
-                                        innerRadius: .ratio(0.05),
-                                        outerRadius: .ratio(0.9),
-                                        angularInset: 1
-                                    )
-                                    .foregroundStyle(by: .value("name", status.status.title))
-                                    .foregroundStyle(Color.red)
-                                }
-                            }.chartLegend(position: dynamicTypeSize.isAccessibilitySize ? .bottomLeading : .trailing, alignment: .center) {
-
-                                VStack(alignment: .leading){
-
-                                    HStack() {
-                                        Color("VerdeDailyBites").frame(width: 20, height: 20).cornerRadius(5)
-                                        Text("Realizada pontualmente")
-                                            .foregroundStyle(Color.primary)
-                                    }
-                                    
-                                    HStack {
-                                        Color("AmareloDailyBites").frame(width: 20, height: 20).cornerRadius(5)
-                                        Text("Realizada com atraso")
-                                            .foregroundStyle(Color.primary)
-                                    }
-                                    
-                                    HStack {
-                                        Color("VermelhoDailyBites").frame(width: 20, height: 20).cornerRadius(5)
-                                        Text("Não realizou")
-                                            .foregroundStyle(Color.primary)
-                                    }
-
-                                }
-                            }
-                            .chartForegroundStyleScale([
-                                Status.atrasado.title: Color("AmareloDailyBites"),
-                                Status.pontual.title: Color("VerdeDailyBites"),
-                                Status.pulou.title: Color("VermelhoDailyBites")
-                            ])
+                            chartView
+                            chartLegend
                         }
-                        .padding(.horizontal, 10)
-                        .background(Color.gray.opacity(0.1))
+                        .padding(10)
+                        .background(Color("BackgroundCard"))
                         .cornerRadius(12)
                         .frame(maxWidth: .infinity)
                         
                         VStack{
-                            Chart {
-                                ForEach(
-                                    status.filter({$0.status != .pendente})
-                                ) { status in
-                                    SectorMark(
-                                        angle: .value("Status", status.count),
-                                        innerRadius: .ratio(0.05),
-                                        outerRadius: .ratio(0.9),
-                                        angularInset: 1
-                                    )
-                                    .foregroundStyle(by: .value("name", status.status.title))
-                                    .foregroundStyle(Color.red)
-                                }
-                            }.chartLegend(position: dynamicTypeSize.isAccessibilitySize ? .bottomLeading : .trailing, alignment: .center) {
-
-                                VStack(alignment: .leading){
-
-                                    HStack() {
-                                        Color("VerdeDailyBites").frame(width: 20, height: 20).cornerRadius(5)
-                                        Text("Realizada pontualmente")
-                                            .foregroundStyle(Color.primary)
-                                    }
-                                    
-                                    HStack {
-                                        Color("AmareloDailyBites").frame(width: 20, height: 20).cornerRadius(5)
-                                        Text("Realizada com atraso")
-                                            .foregroundStyle(Color.primary)
-                                    }
-                                    
-                                    HStack {
-                                        Color("VermelhoDailyBites").frame(width: 20, height: 20).cornerRadius(5)
-                                        Text("Não realizou")
-                                            .foregroundStyle(Color.primary)
-                                    }
-
-                                }
-                            }
-                            .chartForegroundStyleScale([
-                                Status.atrasado.title: Color("AmareloDailyBites"),
-                                Status.pontual.title: Color("VerdeDailyBites"),
-                                Status.pulou.title: Color("VermelhoDailyBites")
-                            ])
+                            chartView
+                            chartLegend
                         }
                         .padding(.horizontal, 10)
-                        .background(Color.gray.opacity(0.1))
+                        .background(Color("BackgroundCard"))
                         .cornerRadius(12)
-                        .frame(maxWidth: .infinity)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
                     }
                     
+                    StatisticCardView(statistic: .pontualidade)
                     
-                    VStack {
-                        Text("O que a pontualidade diz sobre sua alimentação?")
-                            .font(.title2.bold())
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                        
-                        HStack {
-                            
-                            Text("Segundo o Ministério da Saúde, manter a pontualidade e a regularidade nas refeições equilibra os sinais de fome e saciedade. Essa rotina evita excessos e o consumo de ultraprocessados, sendo essencial para o bom funcionamento do metabolismo.")
-                            
-                            Image("pineappleGlass")
-                                .padding(10)
-                                
-                            
-                        }
-                        
-                    }
-                    .padding(10)
-                    .background(Color.gray.opacity(0.1))
-                    .listRowSeparator(.hidden)
+                }
+                .padding(10)
+                    
             }
-
+            .background(Color.backgroundCor)
+            .listStyle(.plain)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction ) {
-                    
                     Button {
                         dismiss()
                     } label: {
@@ -174,13 +79,54 @@ struct PontualityView: View {
                     Text("Pontualidade")
                 }
             }
-
         }
-        
-        .listStyle(.plain)
-        
-        
-        
+    }
+    
+    var chartView: some View {
+        Chart {
+            ForEach(
+                status.filter({$0.status != .pendente})
+            ) { status in
+                SectorMark(
+                    angle: .value("Status", status.count),
+                    innerRadius: .ratio(0.7),
+                    outerRadius: .ratio(0.9),
+                    angularInset: 1
+                )
+                .foregroundStyle(by: .value("name", status.status.title))
+                .foregroundStyle(Color.red)
+            }
+        }
+        .chartLegend(.hidden)
+        .chartForegroundStyleScale([
+            Status.atrasado.title: Color("LaranjaAtrasado"),
+            Status.pontual.title: Color("RoxoAcao"),
+            Status.pulou.title: Color("Pulou")
+        ])
+        .scaledToFit()
+    }
+    
+    var chartLegend: some View {
+        VStack(alignment: .leading){
+            HStack() {
+                Color("RoxoAcao").frame(width: 20, height: 20).cornerRadius(5)
+                Text("Realizada pontualmente")
+                    .foregroundStyle(Color.primary)
+                    
+            }
+            
+            HStack {
+                Color("LaranjaAtrasado").frame(width: 20, height: 20).cornerRadius(5)
+                Text("Realizada com atraso")
+                    .foregroundStyle(Color.primary)
+            }
+            
+            HStack {
+                Color("Pulou").frame(width: 20, height: 20).cornerRadius(5)
+                Text("Não realizou")
+                    .foregroundStyle(Color.primary)
+            }
+        }
     }
 }
 

@@ -42,6 +42,16 @@ enum Mood: String, CaseIterable, Codable, Plottable{
     static func fromTitle (_ title: String) -> Mood? {
         Mood.allCases.first{$0.title == title}
     }
+    
+    var color: Color {
+        switch self {
+        case .verysad: return Color("Satiety-MuitaFome")
+        case .sad: return Color("Satiety-Fome")
+        case .neutral: return Color("Satiety-Satisfeito")
+        case .happy: return Color("Satiety-Cheio")
+        case .veryhappy: return Color("Satiety-MuitoCheio")
+        }
+    }
 }
 
 enum MoodDescription: String, CaseIterable {

@@ -59,45 +59,63 @@ struct QuantityMealsView: View {
                         Text("Quantidade de refeições")
                             .font(.headline)
                             .frame(maxWidth: .infinity, alignment: .leading)
-                        Chart{
-                            ForEach(Semana.allCases, id: \.self){ dia in
-                                BarMark(
-                                    x: .value("Dias", dia.rawValue),
-                                    y: .value("Refeicoes",
-                                              getEatenMealsFromWeekday(dia)
-            //                                              Int.random(in: 0...numberOfMeals)
-                                             )
-                                )
-                                .foregroundStyle(Color("CordeAção"))
-                                .clipShape(RoundedRectangle(cornerRadius: 32))
-                                
+                        ViewThatFits{
+                            Chart{
+                                ForEach(Semana.allCases, id: \.self){ dia in
+                                    BarMark(
+                                        x: .value("Dias", dia.rawValue),
+                                        y: .value("Refeicoes",
+                                                  getEatenMealsFromWeekday(dia)
+                                                 )
+                                    )
+                                    .foregroundStyle(Color("RoxoAcao"))
+                                    .clipShape(RoundedRectangle(cornerRadius: 32))
+                                    
+                                    
+                                }
                                 
                             }
+                            .chartYAxis{
+                                AxisMarks(position: .leading, stroke: StrokeStyle(lineWidth: 0))
+                            }
+                            .chartXAxis{
+                                AxisMarks(stroke: StrokeStyle(lineWidth: 0))
+                            }
+                            //   .AxisGridLine(.hidden)
                             
+                            Chart{
+                                ForEach(Semana.allCases, id: \.self){ dia in
+                                    BarMark(
+                                        x: .value("Refeicoes",
+                                                  getEatenMealsFromWeekday(dia)
+                                                 ),
+                                        y: .value("Dias", dia.rawValue)
+                                    )
+                                    
+                                    .foregroundStyle(Color("RoxoAcao"))
+                                    .clipShape(RoundedRectangle(cornerRadius: 32))
+
+                                }
+                                
+                            }
+                            .chartYAxis{
+                                AxisMarks(position: .leading, stroke: StrokeStyle(lineWidth: 0))
+                            }
+                            .chartXAxis{
+                                AxisMarks(stroke: StrokeStyle(lineWidth: 0))
+                            }
                         }
-                        .chartYAxis{
-                            AxisMarks(position: .leading, stroke: StrokeStyle(lineWidth: 0))
-                        }
-                        .chartXAxis{
-                            AxisMarks(stroke: StrokeStyle(lineWidth: 0))
-                        }
-                        //   .AxisGridLine(.hidden)
+                        
+                        
                         
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
                     .padding(10)
-                    .background(Color.gray.opacity(0.1))
+                    .background(Color("BackgroundCard"))
                     .cornerRadius(12)
                     
-                    VStack {
-                        Text("O que o registro semanal mostra?")
-                            .font(.title2.bold())
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                        
-                        Text("Visualizar sua constância ao longo da semana é o primeiro passo para criar uma rotina alimentar sustentável. A regularidade é tão importante quanto a qualidade do que se come.")
-                    }
-                    .padding(10)
-                    .background(Color.gray.opacity(0.1))
+                    
+                    StatisticCardView(statistic: .resistroSemanal)
                 }
                 .padding(20)
                 .toolbar {
@@ -115,6 +133,8 @@ struct QuantityMealsView: View {
                     }
                 }
             }
+            .background(Color.backgroundCor)
+
         }
         
         

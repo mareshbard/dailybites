@@ -46,7 +46,7 @@ class LogMeal: Identifiable {
          durationMeal: Int,
          status: Status,
          descriptionMeal: String,
-         emotion: Mood
+         emotion: Mood,
     ) {
         self.ref = ref
         self.date = date
