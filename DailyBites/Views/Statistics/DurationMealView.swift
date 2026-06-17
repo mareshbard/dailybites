@@ -27,9 +27,10 @@ struct DurationMealView: View {
         NavigationStack{
             ScrollView{
                 VStack{
-                    VStack{
+                    ZStack{
                         Text("\(media)")
                             .padding(70)
+                            .padding(.bottom, 20)
                             .font(Font.system(size: 70, weight: .black, design: .default))
                             .clipShape(Circle())
                             .overlay{
@@ -39,8 +40,8 @@ struct DurationMealView: View {
                         Spacer()
                         
                         Text("Minutos")
-                            .font(.title2)
-                            .padding(10)
+                            .font(Font.system(size: 25, weight: .black, design: .default))
+                            .padding(.top, 80)
                     }
                     .padding(30)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
