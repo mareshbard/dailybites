@@ -90,14 +90,15 @@ struct AboutYouView: View {
                        
                                 
                             PickerField(placeholder: "Quantidade", options: Numbers.allCases.map(\.range), selected: Binding(get: {number.range}, set: {number = Numbers.fromTitle($0) ?? .um }), defaultValue: Numbers.um.range)
-
+                            .font(Font.body)
                             .padding(20)
                             .overlay {
                                 
                                 RoundedRectangle( cornerRadius: 12)
                                     .fill(.clear)
                                     .stroke(Color("RoxoStroke"), style: StrokeStyle(lineWidth: 0.5))
-                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+                                    
                             }
                         }
                         

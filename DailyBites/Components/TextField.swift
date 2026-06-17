@@ -17,7 +17,7 @@ struct OutlinedTextFieldStyle: TextFieldStyle {
                 
                     .fill(.clear)
                     .stroke(Color("RoxoStroke"), style: StrokeStyle(lineWidth: 0.5))
-                    .frame(maxWidth: .infinity, maxHeight: 50, alignment: .leading)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
             }
     }
 }
