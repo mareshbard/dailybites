@@ -12,48 +12,57 @@ struct LogView: View {
            ScrollView {
                
                
-               VStack(alignment: .leading) {
+               VStack( alignment: .leading) {
                    Section("PONTUALIDADE") {
                        Text("\(log.status.rawValue.capitalized)")
                            .modifier(TextInfo())
+                           .padding(.bottom, 14)
                    }
                    
                    
                    Section("TEMPO DA REFEIÇÃO") {
                        Text("\(log.durationMeal)")
                            .modifier(TextInfo())
+                           .padding(.bottom, 16)
                    }
                    Section("SACIEDADE") {
                        Text("\(log.satiety.title)")
                            .modifier(TextInfo())
+                           .padding(.bottom, 16)
                    }
-                   Section("HUMOR APÓS A REFEIÇÃO") {
+                   Section("HUMOR ANTES DA REFEIÇÃO") {
                        HStack(spacing: 14) {
                            log.emotion.content
                                .resizable()
                                .frame(width: 33, height: 37)
                             
                            Text("\(log.emotion.title)")
+                              
                        }
+                       
                        .modifier(TextInfo())
+                       .padding(.bottom, 16)
                        if let image = log.image {
                            Section("FOTO"){
                                Image(uiImage: image)
                                    .resizable()
-                               // .scaledToFit()
                                    .frame(height: 300)
                                    .cornerRadius(15)
+                                   .padding(.bottom, 16)
                            }
+                          
+                       }
+                       if log.descriptionMeal.isEmpty {
                            
+                       } else {
+                           Section("DESCRIÇÃO") {
+                               Text("\(log.descriptionMeal)")
+                                   .modifier(TextInfo())
+                                   .padding(.bottom, 16)
+                           }
                        }
-                       Section("DESCRIÇÃO") {
-                           Text("\(log.descriptionMeal)")
-                               .modifier(TextInfo())
-                       }
-                       
                    }
                }
-               
            }
            .padding(.top, -30)
            .scrollIndicators(.hidden)

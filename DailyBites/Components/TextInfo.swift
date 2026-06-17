@@ -6,8 +6,9 @@ struct TextInfo: ViewModifier {
             .font(Font.custom("PlusJakartaSans-Regular", size: 18.0))
             .padding(10)
             .frame(maxWidth: .infinity, alignment: .leading)
-            .background(Color.white)
+            .background(Color("mealBackground"))
             .cornerRadius(10)
+            
     }
 }
 

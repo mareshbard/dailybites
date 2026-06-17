@@ -105,7 +105,6 @@ struct AboutYouView: View {
                         Spacer()
                         
                         Button {
-                            //                    meals = self.meals
                             numberOfMeals = Int(number.range) ?? 1
                             self.isActive = true
                         } label: {

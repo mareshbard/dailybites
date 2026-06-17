@@ -60,6 +60,8 @@ struct LogRecorded: View {
                 .cornerRadius(15)
             }
         }
+        .background(Color("mealBackground"))
+        .cornerRadius(15)
         .onTapGesture {
             isPresented = true
         }
