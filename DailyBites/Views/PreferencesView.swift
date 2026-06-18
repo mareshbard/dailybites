@@ -107,7 +107,7 @@ struct PreferencesView: View {
        
     
     func createMeal() -> Meal {
-        return Meal(name: "", logs: [], time: .now, isFixed: false)
+        return Meal(name: "", logs: [], time: .now, isFixed: true)
     }
 }
 
