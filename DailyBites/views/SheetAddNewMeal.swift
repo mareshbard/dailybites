@@ -131,7 +131,7 @@ struct SheetAddNewMeal: View {
                 Section {
                     EmojiSelector(selectedMood: $selectedMood)
                 } header: {
-                    SectionLabel(title:"HUMOR ANTES DA REFEIÇÃO", required: true)
+                    SectionLabel(title:"HUMOR APÓS A REFEIÇÃO", required: true)
                 }
                 .padding(.top, -5)
                 .padding(.bottom, -5)

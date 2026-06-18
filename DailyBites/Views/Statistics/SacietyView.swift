@@ -91,7 +91,7 @@ struct SacietyView: View {
                     }
                     .padding(10)
                     .frame(maxWidth: .infinity)
-                    .background(Color("BackgroundCard"))
+                    .background(Color(.systemBackground))
                     .cornerRadius(12)
 
                     
@@ -117,7 +117,7 @@ struct SacietyView: View {
                     }
                 }
             }
-            .background(Color.backgroundCor)
+            .background(Color(.secondarySystemBackground))
 
         }
         

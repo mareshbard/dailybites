@@ -10,13 +10,13 @@ import SwiftUI
 struct OutlinedTextFieldStyle: TextFieldStyle {
     func _body(configuration: TextField<Self._Label>) -> some View {
         configuration
-            .padding(20)
+            .padding(15)
             .overlay {
                 
                 RoundedRectangle( cornerRadius: 12)
                 
                     .fill(.clear)
-                    .stroke(Color("RoxoStroke"), style: StrokeStyle(lineWidth: 0.5))
+                    .stroke(Color("RoxoStroke"), style: StrokeStyle(lineWidth: 2))
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
             }
     }

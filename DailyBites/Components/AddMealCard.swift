@@ -45,7 +45,7 @@ struct AddMealCardView: View {
                         DatePicker("Selecione o horário", selection: $meal.time, displayedComponents: .hourAndMinute)
                             .labelsHidden()
                             .accessibilitySortPriority(2)
-                            .tint(Color("VermelhoDailyBites"))
+                            .tint(Color("RoxoDailyBites"))
                             .accessibilityElement(children: .ignore)
                             .accessibilityLabel(Text("Selecione o horário"))
                         // perguntar se devo deixar "time picker" e se é traduzido

@@ -112,13 +112,13 @@ struct QuantityMealsView: View {
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
                     .padding(10)
-                    .background(Color("BackgroundCard"))
+                    .background(Color(.systemBackground))
                     .cornerRadius(12)
                     
                     
                     StatisticCardView(statistic: .resistroSemanal)
                 }
-                .padding(20)
+                .padding(.horizontal, 20)
                 .toolbar {
                     ToolbarItem(placement: .cancellationAction ) {
                         
@@ -134,7 +134,7 @@ struct QuantityMealsView: View {
                     }
                 }
             }
-            .background(Color.backgroundCor)
+            .background(Color(.secondarySystemBackground))
 
         }
         

@@ -13,6 +13,7 @@ struct HomeView: View {
     @AppStorage("isNotificationAuthorized") var isNotificationAuthorized: Bool = false
     @Query(sort: \LogMeal.date, order: .forward) var logs: [LogMeal]
     @State private var isActive: Bool = false
+    @State private var showCalendar: Bool = false
     @SceneStorage("selectedTab") private var selectedTabIndex: Int = 0
     @State var palavra: String = ""
     @State private var showAddNewMeal: Bool = false
@@ -34,7 +35,7 @@ struct HomeView: View {
                             .font(.body)
                     }
                     Button{
-                        
+                        self.showCalendar = true
                     } label: {
                         Image(systemName: "calendar")
                             .padding(10)
@@ -70,10 +71,11 @@ struct HomeView: View {
                         .foregroundStyle(Color.primary)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .font(Font.custom("PlusJakartaSans-SemiBold", size: 22))
+                        
                     Button("Adicionar"){
+                   
                         isActive = true
                         showAddNewMeal = true
-                        
                     }
                     .foregroundColor(Color.roxoAcao)
                     .font(Font.custom("PlusJakartaSans-SemiBold", size: 18))
@@ -82,6 +84,11 @@ struct HomeView: View {
                             }
                 }
                 .padding(.top, 31)
+                .padding(.bottom, 16)
+                NavigationLink(destination: MealsRecordedView(), isActive: $showCalendar){
+                    
+                }
+
                 VStack {
                     ForEach(meals) { meal in
                         MealCardView(meal: meal)

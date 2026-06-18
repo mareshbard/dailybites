@@ -51,6 +51,7 @@ struct MealsRecordedView: View {
             .scrollIndicators(.hidden)
             
         }
+        .toolbar(.hidden, for: .tabBar)
         
     }
 }

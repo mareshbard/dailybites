@@ -18,18 +18,22 @@ struct LogRecorded: View {
                     VStack(alignment: .leading) {
                         Text("\(log.ref!.name)")
                             .font(Font.custom("PlusJakartaSans-SemiBold", size: 20))
+                            .foregroundColor(Color.primary)
                         Text(log.ref!.time, style: .time)
+                            .foregroundColor(Color.primary)
                         Spacer()
                         Text(log.status.title)
+//                            .foregroundColor(Color.primary)
                             .modifier(TagText(log: log))
                         
                     }
                     .foregroundColor(Color.font)
+//                    .foregroundColor(Color.primary)
                     .padding(10)
                     Spacer()
                 }
                 .frame(maxWidth: .infinity)
-                .background(Color.white)
+//                .background(Color.white)
                 .cornerRadius(15)
             }
             else {
@@ -43,7 +47,7 @@ struct LogRecorded: View {
 
                             Text(log.ref!.time, style: .time)
                                 .font(Font.custom("PlusJakartaSans-Medium", size: 17))
-                                .foregroundColor(Color.font)
+                                .foregroundColor(Color.primary)
                         }
                         Spacer()
                         
@@ -56,10 +60,12 @@ struct LogRecorded: View {
                 .frame(maxWidth: .infinity)
                 .accessibilityHint("Clique para visualizar sua refeição")
                 .frame(maxWidth: .infinity)
-                .background(Color.white)
+                .background(Color("mealBackground"))
                 .cornerRadius(15)
             }
         }
+        .background(Color("mealBackground"))
+        .cornerRadius(15)
         .onTapGesture {
             isPresented = true
         }

@@ -44,7 +44,7 @@ struct PontualityView: View {
                             chartLegend
                         }
                         .padding(10)
-                        .background(Color("BackgroundCard"))
+                        .background(Color(.systemBackground))
                         .cornerRadius(12)
                         .frame(maxWidth: .infinity)
                         
@@ -53,7 +53,7 @@ struct PontualityView: View {
                             chartLegend
                         }
                         .padding(.horizontal, 10)
-                        .background(Color("BackgroundCard"))
+                        .background(Color(.systemBackground))
                         .cornerRadius(12)
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                     }
@@ -64,7 +64,7 @@ struct PontualityView: View {
                 .padding(10)
                     
             }
-            .background(Color.backgroundCor)
+            .background(Color(.secondarySystemBackground))
             .listStyle(.plain)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction ) {
