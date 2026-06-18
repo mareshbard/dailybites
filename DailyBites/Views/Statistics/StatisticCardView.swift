@@ -28,6 +28,7 @@ struct StatisticCardView: View {
                 
                 Image(statistic.imageName)
                     .padding(10)
+                    .accessibilityHidden(true)
             }
             
         }

@@ -29,6 +29,7 @@ struct DurationMealView: View {
                 VStack{
                     ZStack{
                         Text("\(media)")
+                            .accessibilityLabel(Text("\(media) minutos"))
                             .padding(70)
                             .padding(.bottom, 20)
                             .font(Font.system(size: 70, weight: .black, design: .default))
@@ -42,6 +43,7 @@ struct DurationMealView: View {
                         Text("Minutos")
                             .font(Font.system(size: 25, weight: .black, design: .default))
                             .padding(.top, 80)
+                            .accessibilityHidden(true)
                     }
                     .padding(30)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -64,7 +66,7 @@ struct DurationMealView: View {
                               }
                         }
                         ToolbarItem(placement: .title){
-                            Text("Tempo das refeições")
+                            Text("Tempo médio das refeições")
                         }
                         }
                 }

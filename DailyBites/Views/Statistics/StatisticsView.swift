@@ -59,6 +59,7 @@ struct StatisticsView: View {
                                     .background(Color("BackgroundCard"))
                                     .frame(maxWidth: .infinity)
                                 }
+                                .accessibility(label: Text("\(StatisticsTypes.allCases[statistic].rawValue) Button"))
                             }
                             .clipShape(RoundedRectangle(cornerRadius: 12))
                         }
