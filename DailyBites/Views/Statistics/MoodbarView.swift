@@ -77,6 +77,7 @@ struct MoodbarView: View {
                                         .resizable()
                                         .scaledToFit()
                                         .frame(maxWidth: 70, maxHeight: 70)
+                                        .accessibilityHidden(true)
                                     
                                     Text(MoodDescription.allCases[index].rawValue)
                                         .font(.headline)

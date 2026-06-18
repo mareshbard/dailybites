@@ -25,6 +25,7 @@ struct TotalMealsView: View {
                     VStack{
                         VStack{
                             Text("\(getEatenMeals())")
+                                .accessibilityLabel(Text("\(getEatenMeals()), refeições"))
                                 .padding(10)
                                 .font(Font.system(size: 100, weight: .black, design: .default))
                                 .foregroundStyle(Color("RoxoAcao"))
@@ -34,6 +35,7 @@ struct TotalMealsView: View {
                             
                             Text("Refeições")
                                 .font(.title2)
+                                .accessibilityHidden(true)
                         }
                         .padding(20)
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -54,7 +56,7 @@ struct TotalMealsView: View {
                         }
                     }
                     ToolbarItem(placement: .title){
-                        Text("Tempo das refeições")
+                        Text("Total de refeições")
                     }
                 }
                 

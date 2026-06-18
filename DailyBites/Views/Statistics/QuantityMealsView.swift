@@ -75,6 +75,7 @@ struct QuantityMealsView: View {
                                 }
                                 
                             }
+                            .accessibilityLabel(Text("Gráfico: quantidades de refeições semanais"))
                             .chartYAxis{
                                 AxisMarks(position: .leading, stroke: StrokeStyle(lineWidth: 0))
                             }

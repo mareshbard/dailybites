@@ -97,6 +97,7 @@ struct PontualityView: View {
                 .foregroundStyle(Color.red)
             }
         }
+        .accessibilityLabel(Text("Gráfico de Pontualidade"))
         .chartLegend(.hidden)
         .chartForegroundStyleScale([
             Status.atrasado.title: Color("LaranjaAtrasado"),
@@ -127,6 +128,7 @@ struct PontualityView: View {
                     .foregroundStyle(Color.primary)
             }
         }
+        .accessibilityHidden(true)
     }
 }
 

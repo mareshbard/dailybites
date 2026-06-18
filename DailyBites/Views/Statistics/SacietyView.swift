@@ -50,6 +50,7 @@ struct SacietyView: View {
                                         Text(
                                             "\(String(format: "%.0f", percentage[index]))%"
                                         )
+                                        .accessibilityLabel(Text("\(Satiety.allCases[index].title)"))
                                             .font(.subheadline)
                                             .padding()
                                         
@@ -79,6 +80,7 @@ struct SacietyView: View {
                                     
                                     Spacer()
                                 }
+                                .accessibilityHidden(true)
                                 
                             }
                         }

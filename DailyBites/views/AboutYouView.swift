@@ -62,7 +62,7 @@ struct AboutYouView: View {
                     .background(Color("BackgroundAboutYou"))
                     .clipShape(RoundedRectangle(cornerRadius: 35))
                     .ignoresSafeArea()
-                    .accessibilityHidden(isActive)
+                    .accessibilityHidden(true)
                 
                 
                     VStack {
@@ -85,9 +85,9 @@ struct AboutYouView: View {
                             TextField("Digite seu nome", text: $username1)
                                 .font(Font.body)
                                 .textFieldStyle(OutlinedTextFieldStyle())
-                              //  .accessibilityLabel("Campo de texto, coloque seu nome completo")
-                            //    .accessibilityLabel(username1.isEmpty ? "Campo de texto vazio" : username1)
-                                
+                                .accessibilityLabel("Digite seu nome")
+                                //.accessibilityLabel(username1.isEmpty ? "Campo de texto vazio" : username1)
+
                             Text("Quantas refeições você faz ao dia?")
                                 .font(Font.headline)
                                 .frame(maxWidth: .infinity, alignment: .leading)
