@@ -23,7 +23,7 @@ struct SheetAddNewMeal: View {
     @State private var durationMeal: Int = 0
     @State private var selectedMood: Mood = .neutral
     @State private var imageData: Data? = nil
-    @State private var time = Date()
+    @State private var time: Date = Date()
     @State private var date = Date()
     @State private var isFixed: Bool = false
     @State private var auxDuration: String = ""
@@ -40,7 +40,7 @@ struct SheetAddNewMeal: View {
             todayLog.durationMeal = durationMeal
             todayLog.imageData = imageData
             todayLog.ref!.isFixed = isFixed
-            todayLog.ref!.repeatDays = repeatDays
+            //            todayLog.ref!.repeatDays = repeatDays
             
         }
         else{
@@ -48,24 +48,17 @@ struct SheetAddNewMeal: View {
                 meal.name = mealName
                 meal.time = time
                 meal.isFixed = isFixed
-                meal.repeatDays = repeatDays
+                //                meal.repeatDays = repeatDays
                 modelContext.insert(meal)
             }
-//            let checkMeal = meals.count(where: { $0.name == mealName })
-//            if checkMeal == 0 {
-//                meal.name = mealName
-//                meal.time = time
-//                meal.isFixed = isFixed
-//                meal.repeatDays = repeatDays
-//                modelContext.insert(meal)
-//            }
+            
             let log = LogMeal(
                 ref: meal,
                 date: date,
                 satiety: satiety,
                 imageData: imageData,
                 durationMeal: durationMeal,
-                status: status,
+                status: Status.pontual,
                 descriptionMeal: descriptionMeal,
                 emotion: selectedMood
             )
@@ -92,21 +85,29 @@ struct SheetAddNewMeal: View {
                 .foregroundStyle(.primary)
                 
                 Section {
-                    RepeatMeals(time: $time, isFixed: $isFixed, repeatDays: $repeatDays)
+                    HStack {
+                        Text("Selecione o horário")
+                            .foregroundStyle(.tertiary)
+                        Spacer()
+                        DatePicker("Selecione o horário", selection: $time, displayedComponents: .hourAndMinute)
+                            .labelsHidden()
+                            .accessibilitySortPriority(2)
+                            .tint(Color("RoxoDailyBites"))
+                            .accessibilityElement(children: .ignore)
+                            .accessibilityLabel(Text("Selecione o horário"))
+                            .font(Font.body)
+                    }
+                    .padding(8)
+                    .frame(maxWidth: .infinity, minHeight: 52, alignment: .leading)
+                    .background(
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(Color(.systemBackground))
+                    )
+                    .contentShape(Rectangle())
                 } header: {
                     SectionLabel(title:"HORÁRIO", required: true)
                 }
-                .padding(.top, -10)
-                .listRowBackground(Color.clear)
-                .font(Font.subheadline.bold())
-                .foregroundStyle(.primary)
-                
-                Section {
-                    PickerField(placeholder: "Selecione", options: Status.allCases.map(\.title), selected: Binding(get: {status.title}, set: {status = Status.fromTitle($0) ?? .pendente }), defaultValue: Status.pendente.title)
-                } header: {
-                    SectionLabel(title:"PONTUALIDADE", required: true)
-                }
-                .accessibilityLabel(Text("Selecione a pontualidade da sua refeição"))
+                .accessibilityLabel(Text("Selecione o horário da sua refeição"))
                 .padding(.top, -10)
                 .listRowBackground(Color.clear)
                 .font(Font.subheadline.bold())
@@ -138,7 +139,7 @@ struct SheetAddNewMeal: View {
                 Section {
                     EmojiSelector(selectedMood: $selectedMood)
                 } header: {
-                    SectionLabel(title:"HUMOR APÓS A REFEIÇÃO", required: true)
+                    SectionLabel(title:"HUMOR ANTES DA REFEIÇÃO", required: true)
                 }
                 .padding(.top, -5)
                 .padding(.bottom, -5)
@@ -174,8 +175,8 @@ struct SheetAddNewMeal: View {
             .background(Color(.secondarySystemBackground))
             
             .listSectionSpacing(.compact)
-            .navigationTitle(Text("Adicionar nova refeição"))
-            .accessibilityLabel(Text("Formulário de adicionar nova refeição"))
+            .navigationTitle(Text("Adicionar refeição extra"))
+            .accessibilityLabel(Text("Formulário de adicionar refeição extra"))
             .toolbarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
@@ -195,14 +196,15 @@ struct SheetAddNewMeal: View {
                         meal.name = mealName
                         meal.time = time
                         durationMeal = Int(auxDuration) ?? 0
-                        repeatDays = repeatDays
+                        //                        numberOfMeals += 1
+                        //                        repeatDays = repeatDays
                         addLog()
                         
                     }
                     .accessibilityLabel("Salvar")
                     .accessibilityHint("Salva as informações do formulário e volta à tela anterior")
                     .accessibilityIdentifier("toolbarSalvarButton")
-                    .disabled(status == .pendente || mealName.isEmpty || auxDuration.isEmpty)
+                    .disabled(mealName.isEmpty || auxDuration.isEmpty)
                     .tint(Color("RoxoDailyBites"))
                 }
             }
@@ -214,8 +216,8 @@ struct SheetAddNewMeal: View {
         .onAppear {
             mealName = meal.name
             time = meal.time
-            isFixed = meal.isFixed
-            repeatDays = meal.repeatDays
+            //            isFixed = meal.isFixed
+            //            repeatDays = meal.repeatDays
             
             let thisMeal = meal.logs.last(where: { $0.ref!.name == meal.name && Calendar.current.isDate($0.date, inSameDayAs: Date())})
             mealName = meal.name
@@ -224,14 +226,15 @@ struct SheetAddNewMeal: View {
                 self.imageData = imageData
             }
             descriptionMeal = thisMeal?.descriptionMeal ?? ""
-            status = thisMeal?.status ?? .pendente
+            status = thisMeal?.status ?? .pontual
             satiety = thisMeal?.satiety ?? .satisfeito
             selectedMood = thisMeal?.emotion ?? .neutral
             durationMeal = thisMeal?.durationMeal ?? 0
-            repeatDays = thisMeal?.ref!.repeatDays ?? []
+            //            repeatDays = thisMeal?.ref!.repeatDays ?? []
             auxDuration = durationMeal == 0 ? "" : String(durationMeal)
             
             // isFixed = thisMeal?.ref!.isFixed ?? false
         }
     }
 }
+

@@ -8,13 +8,13 @@ class Meal {
     var time: Date = Date() //Horário que a pessoa cadastrou a refeicao
     var logs: [LogMeal]
     var isFixed: Bool = false
-    var repeatDays: [Int] = []
+//    var repeatDays: [Int] = []
     init(name: String, logs: [LogMeal], time: Date, isFixed: Bool, repeatDays: [Int] = [] ) {
         self.name = name
         self.logs = logs
         self.time = time
         self.isFixed = isFixed
-        self.repeatDays = repeatDays
+//        self.repeatDays = repeatDays
     }
 }
 

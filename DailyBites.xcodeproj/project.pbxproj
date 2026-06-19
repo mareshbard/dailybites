@@ -6,11 +6,51 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		1D5B98522FE56D1F009C7CA7 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D5B98512FE56D1F009C7CA7 /* WidgetKit.framework */; };
+		1D5B98542FE56D1F009C7CA7 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D5B98532FE56D1F009C7CA7 /* SwiftUI.framework */; };
+		1D5B985F2FE56D20009C7CA7 /* WidgetStreakCardExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 1D5B984F2FE56D1F009C7CA7 /* WidgetStreakCardExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1D5B985D2FE56D20009C7CA7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE5CD30E2F98EF6500CE9010 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1D5B984E2FE56D1F009C7CA7;
+			remoteInfo = WidgetStreakCardExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1D5B98602FE56D20009C7CA7 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				1D5B985F2FE56D20009C7CA7 /* WidgetStreakCardExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		1D5B984F2FE56D1F009C7CA7 /* WidgetStreakCardExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WidgetStreakCardExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D5B98512FE56D1F009C7CA7 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		1D5B98532FE56D1F009C7CA7 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		CE5CD3162F98EF6500CE9010 /* DailyBites.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyBites.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		1D5B98642FE56D20009C7CA7 /* Exceptions for "WidgetStreakCard" folder in "WidgetStreakCardExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 1D5B984E2FE56D1F009C7CA7 /* WidgetStreakCardExtension */;
+		};
 		ADF20CA82FDB0CC20010C4DF /* Exceptions for "DailyBites" folder in "DailyBites" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -21,6 +61,14 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		1D5B98552FE56D1F009C7CA7 /* WidgetStreakCard */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				1D5B98642FE56D20009C7CA7 /* Exceptions for "WidgetStreakCard" folder in "WidgetStreakCardExtension" target */,
+			);
+			path = WidgetStreakCard;
+			sourceTree = "<group>";
+		};
 		CE5CD3182F98EF6500CE9010 /* DailyBites */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
@@ -32,6 +80,15 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		1D5B984C2FE56D1F009C7CA7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D5B98542FE56D1F009C7CA7 /* SwiftUI.framework in Frameworks */,
+				1D5B98522FE56D1F009C7CA7 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CE5CD3132F98EF6500CE9010 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -42,10 +99,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D5B98502FE56D1F009C7CA7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1D5B98512FE56D1F009C7CA7 /* WidgetKit.framework */,
+				1D5B98532FE56D1F009C7CA7 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		CE5CD30D2F98EF6500CE9010 = {
 			isa = PBXGroup;
 			children = (
 				CE5CD3182F98EF6500CE9010 /* DailyBites */,
+				1D5B98552FE56D1F009C7CA7 /* WidgetStreakCard */,
+				1D5B98502FE56D1F009C7CA7 /* Frameworks */,
 				CE5CD3172F98EF6500CE9010 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -54,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				CE5CD3162F98EF6500CE9010 /* DailyBites.app */,
+				1D5B984F2FE56D1F009C7CA7 /* WidgetStreakCardExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -61,6 +130,28 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		1D5B984E2FE56D1F009C7CA7 /* WidgetStreakCardExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D5B98632FE56D20009C7CA7 /* Build configuration list for PBXNativeTarget "WidgetStreakCardExtension" */;
+			buildPhases = (
+				1D5B984B2FE56D1F009C7CA7 /* Sources */,
+				1D5B984C2FE56D1F009C7CA7 /* Frameworks */,
+				1D5B984D2FE56D1F009C7CA7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				1D5B98552FE56D1F009C7CA7 /* WidgetStreakCard */,
+			);
+			name = WidgetStreakCardExtension;
+			packageProductDependencies = (
+			);
+			productName = WidgetStreakCardExtension;
+			productReference = 1D5B984F2FE56D1F009C7CA7 /* WidgetStreakCardExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		CE5CD3152F98EF6500CE9010 /* DailyBites */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE5CD3232F98EF6600CE9010 /* Build configuration list for PBXNativeTarget "DailyBites" */;
@@ -68,10 +159,12 @@
 				CE5CD3122F98EF6500CE9010 /* Sources */,
 				CE5CD3132F98EF6500CE9010 /* Frameworks */,
 				CE5CD3142F98EF6500CE9010 /* Resources */,
+				1D5B98602FE56D20009C7CA7 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				1D5B985E2FE56D20009C7CA7 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				CE5CD3182F98EF6500CE9010 /* DailyBites */,
@@ -90,9 +183,12 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 2610;
+				LastSwiftUpdateCheck = 2650;
 				LastUpgradeCheck = 2610;
 				TargetAttributes = {
+					1D5B984E2FE56D1F009C7CA7 = {
+						CreatedOnToolsVersion = 26.5;
+					};
 					CE5CD3152F98EF6500CE9010 = {
 						CreatedOnToolsVersion = 26.1;
 					};
@@ -114,11 +210,19 @@
 			projectRoot = "";
 			targets = (
 				CE5CD3152F98EF6500CE9010 /* DailyBites */,
+				1D5B984E2FE56D1F009C7CA7 /* WidgetStreakCardExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		1D5B984D2FE56D1F009C7CA7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CE5CD3142F98EF6500CE9010 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -129,6 +233,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1D5B984B2FE56D1F009C7CA7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CE5CD3122F98EF6500CE9010 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -138,7 +249,77 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		1D5B985E2FE56D20009C7CA7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1D5B984E2FE56D1F009C7CA7 /* WidgetStreakCardExtension */;
+			targetProxy = 1D5B985D2FE56D20009C7CA7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		1D5B98612FE56D20009C7CA7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5ZA287RU8X;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WidgetStreakCard/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = WidgetStreakCard;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.YohaneCavalcanteXavier.DailyBites.WidgetStreakCard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1D5B98622FE56D20009C7CA7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5ZA287RU8X;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WidgetStreakCard/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = WidgetStreakCard;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.YohaneCavalcanteXavier.DailyBites.WidgetStreakCard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		CE5CD3212F98EF6600CE9010 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -343,6 +524,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1D5B98632FE56D20009C7CA7 /* Build configuration list for PBXNativeTarget "WidgetStreakCardExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D5B98612FE56D20009C7CA7 /* Debug */,
+				1D5B98622FE56D20009C7CA7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		CE5CD3112F98EF6500CE9010 /* Build configuration list for PBXProject "DailyBites" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
