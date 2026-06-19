@@ -44,14 +44,21 @@ struct SheetAddNewMeal: View {
             
         }
         else{
-            let checkMeal = meals.count(where: { $0.name == mealName })
-            if checkMeal == 0 {
+            if !isFixed {
                 meal.name = mealName
                 meal.time = time
                 meal.isFixed = isFixed
                 meal.repeatDays = repeatDays
                 modelContext.insert(meal)
             }
+//            let checkMeal = meals.count(where: { $0.name == mealName })
+//            if checkMeal == 0 {
+//                meal.name = mealName
+//                meal.time = time
+//                meal.isFixed = isFixed
+//                meal.repeatDays = repeatDays
+//                modelContext.insert(meal)
+//            }
             let log = LogMeal(
                 ref: meal,
                 date: date,

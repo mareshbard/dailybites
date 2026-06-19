@@ -17,6 +17,21 @@ struct HomeView: View {
     @SceneStorage("selectedTab") private var selectedTabIndex: Int = 0
     @State var palavra: String = ""
     @State private var showAddNewMeal: Bool = false
+    
+    
+    var visibleMeals: [Meal] {
+        meals.filter { meal in
+            if meal.isFixed {
+                return true
+            } else {
+                let hasLogToday = logs.contains { log in
+                    log.ref == meal && Calendar.current.isDateInToday(log.date)
+                }
+                return hasLogToday
+            }
+        }
+    }
+    
     var body: some View {
         
         NavigationStack {
@@ -90,7 +105,7 @@ struct HomeView: View {
                 }
 
                 VStack {
-                    ForEach(meals) { meal in
+                    ForEach(visibleMeals) { meal in
                         MealCardView(meal: meal)
                     }
                     

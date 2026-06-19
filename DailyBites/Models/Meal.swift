@@ -1,10 +1,3 @@
-//
-//  Meal.swift
-//  DailyBites
-//
-//  Created by user on 23/04/26.
-//
-
 import SwiftUI
 import SwiftData
 import Foundation
