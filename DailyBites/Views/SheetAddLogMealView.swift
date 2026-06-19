@@ -180,7 +180,7 @@ struct SheetAddLogMealView: View {
                     }
                 }
             } else {
-                // Fallback on earlier versions
+               
             }
         }
         
