@@ -1,6 +1,6 @@
 import SwiftUI
 import SwiftData
-struct PreferencesView: View {
+struct PreferencesSheet: View {
     
     @Environment(\.modelContext) var modelContext
     var username1: String
@@ -9,11 +9,11 @@ struct PreferencesView: View {
     @AppStorage("numberOfMeals") var numberOfMeals: Int = 1
     @State private var auxMeals: [Meal] = []
     @AppStorage("firstUse") var firstUse: Bool = false
-    
     @Query(sort: \Meal.time, order: .forward) var meals: [Meal]
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
+        
         let rangeMeals =  1...numberOfMeals
         
         NavigationStack {
@@ -22,7 +22,6 @@ struct PreferencesView: View {
                 VStack{
                     Text("Refeições")
                         .font(Font.custom("PlusJakartaSans-SemiBold", size: 48))
-                    //  .font(.largeTitle)
                         .frame(maxWidth: .infinity, alignment: .leading)
                     Text("Defina nomes e horários para suas refeições fixas")
                         .font(Font.custom("PlusJakartaSans-SemiBold", size: 20))
@@ -30,17 +29,26 @@ struct PreferencesView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .font(.body)
                 }
-                  //  .padding(.bottom, 35)
-                    .toolbar {
-                        ToolbarItem(placement: .confirmationAction) {
-                            Button("Adicionar mais uma refeição", systemImage: "plus") {
-                                auxMeals.append(createMeal())
-                                numberOfMeals += 1
+                .toolbar {
+                    ToolbarItem(placement: .confirmationAction) {
+                        Button("Fechar", systemImage: "checkmark") {
+                            self.isActive = true
+                            for meal in auxMeals {
+                                modelContext.insert(meal)
+                                Notifications.sendNotification(for: meal)
                             }
-                            .tint(Color.roxoAcao)
+                            numberOfMeals = auxMeals.count
+                            dismiss()
                         }
+                        .tint(Color.roxoAcao)
                     }
-                
+                    ToolbarItem(placement: .cancellationAction) {
+                        Button("Fechar", systemImage: "xmark") {
+                            dismiss()
+                        }
+                        .tint(Color.roxoAcao)
+                    }
+                }
                 
                 List {
                     
@@ -53,77 +61,65 @@ struct PreferencesView: View {
                         if meals.count > 1 {
                             for index in offsets {
                                 auxMeals.remove(at: index)
-                                //numberOfMeals -= 1
                                 let meal = meals[index]
-                               modelContext.delete(meal)
+                                modelContext.delete(meal)
                             }
                         }
-                    
                     }
                     .listRowSeparator(.hidden)
+                    Button{
+                        auxMeals.append(createMeal())
+                        numberOfMeals += 1
+                        
+                    } label: {
+                        HStack{
+                            Image(systemName: "plus.circle")
+                            Text("Adicionar refeição")
+                        }
+                        .font(Font.title3)
+                        .frame(maxWidth: .infinity)
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 14)
+                        .background(Color.roxoAcao)
+                        .cornerRadius(12)
+                    }
+                    .listRowInsets(EdgeInsets())
+                    .listRowSeparator(.hidden)
+                    .font(Font.title3)
+                    .foregroundColor(Color(.white))
                 }
                 .listStyle(.plain)
                 .scrollContentBackground(.hidden)
                 .scrollIndicators(.hidden)
-                Spacer()
-                Button{
-                    self.isActive = true
-                    username = username1
-                    firstUse = true
-                    for meal in auxMeals {
-                        modelContext.insert(meal)
-                        Notifications.sendNotification(for: meal)
-                    }
-                    
-                    numberOfMeals = auxMeals.count
-                    dismiss()
-                } label: {
-                    Label("Concluir", systemImage: "")
-                        .frame(maxWidth: .infinity)
-                    
-                }
-                .buttonStyle(.borderedProminent)
-                .font(Font.title3)
-                .controlSize(.large)
-                .tint(Color.roxoAcao)
-                .foregroundColor(Color(.white))
                 
             }
-
+            .scrollDismissesKeyboard(.immediately)
+            .ignoresSafeArea(.keyboard, edges: .bottom)
             .padding(.horizontal, 20)
             .frame(maxWidth: .infinity)
             .onAppear {
                 if firstUse {
-                    auxMeals = meals
+                    auxMeals = meals.filter({$0.isFixed == true})
                 }
-               
             }
-            
             Spacer()
-            NavigationLink(destination: HomeView(), isActive: $isActive){
-                
-            }
-            
-            .scrollDismissesKeyboard(.immediately)
-            .ignoresSafeArea(.keyboard, edges: .bottom)
-            .onAppear(){
-                for _ in rangeMeals {
-                    auxMeals.append(createMeal())
+                .onAppear(){
+                    for _ in rangeMeals {
+                        auxMeals.append(createMeal())
+                    }
+                    Notifications.requestNotificationAuthorization()
                 }
-                Notifications.requestNotificationAuthorization()
-            }
         }
-//        .toolbar(.hidden, for: .tabBar)
     }
-       
+    
     
     func createMeal() -> Meal {
         return Meal(name: "", logs: [], time: .now, isFixed: true)
     }
 }
 
-//#Preview {
-//    let meal1 = Meal(name: "Meal 1", logs: [], time: .now, isFixed: false)
-//    let meal2 = Meal(name: "Meal 2", logs: [], time: .now, isFixed: false)
-//    PreferencesView(username1: "d")
-//}
+#Preview {
+    let meal1 = Meal(name: "Meal 1", logs: [], time: .now, isFixed: false)
+    let meal2 = Meal(name: "Meal 2", logs: [], time: .now, isFixed: false)
+    PreferencesView(username1: "d")
+}

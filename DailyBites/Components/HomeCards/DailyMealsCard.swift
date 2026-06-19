@@ -9,7 +9,9 @@ struct DailyMealsCard: View {
  
     var body: some View {
         let todayMeals = logs.filter { Calendar.current.isDate($0.date, inSameDayAs: Date()) }
-        let quantidades = [(nome: "Realizada", valor: todayMeals.count(where: {$0.status != .pulou && $0.status != .pendente})), (nome: "Não realizada", valor: numberOfMeals - todayMeals.count(where: {$0.status != .pulou && $0.status != .pendente}))]
+        let numOfExtras = todayMeals.count(where: {$0.ref?.isFixed == false && Calendar.current.isDate($0.date, inSameDayAs: Date())})
+
+        let quantidades = [(nome: "Realizada", valor: todayMeals.count(where: {$0.status != .pulou && $0.status != .pendente})), (nome: "Não realizada", valor: numberOfMeals+numOfExtras - todayMeals.count(where: {$0.status != .pulou && $0.status != .pendente}))]
         VStack(alignment: .leading) {
             HStack {
                 Image(systemName: "gauge.chart.leftthird.topthird.rightthird")
@@ -35,7 +37,7 @@ struct DailyMealsCard: View {
                         quantidades[1].nome: Color(.white),
                     ])
                     .chartLegend(.hidden)
-                    Text("\(quantidades[0].valor)/\(numberOfMeals)")
+                    Text("\(quantidades[0].valor)/\(numberOfMeals+numOfExtras)")
                         .font(Font.custom("PlusJakartaSans-Semibold", size: 18))
                         .foregroundStyle(Color.black)
                     }
@@ -45,17 +47,17 @@ struct DailyMealsCard: View {
             HStack {
             VStack(alignment: .leading){
   
-                    if (numberOfMeals - quantidades[0].valor) == 1 {
+                    if (numberOfMeals+numOfExtras - quantidades[0].valor) == 1 {
                         
                         Text("Falta")
                             .foregroundStyle(Color.black)
                         HStack(alignment: .top){
-                            Text("\(numberOfMeals - quantidades[0].valor)")
+                            Text("\(numberOfMeals+numOfExtras - quantidades[0].valor)")
                                 .foregroundColor(Color("amareloGráfico"))
                             Text("refeição")
                                 .foregroundStyle(Color.black)
                         }
-                    } else if (numberOfMeals - quantidades[0].valor) == 0 {
+                    } else if (numberOfMeals+numOfExtras - quantidades[0].valor) == 0 {
                         Text("Refeições")
                             .foregroundStyle(Color.black)
                         Text("concluídas! ;)")
@@ -66,7 +68,7 @@ struct DailyMealsCard: View {
                         Text("Faltam")
                         .foregroundStyle(Color.black)
                         HStack{
-                            Text("\(numberOfMeals - quantidades[0].valor)")
+                            Text("\(numberOfMeals+numOfExtras - quantidades[0].valor)")
                                 .foregroundColor(Color("amareloGráfico"))
                             Text("refeições")
                                 .foregroundStyle(Color.black)
