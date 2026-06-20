@@ -29,22 +29,26 @@ struct PreferencesSheet: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .font(.body)
                 }
-                    .toolbar {
-                        ToolbarItem(placement: .confirmationAction) {
-                            Button("Adicionar mais uma refeição", systemImage: "plus") {
-                                auxMeals.append(createMeal())
-                                numberOfMeals += 1
+                .toolbar {
+                    ToolbarItem(placement: .confirmationAction) {
+                        Button("Fechar", systemImage: "checkmark") {
+                            self.isActive = true
+                            for meal in auxMeals {
+                                modelContext.insert(meal)
+                                Notifications.sendNotification(for: meal)
                             }
-                            .tint(Color.roxoAcao)
+                            numberOfMeals = auxMeals.count
+                            dismiss()
                         }
-                        ToolbarItem(placement: .cancellationAction) {
-                            Button("Fechar", systemImage: "xmark") {
-                              dismiss()
-                            }
-                            .tint(Color.roxoAcao)
-                        }
+                        .tint(Color.roxoAcao)
                     }
-                
+                    ToolbarItem(placement: .cancellationAction) {
+                        Button("Fechar", systemImage: "xmark") {
+                            dismiss()
+                        }
+                        .tint(Color.roxoAcao)
+                    }
+                }
                 
                 List {
                     
@@ -58,62 +62,56 @@ struct PreferencesSheet: View {
                             for index in offsets {
                                 auxMeals.remove(at: index)
                                 let meal = meals[index]
-                               modelContext.delete(meal)
+                                modelContext.delete(meal)
                             }
                         }
                     }
                     .listRowSeparator(.hidden)
+                    Button{
+                        auxMeals.append(createMeal())
+                        numberOfMeals += 1
+                        
+                    } label: {
+                        HStack{
+                            Image(systemName: "plus.circle")
+                            Text("Adicionar refeição")
+                        }
+                        .font(Font.title3)
+                        .frame(maxWidth: .infinity)
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 14)
+                        .background(Color.roxoAcao)
+                        .cornerRadius(12)
+                    }
+                    .listRowInsets(EdgeInsets())
+                    .listRowSeparator(.hidden)
+                    .font(Font.title3)
+                    .foregroundColor(Color(.white))
                 }
                 .listStyle(.plain)
                 .scrollContentBackground(.hidden)
                 .scrollIndicators(.hidden)
-                Spacer()
-                Button{
-                    self.isActive = true
-                    username = username1
-                    firstUse = true
-                    for meal in auxMeals {
-                        modelContext.insert(meal)
-                        Notifications.sendNotification(for: meal)
-                    }
-                    
-                    numberOfMeals = auxMeals.count
-                    dismiss()
-                } label: {
-                    HStack{
-                        Image(systemName: "plus")
-                        Text("Adicionar refeição")
-                    }       
-                }
-                .buttonStyle(.borderedProminent)
-                .font(Font.title3)
-                .controlSize(.large)
-                .tint(Color.roxoAcao)
-                .foregroundColor(Color(.white))
                 
             }
             .scrollDismissesKeyboard(.immediately)
             .ignoresSafeArea(.keyboard, edges: .bottom)
-
             .padding(.horizontal, 20)
             .frame(maxWidth: .infinity)
             .onAppear {
                 if firstUse {
                     auxMeals = meals.filter({$0.isFixed == true})
                 }
-               
             }
-            
             Spacer()
-            .onAppear(){
-                for _ in rangeMeals {
-                    auxMeals.append(createMeal())
+                .onAppear(){
+                    for _ in rangeMeals {
+                        auxMeals.append(createMeal())
+                    }
+                    Notifications.requestNotificationAuthorization()
                 }
-                Notifications.requestNotificationAuthorization()
-            }
         }
     }
-       
+    
     
     func createMeal() -> Meal {
         return Meal(name: "", logs: [], time: .now, isFixed: true)
