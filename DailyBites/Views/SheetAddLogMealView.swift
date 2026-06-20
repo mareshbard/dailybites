@@ -18,7 +18,7 @@ struct SheetAddLogMealView: View {
     @State private var imageData: Data? = nil
     @State private var time = Date()
     @State private var date = Date()
-    @State private var isFixed: Bool = false
+    @State private var isFixed: Bool = true
     @State private var auxDuration: String = ""
     @State private var repeatDays: [Int] = []
     

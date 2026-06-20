@@ -80,9 +80,10 @@ struct PreferencesSheet: View {
                     numberOfMeals = auxMeals.count
                     dismiss()
                 } label: {
-                    Label("Concluir", systemImage: "")
-                        .frame(maxWidth: .infinity)
-                    
+                    HStack{
+                        Image(systemName: "plus")
+                        Text("Adicionar refeição")
+                    }       
                 }
                 .buttonStyle(.borderedProminent)
                 .font(Font.title3)
@@ -98,7 +99,7 @@ struct PreferencesSheet: View {
             .frame(maxWidth: .infinity)
             .onAppear {
                 if firstUse {
-                    auxMeals = meals
+                    auxMeals = meals.filter({$0.isFixed == true})
                 }
                
             }
