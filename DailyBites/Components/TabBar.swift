@@ -12,6 +12,9 @@ struct TabBar: View {
             Tab("Estatísticas", systemImage: "chart.pie", value: 1) {
                 StatisticsView()
             }
+            Tab("Registros", systemImage: "calendar", value: 2){
+                MealsRecordedView()
+            }
         }
         .tabViewStyle(.sidebarAdaptable)
         .accentColor(Color("RoxoAcao"))

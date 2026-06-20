@@ -1,6 +1,6 @@
 import SwiftUI
 import SwiftData
-struct PreferencesView: View {
+struct PreferencesSheet: View {
     
     @Environment(\.modelContext) var modelContext
     var username1: String
@@ -9,11 +9,11 @@ struct PreferencesView: View {
     @AppStorage("numberOfMeals") var numberOfMeals: Int = 1
     @State private var auxMeals: [Meal] = []
     @AppStorage("firstUse") var firstUse: Bool = false
-    
     @Query(sort: \Meal.time, order: .forward) var meals: [Meal]
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
+        
         let rangeMeals =  1...numberOfMeals
         
         NavigationStack {
@@ -22,7 +22,6 @@ struct PreferencesView: View {
                 VStack{
                     Text("Refeições")
                         .font(Font.custom("PlusJakartaSans-SemiBold", size: 48))
-                    //  .font(.largeTitle)
                         .frame(maxWidth: .infinity, alignment: .leading)
                     Text("Defina nomes e horários para suas refeições fixas")
                         .font(Font.custom("PlusJakartaSans-SemiBold", size: 20))
@@ -30,12 +29,17 @@ struct PreferencesView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .font(.body)
                 }
-                  //  .padding(.bottom, 35)
                     .toolbar {
                         ToolbarItem(placement: .confirmationAction) {
                             Button("Adicionar mais uma refeição", systemImage: "plus") {
                                 auxMeals.append(createMeal())
                                 numberOfMeals += 1
+                            }
+                            .tint(Color.roxoAcao)
+                        }
+                        ToolbarItem(placement: .cancellationAction) {
+                            Button("Fechar", systemImage: "xmark") {
+                              dismiss()
                             }
                             .tint(Color.roxoAcao)
                         }
@@ -53,12 +57,10 @@ struct PreferencesView: View {
                         if meals.count > 1 {
                             for index in offsets {
                                 auxMeals.remove(at: index)
-                                //numberOfMeals -= 1
                                 let meal = meals[index]
                                modelContext.delete(meal)
                             }
                         }
-                    
                     }
                     .listRowSeparator(.hidden)
                 }
@@ -89,6 +91,8 @@ struct PreferencesView: View {
                 .foregroundColor(Color(.white))
                 
             }
+            .scrollDismissesKeyboard(.immediately)
+            .ignoresSafeArea(.keyboard, edges: .bottom)
 
             .padding(.horizontal, 20)
             .frame(maxWidth: .infinity)
@@ -100,12 +104,6 @@ struct PreferencesView: View {
             }
             
             Spacer()
-            NavigationLink(destination: HomeView(), isActive: $isActive){
-                
-            }
-            
-            .scrollDismissesKeyboard(.immediately)
-            .ignoresSafeArea(.keyboard, edges: .bottom)
             .onAppear(){
                 for _ in rangeMeals {
                     auxMeals.append(createMeal())
@@ -113,7 +111,6 @@ struct PreferencesView: View {
                 Notifications.requestNotificationAuthorization()
             }
         }
-//        .toolbar(.hidden, for: .tabBar)
     }
        
     
@@ -122,8 +119,8 @@ struct PreferencesView: View {
     }
 }
 
-//#Preview {
-//    let meal1 = Meal(name: "Meal 1", logs: [], time: .now, isFixed: false)
-//    let meal2 = Meal(name: "Meal 2", logs: [], time: .now, isFixed: false)
-//    PreferencesView(username1: "d")
-//}
+#Preview {
+    let meal1 = Meal(name: "Meal 1", logs: [], time: .now, isFixed: false)
+    let meal2 = Meal(name: "Meal 2", logs: [], time: .now, isFixed: false)
+    PreferencesView(username1: "d")
+}
