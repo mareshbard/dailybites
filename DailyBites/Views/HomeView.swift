@@ -17,7 +17,7 @@ struct HomeView: View {
     @SceneStorage("selectedTab") private var selectedTabIndex: Int = 0
     @State var palavra: String = ""
     @State private var showAddNewMeal: Bool = false
-    
+  //  @Environment(TipsManager.self) private var tipsManager: TipsManager
     
     var visibleMeals: [Meal] {
         meals.filter { meal in
@@ -125,7 +125,9 @@ struct HomeView: View {
             .background(Color.backgroundCor)
             
         }
-        
+//        .onAppear {
+//            tipsManager.start()
+//        }
     }
     
     func checkToday() {

@@ -45,25 +45,26 @@ struct SacietyView: View {
                                     Satiety.allCases.indices,
                                     id: \.self
                                 ){ index in
-                                    ZStack {
-                                        Satiety.allCases[index].color
-                                        Text(
-                                            "\(String(format: "%.0f", percentage[index]))%"
-                                        )
-                                        .accessibilityLabel(Text("\(Satiety.allCases[index].title)"))
+                                    if percentage[index] > 0 {
+                                        ZStack {
+                                            Satiety.allCases[index].color
+                                            Text(
+                                                "\(String(format: "%.0f", percentage[index]))%"
+                                            )
+                                            .accessibilityLabel(Text("\(Satiety.allCases[index].title)"))
                                             .font(.subheadline)
                                             .padding()
-                                        
-                                    }
-                                    .frame(
-                                        width: generateWidth(
-                                            for: percentage[index],
-                                            in: geometry.size.width
+                                            
+                                        }
+                                        .frame(
+                                            width: generateWidth(
+                                                for: percentage[index],
+                                                in: geometry.size.width
+                                            )
                                         )
-                                    )
-                                    .frame(maxHeight: .infinity)
+                                        .frame(maxHeight: .infinity)
+                                    }
                                 }
-                                
                                 Color.gray
                                     .frame(maxHeight: .infinity)
                             }

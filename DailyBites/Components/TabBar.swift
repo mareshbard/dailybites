@@ -3,6 +3,8 @@ import SwiftUI
 struct TabBar: View {
     
     @SceneStorage("selectedTab") private var selectedTabIndex: Int = 0
+   // var listTips : [Dicas] = []
+ 
     
     var body: some View {
         TabView(selection: $selectedTabIndex) {
@@ -12,6 +14,10 @@ struct TabBar: View {
             Tab("Estatísticas", systemImage: "chart.pie", value: 1) {
                 StatisticsView()
             }
+//            Tab("Dicas", systemImage: "chart.pie", value: 2) {
+//                TipsView()
+//
+//            }
         }
         .tabViewStyle(.sidebarAdaptable)
         .accentColor(Color("RoxoAcao"))
