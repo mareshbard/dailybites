@@ -4,10 +4,10 @@ struct TextInfo: ViewModifier {
     func body(content: Content) -> some View {
         content
             .font(Font.custom("PlusJakartaSans-Regular", size: 18.0))
-            .padding(10)
+            .padding(15)
             .frame(maxWidth: .infinity, alignment: .leading)
-            .background(Color("mealBackground"))
-            .cornerRadius(10)
+            .background(Color(.systemBackground))
+            .cornerRadius(15)
             
     }
 }

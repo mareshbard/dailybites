@@ -61,7 +61,12 @@ struct MealCardView: View {
         .frame(maxWidth: .infinity)
         
         .sheet(isPresented: $showAddLog) {
-            SheetAddLogMealView(meal: meal)
+            if meal.isFixed {
+                SheetAddLogMealView(meal: meal)
+            } else {
+                SheetAddNewMeal(meal: meal)
+            }
+            
         }
         
         .padding(20)

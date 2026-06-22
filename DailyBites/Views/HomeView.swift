@@ -90,7 +90,6 @@ struct HomeView: View {
                         .font(Font.custom("PlusJakartaSans-SemiBold", size: 22))
                     
                     Button{
-                        
                         isActive = true
                         showAddNewMeal = true
                     } label: {

@@ -57,10 +57,8 @@ struct PickerField: View {
                     feedback.prepare()
                     feedback.impactOccurred()
                 }
-                
-                
+
             }
-            
         } label: {
             HStack {
                 Text(selected == defaultValue ? placeholder : selected)
