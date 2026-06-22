@@ -47,7 +47,8 @@ struct LogView: View {
                            Section("FOTO"){
                                Image(uiImage: image)
                                    .resizable()
-                                   .frame(height: 300)
+                                   .scaledToFit()
+                                //   .frame(height: 300)
                                    .cornerRadius(15)
                                    .padding(.bottom, 16)
                            }

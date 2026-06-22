@@ -57,28 +57,36 @@ class LogMeal: Identifiable {
         }
     }
     var color: Color {
-        switch status {
-        case .pendente:
-            return .pendenteTag
-        case .atrasado:
-            return .atrasadaTag
-        case .pontual:
-            return .pontualTag
-        case .pulou:
-            return .nãoRealizadaTag
+        if self.ref?.isFixed == false {
+            return .extraTag
+        } else {
+            switch status {
+            case .pendente:
+                return .pendenteTag
+            case .atrasado:
+                return .atrasadaTag
+            case .pontual:
+                return .pontualTag
+            case .pulou:
+                return .nãoRealizadaTag
+            }
         }
     }
     
     var fontColor: Color {
-        switch status {
-        case .pendente:
-            return .corPendente
-        case .atrasado:
-            return .corAtrasado
-        case .pontual:
-            return .corPontual
-        case .pulou:
-            return .corNaoRealizada
+        if self.ref?.isFixed == false {
+            return .corExtra
+        } else {
+            switch status {
+            case .pendente:
+                return .corPendente
+            case .atrasado:
+                return .corAtrasado
+            case .pontual:
+                return .corPontual
+            case .pulou:
+                return .corNaoRealizada
+            }
         }
     }
 }

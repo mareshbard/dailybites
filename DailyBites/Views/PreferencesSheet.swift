@@ -19,38 +19,44 @@ struct PreferencesSheet: View {
         NavigationStack {
             VStack {
                 
-                VStack{
-                    Text("Refeições")
-                        .font(Font.custom("PlusJakartaSans-SemiBold", size: 48))
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    Text("Defina nomes e horários para suas refeições fixas")
-                        .font(Font.custom("PlusJakartaSans-SemiBold", size: 20))
-                        .foregroundColor(Color.cinzaFonte)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .font(.body)
-                }
-                .toolbar {
-                    ToolbarItem(placement: .confirmationAction) {
-                        Button("Fechar", systemImage: "checkmark") {
-                            self.isActive = true
-                            for meal in auxMeals {
-                                modelContext.insert(meal)
-                                Notifications.sendNotification(for: meal)
+                List{
+                    VStack{
+                        Text("Refeições")
+                            .font(Font.custom("PlusJakartaSans-SemiBold", size: 48))
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        //    .frame(maxHeight: .greatestFiniteMagnitude)
+                        Text("Defina nomes e horários para suas refeições fixas")
+                            .font(Font.custom("PlusJakartaSans-SemiBold", size: 20))
+                            .foregroundColor(Color.cinzaFonte)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                           // .frame(maxHeight: .greatestFiniteMagnitude)
+                            .font(.body)
+                    }
+                    .listRowSeparator(.hidden)
+                    .listRowInsets(EdgeInsets())
+                    .padding(.bottom, 14)
+                        .toolbar {
+                            ToolbarItem(placement: .confirmationAction) {
+                                Button("Salvar", systemImage: "checkmark") {
+                                    self.isActive = true
+                                    for meal in auxMeals {
+                                        modelContext.insert(meal)
+                                        Notifications.sendNotification(for: meal)
+                                    }
+                                    numberOfMeals = auxMeals.count
+                                    dismiss()
+                                }
+                                .tint(Color.roxoAcao)
                             }
-                            numberOfMeals = auxMeals.count
-                            dismiss()
+                            ToolbarItem(placement: .cancellationAction) {
+                                Button("Fechar", systemImage: "xmark") {
+                                    dismiss()
+                                }
+                                .tint(Color.roxoAcao)
+                            }
                         }
-                        .tint(Color.roxoAcao)
-                    }
-                    ToolbarItem(placement: .cancellationAction) {
-                        Button("Fechar", systemImage: "xmark") {
-                            dismiss()
-                        }
-                        .tint(Color.roxoAcao)
-                    }
-                }
-                
-                List {
+                    
+                    //                List {
                     
                     ForEach(auxMeals) { meal in
                         AddMealCardView(meal: meal)
@@ -69,7 +75,7 @@ struct PreferencesSheet: View {
                     .listRowSeparator(.hidden)
                     Button{
                         auxMeals.append(createMeal())
-                        numberOfMeals += 1
+                        
                         
                     } label: {
                         HStack{
@@ -87,6 +93,7 @@ struct PreferencesSheet: View {
                     .listRowSeparator(.hidden)
                     .font(Font.title3)
                     .foregroundColor(Color(.white))
+                    //                }
                 }
                 .listStyle(.plain)
                 .scrollContentBackground(.hidden)
@@ -98,9 +105,9 @@ struct PreferencesSheet: View {
             .padding(.horizontal, 20)
             .frame(maxWidth: .infinity)
             .onAppear {
-                if firstUse {
+                
                     auxMeals = meals.filter({$0.isFixed == true})
-                }
+                
             }
             Spacer()
                 .onAppear(){

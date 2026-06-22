@@ -57,27 +57,11 @@ struct HomeView: View {
                             .tint(Color.white)
                             .background(Color.roxoAcao)
                             .cornerRadius(100)
-                            .accessibilityLabel(Text("Ver refeições no calendário"))
+                            .accessibilityLabel(Text("Editar refeições fixas"))
                     }
                     .sheet(isPresented: $showPreferences) {
                         PreferencesSheet(username1: username)
                     }
-
-//                    NavigationLink(destination: PreferencesView(username1: username), isActive: $showPreferences) {
-//                        Button{
-//                            self.showPreferences = true
-//                        } label: {
-//                            Image(systemName: "square.and.pencil")
-//                                .padding(10)
-//                                .font(Font.system(.title2))
-//                                .tint(Color.white)
-//                                .background(Color.roxoAcao)
-//                                .cornerRadius(100)
-//                                .accessibilityLabel(Text("Ver refeições no calendário"))
-//                        }
-//                      
-//                    }
-                   // .toolbar(.hidden, for: .tabBar)
                 }
                 .padding(.vertical,20)
                 ViewThatFits {
