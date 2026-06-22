@@ -6,16 +6,15 @@ struct HomeView: View {
     
     @Environment(\.modelContext) var modelContext
     @AppStorage("username") var username = ""
-    @AppStorage("firstTime") var firstTime = false
-    @AppStorage("lastOpen") var lastOpen = ""
+    
     @Query(sort: \Meal.time, order: .forward) var meals: [Meal]
     @AppStorage("firstUse") var firstUse: Bool = false
     @AppStorage("isNotificationAuthorized") var isNotificationAuthorized: Bool = false
     @Query(sort: \LogMeal.date, order: .forward) var logs: [LogMeal]
     @State private var isActive: Bool = false
     @State private var showCalendar: Bool = false
+    @State private var showPreferences: Bool = false
     @SceneStorage("selectedTab") private var selectedTabIndex: Int = 0
-    @State var palavra: String = ""
     @State private var showAddNewMeal: Bool = false
   //  @Environment(TipsManager.self) private var tipsManager: TipsManager
     
@@ -50,9 +49,9 @@ struct HomeView: View {
                             .font(.body)
                     }
                     Button{
-                        self.showCalendar = true
+                        self.showPreferences = true
                     } label: {
-                        Image(systemName: "calendar")
+                        Image(systemName: "square.and.pencil")
                             .padding(10)
                             .font(Font.system(.title2))
                             .tint(Color.white)
@@ -60,6 +59,25 @@ struct HomeView: View {
                             .cornerRadius(100)
                             .accessibilityLabel(Text("Ver refeições no calendário"))
                     }
+                    .sheet(isPresented: $showPreferences) {
+                        PreferencesSheet(username1: username)
+                    }
+
+//                    NavigationLink(destination: PreferencesView(username1: username), isActive: $showPreferences) {
+//                        Button{
+//                            self.showPreferences = true
+//                        } label: {
+//                            Image(systemName: "square.and.pencil")
+//                                .padding(10)
+//                                .font(Font.system(.title2))
+//                                .tint(Color.white)
+//                                .background(Color.roxoAcao)
+//                                .cornerRadius(100)
+//                                .accessibilityLabel(Text("Ver refeições no calendário"))
+//                        }
+//                      
+//                    }
+                   // .toolbar(.hidden, for: .tabBar)
                 }
                 .padding(.vertical,20)
                 ViewThatFits {
@@ -86,24 +104,30 @@ struct HomeView: View {
                         .foregroundStyle(Color.primary)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .font(Font.custom("PlusJakartaSans-SemiBold", size: 22))
+                    
+                    Button{
                         
-                    Button("Adicionar"){
-                   
                         isActive = true
                         showAddNewMeal = true
+                    } label: {
+                        VStack(alignment: .trailing, spacing: -4) {
+                            Text("Registrar")
+                            Text("extra")
+                        }
                     }
+                   
                     .foregroundColor(Color.roxoAcao)
-                    .font(Font.custom("PlusJakartaSans-SemiBold", size: 18))
+                    .font(Font.custom("PlusJakartaSans-SemiBold", size: 16))
                     .sheet(isPresented: $showAddNewMeal) {
                         SheetAddNewMeal(meal: Meal(name: "", logs: [], time: Date(), isFixed: false))
-                            }
+                    }
                 }
                 .padding(.top, 31)
                 .padding(.bottom, 16)
                 NavigationLink(destination: MealsRecordedView(), isActive: $showCalendar){
                     
                 }
-
+                
                 VStack {
                     ForEach(visibleMeals) { meal in
                         MealCardView(meal: meal)
@@ -128,18 +152,6 @@ struct HomeView: View {
 //        .onAppear {
 //            tipsManager.start()
 //        }
-    }
-    
-    func checkToday() {
-        
-        let today = Date().formatted(date: .abbreviated, time: .omitted)
-        
-        if lastOpen == today {
-            firstTime = false
-        } else {
-            lastOpen = today
-            firstTime = true
-        }
     }
 }
 
