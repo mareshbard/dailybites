@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 
 enum Satiety: String, CaseIterable, Codable, Plottable{
+    case defaultValue
     case muitaFome
     case fome
     case satisfeito
@@ -19,6 +20,7 @@ enum Satiety: String, CaseIterable, Codable, Plottable{
     
     var title: String {
         switch self {
+        case .defaultValue: return "Selecione a sua saciedade"
         case .muitaFome: return "Muita fome"
         case .fome: return "Fome"
         case .satisfeito: return "Satisfeito"
@@ -32,6 +34,7 @@ enum Satiety: String, CaseIterable, Codable, Plottable{
     
     var color: Color {
         switch self {
+        case .defaultValue: return Color("Satiety-DefaultValue")
         case .muitaFome: return Color("Satiety-MuitaFome")
         case .fome: return Color("Satiety-Fome")
         case .satisfeito: return Color("Satiety-Satisfeito")

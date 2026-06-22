@@ -19,7 +19,7 @@ struct SheetAddNewMeal: View {
     @State private var mealName: String = ""
     @State private var descriptionMeal: String = ""
     @State private var status: Status = Status.pendente
-    @State private var satiety: Satiety = Satiety.satisfeito
+    @State private var satiety: Satiety = Satiety.defaultValue
     @State private var durationMeal: Int = 0
     @State private var selectedMood: Mood = .neutral
     @State private var imageData: Data? = nil
@@ -126,7 +126,7 @@ struct SheetAddNewMeal: View {
                 .foregroundStyle(.primary)
                 
                 Section {
-                    PickerField(placeholder: "Selecione", options: Satiety.allCases.map(\.title), selected: Binding(get: {satiety.title}, set: {satiety = Satiety.fromTitle($0) ?? .satisfeito }), defaultValue: Satiety.satisfeito.title)
+                    PickerField(placeholder: Satiety.defaultValue.title, options: Satiety.allCases.dropFirst().map(\.title), selected: Binding(get: {satiety.title}, set: {satiety = Satiety.fromTitle($0) ?? .defaultValue }), defaultValue: Satiety.defaultValue.title)
                 } header: {
                     SectionLabel(title:"SACIEDADE", required: true)
                 }
@@ -227,7 +227,7 @@ struct SheetAddNewMeal: View {
             }
             descriptionMeal = thisMeal?.descriptionMeal ?? ""
             status = thisMeal?.status ?? .pontual
-            satiety = thisMeal?.satiety ?? .satisfeito
+            satiety = thisMeal?.satiety ?? .defaultValue
             selectedMood = thisMeal?.emotion ?? .neutral
             durationMeal = thisMeal?.durationMeal ?? 0
             //            repeatDays = thisMeal?.ref!.repeatDays ?? []

@@ -17,6 +17,7 @@ struct LogView: View {
                        Text("\(log.status.rawValue.capitalized)")
                            .modifier(TextInfo())
                            .padding(.bottom, 14)
+                       
                    }
                    
                    
@@ -86,7 +87,7 @@ struct LogView: View {
            }
         }
         
-       .background(Color.backgroundCor)
+       .background(Color(.secondarySystemBackground))
     }
     
 }

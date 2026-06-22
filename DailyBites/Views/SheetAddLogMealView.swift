@@ -12,7 +12,7 @@ struct SheetAddLogMealView: View {
     @State private var mealName: String = ""
     @State private var descriptionMeal: String = ""
     @State private var status: Status = Status.pendente
-    @State private var satiety: Satiety = Satiety.satisfeito
+    @State private var satiety: Satiety = Satiety.defaultValue
     @State private var durationMeal: Int = 0
     @State private var selectedMood: Mood = .neutral
     @State private var imageData: Data? = nil
@@ -22,6 +22,17 @@ struct SheetAddLogMealView: View {
     @State private var auxDuration: String = ""
     
     let meal: Meal
+    
+    private var statusOptions: [String] {
+        Status.allCases.map(\.title)
+    }
+    
+    private var statusSelection: Binding<String> {
+        Binding(
+            get: { status.title },
+            set: { status = Status.fromTitle($0) ?? .pendente }
+        )
+    }
     
     func addLog(){
         if let todayLog = meal.logs.last(where: { $0.ref!.name == meal.name }){
@@ -64,19 +75,14 @@ struct SheetAddLogMealView: View {
             
             if #available(iOS 26.0, *) {
                 Form {
-                    //                Section {
-                    //                    FocusableTextField(placeholder: "Nome da refeição", text: $mealName)
-                    //                } header: {
-                    //                    SectionLabel(title:"NOME DA REFEIÇÃO", required: true)
-                    //                }
-                    //                .accessibilityLabel(Text("Digite o nome da sua refeição"))
-                    //                .padding(.top, -10)
-                    //                .listRowBackground(Color.clear)
-                    //                .font(Font.subheadline.bold())
-                    //                .foregroundStyle(.primary)
                     
                     Section {
-                        PickerField(placeholder: "Selecione", options: Status.allCases.map(\.title), selected: Binding(get: {status.title}, set: {status = Status.fromTitle($0) ?? .pendente }), defaultValue: Status.pendente.title)
+                        PickerField(
+                            placeholder: Status.pendente.title,
+                            options: statusOptions,
+                            selected: statusSelection,
+                            defaultValue: ""
+                        )
                     } header: {
                         SectionLabel(title:"PONTUALIDADE", required: true)
                     }
@@ -99,7 +105,13 @@ struct SheetAddLogMealView: View {
                     .foregroundStyle(.primary)
                     
                     Section {
-                        PickerField(placeholder: "Selecione", options: Satiety.allCases.map(\.title), selected: Binding(get: {satiety.title}, set: {satiety = Satiety.fromTitle($0) ?? .satisfeito }), defaultValue: Satiety.satisfeito.title)
+                        PickerField(
+                            placeholder: Satiety.defaultValue.title,
+                            options: Satiety.allCases.dropFirst().map(\.title),
+                            selected: Binding(get: {satiety.title},
+                            set: {satiety = Satiety.fromTitle($0) ?? .defaultValue }),
+                            defaultValue: Satiety.defaultValue.title
+                        )
                     } header: {
                         SectionLabel(title:"SACIEDADE", required: true)
                     }
@@ -175,12 +187,10 @@ struct SheetAddLogMealView: View {
                         .accessibilityLabel("Salvar")
                         .accessibilityHint("Salva as informações do formulário e volta à tela anterior")
                         .accessibilityIdentifier("toolbarSalvarButton")
-                        .disabled(status == .pendente || mealName.isEmpty || auxDuration.isEmpty)
+                        .disabled(status != .pulou && (status == .pendente || mealName.isEmpty || auxDuration.isEmpty))
                         .tint(Color("RoxoDailyBites"))
                     }
                 }
-            } else {
-               
             }
         }
         
@@ -194,12 +204,16 @@ struct SheetAddLogMealView: View {
             let thisMeal = meal.logs.last(where: { $0.ref!.name == meal.name && Calendar.current.isDate($0.date, inSameDayAs: Date())})
             mealName = meal.name
             
+            if status == .pulou {
+                durationMeal = 0
+            }
+            
             if let imageData = thisMeal?.imageData {
                 self.imageData = imageData
             }
             descriptionMeal = thisMeal?.descriptionMeal ?? ""
             status = thisMeal?.status ?? .pendente
-            satiety = thisMeal?.satiety ?? .satisfeito
+            satiety = thisMeal?.satiety ?? .defaultValue
             selectedMood = thisMeal?.emotion ?? .neutral
             durationMeal = thisMeal?.durationMeal ?? 0
             auxDuration = durationMeal == 0 ? "" : String(durationMeal)
