@@ -11,7 +11,7 @@ import Foundation
 
 @main
 struct DailyBitesApp: App {
-    
+
     var body: some Scene {
         WindowGroup {
             ContentView()

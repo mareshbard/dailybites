@@ -16,7 +16,7 @@ struct HomeView: View {
     @State private var showPreferences: Bool = false
     @SceneStorage("selectedTab") private var selectedTabIndex: Int = 0
     @State private var showAddNewMeal: Bool = false
-    
+  //  @Environment(TipsManager.self) private var tipsManager: TipsManager
     
     var visibleMeals: [Meal] {
         meals.filter { meal in
@@ -149,7 +149,9 @@ struct HomeView: View {
             .background(Color.backgroundCor)
             
         }
-        
+//        .onAppear {
+//            tipsManager.start()
+//        }
     }
 }
 

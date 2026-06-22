@@ -19,6 +19,9 @@ struct QuantityMealsView: View {
     
     @State private var countMealSunday: Int = 0
     
+    @Environment(\.dynamicTypeSize)
+    private var isAccessible: DynamicTypeSize
+    
     enum Semana: String, CaseIterable, Codable {
         
         case Dom = "Dom"
@@ -59,53 +62,43 @@ struct QuantityMealsView: View {
                         Text("Quantidade de refeições")
                             .font(.headline)
                             .frame(maxWidth: .infinity, alignment: .leading)
-                        ViewThatFits{
-                            Chart{
-                                ForEach(Semana.allCases, id: \.self){ dia in
-                                    BarMark(
-                                        x: .value("Dias", dia.rawValue),
-                                        y: .value("Refeicoes",
-                                                  getEatenMealsFromWeekday(dia)
-                                                 )
-                                    )
-                                    .foregroundStyle(Color("RoxoAcao"))
-                                    .clipShape(RoundedRectangle(cornerRadius: 32))
-                                    
-                                    
-                                }
-                                
-                            }
-                            .accessibilityLabel(Text("Gráfico: quantidades de refeições semanais"))
-                            .chartYAxis{
-                                AxisMarks(position: .leading, stroke: StrokeStyle(lineWidth: 0))
-                            }
-                            .chartXAxis{
-                                AxisMarks(stroke: StrokeStyle(lineWidth: 0))
-                            }
-                            //   .AxisGridLine(.hidden)
                             
                             Chart{
                                 ForEach(Semana.allCases, id: \.self){ dia in
-                                    BarMark(
-                                        x: .value("Refeicoes",
-                                                  getEatenMealsFromWeekday(dia)
-                                                 ),
-                                        y: .value("Dias", dia.rawValue)
-                                    )
                                     
-                                    .foregroundStyle(Color("RoxoAcao"))
-                                    .clipShape(RoundedRectangle(cornerRadius: 32))
+                                    if isAccessible.isAccessibilitySize {
+                                        BarMark(
+                                            x: .value("Refeicoes",
+                                                      getEatenMealsFromWeekday(dia)
+                                                     ),
+                                            y: .value("Dias", dia.rawValue)
+                                        )
+                                        
+                                        .foregroundStyle(Color("RoxoAcao"))
+                                        .clipShape(RoundedRectangle(cornerRadius: 32))
+                                    } else {
+                                        BarMark(
+                                            x: .value("Dias", dia.rawValue),
+                                            y: .value("Refeicoes",
+                                                      getEatenMealsFromWeekday(dia)
+                                                     )
+                                        )
+                                        .foregroundStyle(Color("RoxoAcao"))
+                                        .clipShape(RoundedRectangle(cornerRadius: 32))
+                                    }
+                                    
 
                                 }
                                 
                             }
+                            .scaledToFit()
                             .chartYAxis{
                                 AxisMarks(position: .leading, stroke: StrokeStyle(lineWidth: 0))
                             }
                             .chartXAxis{
                                 AxisMarks(stroke: StrokeStyle(lineWidth: 0))
                             }
-                        }
+                        
                         
                         
                         

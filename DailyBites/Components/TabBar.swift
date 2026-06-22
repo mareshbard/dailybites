@@ -3,6 +3,8 @@ import SwiftUI
 struct TabBar: View {
     
     @SceneStorage("selectedTab") private var selectedTabIndex: Int = 0
+   // var listTips : [Dicas] = []
+ 
     
     var body: some View {
         TabView(selection: $selectedTabIndex) {
