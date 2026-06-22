@@ -13,7 +13,8 @@ struct LogRecorded: View {
                     
                     Image(uiImage: image)
                         .resizable()
-                        .frame(maxWidth: 149, maxHeight: 130)
+                        .scaledToFill()
+                        .frame(width: 149, height: 130)
                         .clipped()
                     VStack(alignment: .leading) {
                         Text("\(log.ref!.name)")
@@ -23,17 +24,14 @@ struct LogRecorded: View {
                             .foregroundColor(Color.primary)
                         Spacer()
                         Text(log.status.title)
-//                            .foregroundColor(Color.primary)
                             .modifier(TagText(log: log))
                         
                     }
                     .foregroundColor(Color.font)
-//                    .foregroundColor(Color.primary)
                     .padding(10)
                     Spacer()
                 }
                 .frame(maxWidth: .infinity)
-//                .background(Color.white)
                 .cornerRadius(15)
             }
             else {

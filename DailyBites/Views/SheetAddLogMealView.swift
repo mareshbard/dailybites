@@ -64,16 +64,6 @@ struct SheetAddLogMealView: View {
             
             if #available(iOS 26.0, *) {
                 Form {
-                    //                Section {
-                    //                    FocusableTextField(placeholder: "Nome da refeição", text: $mealName)
-                    //                } header: {
-                    //                    SectionLabel(title:"NOME DA REFEIÇÃO", required: true)
-                    //                }
-                    //                .accessibilityLabel(Text("Digite o nome da sua refeição"))
-                    //                .padding(.top, -10)
-                    //                .listRowBackground(Color.clear)
-                    //                .font(Font.subheadline.bold())
-                    //                .foregroundStyle(.primary)
                     
                     Section {
                         PickerField(placeholder: "Selecione", options: Status.allCases.map(\.title), selected: Binding(get: {status.title}, set: {status = Status.fromTitle($0) ?? .pendente }), defaultValue: Status.pendente.title)

@@ -20,6 +20,7 @@ enum Status: String, CaseIterable, Codable, Plottable {
         case .atrasado: return "Realizada com atraso"
         case .pulou: return "Não realizada"
         case .pendente: return "Pendente"
+
         }
     }
     static func fromTitle (_ title: String) -> Status? {

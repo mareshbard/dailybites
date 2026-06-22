@@ -13,21 +13,22 @@ struct MealCardView: View {
     }
     
     var body: some View {
-            
-            HStack {
-                VStack(alignment: .leading){
-                    Text(meal.name)
-                        .font(Font.custom("PlusJakartaSans-Semibold", size: 20))
-                        .foregroundStyle(Color.primary)
-                        .padding(.bottom, 2)
-                    Text(meal.time, style: .time)
-                        .font(Font.custom("PlusJakartaSans-Medium", size: 17))
-                        .foregroundColor(Color.primary)
-                       // .accessibilityHint(Text("Horário da refeição"))
-                }
-                Spacer()
-                if let todayLog {
-                    Text(todayLog.status.title)
+        
+        HStack {
+            VStack(alignment: .leading){
+                Text(meal.name)
+                    .font(Font.custom("PlusJakartaSans-Semibold", size: 20))
+                    .foregroundStyle(Color.primary)
+                    .padding(.bottom, 2)
+                Text(meal.time, style: .time)
+                    .font(Font.custom("PlusJakartaSans-Medium", size: 17))
+                    .foregroundColor(Color.primary)
+                // .accessibilityHint(Text("Horário da refeição"))
+            }
+            Spacer()
+            if let todayLog {
+                if todayLog.ref!.isFixed == false {
+                    Text("Refeição extra")
                         .padding(.vertical, 5)
                         .padding(.horizontal, 15)
                         .background(todayLog.color)
@@ -35,22 +36,33 @@ struct MealCardView: View {
                         .cornerRadius(52)
                         .font(Font.custom("PlusJakartaSans-Medium", size: 15))
                 } else {
-                    Text("Pendente")
+                    Text(todayLog.status.title)
                         .padding(.vertical, 5)
-                        .padding(.horizontal, 10)
-                        .background(Color.pendenteTag)
-                        .foregroundStyle(Color.corPendente)
+                        .padding(.horizontal, 15)
+                        .background(todayLog.color)
+                        .foregroundStyle(todayLog.fontColor)
                         .cornerRadius(52)
                         .font(Font.custom("PlusJakartaSans-Medium", size: 15))
                 }
+                
+                
+            } else {
+                Text("Pendente")
+                    .padding(.vertical, 5)
+                    .padding(.horizontal, 10)
+                    .background(Color.pendenteTag)
+                    .foregroundStyle(Color.corPendente)
+                    .cornerRadius(52)
+                    .font(Font.custom("PlusJakartaSans-Medium", size: 15))
             }
-//        }
+        }
+        .accessibilityElement(children: .combine)
         .accessibilityHint("Clique para registrar ou editar a refeição")
         .frame(maxWidth: .infinity)
         
         .sheet(isPresented: $showAddLog) {
-                    SheetAddLogMealView(meal: meal)
-                }
+            SheetAddLogMealView(meal: meal)
+        }
         
         .padding(20)
         .background(Color("mealBackground"))

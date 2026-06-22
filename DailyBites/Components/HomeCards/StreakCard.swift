@@ -38,16 +38,23 @@ struct StreakCard: View {
                         .font(Font.custom("PlusJakartaSans-Semibold", size: 60))
                         .bold(true)
                         .foregroundStyle(Color.roxoAcao)
+                    if streak == 1 {
+                        Text("dia")
+                            .font(Font.custom("PlusJakartaSans-Semibold", size: 16))
+                            .foregroundStyle(Color.black)
+                    } else {
+                        Text("dias")
+                            .font(Font.custom("PlusJakartaSans-Semibold", size: 16))
+                            .foregroundStyle(Color.black)
+                    }
                     
-                    Text("dias")
-                        .font(Font.custom("PlusJakartaSans-Semibold", size: 16))
-                        .foregroundStyle(Color.black)
+                     
                 }
                 .frame(maxWidth: .infinity)
             }
             .accessibilityElement(children: .combine)
         }
-        .accessibilityElement(children: .contain)
+        .accessibilityElement(children: .combine)
         .padding(10)
         .background(Color.roxoBackground)
         .cornerRadius(12)

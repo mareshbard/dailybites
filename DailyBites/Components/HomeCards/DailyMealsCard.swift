@@ -81,7 +81,7 @@ struct DailyMealsCard: View {
               //  Spacer()
             }
         }
-        .accessibilityElement(children: .contain)
+        .accessibilityElement(children: .combine)
         .frame(maxWidth: .infinity)
         .padding(10)
         .background(Color.amareloBackground)
