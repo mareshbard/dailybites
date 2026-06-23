@@ -10,26 +10,52 @@ import SwiftUI
 struct TipsCard: View {
     let dica: Tip
     
+    enum typeOfTip: String, Identifiable, CaseIterable {
+        case nutricao = "NUTRIÇÃO"
+        case comportamento = "COMPORTAMENTO"
+        case consciencia = "CONSCIÊNCIA"
+        case habito = "HÁBITO"
+        case bemestar = "BEM-ESTAR"
+        
+        var id: Self { self }
+        
+        var color: Color {
+            switch self {
+            case .nutricao:
+                return .roxoAcao
+            case .comportamento:
+                return .orange
+            case .consciencia:
+                return .red
+            case .habito:
+                return .green
+            case .bemestar:
+                return .blue
+            }
+        }
+    }
+    
     var body: some View {
         
-        VStack{
             VStack {
                 Text(dica.tip)
+                    .padding(10)
                     .font(.headline)
-                    .frame(alignment: .leading)
+                    .frame(maxWidth: .infinity ,alignment: .leading)
+                    .foregroundStyle(Color(typeOfTip(rawValue: dica.tip)?.color ?? Color.black))
+                Spacer()
+                
                 Text(dica.title)
-                    .font(.title3)
-                    .frame(alignment: .leading)
+                    .font(.body)
+                    .frame(maxWidth: .infinity ,alignment: .leading)
+                    .padding(10)
             }
-            .frame(maxWidth: .infinity)
-            .background(Color(.systemBackground))
-        }
-        
-        
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .background(Color("amareloBackground"))
+            .cornerRadius(10)
     }
 }
 
 //#Preview {
-//    
 //    TipsCard()
 //}

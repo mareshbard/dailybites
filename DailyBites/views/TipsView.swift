@@ -9,6 +9,8 @@ import SwiftUI
 
 struct TipsView: View {
     
+    @State private var listaDicas: [Tip] = []
+        
     var body: some View {
         
         NavigationStack{
@@ -18,19 +20,38 @@ struct TipsView: View {
                         .font(.subheadline)
                         .frame(maxWidth: .infinity, alignment: .leading)
                     
+                    Spacer()
+                    
+                    VStack {
+                        ForEach(listaDicas) { tip in
+                            
+                            NavigationLink(destination: TipsContent(dica: tip)){
+                                TipsCard(dica: tip)
+                                    .ignoresSafeArea()
+
+                            }
+                            
+                            .foregroundColor(Color(.label))
+                            .frame(maxWidth: .infinity ,alignment: .leading)
+                            
                         }
-                        
                     }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                   // .background(Color("mealBackground"))
+                }
+                .padding(15)
                 .navigationTitle("Dicas")
-
-        }
-        .padding(15)
-
-                
-                
+                .onAppear {
+                    listaDicas = Bundle.main.decode(file: "Tips")
+                }
                 
             }
+            .background(Color.backgroundCor)
+
         }
+        
+    }
+}
 
 
 #Preview {
