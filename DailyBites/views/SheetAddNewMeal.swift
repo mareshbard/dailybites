@@ -19,7 +19,7 @@ struct SheetAddNewMeal: View {
     @State private var mealName: String = ""
     @State private var descriptionMeal: String = ""
     @State private var status: Status = Status.pendente
-    @State private var satiety: Satiety = Satiety.defaultValue
+    @State private var satiety: Satiety = Satiety.satisfeito
     @State private var durationMeal: Int = 0
     @State private var selectedMood: Mood = .neutral
     @State private var imageData: Data? = nil
