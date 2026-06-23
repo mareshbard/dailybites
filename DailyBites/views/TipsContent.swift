@@ -59,16 +59,17 @@ struct TipsContent: View {
                         
                     }
                 }
+                .padding(15)
                // .navigationTitle(dica.tip)
                 .frame(maxWidth: .infinity, alignment: .leading)
                
                 
                
             }
-            .padding(15)
-            .scrollContentBackground(.hidden)
+           // .padding(15)
+           // .scrollContentBackground(.hidden)
             .ignoresSafeArea()
-            .background(Color.backgroundCor)
+          //  .background(Color.backgroundCor)
         }
 
 

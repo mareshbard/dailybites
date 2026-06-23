@@ -32,12 +32,9 @@ struct TipsView: View {
                             }
                             
                             .foregroundColor(Color(.label))
-                            .frame(maxWidth: .infinity ,alignment: .leading)
                             
                         }
                     }
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                   // .background(Color("mealBackground"))
                 }
                 .padding(15)
                 .navigationTitle("Dicas")

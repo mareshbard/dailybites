@@ -37,6 +37,7 @@ struct TipsCard: View {
     
     var body: some View {
         
+        HStack{
             VStack {
                 Text(dica.tip)
                     .padding(10)
@@ -50,9 +51,19 @@ struct TipsCard: View {
                     .frame(maxWidth: .infinity ,alignment: .leading)
                     .padding(10)
             }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .background(Color("amareloBackground"))
-            .cornerRadius(10)
+            .frame(maxWidth: .infinity)
+            .multilineTextAlignment(.leading)
+            
+            Spacer()
+            
+            Image(systemName: "chevron.right")
+                .padding(10)
+        }
+        .background(Color("amareloBackground"))
+        .cornerRadius(10)
+
+
+            
     }
 }
 
