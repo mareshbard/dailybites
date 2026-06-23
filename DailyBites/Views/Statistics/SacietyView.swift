@@ -42,7 +42,7 @@ struct SacietyView: View {
                         GeometryReader { geometry in
                             HStack(spacing: 0) {
                                 ForEach(
-                                    Satiety.allCases.indices,
+                                    Satiety.allCases.indices.dropFirst(),
                                     id: \.self
                                 ){ index in
                                     if percentage[index] > 0 {
@@ -73,7 +73,7 @@ struct SacietyView: View {
                         .frame(height: 75)
                     
                         VStack(alignment: .leading){
-                            ForEach(Satiety.allCases.indices,id: \.self) { index in
+                            ForEach(Satiety.allCases.indices.dropFirst(),id: \.self) { index in
                                 HStack() {
                                     Color(Satiety.allCases[index].color).frame(width: 20, height: 20).cornerRadius(5)
                                     Text(Satiety.allCases[index].title)
