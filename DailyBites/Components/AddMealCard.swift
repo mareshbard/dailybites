@@ -48,6 +48,7 @@ struct AddMealCardView: View {
                             .tint(Color("RoxoDailyBites"))
                             .accessibilityElement(children: .ignore)
                             .accessibilityLabel(Text("Selecione o horário"))
+                            .datePickerStyle(.compact)
                         // perguntar se devo deixar "time picker" e se é traduzido
                     }
                     .accessibilitySortPriority(1)

@@ -20,6 +20,7 @@ struct RepeatMeals: View {
                 Text("às")
                     .foregroundStyle(.tertiary)
                 DatePicker("", selection: $time, displayedComponents: .hourAndMinute)
+                    .datePickerStyle(.compact)
                     .labelsHidden()
                     .tint(Color("RoxoDailyBites"))
             }

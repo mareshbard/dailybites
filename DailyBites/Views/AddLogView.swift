@@ -75,6 +75,7 @@ struct AddNewMealView: View {
                             Spacer()
                             DatePicker("Selecione a hora", selection: $time, displayedComponents: .hourAndMinute)
                                 .labelsHidden()
+                                .datePickerStyle(.compact)
                                 .tint(Color("VermelhoDailyBites"))
                         }
                         .padding(20)
@@ -183,7 +184,6 @@ struct AddNewMealView: View {
                 }
                 .scrollContentBackground(.hidden)
                 .navigationTitle(Text("Refeição"))
-               // .navigationSubtitle(Text(meal.time, style: .time))
                 .toolbarTitleDisplayMode(.inline)
                 .toolbar {
                     
@@ -196,7 +196,6 @@ struct AddNewMealView: View {
                             meal.time = time
                             numberOfMeals += 1
                         }
-                   //     .disabled(status == .pendente)
                         .tint(Color("VermelhoDailyBites"))
                         
                     }

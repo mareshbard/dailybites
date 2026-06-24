@@ -23,8 +23,13 @@ struct LogRecorded: View {
                         Text(log.ref!.time, style: .time)
                             .foregroundColor(Color.primary)
                         Spacer()
-                        Text(log.status.title)
-                            .modifier(TagText(log: log))
+                        if log.ref!.isFixed == true {
+                            Text(log.status.title)
+                                .modifier(TagText(log: log))
+                        } else {
+                            Text("Refeição extra")
+                                .modifier(TagText(log: log))
+                        }
                         
                     }
                     .foregroundColor(Color.font)
@@ -48,9 +53,14 @@ struct LogRecorded: View {
                                 .foregroundColor(Color.primary)
                         }
                         Spacer()
-                        
-                        Text(log.status.title)
-                            .modifier(TagText(log: log))
+                        if log.ref!.isFixed == true {
+                            Text(log.status.title)
+                                .modifier(TagText(log: log))
+                        } else {
+                            Text("Refeição extra")
+                                .modifier(TagText(log: log))
+                        }
+                       
                     }
                     .padding(.vertical, 20)
                     .padding(.horizontal, 15)
