@@ -17,7 +17,7 @@ struct TipsView: View {
             ScrollView{
                 VStack{
                     Text("Explore a seleção de dicas e transforme sua rotina")
-                        .font(.subheadline)
+                    //    .font(Font.custom("PlusJakartaSans-SemiBold", size: 20))
                         .frame(maxWidth: .infinity, alignment: .leading)
                     
                     Spacer()

@@ -24,13 +24,13 @@ struct TipsCard: View {
             case .nutricao:
                 return .roxoTip
             case .comportamento:
-                return .orange
+                return .comportamento
             case .consciencia:
-                return .red
+                return .consciencia
             case .habito:
-                return .green
+                return .habito
             case .bemestar:
-                return .blue
+                return .bemestar
             }
         }
     }
@@ -44,12 +44,14 @@ struct TipsCard: View {
                     .font(.footnote.bold())
                     .frame(maxWidth: .infinity ,alignment: .leading)
                     .foregroundStyle(Color(typeOfTip(rawValue: dica.tip)?.color ?? Color.black))
-                Spacer()
+                   // .font(Font.custom("PlusJakartaSans-Bold", size: 10))
+            //    Spacer()
                 
                 Text(dica.title)
                     .font(.body)
                     .frame(maxWidth: .infinity ,alignment: .leading)
-                    .padding(10)
+                    .padding(.leading, 10)
+                    .padding(.bottom, 10)
             }
             .frame(maxWidth: .infinity)
             .multilineTextAlignment(.leading)
