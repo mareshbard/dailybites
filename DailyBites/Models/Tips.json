@@ -1,279 +1,311 @@
 [
     {
+        "image": "ImageTip1",
         "tip": "NUTRIÇÃO",
         "title": "Prefira alimentos in natura e minimamente processados",
-        "information": "Você já parou pra pensar no que exatamente está no seu prato? No meio de tanta informação sobre dieta, suplemento e tendência alimentar, o Guia Alimentar para a População Brasileira traz uma orientação que parece simples, mas muda bastante coisa na prática: faça de alimentos in natura ou minimamente processados a base da sua alimentação.
-O que entra nessa categoria?
-Alimento in natura é aquele que vai direto da natureza pra você — fruta, ovo, carne fresca, verdura. Já o minimamente processado passou por alguma etapa como secagem, pasteurização, congelamento ou moagem, mas sem receber sal, açúcar, óleo ou qualquer outro ingrediente extra. Arroz, feijão, leite, iogurte natural, farinha de mandioca, macarrão feito só de farinha e água — tudo isso entra na lista.
-Na prática, boa parte do que você compra já é minimamente processada, e tudo bem. O ponto não é comer tudo cru direto do campo, mas entender a diferença entre um alimento que passou por um processo necessário de conservação e um produto que foi reformulado industrialmente com uma lista enorme de ingredientes.
-Por que variedade importa?
-Nenhum alimento sozinho dá conta de tudo que seu corpo precisa, nem os mais nutritivos. Seu organismo evoluiu para consumir variedade, e é por isso que combinações tradicionais funcionam tão bem nutricionalmente. O arroz com feijão, por exemplo, não é só cultura: cereais e leguminosas juntos formam um perfil de aminoácidos muito mais completo do que cada um separado. O mesmo raciocínio vale para a farinha de mandioca com açaí, arroz com jambu, tutu com feijão — combinações que diferentes culinárias regionais foram desenvolvendo ao longo do tempo sem precisar de nenhuma tabela nutricional.
-Alimentos de origem animal são ótimas fontes de proteína, vitaminas e minerais, mas não têm fibra e podem ter bastante gordura saturada quando consumidos em excesso. Já os de origem vegetal costumam ter mais fibra, menos calorias por grama e uma variedade enorme de nutrientes, mas individualmente nenhum deles cobre tudo. A lógica então é combinar: predominância vegetal, com proteína animal complementando.
-E o processamento mínimo tem alguma desvantagem?
-Em alguns casos sim. O polimento excessivo do arroz branco, por exemplo, remove nutrientes que o arroz integral preserva. Quando você tiver a opção, o menos processado tende a ser melhor — farinha menos refinada, arroz integral, grão inteiro. Mas no geral, os benefícios do processamento mínimo (conservação, praticidade, digestibilidade) superam as desvantagens.
-Além do seu corpo
-Comer mais alimentos in natura e de origem vegetal não afeta só você. Esse tipo de escolha movimenta a agricultura familiar, reduz emissões de gases de efeito estufa, diminui o desmatamento e pressiona menos os recursos hídricos. A pecuária intensiva é uma das maiores fontes de impacto ambiental no mundo — não porque carne seja vilã, mas porque o modelo industrial de produção em larga escala tem um custo ambiental alto. Diminuir um pouco a demanda já faz diferença no agregado.
-Se você tiver acesso, alimentos orgânicos e de base agroecológica vão ainda mais longe nesse sentido — produzidos sem agrotóxicos, respeitando a biodiversidade e valorizando quem produz de forma sustentável.
-Monte seu prato com base em comida de verdade: grãos, legumes, verduras, frutas, ovos, carnes frescas, laticínios simples. Varie bastante, combine vegetais com proteína animal em quantidade menor, e prefira o menos processado quando tiver escolha."
+        "information": "Você já parou pra pensar no que exatamente está no seu prato? No meio de tanta informação sobre dieta, suplemento e tendência alimentar, o Guia Alimentar para a População Brasileira traz uma orientação que parece simples, mas muda bastante coisa na prática: faça de alimentos in natura ou minimamente processados a base da sua alimentação.",
+        "tipSection" : [
+            {
+                "title": "O que entra nessa categoria?",
+                "description": "Alimento in natura é aquele que vai direto da natureza pra você — fruta, ovo, carne fresca, verdura. Já o minimamente processado passou por alguma etapa como secagem, pasteurização, congelamento ou moagem, mas sem receber sal, açúcar, óleo ou qualquer outro ingrediente extra. Arroz, feijão, leite, iogurte natural, farinha de mandioca, macarrão feito só de farinha e água — tudo isso entra na lista.\nNa prática, boa parte do que você compra já é minimamente processada, e tudo bem. O ponto não é comer tudo cru direto do campo, mas entender a diferença entre um alimento que passou por um processo necessário de conservação e um produto que foi reformulado industrialmente com uma lista enorme de ingredientes.",
+            },
+            {
+                "title": "Por que variedade importa?",
+                "description": "Nenhum alimento sozinho dá conta de tudo que seu corpo precisa, nem os mais nutritivos. Seu organismo evoluiu para consumir variedade, e é por isso que combinações tradicionais funcionam tão bem nutricionalmente. O arroz com feijão, por exemplo, não é só cultura: cereais e leguminosas juntos formam um perfil de aminoácidos muito mais completo do que cada um separado. O mesmo raciocínio vale para a farinha de mandioca com açaí, arroz com jambu, tutu com feijão — combinações que diferentes culinárias regionais foram desenvolvendo ao longo do tempo sem precisar de nenhuma tabela nutricional. Alimentos de origem animal são ótimas fontes de proteína, vitaminas e minerais, mas não têm fibra e podem ter bastante gordura saturada quando consumidos em excesso. Já os de origem vegetal costumam ter mais fibra, menos calorias por grama e uma variedade enorme de nutrientes, mas individualmente nenhum deles cobre tudo. A lógica então é combinar: predominância vegetal, com proteína animal complementando.",
+            },
+            {
+                "title": "E o processamento mínimo tem alguma desvantagem?",
+                "description": "Em alguns casos sim. O polimento excessivo do arroz branco, por exemplo, remove nutrientes que o arroz integral preserva. Quando você tiver a opção, o menos processado tende a ser melhor — farinha menos refinada, arroz integral, grão inteiro. Mas no geral, os benefícios do processamento mínimo (conservação, praticidade, digestibilidade) superam as desvantagens.",
+            },
+            {
+                "title": "Além do seu corpo",
+                "description": "Comer mais alimentos in natura e de origem vegetal não afeta só você. Esse tipo de escolha movimenta a agricultura familiar, reduz emissões de gases de efeito estufa, diminui o desmatamento e pressiona menos os recursos hídricos. A pecuária intensiva é uma das maiores fontes de impacto ambiental no mundo — não porque carne seja vilã, mas porque o modelo industrial de produção em larga escala tem um custo ambiental alto. Diminuir um pouco a demanda já faz diferença no agregado. Se você tiver acesso, alimentos orgânicos e de base agroecológica vão ainda mais longe nesse sentido — produzidos sem agrotóxicos, respeitando a biodiversidade e valorizando quem produz de forma sustentável. Monte seu prato com base em comida de verdade: grãos, legumes, verduras, frutas, ovos, carnes frescas, laticínios simples. Varie bastante, combine vegetais com proteína animal em quantidade menor, e prefira o menos processado quando tiver escolha.",
+            },
+            
+        ]
     },
     
     {
+        "image": "ImageTip5",
+        "tip": "COMPORTAMENTO",
+        "title": "Coma devagar e com atenção: seu corpo agradece",
+        "information": "No meio de rotinas cheias, comer virou uma atividade secundária — algo que acontece enquanto você faz outra coisa. Celular na mão, série passando, relatório aberto ao lado. O problema é que comer assim tem um custo real pro seu corpo, e não é só sobre digestão. Fazer refeições em horários parecidos todo dia ajuda seu organismo a antecipar e preparar o processo digestivo. Quando os horários são muito erráticos, fica mais difícil distinguir a fome real de vontade de comer por outro motivo, como tédio, estresse ou estímulo visual.",
+        "tipSection" : [
+            {
+                "title": "O problema do 'beliscar'",
+                "description": "Beliscar entre refeições não é necessariamente errado, o problema é quando acontece de forma automática, sem fome de verdade. E boa parte do beliscar não acontece porque você estava com fome: acontece porque o alimento estava ali, ao alcance da mão, com cheiro ou aparência convidativa. Isso é especialmente forte com ultraprocessados, que são formulados justamente para serem irresistíveis visualmente e em aroma. A solução mais simples é também a mais eficaz: não ter esses produtos em casa ou no ambiente de trabalho. O que não está à vista, não dispara o impulso. Substituir por frutas frescas, frutas secas ou castanhas já muda bastante o padrão, não porque sejam 'mais saudáveis' no papel, mas porque o estímulo é completamente diferente.",
+            },
+            {
+                "title": "Comer devagar não é frescura",
+                "description": "Os mecanismos de saciedade do seu corpo levam tempo pra funcionar. O sinal de 'já chega' não é instantâneo — ele depende de uma série de estímulos que se acumulam durante a refeição e chegam ao cérebro com algum delay. Quando você come rápido, esse sinal chega tarde demais, e você já comeu mais do que precisava antes de perceber. Mastigar mais vezes é a forma mais mecânica e direta de desacelerar. Não precisa contar mordidas nem nada assim, só prestar atenção na textura e no sabor do que você está comendo já naturalmente prolonga a refeição. E tem um lado positivo nisso: você começa a perceber nuances de sabor que passavam completamente despercebidas quando comia no automático.",
+            },
+            {
+                "title": "Uma estratégia simples para não exagerar",
+                "description": "Começar a refeição com uma salada ou uma sopa antes do prato principal é uma das formas mais eficazes de dar tempo pro organismo começar a processar o que está chegando. Não é sobre comer menos por disciplina, é sobre dar ao seu corpo a chance de sinalizar saciedade antes de você terminar o prato principal. Tente ao menos fazer suas refeições principais sentado, sem tela, mesmo que por 15 ou 20 minutos. Mantenha frutas e castanhas acessíveis se quiser ter algo para beliscar. E se perceber que está comendo rápido demais, o truque mais simples é apoiar o garfo entre uma garfada e outra.",
+            },
+        ]
+    },
+    
+    {
+        "image": "ImageTip7",
+        "tip": "BEM-ESTAR",
+        "title": "Comer acompanhado faz bem (e não é romantismo)",
+        "information": "Tem algo que a rotina moderna foi corroendo aos poucos: a refeição compartilhada. Não necessariamente o almoço de domingo em família, mas o hábito simples de sentar com alguém e comer junto, seja em casa, no trabalho ou na faculdade. Comer em companhia naturalmente desacelera o ritmo da refeição. Quando você está numa conversa, para de mastigar pra falar, presta atenção no outro, ri, e tudo isso cria pausas que o corpo usa pra registrar saciedade. Sem perceber, você come menos e aproveita mais. Tem também o lado do ambiente: refeições compartilhadas pedem mesa, prato, talher. Elas criam uma estrutura que o comer solitário em frente à tela raramente tem. Mas além da parte fisiológica, tem algo mais difícil de quantificar: compartilhar comida é uma das formas mais antigas e diretas de criar vínculo com pessoas. No trabalho ou na faculdade, almoçar junto ajuda a conhecer melhor quem está ao redor, cria senso de pertencimento e, de forma meio orgânica, melhora o ambiente em geral.",
+        "tipSection" : [
+            {
+                "title": "O que está sendo perdido?",
+                "description": "No mundo todo, culturas alimentares tradicionais estão perdendo espaço, e a refeição compartilhada é uma das primeiras coisas a ir embora quando a rotina aperta. Ultraprocessados contribuem para isso de forma direta: são formulados para serem consumidos sozinhos, a qualquer hora, sem mesa nem companhia. A 'praticidade' deles tem esse custo embutido. No Brasil, felizmente, ainda existe uma cultura forte de comer junto, o almoço em família, o RU com os colegas, o churrasco de fim de semana. Vale preservar isso conscientemente, porque não é algo que volta fácil quando some.",
+            },
+            {
+                "title": "Dividir o processo todo",
+                "description": "Melhor ainda do que só comer junto é compartilhar o que vem antes e depois: planejar o que vai fazer, ir à feira ou ao mercado, cozinhar junto, arrumar depois. Isso não é romantismo, é uma forma concreta de distribuir uma carga que historicamente caiu de forma desproporcional sobre algumas pessoas dentro de casa. Dividir essas tarefas entre todos que moram juntos — independente de idade ou gênero — torna o processo mais leve para todo mundo e ainda transforma atividades cotidianas em tempo de convívio real. Não precisa organizar um jantar toda noite. Mas vale o esforço de, algumas vezes por semana, comer com alguém, sem tela e sem pressa. Na faculdade, no trabalho, em casa. O impacto na qualidade da refeição e na qualidade das relações é real, e é um dos poucos hábitos que cuida da saúde e da vida social ao mesmo tempo.",
+            },
+        ]
+    },
+    
+    {
+        "image": "ImageTip8",
+        "tip": "CONSCIÊNCIA",
+        "title": "Como filtrar o que funciona no mar de informação sobre alimentação",
+        "information": "Se você já se sentiu confuso tentando entender o que comer, saiba que não é falta de atenção sua. É o ambiente de informação mesmo que é caótico. A quantidade de conteúdo sobre alimentação e saúde cresceu muito, em redes sociais, YouTube, podcasts, revistas. O problema é que volume não é sinônimo de qualidade. A maior parte desse conteúdo tem alguns padrões bem reconhecíveis: Foca em alimentos específicos isolados, propagados como 'superalimentos que vão resolver tudo. Ignora completamente a ideia de variedade e combinação, que é onde a nutrição de verdade acontece. Mistura alimentação saudável com emagrecimento, como se fossem a mesma coisa. E às vezes o que parece conteúdo informativo é na prática publicidade disfarçada de produto ultraprocessado com algum apelo funcional. O ciclo do modismo é rápido: um alimento vira tendência, todo mundo fala sobre ele por alguns meses, e então aparece o próximo. Enquanto isso, combinações tradicionais que funcionam há gerações — arroz com feijão, por exemplo — continuam sendo subestimadas porque não são novidade.",
+        "tipSection" : [
+            {
+                "title": "Como filtrar o que vale a pena?",
+                "description": "Algumas perguntas úteis na hora de avaliar qualquer informação sobre alimentação: Quem está dizendo isso e qual é a formação dessa pessoa? O conteúdo está promovendo um produto específico ou uma marca? A recomendação isola um alimento como solução mágica ou fala em padrão alimentar como um todo? Existe alguma fonte científica citada, ou é baseado em experiência pessoal e relato anedótico? Nutricionistas com CRN ativo e órgãos de saúde pública como o Ministério da Saúde e a OPAS são referências mais confiáveis do que influenciadores, mesmo os bem-intencionados. Isso não significa que todo conteúdo de criador de conteúdo é ruim, mas o nível de ceticismo precisa ser diferente.",
+            },
+            {
+                "title": "O que realmente importa?",
+                "description": "A boa notícia é que a base de uma alimentação saudável não muda a cada estudo novo. Os princípios são estáveis: variedade de alimentos de verdade, predominância vegetal, processamento mínimo, moderação com sal, açúcar e gordura, regularidade nas refeições. Nenhuma descoberta recente vai tornar o feijão prejudicial ou transformar salgadinho em saúde. Quando aparecer uma recomendação que contradiz tudo isso de forma radical, vale desconfiar antes de mudar qualquer coisa.",
+            },
+        ]
+    },
+    
+    {
+        "image": "ImageTip11",
+        "tip": "HÁBITO",
+        "title": "Saber cozinhar é autonomia real",
+        "information": "Não é exagero: a capacidade de preparar sua própria comida tem impacto direto na sua saúde, no seu bolso e na sua autonomia. E é exatamente essa habilidade que vem sendo perdida entre as gerações mais jovens, não por acaso. A indústria de ultraprocessados têm interesse direto em que você não saiba cozinhar. Uma das narrativas mais comuns na propaganda desses produtos é a de que preparar comida em casa é perda de tempo — algo que poderia ser usado em atividades mais 'produtivas. O produto pronto é apresentado como a solução moderna e prática, muitas vezes sugerindo que reproduz exatamente o sabor e os ingredientes de uma preparação caseira. Não reproduz. Junto com isso, a transmissão de habilidades culinárias entre gerações foi se enfraquecendo. As pessoas mais jovens cresceram com menos contato com a cozinha, menos oportunidade de aprender fazendo, e mais acesso a produtos que dispensam qualquer preparo. O resultado é uma geração com pouca confiança para cozinhar, e mais dependente de ultraprocessados por isso. Vale nomear também: historicamente cozinhar foi tratado como tarefa feminina, o que criou uma barreira extra para homens aprenderem. Isso está mudando, mas ainda pesa na hora de quem aprende e quem não aprende dentro de casa.",
+        "tipSection" : [
+            {
+                "title": "Por que vale aprender?",
+                "description": "Cozinhar não exige talento, exige prática. Como qualquer habilidade, melhora com repetição, e os progressos aparecem rápido. Quem começa do zero consegue em poucas semanas preparar refeições simples, gostosas e muito melhores do que qualquer coisa de pacote. Além do impacto direto na alimentação, cozinhar tem um retorno que pouca gente espera: é satisfatório. Preparar algo do zero, combinar ingredientes, acertar um tempero — tem um prazer concreto nisso que vai além da refeição em si. E quando você cozinha pra alguém, ou junto com alguém, esse prazer aumenta.",
+            },
+            {
+                "title": "Como começar sem complicar?",
+                "description": "Não precisa de receita elaborada nem de técnica de chef. O começo pode ser o mais simples possível: aprender a fazer um arroz bem feito, um feijão temperado, um ovo de várias formas, um refogado básico de legumes. Essas preparações cobrem boa parte do que você precisa no dia a dia. Peça receitas pra quem você conhece que cozinha bem — familiar, amigo, colega. Receitas com contexto são melhores do que receitas de internet porque vêm com os ajustes que só a prática ensina. O YouTube também tem muito conteúdo bom e acessível para quem está começando do zero. Cozinhe em companhia sempre que der. Aprende mais rápido, é mais divertido, e a refeição no final tem outro sabor. Saber cozinhar é uma forma de autonomia real. Quem cozinha decide o que come, controla o que vai no prato, gasta menos e depende menos de produtos industrializados. Num contexto em que o ambiente alimentar está cada vez mais cheio de ultraprocessados baratos e convenientes, ter essa habilidade é uma das formas mais eficazes de manter uma alimentação de qualidade sem depender de força de vontade o tempo todo.",
+            },
+        ]
+    },
+    
+    {
+        "image": "ImageTip2",
         "tip": "NUTRIÇÃO",
         "title": "Óleo, sal e açúcar: vilões ou aliados?",
-        "information": "A resposta curta é: depende de como você usa.
-Óleo, manteiga, sal e açúcar são produtos que existem há séculos nas cozinhas do mundo todo. Eles não são comida em si — são ingredientes que transformam comida. É o azeite que faz a salada ter sabor, o sal que realça o feijão, o açúcar que vira um doce de fruta caseiro. Usados assim, como parte de uma preparação com base em alimentos de verdade, eles cumprem bem o papel deles.
-O problema não é a existência desses ingredientes na sua cozinha. É a quantidade.
-Por que o excesso pesa?
-Óleos e gorduras têm uma densidade calórica muito alta — cerca de 6 vezes mais calorias por grama do que um grão cozido, e 20 vezes mais do que legumes. Isso não significa que você deve evitá-los, mas significa que uma colher a mais aqui e ali some bastante no total do dia sem você perceber.
-O sal em excesso aumenta o risco de hipertensão e doenças cardiovasculares, e o problema não costuma ser o sal que você adiciona no prato, mas o que já vem embutido em produtos industrializados. Quem cozinha em casa tem muito mais controle sobre isso.
-O açúcar em excesso está associado a cárie, ganho de peso e resistência à insulina ao longo do tempo. E aqui vale um detalhe importante: o açúcar que você usa pra fazer um bolo em casa ou adoçar um café é muito diferente, em quantidade e contexto, do açúcar presente em refrigerantes, biscoitos recheados e produtos ultraprocessados em geral.
-Na prática
-Cozinhar com esses ingredientes não é o problema, é justamente o que permite que uma alimentação baseada em comida de verdade seja também gostosa e variada. Arroz refogado no azeite, ovo frito, fruta cozida com um pouco de açúcar mascavo, pão feito em casa. Tudo isso faz parte de uma alimentação equilibrada.
-A chave é usar com consciência: temperar, não encharcar. A moderação aqui não é uma regra rígida, é mais uma percepção que você vai desenvolvendo com o tempo sobre o quanto de cada coisa faz sentido no seu preparo.
-E se você cozinha em casa com regularidade, já está na frente, porque é muito mais fácil controlar esses ingredientes quando você mesmo está montando o prato."
+        "information": "A resposta curta é: depende de como você usa. Óleo, manteiga, sal e açúcar são produtos que existem há séculos nas cozinhas do mundo todo. Eles não são comida em si — são ingredientes que transformam comida. É o azeite que faz a salada ter sabor, o sal que realça o feijão, o açúcar que vira um doce de fruta caseiro. Usados assim, como parte de uma preparação com base em alimentos de verdade, eles cumprem bem o papel deles. O problema não é a existência desses ingredientes na sua cozinha. É a quantidade.",
+        "tipSection" : [
+            {
+                "title": "Por que o excesso pesa?",
+                "description": "Óleos e gorduras têm uma densidade calórica muito alta — cerca de 6 vezes mais calorias por grama do que um grão cozido, e 20 vezes mais do que legumes. Isso não significa que você deve evitá-los, mas significa que uma colher a mais aqui e ali some bastante no total do dia sem você perceber. O sal em excesso aumenta o risco de hipertensão e doenças cardiovasculares, e o problema não costuma ser o sal que você adiciona no prato, mas o que já vem embutido em produtos industrializados. Quem cozinha em casa tem muito mais controle sobre isso. O açúcar em excesso está associado a cárie, ganho de peso e resistência à insulina ao longo do tempo. E aqui vale um detalhe importante: o açúcar que você usa pra fazer um bolo em casa ou adoçar um café é muito diferente, em quantidade e contexto, do açúcar presente em refrigerantes, biscoitos recheados e produtos ultraprocessados em geral.",
+            },
+            {
+                "title": "Na prática",
+                "description": "Cozinhar com esses ingredientes não é o problema, é justamente o que permite que uma alimentação baseada em comida de verdade seja também gostosa e variada. Arroz refogado no azeite, ovo frito, fruta cozida com um pouco de açúcar mascavo, pão feito em casa. Tudo isso faz parte de uma alimentação equilibrada. A chave é usar com consciência: temperar, não encharcar. A moderação aqui não é uma regra rígida, é mais uma percepção que você vai desenvolvendo com o tempo sobre o quanto de cada coisa faz sentido no seu preparo. E se você cozinha em casa com regularidade, já está na frente, porque é muito mais fácil controlar esses ingredientes quando você mesmo está montando o prato.",
+            },
+        ]
     },
     
     {
+        "image": "ImageTip6",
+        "tip": "COMPORTAMENTO",
+        "title": "O ambiente no seu prato: onde você come importa tanto quanto o quê",
+        "information": "Você já reparou que come muito mais assistindo série do que quando está sentado à mesa? Ou que no rodízio sempre passa do ponto? Isso não é coincidência nem falta de controle, é o ambiente agindo diretamente no quanto e como você come. Cheiro, barulho, iluminação, conforto, limpeza — tudo isso influencia sua experiência com a comida. Ambientes tranquilos e confortáveis naturalmente convidam a comer mais devagar, prestar atenção no sabor e perceber a saciedade antes de exagerar. Ambientes barulhentos, desconfortáveis ou cheios de distração fazem o oposto: você come no automático, rápido, e muitas vezes nem percebe o quanto ingeriu. Celular na mesa e TV ligada entram nessa conta. Não precisa ser uma regra rígida pra toda refeição, mas vale perceber o padrão: nas refeições em que você estava com atenção dividida, provavelmente comeu mais rápido e com menos satisfação do que nas que estava presente.",
+        "tipSection" : [
+            {
+                "title": "Comer em pé, andando ou no transporte",
+                "description": "Essas situações são comuns demais na rotina. Mas o problema é estrutural: quando você come assim, o corpo não registra a refeição da mesma forma. É quase como se o cérebro não 'contasse' direito as calorias e o prazer daquela comida, o que pode gerar mais fome logo depois ou uma sensação de que não comeu de verdade. Sempre que possível, vale o esforço de sentar, mesmo que por pouco tempo.",
+            },
+            {
+                "title": "O truque das porções",
+                "description": "Diante de muita comida disponível, a tendência natural é comer mais, independente da fome. É um comportamento bastante documentado: o tamanho da porção disponível influencia diretamente o quanto consumimos, quase sem perceber. Uma estratégia simples: se sirva uma vez e espere alguns minutos antes de voltar pro buffet. Na maioria das vezes, a vontade de repetir passa, porque a saciedade finalmente chegou. Se ainda quiser mais depois desse tempo, provavelmente você ainda precisa mesmo.",
+            },
+            {
+                "title": "Comer fora de casa",
+                "description": "Buffet livre e rodízio são ótimos para ocasiões especiais, mas como rotina semanal jogam contra você, a lógica de 'aproveitar porque já paguei' quase sempre leva ao excesso. Restaurantes a quilo são uma alternativa muito melhor para o dia a dia: você escolhe o que quer, na quantidade que faz sentido, com variedade real de preparações feitas na hora. Fast-food concentra vários problemas ao mesmo tempo: ambiente barulhento e desconfortável que induz a comer rápido, quase nenhuma opção de comida de verdade, porções grandes com alta densidade calórica e embalagens que você segura enquanto come. Não precisa transformar cada refeição num ritual. Mas criar condições mínimas — sentar, tirar o celular da frente, não comer com pressa — já muda bastante a experiência e o quanto você come. O ambiente é um fator que age silenciosamente, e pequenos ajustes nele têm efeito real sem exigir nenhuma mudança no cardápio.",
+            },
+        ]
+    },
+    
+    {
+        "image": "ImageTip12",
+        "tip": "HÁBITO",
+        "title": "O tempo que você não tem para cozinhar (e como encontrar)",
+        "information": "Esse é provavelmente o argumento mais honesto contra comer bem: não é falta de vontade, é falta de tempo. Rotina cheia, deslocamento longo, trabalho ou faculdade consumindo o dia. Ignorar isso seria desonesto, então vamos falar de frente. Cozinhar de verdade exige tempo — para comprar, preparar, cozinhar, montar e limpar depois. Isso é fato. Mas boa parte do tempo que as pessoas acham que não têm some quando elas ganham mais prática na cozinha. Quem não tem muita habilidade culinária gasta mais tempo do que o necessário em cada etapa, porque não sabe o atalho, porque improvisa sem planejamento, porque começa sem os ingredientes certos. Com mais prática, o processo fica mais fluido. Um prato de macarrão com molho de tomate e temperos naturais leva cerca de cinco minutos a mais do que preparar um macarrão instantâneo. A diferença real de tempo, em muitos casos, é menor do que parece.",
+        "tipSection" : [
+            {
+                "title": "Planejamento resolve mais do que técnica",
+                "description": "Habilidade culinária não é só saber cozinhar, é também planejar. Saber o que vai comer na semana antes de ir ao mercado, manter a despensa organizada com o básico sempre disponível, e cozinhar em quantidade quando tiver tempo são hábitos que mudam completamente a equação. Feijão, por exemplo, pode ser cozido em quantidade num domingo e congelado em porções pra semana inteira. Verduras podem ser higienizadas e secas com antecedência. Nos dias mais corridos, pratos rápidos como omelete, sopa, arroz com legumes refogados ou macarrão com molho simples resolvem em pouco tempo sem abrir mão de comida de verdade. A lógica é: use o tempo quando você tem pra garantir que vai ter comida boa quando não tiver. Cozinhar pra si mesmo todos os dias é muito pra uma pessoa só,  especialmente quando se mora sozinho ou a rotina é pesada. Compartilhar essa responsabilidade com quem mora junto, ou mesmo combinar com amigos de fazer refeições juntos algumas vezes por semana, distribui o esforço e torna o processo mais agradável. Tem um ponto que vale refletir: a falta de tempo é real, mas também é parcialmente uma questão de prioridade. Não no sentido de culpa, mas no sentido de perceber quanto tempo vai pra outras coisas que poderiam ceder um espaço. Comer bem não precisa competir com tudo, mas precisa ter algum lugar na agenda. A proposta não é transformar alimentação num projeto de vida. É tratá-la como um momento que vale atenção, não um fardo entre uma tarefa e outra, mas algo que tem valor em si. Essa mudança de perspectiva, pequena que seja, já muda bastante o que você consegue fazer dentro do tempo que tem.",
+            },
+        ]
+    },
+    
+    {
+        "image": "ImageTip3",
         "tip": "NUTRIÇÃO",
         "title": "Alimentos processados: como encaixar sem exagerar",
-        "information": "Existe uma diferença importante que o debate sobre alimentação saudável frequentemente ignora: nem todo alimento que passou por algum processo industrial é igual. Antes de chegar nos ultraprocessados — aqueles com listas de ingredientes que parecem fórmula química — existe uma categoria intermediária que vale entender: os alimentos processados.
-O que caracteriza um alimento processado?
-São produtos feitos basicamente com um alimento in natura acrescido de sal, açúcar, óleo ou vinagre, com o objetivo principal de conservar e melhorar o sabor. Queijo, pão feito de farinha, água, sal e fermento, sardinha enlatada, atum, carne seca, extrato de tomate, legumes em conserva, frutas em calda. Você reconhece o alimento original neles — o queijo ainda é leite, a sardinha ainda é peixe.
-As técnicas usadas nesses produtos também não são tão distantes da culinária caseira: cozimento, fermentação, salga, defumação, conserva em vidro. É por isso que queijo e pão existem há milênios, eles surgiram como formas de preservar alimentos antes da refrigeração existir.
-Então por que limitar?
-O ponto de atenção é que, no processamento industrial, o sal e o açúcar costumam ser adicionados em quantidades bem maiores do que você usaria em casa. Um queijo curado, por exemplo, concentra muito mais sódio do que o leite do qual ele veio. Frutas em calda têm uma densidade calórica muito superior à fruta in natura. Pão industrial tende a ter mais sal do que o pão caseiro.
-Além disso, a perda de água durante o processamento concentra calorias — o que transforma alimentos originalmente leves em versões bem mais densas energeticamente.
-Como encaixar no dia a dia?
-A lógica não é banir. É posicionar corretamente: alimentos processados funcionam bem como ingredientes ou acompanhamentos dentro de uma refeição baseada em comida de verdade. Queijo ralado no macarrão, atum misturado numa salada, carne seca no feijão, pão com ovo. O problema aparece quando eles substituem a refeição inteira, quando o sanduíche vira a refeição principal de forma rotineira, por exemplo.
-Uma dica prática: quando for comprar qualquer alimento processado, olhe o rótulo e prefira versões com menos sódio ou açúcar. A diferença entre marcas do mesmo produto pode ser surpreendente."
+        "information": "Existe uma diferença importante que o debate sobre alimentação saudável frequentemente ignora: nem todo alimento que passou por algum processo industrial é igual. Antes de chegar nos ultraprocessados — aqueles com listas de ingredientes que parecem fórmula química — existe uma categoria intermediária que vale entender: os alimentos processados.",
+        "tipSection" : [
+            {
+                "title": "O que caracteriza um alimento processado?",
+                "description": "São produtos feitos basicamente com um alimento in natura acrescido de sal, açúcar, óleo ou vinagre, com o objetivo principal de conservar e melhorar o sabor. Queijo, pão feito de farinha, água, sal e fermento, sardinha enlatada, atum, carne seca, extrato de tomate, legumes em conserva, frutas em calda. Você reconhece o alimento original neles — o queijo ainda é leite, a sardinha ainda é peixe. As técnicas usadas nesses produtos também não são tão distantes da culinária caseira: cozimento, fermentação, salga, defumação, conserva em vidro. É por isso que queijo e pão existem há milênios, eles surgiram como formas de preservar alimentos antes da refrigeração existir.",
+            },
+            {
+                "title": "Então por que limitar?",
+                "description": "O ponto de atenção é que, no processamento industrial, o sal e o açúcar costumam ser adicionados em quantidades bem maiores do que você usaria em casa. Um queijo curado, por exemplo, concentra muito mais sódio do que o leite do qual ele veio. Frutas em calda têm uma densidade calórica muito superior à fruta in natura. Pão industrial tende a ter mais sal do que o pão caseiro. Além disso, a perda de água durante o processamento concentra calorias — o que transforma alimentos originalmente leves em versões bem mais densas energeticamente.",
+            },
+            {
+                "title": "Como encaixar no dia a dia?",
+                "description": "A lógica não é banir. É posicionar corretamente: alimentos processados funcionam bem como ingredientes ou acompanhamentos dentro de uma refeição baseada em comida de verdade. Queijo ralado no macarrão, atum misturado numa salada, carne seca no feijão, pão com ovo. O problema aparece quando eles substituem a refeição inteira, quando o sanduíche vira a refeição principal de forma rotineira, por exemplo. Uma dica prática: quando for comprar qualquer alimento processado, olhe o rótulo e prefira versões com menos sódio ou açúcar. A diferença entre marcas do mesmo produto pode ser surpreendente.",
+            },
+        ]
     },
     
     {
-        "tip": "NUTRIÇÃO",
-        "title": "Ultraprocessados: por que você come mais do que quer?",
-        "information": "Se você já tentou parar de comer salgadinho e não conseguiu, saiba que isso não é falta de força de vontade. É engenharia alimentar funcionando exatamente como foi planejada.
-Alimentos ultraprocessados não são só ""comida com muito ingrediente"". Eles são formulações industriais construídas com substâncias extraídas, derivadas ou sintetizadas de alimentos, muitas delas criadas em laboratório, algumas a partir de petróleo e carvão. A lista de ingredientes costuma ter mais de cinco itens, e boa parte deles você não usaria nunca numa cozinha: gordura vegetal hidrogenada, xarope de frutose, isolado proteico, emulsificante, aromatizante, realçador de sabor.
-Biscoito recheado, salgadinho de pacote, refrigerante, macarrão instantâneo, nugget, embutidos, cereal matinal açucarado, barra de cereal, pão de forma industrial, bebida energética, iogurte adoçado com aroma artificial. A lista é longa e cresce todo ano.
-O problema nutricional
-Ultraprocessados tendem a ser ricos em gordura, açúcar e sódio ao mesmo tempo — e muito pobres em fibra, vitamina e minerais. Isso acontece porque eles são feitos quase sem alimentos de verdade na composição. A ausência de fibra não é detalhe: fibra é essencial para saúde cardiovascular, controle glicêmico e prevenção de alguns tipos de câncer.
-Versões ""light"" ou ""diet"" raramente resolvem o problema. Quando reduzem gordura, costumam aumentar açúcar. Quando adicionam fibra sintética ou vitaminas, não há garantia de que funcionem da mesma forma que os nutrientes presentes naturalmente nos alimentos. E o pior: o rótulo ""saudável"" faz as pessoas acharem que podem consumir sem limite.
-Por que você come mais do que quer?
-Seu cérebro e sistema digestivo têm mecanismos para controlar saciedade — mas ultraprocessados foram desenvolvidos para contornar exatamente isso. O hipersabor, resultado da combinação precisa de açúcar, gordura, sal e aditivos, cria um estímulo que o organismo não consegue resistir facilmente. Não é exagero dizer que alguns produtos são formulados para criar hábito.
-Além disso, eles são pensados para serem consumidos sem atenção — no sofá assistindo série, andando na rua, na frente do computador. Comer sem atenção prejudica o registro de saciedade, e você acaba ingerindo mais calorias do que precisava sem perceber. As embalagens gigantes reforçam isso: o tamanho disponível influencia diretamente quanto você consome.
-No caso das bebidas adoçadas, o problema é ainda mais específico: o corpo registra calorias líquidas com muito menos eficiência do que calorias sólidas, então um refrigerante de 500ml pode não gerar quase nenhuma sensação de saciedade, mesmo tendo 200 calorias.
-Além da nutrição
-O impacto dos ultraprocessados vai além do que você come. A produção em escala industrial desses produtos depende de monoculturas, agrotóxicos, uso intenso de água e longos trajetos de transporte — tudo isso com custo ambiental alto. As embalagens, muitas não biodegradáveis, são um problema de resíduos global.
-Tem também um impacto cultural que é menos óbvio mas real: a publicidade massiva desses produtos — direcionada especialmente a jovens — posiciona a comida industrializada como moderna e desejável, enquanto a comida caseira e regional vai parecendo antiquada. O resultado é uma homogeneização do que as pessoas comem no mundo todo, substituindo culturas alimentares genuínas por marcas globais.
-O que fazer na prática
-Evitar não significa proibir. Significa não fazer desses produtos a base do que você come no dia a dia. Quando bater vontade, tudo bem — o problema é a frequência e a proporção. Se a maior parte das suas refeições é feita com comida de verdade, um salgadinho aqui ou ali não vai comprometer nada.
-A dica mais prática continua sendo a mesma: leia o rótulo. Se a lista de ingredientes for longa, cheia de nomes que você não reconhece e não usaria pra cozinhar, é ultraprocessado."
-    },
-    
-    {
-        "tip": "comportamento",
-        "title": "Coma devagar e com atenção: seu corpo agradece",
-        "information": "No meio de rotinas cheias, comer virou uma atividade secundária — algo que acontece enquanto você faz outra coisa. Celular na mão, série passando, relatório aberto ao lado. O problema é que comer assim tem um custo real pro seu corpo, e não é só sobre digestão.
-Fazer refeições em horários parecidos todo dia ajuda seu organismo a antecipar e preparar o processo digestivo. Quando os horários são muito erráticos, fica mais difícil distinguir a fome real de vontade de comer por outro motivo, como tédio, estresse ou estímulo visual.
-O problema do ""beliscar""
-Beliscar entre refeições não é necessariamente errado, o problema é quando acontece de forma automática, sem fome de verdade. E boa parte do beliscar não acontece porque você estava com fome: acontece porque o alimento estava ali, ao alcance da mão, com cheiro ou aparência convidativa.
-Isso é especialmente forte com ultraprocessados, que são formulados justamente para serem irresistíveis visualmente e em aroma. A solução mais simples é também a mais eficaz: não ter esses produtos em casa ou no ambiente de trabalho. O que não está à vista, não dispara o impulso. Substituir por frutas frescas, frutas secas ou castanhas já muda bastante o padrão, não porque sejam ""mais saudáveis"" no papel, mas porque o estímulo é completamente diferente.
-Comer devagar não é frescura
-Os mecanismos de saciedade do seu corpo levam tempo pra funcionar. O sinal de ""já chega"" não é instantâneo — ele depende de uma série de estímulos que se acumulam durante a refeição e chegam ao cérebro com algum delay. Quando você come rápido, esse sinal chega tarde demais, e você já comeu mais do que precisava antes de perceber.
-Mastigar mais vezes é a forma mais mecânica e direta de desacelerar. Não precisa contar mordidas nem nada assim, só prestar atenção na textura e no sabor do que você está comendo já naturalmente prolonga a refeição. E tem um lado positivo nisso: você começa a perceber nuances de sabor que passavam completamente despercebidas quando comia no automático.
-Uma estratégia simples para não exagerar
-Começar a refeição com uma salada ou uma sopa antes do prato principal é uma das formas mais eficazes de dar tempo pro organismo começar a processar o que está chegando. Não é sobre comer menos por disciplina, é sobre dar ao seu corpo a chance de sinalizar saciedade antes de você terminar o prato principal.
-Tente ao menos fazer suas refeições principais sentado, sem tela, mesmo que por 15 ou 20 minutos. Mantenha frutas e castanhas acessíveis se quiser ter algo para beliscar. E se perceber que está comendo rápido demais, o truque mais simples é apoiar o garfo entre uma garfada e outra."
-    },
-    
-    {
-        "tip": "comportamento",
-        "title": "O ambiente no seu prato: onde você come importa tanto quanto o quê",
-        "information": "Você já reparou que come muito mais assistindo série do que quando está sentado à mesa? Ou que no rodízio sempre passa do ponto? Isso não é coincidência nem falta de controle, é o ambiente agindo diretamente no quanto e como você come.
-Cheiro, barulho, iluminação, conforto, limpeza — tudo isso influencia sua experiência com a comida. Ambientes tranquilos e confortáveis naturalmente convidam a comer mais devagar, prestar atenção no sabor e perceber a saciedade antes de exagerar. Ambientes barulhentos, desconfortáveis ou cheios de distração fazem o oposto: você come no automático, rápido, e muitas vezes nem percebe o quanto ingeriu.
-Celular na mesa e TV ligada entram nessa conta. Não precisa ser uma regra rígida pra toda refeição, mas vale perceber o padrão: nas refeições em que você estava com atenção dividida, provavelmente comeu mais rápido e com menos satisfação do que nas que estava presente.
-Comer em pé, andando ou no transporte
-Essas situações são comuns demais na rotina. Mas o problema é estrutural: quando você come assim, o corpo não registra a refeição da mesma forma. É quase como se o cérebro não ""contasse"" direito as calorias e o prazer daquela comida, o que pode gerar mais fome logo depois ou uma sensação de que não comeu de verdade.
-Sempre que possível, vale o esforço de sentar, mesmo que por pouco tempo.
-O truque das porções
-Diante de muita comida disponível, a tendência natural é comer mais, independente da fome. É um comportamento bastante documentado: o tamanho da porção disponível influencia diretamente o quanto consumimos, quase sem perceber.
-Uma estratégia simples: se sirva uma vez e espere alguns minutos antes de voltar pro buffet. Na maioria das vezes, a vontade de repetir passa, porque a saciedade finalmente chegou. Se ainda quiser mais depois desse tempo, provavelmente você ainda precisa mesmo.
-Comer fora de casa
-Buffet livre e rodízio são ótimos para ocasiões especiais, mas como rotina semanal jogam contra você, a lógica de ""aproveitar porque já paguei"" quase sempre leva ao excesso.
-Restaurantes a quilo são uma alternativa muito melhor para o dia a dia: você escolhe o que quer, na quantidade que faz sentido, com variedade real de preparações feitas na hora.
-Fast-food concentra vários problemas ao mesmo tempo: ambiente barulhento e desconfortável que induz a comer rápido, quase nenhuma opção de comida de verdade, porções grandes com alta densidade calórica e embalagens que você segura enquanto come.
-Não precisa transformar cada refeição num ritual. Mas criar condições mínimas — sentar, tirar o celular da frente, não comer com pressa — já muda bastante a experiência e o quanto você come. O ambiente é um fator que age silenciosamente, e pequenos ajustes nele têm efeito real sem exigir nenhuma mudança no cardápio."
-    },
-    
-    {
-        "tip": "bem-estar",
-        "title": "Comer acompanhado faz bem (e não é romantismo)",
-        "information": "Tem algo que a rotina moderna foi corroendo aos poucos: a refeição compartilhada. Não necessariamente o almoço de domingo em família, mas o hábito simples de sentar com alguém e comer junto, seja em casa, no trabalho ou na faculdade.
-Comer em companhia naturalmente desacelera o ritmo da refeição. Quando você está numa conversa, para de mastigar pra falar, presta atenção no outro, ri, e tudo isso cria pausas que o corpo usa pra registrar saciedade. Sem perceber, você come menos e aproveita mais.
-Tem também o lado do ambiente: refeições compartilhadas pedem mesa, prato, talher. Elas criam uma estrutura que o comer solitário em frente à tela raramente tem.
-Mas além da parte fisiológica, tem algo mais difícil de quantificar: compartilhar comida é uma das formas mais antigas e diretas de criar vínculo com pessoas. No trabalho ou na faculdade, almoçar junto ajuda a conhecer melhor quem está ao redor, cria senso de pertencimento e, de forma meio orgânica, melhora o ambiente em geral.
-O que está sendo perdido?
-No mundo todo, culturas alimentares tradicionais estão perdendo espaço, e a refeição compartilhada é uma das primeiras coisas a ir embora quando a rotina aperta. Ultraprocessados contribuem para isso de forma direta: são formulados para serem consumidos sozinhos, a qualquer hora, sem mesa nem companhia. A ""praticidade"" deles tem esse custo embutido.
-No Brasil, felizmente, ainda existe uma cultura forte de comer junto, o almoço em família, o RU com os colegas, o churrasco de fim de semana. Vale preservar isso conscientemente, porque não é algo que volta fácil quando some.
-Dividir o processo todo
-Melhor ainda do que só comer junto é compartilhar o que vem antes e depois: planejar o que vai fazer, ir à feira ou ao mercado, cozinhar junto, arrumar depois. Isso não é romantismo, é uma forma concreta de distribuir uma carga que historicamente caiu de forma desproporcional sobre algumas pessoas dentro de casa.
-Dividir essas tarefas entre todos que moram juntos — independente de idade ou gênero — torna o processo mais leve para todo mundo e ainda transforma atividades cotidianas em tempo de convívio real.
-Não precisa organizar um jantar toda noite. Mas vale o esforço de, algumas vezes por semana, comer com alguém, sem tela e sem pressa. Na faculdade, no trabalho, em casa. O impacto na qualidade da refeição e na qualidade das relações é real, e é um dos poucos hábitos que cuida da saúde e da vida social ao mesmo tempo."
-    },
-    
-    {
-        "tip": "consciência",
-        "title": "Como filtrar o que funciona no mar de informação sobre alimentação",
-        "information": "Se você já se sentiu confuso tentando entender o que comer, saiba que não é falta de atenção sua. É o ambiente de informação mesmo que é caótico.
-A quantidade de conteúdo sobre alimentação e saúde cresceu muito, em redes sociais, YouTube, podcasts, revistas. O problema é que volume não é sinônimo de qualidade. A maior parte desse conteúdo tem alguns padrões bem reconhecíveis:
-Foca em alimentos específicos isolados, propagados como ""superalimentos"" que vão resolver tudo. Ignora completamente a ideia de variedade e combinação, que é onde a nutrição de verdade acontece. Mistura alimentação saudável com emagrecimento, como se fossem a mesma coisa. E às vezes o que parece conteúdo informativo é na prática publicidade disfarçada de produto ultraprocessado com algum apelo funcional.
-O ciclo do modismo é rápido: um alimento vira tendência, todo mundo fala sobre ele por alguns meses, e então aparece o próximo. Enquanto isso, combinações tradicionais que funcionam há gerações — arroz com feijão, por exemplo — continuam sendo subestimadas porque não são novidade.
-Como filtrar o que vale a pena?
-Algumas perguntas úteis na hora de avaliar qualquer informação sobre alimentação:
-Quem está dizendo isso e qual é a formação dessa pessoa? O conteúdo está promovendo um produto específico ou uma marca? A recomendação isola um alimento como solução mágica ou fala em padrão alimentar como um todo? Existe alguma fonte científica citada, ou é baseado em experiência pessoal e relato anedótico?
-Nutricionistas com CRN ativo e órgãos de saúde pública como o Ministério da Saúde e a OPAS são referências mais confiáveis do que influenciadores, mesmo os bem-intencionados. Isso não significa que todo conteúdo de criador de conteúdo é ruim, mas o nível de ceticismo precisa ser diferente.
-O que realmente importa?
-A boa notícia é que a base de uma alimentação saudável não muda a cada estudo novo. Os princípios são estáveis: variedade de alimentos de verdade, predominância vegetal, processamento mínimo, moderação com sal, açúcar e gordura, regularidade nas refeições. Nenhuma descoberta recente vai tornar o feijão prejudicial ou transformar salgadinho em saúde.
-Quando aparecer uma recomendação que contradiz tudo isso de forma radical, vale desconfiar antes de mudar qualquer coisa."
-    },
-    
-    {
-        "tip": "consciência",
-        "title": "Ultraprocessado em todo lugar: isso não é coincidência",
-        "information": "Não é paranoia: o acesso a ultraprocessados foi cuidadosamente construído para ser fácil, barato e constante. Entender isso não é desculpa para não mudar nada — é o primeiro passo para fazer escolhas mais conscientes dentro de um sistema que claramente não foi desenhado para te ajudar.
-Antigamente, mercearias, quitandas e açougues ficavam perto de casa e vendiam basicamente comida de verdade. Hoje, ultraprocessados estão em supermercado, shopping, metrô, rodoviária, farmácia, posto de gasolina, banca de jornal, escola, hospital. Em todo lugar que você passa, existe um produto com embalagem chamativa, promoção, desconto, e algum rosto famoso associado.
-Ao mesmo tempo, frutas, verduras e legumes — perecíveis, que precisam ser comprados com frequência — ficaram mais difíceis de acessar. Os supermercados que vendem tudo ficaram mais distantes, o que leva a compras quinzenais ou mensais, e aí a geladeira fica sem hortifrúti na maior parte do tempo.
-O que você pode fazer na prática
-A lista de compras é uma das ferramentas mais simples e subestimadas. Ir ao mercado sem lista, com fome, rodeado de promoções de ultraprocessado, é uma batalha que você vai perder com frequência, não por fraqueza, mas por como o ambiente foi montado. Com lista, você compra o que precisa e passa mais rápido pelo corredor de biscoito.
-Sempre que possível, vale fazer ao menos parte das compras em feiras livres, sacolões ou feiras de produtores. Além de ter mais acesso a alimentos frescos e de qualidade, você costuma gastar menos e ainda apoia produtores locais.
-Se comer fora é parte da sua realidade, restaurante a quilo é uma alternativa muito melhor que fast-food na maioria das situações. Variedade real, comida feita na hora, e você controla o quanto coloca no prato. Levar comida de casa é outra opção que parece trabalhosa mas vira rotina rápido, especialmente se você cozinha em quantidade e distribui ao longo da semana.
-Horta em casa: menos absurdo do que parece
-Mesmo num apartamento pequeno, dá pra cultivar temperos frescos e algumas verduras em vasos. Cebolinha, salsinha, manjericão, alface — crescem bem em sacada ou janela com luz. O custo é baixo, o resultado é comida de verdade ao alcance da mão, e você para de comprar aquele saquinho de ervas que estraga antes de usar tudo.
-O ponto central
-Nenhuma dessas mudanças precisa acontecer de uma vez. Mas vale começar a perceber como o ambiente ao redor influencia suas escolhas, e ir ajustando o que for possível dentro da sua realidade. Pequenas mudanças de contexto têm impacto real: manter frutas visíveis em casa, ter uma lista antes de ir ao mercado, conhecer um restaurante a quilo próximo da faculdade. O ambiente não vai mudar sozinho, mas você pode montar o seu de um jeito que jogue mais a seu favor."
-    },
-    
-    {
-        "tip": "consciência",
-        "title": "Comer bem é caro? ",
-        "information": "Essa é uma das ideias mais repetidas sobre alimentação saudável, e uma das mais equivocadas. A impressão de que comida de verdade custa mais do que ultraprocessado não se sustenta quando você olha os números de perto.
-De onde vem essa impressão?
-Existem duas fontes principais para esse mito.
-A primeira são os produtos ultraprocessados vendidos como ""saudáveis"" — versões light, diet, enriquecidas com vitaminas, voltadas para quem quer emagrecer. Esses produtos de fato são caros. Mas como já vimos, eles estão longe de ser uma escolha de saúde real. O preço alto não os torna melhores, só mais lucrativos.
-A segunda é o preço de alguns legumes, verduras e frutas, que pode variar bastante e às vezes pesar no orçamento. Mas esses alimentos não são consumidos sozinhos, eles compõem refeições junto com arroz, feijão, mandioca, batata, ovos, farinha. E esses itens são historicamente acessíveis no Brasil.
-Pesquisas de orçamentos familiares do IBGE mostram que, no Brasil, uma alimentação baseada em comida de verdade ainda é mais barata no total do que uma alimentação baseada em ultraprocessados. Não é só mais saudável, é mais econômica.
-Isso pode mudar. Em países onde os ultraprocessados já dominam completamente o mercado, a comida de verdade ficou proporcionalmente mais cara ao longo do tempo. Se a tendência de crescimento do consumo de ultraprocessados no Brasil continuar, o mesmo pode acontecer por aqui.
-Como economizar na prática?
-Comprar na safra é a dica mais direta: frutas e verduras da estação custam menos, têm mais sabor e estão em maior quantidade no mercado. Fora da safra, o preço sobe e a qualidade cai.
-Comprar em sacolões, varejões e feiras livres em vez de supermercado grande também faz diferença, menos intermediários entre o produtor e você, preço mais justo. Comprar diretamente de produtores, quando possível, é ainda melhor, e grupos de compra coletiva com vizinhos ou colegas podem tornar até produtos orgânicos acessíveis.
-Para quem come fora todo dia, levar marmita ou comer em restaurante a quilo são as alternativas que combinam custo menor com qualidade real. Fast-food, que parece barato pela unidade, tende a ser mais caro por refeição do que essas opções quando você faz a conta direito.
-Comer bem não exige produtos especiais, suplementos ou ingredientes importados. Exige arroz, feijão, ovo, legume da época, fruta regional. A cesta básica brasileira, quando bem usada, já é uma base nutricional sólida — e acessível. O desafio real não é o preço: é o tempo, o hábito e o ambiente ao redor. Mas o argumento financeiro, sozinho, não se sustenta.
-"
-    },
-    
-    {
-        "tip": "hábito",
-        "title": "Saber cozinhar é autonomia real",
-        "information": "Não é exagero: a capacidade de preparar sua própria comida tem impacto direto na sua saúde, no seu bolso e na sua autonomia. E é exatamente essa habilidade que vem sendo perdida entre as gerações mais jovens, não por acaso.
-A indústria de ultraprocessados têm interesse direto em que você não saiba cozinhar. Uma das narrativas mais comuns na propaganda desses produtos é a de que preparar comida em casa é perda de tempo — algo que poderia ser usado em atividades mais ""produtivas"". O produto pronto é apresentado como a solução moderna e prática, muitas vezes sugerindo que reproduz exatamente o sabor e os ingredientes de uma preparação caseira. Não reproduz.
-Junto com isso, a transmissão de habilidades culinárias entre gerações foi se enfraquecendo. As pessoas mais jovens cresceram com menos contato com a cozinha, menos oportunidade de aprender fazendo, e mais acesso a produtos que dispensam qualquer preparo. O resultado é uma geração com pouca confiança para cozinhar, e mais dependente de ultraprocessados por isso.
-Vale nomear também: historicamente cozinhar foi tratado como tarefa feminina, o que criou uma barreira extra para homens aprenderem. Isso está mudando, mas ainda pesa na hora de quem aprende e quem não aprende dentro de casa.
-Por que vale aprender?
-Cozinhar não exige talento, exige prática. Como qualquer habilidade, melhora com repetição, e os progressos aparecem rápido. Quem começa do zero consegue em poucas semanas preparar refeições simples, gostosas e muito melhores do que qualquer coisa de pacote.
-Além do impacto direto na alimentação, cozinhar tem um retorno que pouca gente espera: é satisfatório. Preparar algo do zero, combinar ingredientes, acertar um tempero — tem um prazer concreto nisso que vai além da refeição em si. E quando você cozinha pra alguém, ou junto com alguém, esse prazer aumenta.
-Como começar sem complicar?
-Não precisa de receita elaborada nem de técnica de chef. O começo pode ser o mais simples possível: aprender a fazer um arroz bem feito, um feijão temperado, um ovo de várias formas, um refogado básico de legumes. Essas preparações cobrem boa parte do que você precisa no dia a dia.
-Peça receitas pra quem você conhece que cozinha bem — familiar, amigo, colega. Receitas com contexto são melhores do que receitas de internet porque vêm com os ajustes que só a prática ensina. O YouTube também tem muito conteúdo bom e acessível para quem está começando do zero.
-Cozinhe em companhia sempre que der. Aprende mais rápido, é mais divertido, e a refeição no final tem outro sabor.
-Saber cozinhar é uma forma de autonomia real. Quem cozinha decide o que come, controla o que vai no prato, gasta menos e depende menos de produtos industrializados. Num contexto em que o ambiente alimentar está cada vez mais cheio de ultraprocessados baratos e convenientes, ter essa habilidade é uma das formas mais eficazes de manter uma alimentação de qualidade sem depender de força de vontade o tempo todo."
-    },
-    
-    {
-        "tip": "hábito",
-        "title": "O tempo que você não tem para cozinhar (e como encontrar)",
-        "information": "Esse é provavelmente o argumento mais honesto contra comer bem: não é falta de vontade, é falta de tempo. Rotina cheia, deslocamento longo, trabalho ou faculdade consumindo o dia. Ignorar isso seria desonesto, então vamos falar de frente.
-Cozinhar de verdade exige tempo — para comprar, preparar, cozinhar, montar e limpar depois. Isso é fato. Mas boa parte do tempo que as pessoas acham que não têm some quando elas ganham mais prática na cozinha.
-Quem não tem muita habilidade culinária gasta mais tempo do que o necessário em cada etapa, porque não sabe o atalho, porque improvisa sem planejamento, porque começa sem os ingredientes certos. Com mais prática, o processo fica mais fluido. Um prato de macarrão com molho de tomate e temperos naturais leva cerca de cinco minutos a mais do que preparar um macarrão instantâneo. A diferença real de tempo, em muitos casos, é menor do que parece.
-Planejamento resolve mais do que técnica
-Habilidade culinária não é só saber cozinhar, é também planejar. Saber o que vai comer na semana antes de ir ao mercado, manter a despensa organizada com o básico sempre disponível, e cozinhar em quantidade quando tiver tempo são hábitos que mudam completamente a equação.
-Feijão, por exemplo, pode ser cozido em quantidade num domingo e congelado em porções pra semana inteira. Verduras podem ser higienizadas e secas com antecedência. Nos dias mais corridos, pratos rápidos como omelete, sopa, arroz com legumes refogados ou macarrão com molho simples resolvem em pouco tempo sem abrir mão de comida de verdade.
-A lógica é: use o tempo quando você tem pra garantir que vai ter comida boa quando não tiver.
-Cozinhar pra si mesmo todos os dias é muito pra uma pessoa só,  especialmente quando se mora sozinho ou a rotina é pesada. Compartilhar essa responsabilidade com quem mora junto, ou mesmo combinar com amigos de fazer refeições juntos algumas vezes por semana, distribui o esforço e torna o processo mais agradável.
-Tem um ponto que vale refletir: a falta de tempo é real, mas também é parcialmente uma questão de prioridade. Não no sentido de culpa, mas no sentido de perceber quanto tempo vai pra outras coisas que poderiam ceder um espaço. Comer bem não precisa competir com tudo, mas precisa ter algum lugar na agenda.
-A proposta não é transformar alimentação num projeto de vida. É tratá-la como um momento que vale atenção, não um fardo entre uma tarefa e outra, mas algo que tem valor em si. Essa mudança de perspectiva, pequena que seja, já muda bastante o que você consegue fazer dentro do tempo que tem."
-    },
-    
-    {
-        "tip": "consciência",
-        "title": "Publicidade de alimento não é informação, é persuasão",
-        "information": "Isso parece óbvio quando dito assim, mas o impacto real dessa publicidade é muito maior do que a maioria das pessoas percebe, especialmente porque ela opera em camadas que vão além do comercial explícito.
-Mais de dois terços dos comerciais sobre alimentos na televisão são de ultraprocessados: fast-food, salgadinho, biscoito, cereal matinal, refrigerante, suco adoçado, guloseima em geral. A mensagem quase sempre é a mesma, só embalada de formas diferentes: esse produto vai te deixar mais feliz, mais forte, mais aceito socialmente, com mais energia para se exercitar. Alguns chegam ao ponto de se posicionar como escolhas saudáveis.
-Nenhuma dessas mensagens é sobre nutrição de verdade. Todas são sobre venda.
-A publicidade de ultraprocessados é direcionada de forma intensa a crianças e adolescentes — não por acidente. Quem forma hábitos de consumo cedo tende a mantê-los por muito tempo. E jovens são mais suscetíveis a apelos emocionais, identitários e sociais: pertencimento, status, diversão, modernidade. Personagens famosos, músicas, jogos, coleções, tudo isso é calculado para criar associação emocional com o produto antes de qualquer avaliação racional.
-Você provavelmente já passou por anos dessa exposição. Vale reconhecer que parte das preferências alimentares que parecem ""suas"" foram construídas por campanhas milionárias.
-Como identificar quando está sendo manipulado?
-Alguns sinais de que um anúncio de alimento está sendo desonesto: promete benefício de saúde sem embasamento real, usa termos vagos como ""natural"", ""funcional"" ou ""fonte de energia"", associa o produto a esporte ou estilo de vida ativo sem relação real com a composição nutricional, ou apresenta versão ""light"" ou ""enriquecida"" como se isso tornasse o produto intrinsecamente saudável.
-O Código de Defesa do Consumidor considera ilegal a publicidade enganosa, seja por informação falsa, seja por omissão de informações relevantes. Publicidade que se aproveita da inexperiência de crianças é considerada abusiva. Na prática, fiscalização é limitada, mas você pode acionar Procon ou Ministério Público quando identificar casos claros de descumprimento.
-A consciência já ajuda bastante. Perceber que um anúncio está tentando criar uma associação emocional com um produto de composição nutricional ruim não anula o apelo imediato, mas cria um filtro. Com o tempo, você começa a assistir propaganda de alimento com outro olhar, menos como informação e mais como o que ela é: peça de persuasão comercial.
-Se você tem contato com crianças ou adolescentes, vale ter essa conversa de forma direta e sem drama: a função da publicidade é vender, não informar. Quanto mais cedo isso fica claro, mais difícil fica de ser manipulado por ela."
-    },
-    
-    {
-        "tip": "hábito",
+        "image": "ImageTip14",
+        "tip": "HÁBITO",
         "title": "Como escolher, guardar e manipular alimentos do jeito certo",
-        "information": "Essa é uma dica mais prática e direta, mais sobre o dia a dia de quem compra e prepara a própria comida. Parece básico, mas muita gente nunca aprendeu formalmente e vai descobrindo por tentativa e erro.
-Na hora de comprar
-O lugar onde você compra já importa: mercados, feiras e açougues limpos e organizados são um indicativo básico de que os alimentos estão sendo bem tratados. Não precisa ser o estabelecimento mais sofisticado, precisa estar limpo e com produtos em bom estado.
-Para frutas, legumes e verduras, o critério é visual: evite partes mofadas, com coloração estranha ou textura alterada. Uma parte estragada num vegetal pode contaminar o restante mesmo que pareça isolada.
-Para carnes frescas, o que você quer ver é cor vermelho-brilhante em bovinos e suínos, cor clara em aves, textura firme e gordura clara bem aderida. Cor escurecida ou esverdeada, cheiro desagradável ou consistência estranha são sinais claros para não levar.
-Peixe fresco tem critérios específicos que muita gente não sabe: guelras róseas, olhos brilhantes e transparentes, escamas bem aderidas. Deve estar sob refrigeração. Em peixes congelados, fuja de embalagens com acúmulo de água ou gelo, é sinal de que o produto foi descongelado e recongelado em algum momento.
-Para alimentos embalados: prazo de validade, embalagem lacrada e sem amassados, furos ou partes estufadas. Embalagem estufada em geral indica processo de fermentação indesejada.
-Como guardar em casa
-A divisão básica é entre perecíveis e não perecíveis.
-Não perecíveis — arroz, feijão, farinhas, óleos, açúcar, sal, leite em pó — ficam bem em local seco, arejado, em temperatura ambiente e longe do sol. Uma despensa organizada com esses itens é a base de qualquer cozinha funcional.
-Perecíveis — carnes, ovos, leite, queijos, manteiga, a maioria das frutas, verduras e legumes — precisam de geladeira. Carnes cruas e preparações prontas que vão durar mais de um dia ficam melhor no congelador. Feijão cozido, por exemplo, congela bem em porções e dura semanas sem perder qualidade.
-Qualquer preparação guardada pra próxima refeição vai pra geladeira, nunca deixe comida cozida em temperatura ambiente por horas.
-Na hora de preparar
-Lavar as mãos antes de manipular alimentos é o hábito mais simples e mais ignorado. Evite tossir ou espirrar sobre o que está preparando.
-Frutas, verduras e legumes devem ser lavados em água corrente e, idealmente, deixados por alguns minutos em solução de hipoclorito de sódio — aquele produto barato vendido em qualquer mercado — antes de consumir crus. Isso reduz risco de contaminação por bactérias e agrotóxicos superficiais.
-Carnes e ovos crus têm risco real de contaminação por salmonela e outras bactérias. Cozinhar bem é a forma mais eficaz de eliminar esse risco.
-Uma cozinha limpa e organizada não é só questão de higiene, ela torna o processo de cozinhar mais rápido e mais agradável. Quando você sabe onde está cada coisa e o espaço está limpo, o tempo de preparo diminui e a experiência muda. Geladeira, fogão, armários e bancada merecem atenção regular — não precisa ser faxina diária, mas uma rotina mínima de limpeza faz diferença real."
+        "information": "Essa é uma dica mais prática e direta, mais sobre o dia a dia de quem compra e prepara a própria comida. Parece básico, mas muita gente nunca aprendeu formalmente e vai descobrindo por tentativa e erro.",
+        "tipSection" : [
+            {
+                "title": "Na hora de comprar",
+                "description": "O lugar onde você compra já importa: mercados, feiras e açougues limpos e organizados são um indicativo básico de que os alimentos estão sendo bem tratados. Não precisa ser o estabelecimento mais sofisticado, precisa estar limpo e com produtos em bom estado. Para frutas, legumes e verduras, o critério é visual: evite partes mofadas, com coloração estranha ou textura alterada. Uma parte estragada num vegetal pode contaminar o restante mesmo que pareça isolada. Para carnes frescas, o que você quer ver é cor vermelho-brilhante em bovinos e suínos, cor clara em aves, textura firme e gordura clara bem aderida. Cor escurecida ou esverdeada, cheiro desagradável ou consistência estranha são sinais claros para não levar. Peixe fresco tem critérios específicos que muita gente não sabe: guelras róseas, olhos brilhantes e transparentes, escamas bem aderidas. Deve estar sob refrigeração. Em peixes congelados, fuja de embalagens com acúmulo de água ou gelo, é sinal de que o produto foi descongelado e recongelado em algum momento. Para alimentos embalados: prazo de validade, embalagem lacrada e sem amassados, furos ou partes estufadas. Embalagem estufada em geral indica processo de fermentação indesejada.",
+            },
+            {
+                "title": "Como guardar em casa",
+                "description": "A divisão básica é entre perecíveis e não perecíveis. Não perecíveis — arroz, feijão, farinhas, óleos, açúcar, sal, leite em pó — ficam bem em local seco, arejado, em temperatura ambiente e longe do sol. Uma despensa organizada com esses itens é a base de qualquer cozinha funcional. Perecíveis — carnes, ovos, leite, queijos, manteiga, a maioria das frutas, verduras e legumes — precisam de geladeira. Carnes cruas e preparações prontas que vão durar mais de um dia ficam melhor no congelador. Feijão cozido, por exemplo, congela bem em porções e dura semanas sem perder qualidade. Qualquer preparação guardada pra próxima refeição vai pra geladeira, nunca deixe comida cozida em temperatura ambiente por horas.",
+            },
+            {
+                "title": "Na hora de preparar",
+                "description": "Lavar as mãos antes de manipular alimentos é o hábito mais simples e mais ignorado. Evite tossir ou espirrar sobre o que está preparando. Frutas, verduras e legumes devem ser lavados em água corrente e, idealmente, deixados por alguns minutos em solução de hipoclorito de sódio — aquele produto barato vendido em qualquer mercado — antes de consumir crus. Isso reduz risco de contaminação por bactérias e agrotóxicos superficiais. Carnes e ovos crus têm risco real de contaminação por salmonela e outras bactérias. Cozinhar bem é a forma mais eficaz de eliminar esse risco. Uma cozinha limpa e organizada não é só questão de higiene, ela torna o processo de cozinhar mais rápido e mais agradável. Quando você sabe onde está cada coisa e o espaço está limpo, o tempo de preparo diminui e a experiência muda. Geladeira, fogão, armários e bancada merecem atenção regular — não precisa ser faxina diária, mas uma rotina mínima de limpeza faz diferença real.",
+            },
+        ]
     },
     
     {
+        "image": "ImageTip15",
         "tip": "NUTRIÇÃO",
         "title": "Guia rápido dos grupos alimentares",
-        "information": "Antes de falar em dieta, macro, ou qualquer tendência alimentar, vale entender o básico: quais são os grupos de alimentos que compõem uma alimentação de verdade e o que cada um tem a oferecer. Não é complicado, e conhecer isso muda a forma como você monta o prato.
-Feijões e leguminosas
-Feijão carioca, preto, fradinho, fava, feijão-de-corda, lentilha, grão-de-bico, ervilha. Todos do mesmo grupo, todos com perfil nutricional parecido: proteína, fibra, ferro, zinco, cálcio e vitaminas do complexo B. São alimentos de alto poder de saciedade com quantidade moderada de calorias — ou seja, sustentam bem sem pesar.
-Cereais
-Arroz, milho, trigo, aveia, centeio. A base energética da alimentação — fontes de carboidrato, fibra, vitaminas do complexo B e minerais. Quando combinados com feijão ou outra leguminosa, viram também fonte de proteína de boa qualidade.
-Vale preferir versões menos refinadas sempre que possível: arroz integral ou parboilizado em vez do branco polido, farinha de trigo integral em vez da refinada. O processo de polimento excessivo remove fibras e micronutrientes que fazem diferença no longo prazo.
-Atenção ao macarrão instantâneo: apesar do nome, não tem nada a ver com macarrão de verdade. É ultraprocessado, com lista longa de ingredientes, alto sódio e gordura. O macarrão comum feito de farinha e água é um alimento minimamente processado e uma opção rápida e válida.
-Raízes e tubérculos
-Mandioca, batata, batata-doce, mandioquinha, inhame, cará. Fontes de carboidrato e fibra, com algumas variedades ricas em potássio e vitaminas A e C. São versáteis — cozidos, assados, em purê, em sopas — e muito presentes na culinária regional brasileira.
-A mandioca merece destaque especial: além de cozida, aparece como farinha, tapioca e polvilho, sendo central na alimentação do Norte e Nordeste. A batata-doce virou tendência fitness, mas já era presença antiga na mesa brasileira.
-Uma dica: prefira cozidos ou assados em vez de fritos, na fritura, absorvem quantidade alta de óleo.
-Legumes e verduras
-O grupo mais variado e um dos mais importantes nutricionalmente. Abóbora, abobrinha, brócolis, couve, cenoura, beterraba, espinafre, chuchu, quiabo, pimentão, tomate, alface, rúcula, e muitos outros. São fontes densas de vitaminas, minerais, fibras e antioxidantes, com poucas calorias por grama. Esse perfil os torna ideais para prevenir deficiências nutricionais, doenças crônicas e alguns tipos de câncer.
-Podem ser consumidos crus em saladas, refogados, cozidos, assados, em sopas ou como base de molhos. Antes de consumir crus, higienize em água corrente e deixe de molho em solução de hipoclorito de sódio. Limão em saladas ajuda a reduzir a necessidade de sal e óleo.
-Frutas
-O Brasil tem uma das maiores diversidades de frutas do mundo: açaí, acerola, cajá, cupuaçu, goiaba, manga, maracujá, pitanga, jabuticaba, além das mais comuns. São fontes de fibra, vitaminas, minerais e compostos que ajudam a prevenir doenças.
-Fruta inteira é sempre melhor que suco, mesmo o natural. No processo de espremer ou liquidificar, parte das fibras se perde e o poder de saciedade cai. Suco industrializado, na maioria dos casos, é ultraprocessado e deve ser evitado.
-Comprar fruta da safra e de produção local resulta em melhor sabor, mais nutrientes e preço menor.
-Castanhas e oleaginosas
-Castanha-do-pará, castanha de caju, castanha de baru, nozes, amêndoas, amendoim. Ricos em gorduras saudáveis (insaturadas), minerais, vitaminas, fibras e antioxidantes. Exigem pouco ou nenhum preparo e são ótimas opções para pequenas refeições ou para complementar saladas e preparações.
-Prefira as versões sem sal e sem açúcar, as adicionadas desses ingredientes são alimentos processados e o consumo deve ser limitado.
-Leite e derivados
-Leite, iogurte natural e coalhada são alimentos minimamente processados, ricos em proteína, cálcio e vitamina A. Para adultos, versões desnatadas ou semidesnatadas podem ser mais adequadas por terem menos gordura saturada.
-Queijo é um alimento processado, concentrado em proteína, cálcio e vitamina A, mas também em gordura saturada e sódio. Funciona bem como ingrediente ou acompanhamento em pequenas quantidades, não como base da refeição.
-Bebidas lácteas e iogurtes adoçados com corantes e saborizantes são ultraprocessados e devem ser evitados.
-Carnes e ovos
-Carnes vermelhas, frango, peixe e ovos são fontes de proteína de alta qualidade, vitaminas e minerais. Mas cada um tem suas particularidades.
-Carnes vermelhas são ricas em ferro, zinco e vitamina B12, mas têm alto teor de gordura saturada, vale consumir com moderação.
-Frango tem perfil parecido, mas a gordura fica concentrada na pele. Retirar a pele antes de preparar já faz diferença relevante.
-Peixe é a opção mais interessante do grupo: menos gordura total e alta proporção de gorduras insaturadas, que são saudáveis. Infelizmente ainda é pouco consumido no Brasil fora das regiões costeiras, em parte pelo preço e disponibilidade.
-Ovo é acessível, barato e extremamente versátil. Combina bem com praticamente tudo — legumes, verduras, farinhas — e é uma das melhores fontes de proteína de alta qualidade disponíveis.
-O resumo de tudo
-Nenhum grupo sozinho dá conta de tudo que o corpo precisa. A lógica é variar dentro de cada grupo e combinar grupos diferentes na mesma refeição. Cereais com leguminosas, proteína animal em quantidade moderada complementando uma base vegetal, frutas e verduras em boa presença. Não precisa ser complicado — precisa ser variado e consistente."
+        "information": "Antes de falar em dieta, macro, ou qualquer tendência alimentar, vale entender o básico: quais são os grupos de alimentos que compõem uma alimentação de verdade e o que cada um tem a oferecer. Não é complicado, e conhecer isso muda a forma como você monta o prato.",
+        "tipSection" : [
+            {
+                "title": "Feijões e leguminosas",
+                "description": "Feijão carioca, preto, fradinho, fava, feijão-de-corda, lentilha, grão-de-bico, ervilha. Todos do mesmo grupo, todos com perfil nutricional parecido: proteína, fibra, ferro, zinco, cálcio e vitaminas do complexo B. São alimentos de alto poder de saciedade com quantidade moderada de calorias — ou seja, sustentam bem sem pesar.",
+            },
+            {
+                "title": "Cereais",
+                "description": "Arroz, milho, trigo, aveia, centeio. A base energética da alimentação — fontes de carboidrato, fibra, vitaminas do complexo B e minerais. Quando combinados com feijão ou outra leguminosa, viram também fonte de proteína de boa qualidade. Vale preferir versões menos refinadas sempre que possível: arroz integral ou parboilizado em vez do branco polido, farinha de trigo integral em vez da refinada. O processo de polimento excessivo remove fibras e micronutrientes que fazem diferença no longo prazo. Atenção ao macarrão instantâneo: apesar do nome, não tem nada a ver com macarrão de verdade. É ultraprocessado, com lista longa de ingredientes, alto sódio e gordura. O macarrão comum feito de farinha e água é um alimento minimamente processado e uma opção rápida e válida.",
+            },
+            {
+                "title": "Raízes e tubérculos",
+                "description": "Mandioca, batata, batata-doce, mandioquinha, inhame, cará. Fontes de carboidrato e fibra, com algumas variedades ricas em potássio e vitaminas A e C. São versáteis — cozidos, assados, em purê, em sopas — e muito presentes na culinária regional brasileira. A mandioca merece destaque especial: além de cozida, aparece como farinha, tapioca e polvilho, sendo central na alimentação do Norte e Nordeste. A batata-doce virou tendência fitness, mas já era presença antiga na mesa brasileira. Uma dica: prefira cozidos ou assados em vez de fritos, na fritura, absorvem quantidade alta de óleo.",
+            },
+            {
+                "title": "Frutas",
+                "description": "O Brasil tem uma das maiores diversidades de frutas do mundo: açaí, acerola, cajá, cupuaçu, goiaba, manga, maracujá, pitanga, jabuticaba, além das mais comuns. São fontes de fibra, vitaminas, minerais e compostos que ajudam a prevenir doenças. Fruta inteira é sempre melhor que suco, mesmo o natural. No processo de espremer ou liquidificar, parte das fibras se perde e o poder de saciedade cai. Suco industrializado, na maioria dos casos, é ultraprocessado e deve ser evitado. Comprar fruta da safra e de produção local resulta em melhor sabor, mais nutrientes e preço menor.",
+            },
+            {
+                "title": "Castanhas e oleaginosas",
+                "description": "Castanha-do-pará, castanha de caju, castanha de baru, nozes, amêndoas, amendoim. Ricos em gorduras saudáveis (insaturadas), minerais, vitaminas, fibras e antioxidantes. Exigem pouco ou nenhum preparo e são ótimas opções para pequenas refeições ou para complementar saladas e preparações. Prefira as versões sem sal e sem açúcar, as adicionadas desses ingredientes são alimentos processados e o consumo deve ser limitado.",
+            },
+            {
+                "title": "Leite e derivados",
+                "description": "Leite, iogurte natural e coalhada são alimentos minimamente processados, ricos em proteína, cálcio e vitamina A. Para adultos, versões desnatadas ou semidesnatadas podem ser mais adequadas por terem menos gordura saturada. Queijo é um alimento processado, concentrado em proteína, cálcio e vitamina A, mas também em gordura saturada e sódio. Funciona bem como ingrediente ou acompanhamento em pequenas quantidades, não como base da refeição. Bebidas lácteas e iogurtes adoçados com corantes e saborizantes são ultraprocessados e devem ser evitados.",
+            },
+            {
+                "title": "Carnes e ovos",
+                "description": "Carnes vermelhas, frango, peixe e ovos são fontes de proteína de alta qualidade, vitaminas e minerais. Mas cada um tem suas particularidades. Carnes vermelhas são ricas em ferro, zinco e vitamina B12, mas têm alto teor de gordura saturada, vale consumir com moderação. Frango tem perfil parecido, mas a gordura fica concentrada na pele. Retirar a pele antes de preparar já faz diferença relevante. Peixe é a opção mais interessante do grupo: menos gordura total e alta proporção de gorduras insaturadas, que são saudáveis. Infelizmente ainda é pouco consumido no Brasil fora das regiões costeiras, em parte pelo preço e disponibilidade. Ovo é acessível, barato e extremamente versátil. Combina bem com praticamente tudo — legumes, verduras, farinhas — e é uma das melhores fontes de proteína de alta qualidade disponíveis.",
+            },
+            {
+                "title": "O resumo de tudo",
+                "description": "Nenhum grupo sozinho dá conta de tudo que o corpo precisa. A lógica é variar dentro de cada grupo e combinar grupos diferentes na mesma refeição. Cereais com leguminosas, proteína animal em quantidade moderada complementando uma base vegetal, frutas e verduras em boa presença. Não precisa ser complicado — precisa ser variado e consistente.",
+            },
+            
+        ]
     },
+    
+    {
+        "image": "ImageTip10",
+        "tip": "CONSCIÊNCIA",
+        "title": "Comer bem é caro? ",
+        "information": "Essa é uma das ideias mais repetidas sobre alimentação saudável, e uma das mais equivocadas. A impressão de que comida de verdade custa mais do que ultraprocessado não se sustenta quando você olha os números de perto.",
+        "tipSection" : [
+            {
+                "title": "De onde vem essa impressão?",
+                "description": "Existem duas fontes principais para esse mito. A primeira são os produtos ultraprocessados vendidos como 'saudáveis — versões light, diet, enriquecidas com vitaminas, voltadas para quem quer emagrecer. Esses produtos de fato são caros. Mas como já vimos, eles estão longe de ser uma escolha de saúde real. O preço alto não os torna melhores, só mais lucrativos. A segunda é o preço de alguns legumes, verduras e frutas, que pode variar bastante e às vezes pesar no orçamento. Mas esses alimentos não são consumidos sozinhos, eles compõem refeições junto com arroz, feijão, mandioca, batata, ovos, farinha. E esses itens são historicamente acessíveis no Brasil. Pesquisas de orçamentos familiares do IBGE mostram que, no Brasil, uma alimentação baseada em comida de verdade ainda é mais barata no total do que uma alimentação baseada em ultraprocessados. Não é só mais saudável, é mais econômica. Isso pode mudar. Em países onde os ultraprocessados já dominam completamente o mercado, a comida de verdade ficou proporcionalmente mais cara ao longo do tempo. Se a tendência de crescimento do consumo de ultraprocessados no Brasil continuar, o mesmo pode acontecer por aqui.",
+            },
+            {
+                "title": "Como economizar na prática?",
+                "description": "Comprar na safra é a dica mais direta: frutas e verduras da estação custam menos, têm mais sabor e estão em maior quantidade no mercado. Fora da safra, o preço sobe e a qualidade cai. Comprar em sacolões, varejões e feiras livres em vez de supermercado grande também faz diferença, menos intermediários entre o produtor e você, preço mais justo. Comprar diretamente de produtores, quando possível, é ainda melhor, e grupos de compra coletiva com vizinhos ou colegas podem tornar até produtos orgânicos acessíveis. Para quem come fora todo dia, levar marmita ou comer em restaurante a quilo são as alternativas que combinam custo menor com qualidade real. Fast-food, que parece barato pela unidade, tende a ser mais caro por refeição do que essas opções quando você faz a conta direito. Comer bem não exige produtos especiais, suplementos ou ingredientes importados. Exige arroz, feijão, ovo, legume da época, fruta regional. A cesta básica brasileira, quando bem usada, já é uma base nutricional sólida — e acessível. O desafio real não é o preço: é o tempo, o hábito e o ambiente ao redor. Mas o argumento financeiro, sozinho, não se sustenta.",
+            },
+        ]
+    },
+    
+    {
+        "image": "ImageTip9",
+        "tip": "CONSCIÊNCIA",
+        "title": "Consciência alimentar: rompendo o cerco da oferta",
+        "information": "Não é paranoia: o acesso a ultraprocessados foi cuidadosamente construído para ser fácil, barato e constante. Entender isso não é desculpa para não mudar nada — é o primeiro passo para fazer escolhas mais conscientes dentro de um sistema que claramente não foi desenhado para te ajudar. Antigamente, mercearias, quitandas e açougues ficavam perto de casa e vendiam basicamente comida de verdade. Hoje, ultraprocessados estão em supermercado, shopping, metrô, rodoviária, farmácia, posto de gasolina, banca de jornal, escola, hospital. Em todo lugar que você passa, existe um produto com embalagem chamativa, promoção, desconto, e algum rosto famoso associado. Ao mesmo tempo, frutas, verduras e legumes — perecíveis, que precisam ser comprados com frequência — ficaram mais difíceis de acessar. Os supermercados que vendem tudo ficaram mais distantes, o que leva a compras quinzenais ou mensais, e aí a geladeira fica sem hortifrúti na maior parte do tempo.",
+        "tipSection" : [
+            {
+                "title": "O que você pode fazer na prática",
+                "description": "A lista de compras é uma das ferramentas mais simples e subestimadas. Ir ao mercado sem lista, com fome, rodeado de promoções de ultraprocessado, é uma batalha que você vai perder com frequência, não por fraqueza, mas por como o ambiente foi montado. Com lista, você compra o que precisa e passa mais rápido pelo corredor de biscoito. Sempre que possível, vale fazer ao menos parte das compras em feiras livres, sacolões ou feiras de produtores. Além de ter mais acesso a alimentos frescos e de qualidade, você costuma gastar menos e ainda apoia produtores locais. Se comer fora é parte da sua realidade, restaurante a quilo é uma alternativa muito melhor que fast-food na maioria das situações. Variedade real, comida feita na hora, e você controla o quanto coloca no prato. Levar comida de casa é outra opção que parece trabalhosa mas vira rotina rápido, especialmente se você cozinha em quantidade e distribui ao longo da semana.",
+            },
+            {
+                "title": "Horta em casa: menos absurdo do que parece",
+                "description": "Mesmo num apartamento pequeno, dá pra cultivar temperos frescos e algumas verduras em vasos. Cebolinha, salsinha, manjericão, alface — crescem bem em sacada ou janela com luz. O custo é baixo, o resultado é comida de verdade ao alcance da mão, e você para de comprar aquele saquinho de ervas que estraga antes de usar tudo.",
+            },
+            {
+                "title": "O ponto central",
+                "description": "Nenhuma dessas mudanças precisa acontecer de uma vez. Mas vale começar a perceber como o ambiente ao redor influencia suas escolhas, e ir ajustando o que for possível dentro da sua realidade. Pequenas mudanças de contexto têm impacto real: manter frutas visíveis em casa, ter uma lista antes de ir ao mercado, conhecer um restaurante a quilo próximo da faculdade. O ambiente não vai mudar sozinho, mas você pode montar o seu de um jeito que jogue mais a seu favor.",
+            },
+        ]
+    },
+    
+    {
+        "image": "ImageTip4",
+        "tip": "NUTRIÇÃO",
+        "title": "Ultraprocessados: por que você come mais do que quer?",
+        "information": "Se você já tentou parar de comer salgadinho e não conseguiu, saiba que isso não é falta de força de vontade. É engenharia alimentar funcionando exatamente como foi planejada. Alimentos ultraprocessados não são só 'comida com muito ingrediente. Eles são formulações industriais construídas com substâncias extraídas, derivadas ou sintetizadas de alimentos, muitas delas criadas em laboratório, algumas a partir de petróleo e carvão. A lista de ingredientes costuma ter mais de cinco itens, e boa parte deles você não usaria nunca numa cozinha: gordura vegetal hidrogenada, xarope de frutose, isolado proteico, emulsificante, aromatizante, realçador de sabor. Biscoito recheado, salgadinho de pacote, refrigerante, macarrão instantâneo, nugget, embutidos, cereal matinal açucarado, barra de cereal, pão de forma industrial, bebida energética, iogurte adoçado com aroma artificial. A lista é longa e cresce todo ano.",
+        "tipSection" : [
+            {
+                "title": "O problema nutricional",
+                "description": "Ultraprocessados tendem a ser ricos em gordura, açúcar e sódio ao mesmo tempo — e muito pobres em fibra, vitamina e minerais. Isso acontece porque eles são feitos quase sem alimentos de verdade na composição. A ausência de fibra não é detalhe: fibra é essencial para saúde cardiovascular, controle glicêmico e prevenção de alguns tipos de câncer. Versões 'light' ou 'diet' raramente resolvem o problema. Quando reduzem gordura, costumam aumentar açúcar. Quando adicionam fibra sintética ou vitaminas, não há garantia de que funcionem da mesma forma que os nutrientes presentes naturalmente nos alimentos. E o pior: o rótulo 'saudável' faz as pessoas acharem que podem consumir sem limite.",
+            },
+            {
+                "title": "Por que você come mais do que quer?",
+                "description": "Seu cérebro e sistema digestivo têm mecanismos para controlar saciedade — mas ultraprocessados foram desenvolvidos para contornar exatamente isso. O hipersabor, resultado da combinação precisa de açúcar, gordura, sal e aditivos, cria um estímulo que o organismo não consegue resistir facilmente. Não é exagero dizer que alguns produtos são formulados para criar hábito. Além disso, eles são pensados para serem consumidos sem atenção — no sofá assistindo série, andando na rua, na frente do computador. Comer sem atenção prejudica o registro de saciedade, e você acaba ingerindo mais calorias do que precisava sem perceber. As embalagens gigantes reforçam isso: o tamanho disponível influencia diretamente quanto você consome. No caso das bebidas adoçadas, o problema é ainda mais específico: o corpo registra calorias líquidas com muito menos eficiência do que calorias sólidas, então um refrigerante de 500ml pode não gerar quase nenhuma sensação de saciedade, mesmo tendo 200 calorias.",
+            },
+            {
+                "title": "Além da nutrição",
+                "description": "O impacto dos ultraprocessados vai além do que você come. A produção em escala industrial desses produtos depende de monoculturas, agrotóxicos, uso intenso de água e longos trajetos de transporte — tudo isso com custo ambiental alto. As embalagens, muitas não biodegradáveis, são um problema de resíduos global. Tem também um impacto cultural que é menos óbvio mas real: a publicidade massiva desses produtos — direcionada especialmente a jovens — posiciona a comida industrializada como moderna e desejável, enquanto a comida caseira e regional vai parecendo antiquada. O resultado é uma homogeneização do que as pessoas comem no mundo todo, substituindo culturas alimentares genuínas por marcas globais.",
+            },
+            {
+                "title": "O que fazer na prática",
+                "description": "Evitar não significa proibir. Significa não fazer desses produtos a base do que você come no dia a dia. Quando bater vontade, tudo bem — o problema é a frequência e a proporção. Se a maior parte das suas refeições é feita com comida de verdade, um salgadinho aqui ou ali não vai comprometer nada. A dica mais prática continua sendo a mesma: leia o rótulo. Se a lista de ingredientes for longa, cheia de nomes que você não reconhece e não usaria pra cozinhar, é ultraprocessado.",
+            },
+        ]
+    },
+    
+    {
+        "image": "ImageTip13",
+        "tip": "CONSCIÊNCIA",
+        "title": "Publicidade de alimento não é informação, é persuasão",
+        "information": "Isso parece óbvio quando dito assim, mas o impacto real dessa publicidade é muito maior do que a maioria das pessoas percebe, especialmente porque ela opera em camadas que vão além do comercial explícito. Mais de dois terços dos comerciais sobre alimentos na televisão são de ultraprocessados: fast-food, salgadinho, biscoito, cereal matinal, refrigerante, suco adoçado, guloseima em geral. A mensagem quase sempre é a mesma, só embalada de formas diferentes: esse produto vai te deixar mais feliz, mais forte, mais aceito socialmente, com mais energia para se exercitar. Alguns chegam ao ponto de se posicionar como escolhas saudáveis. Nenhuma dessas mensagens é sobre nutrição de verdade. Todas são sobre venda. A publicidade de ultraprocessados é direcionada de forma intensa a crianças e adolescentes — não por acidente. Quem forma hábitos de consumo cedo tende a mantê-los por muito tempo. E jovens são mais suscetíveis a apelos emocionais, identitários e sociais: pertencimento, status, diversão, modernidade. Personagens famosos, músicas, jogos, coleções, tudo isso é calculado para criar associação emocional com o produto antes de qualquer avaliação racional. Você provavelmente já passou por anos dessa exposição. Vale reconhecer que parte das preferências alimentares que parecem 'suas foram construídas por campanhas milionárias.",
+        "tipSection" : [
+            {
+                "title": "Como identificar quando está sendo manipulado?",
+                "description": "Alguns sinais de que um anúncio de alimento está sendo desonesto: promete benefício de saúde sem embasamento real, usa termos vagos como 'natural', 'funcional' ou 'fonte de energia', associa o produto a esporte ou estilo de vida ativo sem relação real com a composição nutricional, ou apresenta versão 'light' ou 'enriquecida' como se isso tornasse o produto intrinsecamente saudável. O Código de Defesa do Consumidor considera ilegal a publicidade enganosa, seja por informação falsa, seja por omissão de informações relevantes. Publicidade que se aproveita da inexperiência de crianças é considerada abusiva. Na prática, fiscalização é limitada, mas você pode acionar Procon ou Ministério Público quando identificar casos claros de descumprimento. A consciência já ajuda bastante. Perceber que um anúncio está tentando criar uma associação emocional com um produto de composição nutricional ruim não anula o apelo imediato, mas cria um filtro. Com o tempo, você começa a assistir propaganda de alimento com outro olhar, menos como informação e mais como o que ela é: peça de persuasão comercial. Se você tem contato com crianças ou adolescentes, vale ter essa conversa de forma direta e sem drama: a função da publicidade é vender, não informar. Quanto mais cedo isso fica claro, mais difícil fica de ser manipulado por ela.",
+            },
+        ]
+    },
+
 ]

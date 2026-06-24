@@ -17,6 +17,9 @@ struct TabBar: View {
             Tab("Registros", systemImage: "calendar", value: 2){
                 MealsRecordedView()
             }
+            Tab("Dicas", systemImage: "book", value: 3){
+                TipsView()
+            }
         }
         .tabViewStyle(.sidebarAdaptable)
         .accentColor(Color("RoxoAcao"))
