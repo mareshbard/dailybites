@@ -13,9 +13,10 @@ struct AboutYouView: View {
     @AppStorage("firstUse") var firstUse: Bool = true
     @State private var username1: String = ""
     @State private var isActive: Bool = false
-    @State private var number: Numbers = Numbers.um
+    @State private var number: Numbers = Numbers.defaultValue
     
-    enum Numbers: String, CaseIterable {
+    enum Numbers: String, CaseIterable, Codable {
+        case defaultValue
         case um
         case dois
         case tres
@@ -31,6 +32,7 @@ struct AboutYouView: View {
         
         var range: String{
             switch self {
+            case .defaultValue: return "Selecione a quantidade"
             case .um: return "1"
             case .dois: return "2"
             case .tres: return "3"
@@ -94,7 +96,13 @@ struct AboutYouView: View {
                                 .padding(.top, 15)
                        
                                 
-                            PickerField(placeholder: "Quantidade", options: Numbers.allCases.map(\.range), selected: Binding(get: {number.range}, set: {number = Numbers.fromTitle($0) ?? .um }), defaultValue: Numbers.um.range)
+                            PickerField(placeholder: Numbers.defaultValue.range,
+                                        options: Numbers.allCases.dropFirst().map(\.range),
+                                        selected: Binding(get: {number.range},
+                                        set: {number = Numbers.fromTitle($0) ?? .defaultValue }),
+                                        defaultValue: Numbers.defaultValue.range
+                            )
+
                             .font(Font.body)
 //                            .padding(20)
                             .overlay {
