@@ -124,6 +124,7 @@ struct AboutYouView: View {
                             Label("Próximo", systemImage: "")
                                 .frame(maxWidth: .infinity)
                         }
+                        .disabled(username1.isEmpty)
                         .buttonStyle(.borderedProminent)
                         //        .buttonSizing(.flexible)
                         .font(Font.title3)

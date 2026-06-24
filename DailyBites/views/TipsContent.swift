@@ -26,13 +26,7 @@ struct TipsContent: View {
                     .accessibilityHidden(true)
                 
                 VStack(spacing: 10) {
-                    
-                    Text("Fonte: Ministério da Saúde")
-                        .font(.footnote)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    
-                    
-                    Spacer()
+             
                     
                     Text(dica.title)
                         .font(.title3.bold())
@@ -40,6 +34,12 @@ struct TipsContent: View {
                     
                     Spacer()
                     
+                    Text("Fonte: Ministério da Saúde")
+                        .font(.footnote)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    
+                    
+                    Spacer()
                     Text(dica.information)
                         .font(.body)
                         .frame(maxWidth: .infinity, alignment: .leading)
@@ -66,6 +66,7 @@ struct TipsContent: View {
                 
                
             }
+            .toolbar(.hidden, for: .tabBar)
            // .padding(15)
            // .scrollContentBackground(.hidden)
             .ignoresSafeArea()

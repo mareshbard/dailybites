@@ -32,7 +32,7 @@ struct SheetAddNewMeal: View {
     let meal: Meal
     
     func addLog(){
-        if let todayLog = meal.logs.last(where: { $0.ref!.name == meal.name }){
+        if let todayLog = meal.logs.last(where: { $0.ref!.name == meal.name && Calendar.current.isDateInToday($0.date)}){
             todayLog.emotion = selectedMood
             todayLog.status = status
             todayLog.satiety = satiety
