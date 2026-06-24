@@ -24,7 +24,13 @@ struct StreakCard: View {
             HStack {
                 Spacer()
                 Image("Uva")
+                    .resizable()
+                    .scaledToFit()
+                
+                    .frame(alignment: .trailing)
+                    .padding(.leading, 35)
                     .accessibilityLabel("Mascote Uva de olho na sua sequencia")
+                
             }
             Spacer()
             VStack(alignment: .leading) {

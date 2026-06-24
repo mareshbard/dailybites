@@ -27,14 +27,13 @@ struct PontualityView: View {
     var status: [StatusMeal] {
         var result: [StatusMeal] = []
         for status in Status.allCases {
-            let filtered: [LogMeal] = logs.filter({$0.status == status})
+            let filtered: [LogMeal] = logs.filter({$0.status == status && $0.ref!.isFixed == true})
             let count = filtered.count
             result.append(StatusMeal(status: status, count: count))
-            
         }
         return result
     }
-    
+        
     var body: some View {
         
         NavigationStack{

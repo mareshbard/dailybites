@@ -14,8 +14,8 @@ struct EmojiSelector: View {
                     VStack {
                         mood.content
                             .resizable()
+                            .frame(maxWidth:45, maxHeight:45, alignment: .top)
                             .scaledToFit()
-                            .frame(width:50, height:50, alignment: .top)
                         
                         Text(mood.title)
                         
@@ -26,7 +26,8 @@ struct EmojiSelector: View {
                             .fixedSize(horizontal: false, vertical: true)
                     }
                     .accessibilityValue(Text("\(mood.description)"))
-                    .frame(maxWidth: .infinity, minHeight: 100, alignment: .top)
+                    .frame(maxWidth: .infinity, minHeight: 90, alignment: .top)
+                    .padding(.top, 5)
                     .onTapGesture {
                         selectedMood = mood
                         feedback.prepare()
@@ -35,13 +36,13 @@ struct EmojiSelector: View {
                     .background(
                         RoundedRectangle(cornerRadius: 10)
                             .fill(selectedMood == mood ? Color("LilasDailyBites") : Color.clear)
-                            .frame(minWidth:50, minHeight:110, alignment:.leading)
+                            .frame(minWidth:50, minHeight:100, alignment:.leading)
                     )
                 }
                 
             }
             .padding(.horizontal, 8)
-            .frame(maxWidth: .infinity, minHeight: 120, alignment: .center)
+            .frame(maxWidth: .infinity, minHeight: 130, alignment: .center)
             .background(
                 RoundedRectangle(cornerRadius: 10)
                     .fill(Color(.systemBackground)))

@@ -123,7 +123,8 @@ struct MoodbarView: View {
                     }
                 }
             }
-     //       .background(Color.secondarySystemBackground)
+            .padding(.top, -50)
+            .background(Color(.secondarySystemBackground))
 
         }
         

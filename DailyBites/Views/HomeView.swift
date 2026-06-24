@@ -16,7 +16,7 @@ struct HomeView: View {
     @State private var showPreferences: Bool = false
     @SceneStorage("selectedTab") private var selectedTabIndex: Int = 0
     @State private var showAddNewMeal: Bool = false
-  //  @Environment(TipsManager.self) private var tipsManager: TipsManager
+    //  @Environment(TipsManager.self) private var tipsManager: TipsManager
     
     var visibleMeals: [Meal] {
         meals.filter { meal in
@@ -98,7 +98,7 @@ struct HomeView: View {
                             Text("extra")
                         }
                     }
-                   
+                    
                     .foregroundColor(Color.roxoAcao)
                     .font(Font.custom("PlusJakartaSans-SemiBold", size: 16))
                     .sheet(isPresented: $showAddNewMeal) {
@@ -132,9 +132,9 @@ struct HomeView: View {
             .background(Color.backgroundCor)
             
         }
-//        .onAppear {
-//            tipsManager.start()
-//        }
+        //        .onAppear {
+        //            tipsManager.start()
+        //        }
     }
 }
 

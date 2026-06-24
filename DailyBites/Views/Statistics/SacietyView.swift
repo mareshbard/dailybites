@@ -118,6 +118,7 @@ struct SacietyView: View {
                     }
                 }
             }
+            .padding(.top, -50)
             .background(Color(.secondarySystemBackground))
 
         }

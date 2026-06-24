@@ -70,6 +70,7 @@ struct DurationMealView: View {
                         }
                         }
                 }
+            .padding(.top, -50)
             .background(Color(.secondarySystemBackground))
             }
             

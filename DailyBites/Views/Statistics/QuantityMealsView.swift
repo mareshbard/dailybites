@@ -51,57 +51,94 @@ struct QuantityMealsView: View {
                 7
             }
         }
-        
     }
-    
     var body: some View {
         NavigationStack{
             ScrollView{
                 VStack{
                     VStack{
-                        Text("Quantidade de refeições")
+                        Text("Quantidade de refeições fixas")
                             .font(.headline)
                             .frame(maxWidth: .infinity, alignment: .leading)
-                            
-                            Chart{
-                                ForEach(Semana.allCases, id: \.self){ dia in
-                                    
-                                    if isAccessible.isAccessibilitySize {
-                                        BarMark(
-                                            x: .value("Refeicoes",
-                                                      getEatenMealsFromWeekday(dia)
-                                                     ),
-                                            y: .value("Dias", dia.rawValue)
-                                        )
-                                        
-                                        .foregroundStyle(Color("RoxoAcao"))
-                                        .clipShape(RoundedRectangle(cornerRadius: 32))
-                                    } else {
-                                        BarMark(
-                                            x: .value("Dias", dia.rawValue),
-                                            y: .value("Refeicoes",
-                                                      getEatenMealsFromWeekday(dia)
-                                                     )
-                                        )
-                                        .foregroundStyle(Color("RoxoAcao"))
-                                        .clipShape(RoundedRectangle(cornerRadius: 32))
-                                    }
-                                    
-
-                                }
+                        
+                        Chart{
+                            ForEach(Semana.allCases, id: \.self){ dia in
                                 
+                                if isAccessible.isAccessibilitySize {
+                                    BarMark(
+                                        x: .value("Refeicoes",
+                                                  getEatenMealsFixedFromWeekday(dia)
+                                                 ),
+                                        y: .value("Dias", dia.rawValue)
+                                    )
+                                    
+                                    .foregroundStyle(Color("RoxoAcao"))
+                                    .clipShape(RoundedRectangle(cornerRadius: 32))
+                                } else {
+                                    BarMark(
+                                        x: .value("Dias", dia.rawValue),
+                                        y: .value("Refeicoes",
+                                                  getEatenMealsFixedFromWeekday(dia)
+                                                 )
+                                    )
+                                    .foregroundStyle(Color("RoxoAcao"))
+                                    .clipShape(RoundedRectangle(cornerRadius: 32))
+                                }
                             }
-                            .scaledToFit()
-                            .chartYAxis{
-                                AxisMarks(position: .leading, stroke: StrokeStyle(lineWidth: 0))
+                        }
+                        
+                        .frame(maxWidth: .infinity, maxHeight: 300)
+                        .scaledToFit()
+                        .chartYAxis{
+                            AxisMarks(position: .leading, stroke: StrokeStyle(lineWidth: 0))
+                        }
+                        .chartXAxis{
+                            AxisMarks(stroke: StrokeStyle(lineWidth: 0))
+                        }
+                    }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+                    .padding(10)
+                    .background(Color(.systemBackground))
+                    .cornerRadius(12)
+                    VStack{
+                        Text("Quantidade de refeições extras")
+                            .font(.headline)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        
+                        Chart{
+                            ForEach(Semana.allCases, id: \.self){ dia in
+                                
+                                if isAccessible.isAccessibilitySize {
+                                    BarMark(
+                                        x: .value("Refeicoes",
+                                                  getEatenMealsNotFixedFromWeekday(dia)
+                                                 ),
+                                        y: .value("Dias", dia.rawValue)
+                                    )
+                                    
+                                    .foregroundStyle(Color(""))
+                                    .clipShape(RoundedRectangle(cornerRadius: 32))
+                                } else {
+                                    BarMark(
+                                        x: .value("Dias", dia.rawValue),
+                                        y: .value("Refeicoes",
+                                                  getEatenMealsNotFixedFromWeekday(dia)
+                                                 )
+                                    )
+                                    .foregroundStyle(Color("CorExtra"))
+                                    .clipShape(RoundedRectangle(cornerRadius: 32))
+                                }
                             }
-                            .chartXAxis{
-                                AxisMarks(stroke: StrokeStyle(lineWidth: 0))
-                            }
+                        }
                         
-                        
-                        
-                        
+                        .frame(maxWidth: .infinity, maxHeight: 300)
+                        .scaledToFit()
+                        .chartYAxis{
+                            AxisMarks(position: .leading, stroke: StrokeStyle(lineWidth: 0))
+                        }
+                        .chartXAxis{
+                            AxisMarks(stroke: StrokeStyle(lineWidth: 0))
+                        }
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
                     .padding(10)
@@ -111,6 +148,7 @@ struct QuantityMealsView: View {
                     
                     StatisticCardView(statistic: .resistroSemanal)
                 }
+                .padding(.top, -50)
                 .padding(.horizontal, 20)
                 .toolbar {
                     ToolbarItem(placement: .cancellationAction ) {
@@ -128,24 +166,27 @@ struct QuantityMealsView: View {
                 }
             }
             .background(Color(.secondarySystemBackground))
-
         }
-        
-        
-            
     }
     
-    func getEatenMealsFromWeekday(_ day: Semana) -> Int {
+    func getEatenMealsFixedFromWeekday(_ day: Semana) -> Int {
         
         let count = logs.count { meal in
             let weekday = Calendar.current.component(.weekday, from: meal.date)
-            return (meal.status == .pontual || meal.status == .atrasado) && weekday == day.weekday
+            return (meal.status == .pontual || meal.status == .atrasado) && weekday == day.weekday && meal.ref?.isFixed == true
+        }
+        return count
+    }
+    func getEatenMealsNotFixedFromWeekday(_ day: Semana) -> Int {
+        
+        let count = logs.count { meal in
+            let weekday = Calendar.current.component(.weekday, from: meal.date)
+            return weekday == day.weekday && meal.ref?.isFixed == false
         }
         
         return count
     }
 }
-
 #Preview {
     QuantityMealsView()
 }

@@ -59,7 +59,7 @@ struct TotalMealsView: View {
                         Text("Total de refeições")
                     }
                 }
-                
+                .padding(.top, -50)
                 .background(Color(.secondarySystemBackground))
 
             }
