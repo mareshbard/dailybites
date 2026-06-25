@@ -28,7 +28,7 @@ struct AddMealCardView: View {
                           //  .padding(.leading, 10)
                             .padding(.vertical, 7)
                             .padding(.horizontal, 10)
-                            .background(Color.secondary.opacity(0.1))
+                            .background(Color(.secondarySystemBackground))
                             .cornerRadius(100)
                             .padding(.bottom, 13)
                             .multilineTextAlignment(.center)

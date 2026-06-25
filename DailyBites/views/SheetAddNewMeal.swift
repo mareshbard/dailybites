@@ -64,8 +64,7 @@ struct SheetAddNewMeal: View {
             )
             modelContext.insert(log)
         }
-        
-        Notifications.sendNotification(for: meal)
+
         dismiss()
     }
     var body: some View {
@@ -196,8 +195,6 @@ struct SheetAddNewMeal: View {
                         meal.name = mealName
                         meal.time = time
                         durationMeal = Int(auxDuration) ?? 0
-                        //                        numberOfMeals += 1
-                        //                        repeatDays = repeatDays
                         addLog()
                         
                     }
@@ -230,10 +227,8 @@ struct SheetAddNewMeal: View {
             satiety = thisMeal?.satiety ?? .defaultValue
             selectedMood = thisMeal?.emotion ?? .neutral
             durationMeal = thisMeal?.durationMeal ?? 0
-            //            repeatDays = thisMeal?.ref!.repeatDays ?? []
             auxDuration = durationMeal == 0 ? "" : String(durationMeal)
-            
-            // isFixed = thisMeal?.ref!.isFixed ?? false
+
         }
     }
 }
