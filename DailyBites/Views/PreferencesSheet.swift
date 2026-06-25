@@ -35,27 +35,7 @@ struct PreferencesSheet: View {
                     .listRowSeparator(.hidden)
                     .listRowInsets(EdgeInsets())
                     .padding(.bottom, 14)
-                        .toolbar {
-                            ToolbarItem(placement: .confirmationAction) {
-                                Button("Salvar", systemImage: "checkmark") {
-                                    self.isActive = true
-                                    for meal in auxMeals {
-                                        modelContext.insert(meal)
-                                        Notifications.sendNotification(for: meal)
-                                    }
-                                    numberOfMeals = auxMeals.count
-                                    dismiss()
-                                }
-                                .tint(Color.roxoAcao)
-                            }
-                            ToolbarItem(placement: .cancellationAction) {
-                                Button("Fechar", systemImage: "xmark") {
-                                    dismiss()
-                                }
-                                .tint(Color.roxoAcao)
-                            }
-                        }
-                    
+                       
                     //                List {
                     
                     ForEach(auxMeals) { meal in
@@ -116,6 +96,28 @@ struct PreferencesSheet: View {
                     }
                     Notifications.requestNotificationAuthorization()
                 }
+                .toolbar {
+                    ToolbarItem(placement: .confirmationAction) {
+                        Button("Salvar", systemImage: "checkmark") {
+                            self.isActive = true
+                            for meal in auxMeals {
+                                modelContext.insert(meal)
+                                Notifications.sendNotification(for: meal)
+                            }
+                            numberOfMeals = auxMeals.count
+                            dismiss()
+                        }
+                        .disabled(auxMeals.isEmpty || auxMeals.contains(where: { $0.name.isEmpty }))
+                        .tint(Color.roxoAcao)
+                    }
+                    ToolbarItem(placement: .cancellationAction) {
+                        Button("Fechar", systemImage: "xmark") {
+                            dismiss()
+                        }
+                        .tint(Color.roxoAcao)
+                    }
+                }
+            
         }
     }
     

@@ -82,6 +82,7 @@ struct PreferencesView: View {
                         .frame(maxWidth: .infinity)
                     
                 }
+                .disabled(auxMeals.isEmpty || auxMeals.contains(where: { $0.name.isEmpty }))
                 .buttonStyle(.borderedProminent)
                 .font(Font.title3)
                 .controlSize(.large)

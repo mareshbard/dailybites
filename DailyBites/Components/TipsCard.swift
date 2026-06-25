@@ -22,7 +22,7 @@ struct TipsCard: View {
         var color: Color {
             switch self {
             case .nutricao:
-                return .roxoAcao
+                return .roxoTip
             case .comportamento:
                 return .orange
             case .consciencia:
@@ -41,7 +41,7 @@ struct TipsCard: View {
             VStack {
                 Text(dica.tip)
                     .padding(10)
-                    .font(.headline)
+                    .font(.footnote.bold())
                     .frame(maxWidth: .infinity ,alignment: .leading)
                     .foregroundStyle(Color(typeOfTip(rawValue: dica.tip)?.color ?? Color.black))
                 Spacer()
@@ -59,7 +59,7 @@ struct TipsCard: View {
             Image(systemName: "chevron.right")
                 .padding(10)
         }
-        .background(Color("amareloBackground"))
+        .background(Color.yellowTip)
         .cornerRadius(10)
 
 
