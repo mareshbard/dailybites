@@ -38,6 +38,7 @@ struct PreferencesView: View {
                                 numberOfMeals += 1
                             }
                             .tint(Color.roxoAcao)
+                            .disabled(auxMeals.count >= 10)
                         }
                     }
                 

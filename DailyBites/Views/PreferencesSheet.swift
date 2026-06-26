@@ -69,6 +69,7 @@ struct PreferencesSheet: View {
                         .background(Color.roxoAcao)
                         .cornerRadius(12)
                     }
+                    .disabled(auxMeals.count >= 10)
                     .listRowInsets(EdgeInsets())
                     .listRowSeparator(.hidden)
                     .font(Font.title3)
