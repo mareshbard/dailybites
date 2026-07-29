@@ -23,6 +23,7 @@ struct TabBar: View {
         }
         .tabViewStyle(.sidebarAdaptable)
         .accentColor(Color("RoxoAcao"))
+        .background { StreakWidgetSyncView() }
     }
 }
 

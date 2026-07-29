@@ -101,18 +101,17 @@ struct PreferencesView: View {
             }
             
             Spacer()
-            NavigationLink(destination: HomeView(), isActive: $isActive){
-                
-            }
-            
-            .scrollDismissesKeyboard(.immediately)
-            .ignoresSafeArea(.keyboard, edges: .bottom)
-            .onAppear(){
-                for _ in rangeMeals {
-                    auxMeals.append(createMeal())
+                .scrollDismissesKeyboard(.immediately)
+                .ignoresSafeArea(.keyboard, edges: .bottom)
+                .onAppear(){
+                    for _ in rangeMeals {
+                        auxMeals.append(createMeal())
+                    }
+                    Notifications.requestNotificationAuthorization()
                 }
-                Notifications.requestNotificationAuthorization()
-            }
+                .navigationDestination(isPresented: $isActive) {
+                    HomeView()
+                }
         }
 //        .toolbar(.hidden, for: .tabBar)
     }

@@ -78,6 +78,5 @@ struct AddMealCardView: View {
 
 #Preview {
     let meal1 = Meal(name: "Meal 1", logs: [], time: .now, isFixed: false)
-    let meal2 = Meal(name: "Meal 2", logs: [], time: .now, isFixed: false)
     AddMealCardView(meal: meal1)
 }

@@ -107,10 +107,7 @@ struct HomeView: View {
                 }
                 .padding(.top, 31)
                 .padding(.bottom, 16)
-                NavigationLink(destination: MealsRecordedView(), isActive: $showCalendar){
-                    
-                }
-                
+
                 VStack {
                     ForEach(visibleMeals) { meal in
                         MealCardView(meal: meal)
@@ -130,7 +127,10 @@ struct HomeView: View {
             // }
             .padding(.horizontal, 20)
             .background(Color.backgroundCor)
-            
+            .navigationDestination(isPresented: $showCalendar) {
+                MealsRecordedView()
+            }
+
         }
         //        .onAppear {
         //            tipsManager.start()

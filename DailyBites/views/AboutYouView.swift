@@ -132,13 +132,9 @@ struct AboutYouView: View {
                         .tint(Color("RoxoAcao"))
                         .foregroundColor(Color(.white))
                         .padding(EdgeInsets(top: 140, leading: 0, bottom: 0, trailing: 0))
-                        
-                        NavigationLink(destination: PreferencesView(username1: username1, numberOfMeals: numberOfMeals), isActive: $isActive){
-                            
+                        .navigationDestination(isPresented: $isActive) {
+                            PreferencesView(username1: username1, numberOfMeals: numberOfMeals)
                         }
-                        
-                        
-                        
                     }
                     .frame(maxHeight: .infinity)
                     .ignoresSafeArea(.keyboard, edges: .bottom)
