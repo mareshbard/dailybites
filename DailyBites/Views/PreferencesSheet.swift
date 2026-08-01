@@ -11,11 +11,11 @@ struct PreferencesSheet: View {
     @AppStorage("firstUse") var firstUse: Bool = false
     @Query(sort: \Meal.time, order: .forward) var meals: [Meal]
     @Environment(\.dismiss) private var dismiss
-    
+
+    private let maxMeals = 10
+
     var body: some View {
-        
-        let rangeMeals =  1...numberOfMeals
-        
+
         NavigationStack {
             VStack {
                 
@@ -54,9 +54,8 @@ struct PreferencesSheet: View {
                     }
                     .listRowSeparator(.hidden)
                     Button{
+                        guard auxMeals.count < maxMeals else { return }
                         auxMeals.append(createMeal())
-                        
-                        
                     } label: {
                         HStack{
                             Image(systemName: "plus.circle")
@@ -69,6 +68,7 @@ struct PreferencesSheet: View {
                         .background(Color.roxoAcao)
                         .cornerRadius(12)
                     }
+                    .disabled(auxMeals.count >= maxMeals)
                     .listRowInsets(EdgeInsets())
                     .listRowSeparator(.hidden)
                     .font(Font.title3)
@@ -85,17 +85,15 @@ struct PreferencesSheet: View {
             .padding(.horizontal, 20)
             .frame(maxWidth: .infinity)
             .onAppear {
-                
-                    auxMeals = meals.filter({$0.isFixed == true})
-                
-            }
-            Spacer()
-                .onAppear(){
-                    for _ in rangeMeals {
+                if auxMeals.isEmpty {
+                    auxMeals = meals.filter({ $0.isFixed == true })
+                    if auxMeals.isEmpty {
                         auxMeals.append(createMeal())
                     }
-                    Notifications.requestNotificationAuthorization()
                 }
+                Notifications.requestNotificationAuthorization()
+            }
+            Spacer()
                 .toolbar {
                     ToolbarItem(placement: .confirmationAction) {
                         Button("Salvar", systemImage: "checkmark") {
