@@ -80,3 +80,17 @@ struct AddMealCardView: View {
     let meal1 = Meal(name: "Meal 1", logs: [], time: .now, isFixed: false)
     AddMealCardView(meal: meal1)
 }
+
+#Preview("Dentro da List") {
+    let meal1 = Meal(name: "Café da manhã", logs: [], time: .now, isFixed: true)
+    let meal2 = Meal(name: "Almoço", logs: [], time: .now, isFixed: true)
+    List {
+        ForEach([meal1, meal2]) { meal in
+            AddMealCardView(meal: meal)
+                .listRowInsets(EdgeInsets())
+                .padding(.bottom, 14)
+        }
+        .listRowSeparator(.hidden)
+    }
+    .listStyle(.plain)
+}

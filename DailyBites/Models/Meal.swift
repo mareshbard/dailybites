@@ -3,7 +3,8 @@ import SwiftData
 import Foundation
 
 @Model
-class Meal {
+class Meal: Identifiable {
+    var id: UUID = UUID() //Identificador estável, usado inclusive para as notificações
     var name: String
     var time: Date = Date() //Horário que a pessoa cadastrou a refeicao
     var logs: [LogMeal]

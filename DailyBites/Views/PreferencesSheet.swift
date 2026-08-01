@@ -130,3 +130,15 @@ struct PreferencesSheet: View {
 #Preview {
     PreferencesView(username1: "d")
 }
+
+#Preview("Sheet 2 refeicoes") {
+    let container = try! ModelContainer(
+        for: Meal.self, LogMeal.self,
+        configurations: ModelConfiguration(isStoredInMemoryOnly: true)
+    )
+    for nome in ["Café da manhã", "Lanche da manhã", "Almoço", "Café da tarde", "Jantar", "Ceia"] {
+        container.mainContext.insert(Meal(name: nome, logs: [], time: .now, isFixed: true))
+    }
+    return PreferencesSheet(username1: "Yohane")
+        .modelContainer(container)
+}
