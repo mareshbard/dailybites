@@ -20,7 +20,11 @@ struct Tip: Codable, Identifiable {
     let tip, title, information, image: String
     let tipSection: [TipSection]
     static let listaDicas: [Tip] = Bundle.main.decode(file: "Tips")
-    
+
+    // `id` é gerado localmente e não vem do JSON, então fica de fora das chaves.
+    private enum CodingKeys: String, CodingKey {
+        case tip, title, information, image, tipSection
+    }
 }
 
 extension Bundle {
@@ -82,7 +86,7 @@ extension Bundle {
 //        fatalError("Falha ao decodificar \("Tips.json"). Verifique se o JSON combina com sua Struct.")
 //    }
     
-    let result: [Tip] = Bundle.main.decode(file: "Tips")
+    let _: [Tip] = Bundle.main.decode(file: "Tips")
     
 //    do {
 //        try decoder.decode(Tip.self, from: data)

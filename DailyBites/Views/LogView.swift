@@ -95,7 +95,6 @@ struct LogView: View {
 
 #Preview {
     let meal1 = Meal(name: "Meal 1", logs: [], time: .now, isFixed: false)
-    let meal2 = Meal(name: "Meal 2", logs: [], time: .now, isFixed: false)
     let log = LogMeal(
         ref: meal1,
         date: Date(),

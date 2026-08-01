@@ -139,6 +139,7 @@ struct StreakWidget_ExtesionEntryView: View {
                 
         }
         .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(.horizontal, 2)
         .accessibilityElement(children: .combine)
     }
     private var streakTextMedium: some View {
