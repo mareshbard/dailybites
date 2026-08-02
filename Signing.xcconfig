@@ -1,0 +1,21 @@
+// Assinatura compartilhada do projeto.
+//
+// O objetivo deste arquivo é tirar o DEVELOPMENT_TEAM de dentro do project.pbxproj,
+// para que o team de cada desenvolvedor não sobrescreva o dos outros a cada commit.
+//
+// Como funciona:
+//   1. Abaixo definimos o team PADRÃO (o da dona do app), usado no archive/release
+//      e por qualquer pessoa que esteja no mesmo Apple Developer Team.
+//   2. Em seguida incluímos (opcionalmente) o Local.xcconfig, que fica FORA do
+//      git. Se ele existir e redefinir DEV_TEAM, esse valor vence — cada dev usa o seu.
+//
+// Para usar o seu próprio team, crie Local.xcconfig (veja Local.xcconfig.example).
+
+// Valores padrão (da dona do app). Não coloque dados pessoais aqui — use o Local.xcconfig.
+DEV_TEAM = LAZXCZT4TF
+BUNDLE_ID_PREFIX = com.LeticiaGomes
+
+// Override por desenvolvedor (arquivo ignorado pelo git). O "?" evita erro se não existir.
+#include? "Local.xcconfig"
+
+DEVELOPMENT_TEAM = $(DEV_TEAM)
