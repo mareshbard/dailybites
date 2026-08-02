@@ -32,18 +32,15 @@ struct Notifications {
         let identifiers = notificationIdentifiers(for: meal)
         notificationCenter.removePendingNotificationRequests(withIdentifiers: identifiers)
         
-//        let repeatDays = normalizedRepeatDays(from: meal.repeatDays)
-//        if meal.isFixed && repeatDays.isEmpty {
-//            return
-//        }
-//        
+
+
         let content = UNMutableNotificationContent()
         content.title = "Faça sua refeição"
         content.body = "Ei, não esqueça de fazer a sua refeição \(meal.name)!"
         content.sound = .default
         
         let timeComponents = Calendar.current.dateComponents([.hour, .minute], from: meal.time)
-//        let weekdays = meal.isFixed ? repeatDays : []
+
         
         if meal.isFixed {
             addNotification(
@@ -51,7 +48,7 @@ struct Notifications {
                 content: content,
                 hour: timeComponents.hour,
                 minute: timeComponents.minute,
-//                weekday: nil,
+
                 notificationCenter: notificationCenter
             )
             return
