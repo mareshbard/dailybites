@@ -3,14 +3,18 @@ import SwiftData
 import Foundation
 
 @Model
-class Meal: Identifiable {
-    var id: UUID = UUID() //Identificador estável, usado inclusive para as notificações
+class Meal {
+    // Identificador estável usado nas notificações. É opcional para permitir a migração leve
+    // do SwiftData sem perda de dados de quem já tem o app instalado: refeições novas recebem
+    // o valor no init e as antigas são preenchidas no backfill de launch (ver DailyBitesApp).
+    var uuid: UUID?
     var name: String
     var time: Date = Date() //Horário que a pessoa cadastrou a refeicao
     var logs: [LogMeal]
     var isFixed: Bool = false
 //    var repeatDays: [Int] = []
     init(name: String, logs: [LogMeal], time: Date, isFixed: Bool, repeatDays: [Int] = [] ) {
+        self.uuid = UUID()
         self.name = name
         self.logs = logs
         self.time = time
