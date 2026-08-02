@@ -1,0 +1,10 @@
+// MODELO — copie este arquivo para "Local.xcconfig" (na mesma pasta) e ajuste os valores.
+//
+//   cp Local.xcconfig.example Local.xcconfig
+//
+// O Local.xcconfig está no .gitignore, então não é commitado e não afeta os outros.
+// Preencha com o SEU Apple Developer Team (Xcode > Settings > Accounts, ou o Membership ID
+// em developer.apple.com) e um prefixo de bundle único para você. Exemplo:
+
+DEV_TEAM = SEU_TEAM_ID_AQUI
+BUNDLE_ID_PREFIX = com.SeuNome
