@@ -33,6 +33,9 @@ Pods/
 # Carthage
 Carthage/Build/
 
+# Assinatura por desenvolvedor (cada dev define o próprio team aqui, fora do git)
+/Local.xcconfig
+
 # Outros arquivos indesejados
 .DS_Store
 *.pyc

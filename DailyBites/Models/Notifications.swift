@@ -108,7 +108,19 @@ struct Notifications {
     }
     
     private static func dailyNotificationIdentifier(for meal: Meal) -> String {
-        "Meal Reminder-\(meal.id)"
+        "Meal Reminder-\(mealUUID(for: meal).uuidString)"
+    }
+
+    /// Garante um identificador estável por refeição. Refeições antigas (migradas) podem ter
+    /// `uuid` nulo até o backfill; nesse caso um valor é atribuído e persistido aqui, evitando
+    /// que a mesma refeição gere notificações duplicadas.
+    private static func mealUUID(for meal: Meal) -> UUID {
+        if let uuid = meal.uuid {
+            return uuid
+        }
+        let uuid = UUID()
+        meal.uuid = uuid
+        return uuid
     }
     
 //    private static func weekdayNotificationIdentifier(for meal: Meal, weekday: Int) -> String {
